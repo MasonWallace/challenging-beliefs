@@ -299,9 +299,9 @@
   .viewhead h2{font-family:var(--serif);font-weight:500;font-size:clamp(1.7rem,3.6vw,2.4rem);line-height:1.22;letter-spacing:-.01em;margin:0;max-width:30ch;color:var(--ink)}
   .viewhead h2::after{content:'';display:block;width:72px;height:4px;border-radius:2px;background:linear-gradient(90deg,var(--gold),transparent);margin-top:14px}
   .viewhead p{color:var(--muted);font-size:.95rem;margin:16px 0 0;max-width:66ch;border-left:3px solid var(--gold);padding-left:14px;line-height:1.7}
-  .gaccord{max-width:760px;background:var(--panel);border:1px solid var(--line2);border-radius:14px;padding:4px 22px}
-  .gitem{border-bottom:1px solid var(--line)}
-  .gitem:last-child{border-bottom:0}
+  .gaccord{columns:2;column-gap:12px;max-width:940px}
+  @media (max-width:760px){.gaccord{columns:1}}
+  .gitem{break-inside:avoid;margin-bottom:12px;background:var(--panel);border:1px solid var(--line2);border-radius:12px;padding:0 18px}
   .gitem summary{cursor:pointer;font-family:var(--serif);font-size:1.06rem;padding:15px 2px;list-style:none;display:flex;justify-content:space-between;align-items:center;color:var(--ink)}
   .gitem summary::-webkit-details-marker{display:none}
   .gitem summary::after{content:'+';font-family:var(--sans);color:var(--gold);font-size:1.2rem;font-weight:600}
@@ -343,6 +343,14 @@
   @media (max-width:760px){.pgrid{grid-template-columns:1fr}}
   .pgrid .pathcard{margin-bottom:0;display:flex;flex-direction:column}
   .pgrid .pathcard .start{margin-top:auto;align-self:flex-start}
+
+  .cimg{margin:0 0 16px}
+  .cimg img{width:100%;display:block;border-radius:10px;border:1px solid var(--line2)}
+  .cimg figcaption{font-size:.68rem;color:var(--dim);margin-top:6px;line-height:1.5}
+
+  .logo{background:linear-gradient(100deg,var(--gold),var(--purp));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .logo b{color:transparent}
+  .logo div{color:var(--muted)}
 </style>
 
 <div class="app">
@@ -701,7 +709,8 @@ function renderCase(){
     const u=hadithUrl(h);
     return u?`<a class="chip ext" href="${u}" target="_blank" rel="noopener">${esc(h)}</a>`:`<span class="chip" style="cursor:default">${esc(h)}</span>`;
   }).join("");
-  const passages=((d.quran||[]).length||(d.hadith||[]).length||(d.bible||[]).length)?`
+  const cimg=IMGMAP[d.id]?`<figure class="cimg"><img src="${IMGMAP[d.id].src}" alt="${esc(IMGMAP[d.id].cap)}" loading="lazy"><figcaption>${esc(IMGMAP[d.id].cap)}</figcaption></figure>`:"";
+  const passages=((d.quran||[]).length||(d.hadith||[]).length||(d.bible||[]).length||IMGMAP[d.id])?`
     <aside class="claimside">
       <div class="dlab" style="margin-top:0">The texts behind this claim</div>
       <p class="sidenote">Every reference here is cited by this specific claim — click a Quran or Bible reference to read it in place; hadith open on sunnah.com.</p>
@@ -779,6 +788,7 @@ function renderPaths(){
 }
 
 /* ---------- timeline ---------- */
+const IMGMAP={"quran-late-composition":{"src":"https://commons.wikimedia.org/wiki/Special:FilePath/Birmingham%20Quran%20manuscript.jpg?width=520","cap":"The Birmingham Quran folios — radiocarbon-dated 568–645 AD (Wikimedia Commons)"},"uthman-standardization-qiraat":{"src":"https://commons.wikimedia.org/wiki/Special:FilePath/Birmingham%20Quran%20manuscript%20-%20closeup.jpg?width=520","cap":"Early Quran manuscript in Hijazi script (Wikimedia Commons)"},"quran-affirms-torah-gospel":{"src":"https://commons.wikimedia.org/wiki/Special:FilePath/Codex%20Sinaiticus%20Matthew%206%2C4-32.JPG?width=520","cap":"Codex Sinaiticus (4th c.) — a complete Bible ~250 years before Muhammad (Wikimedia Commons)"},"manuscripts-predate-muhammad":{"src":"https://commons.wikimedia.org/wiki/Special:FilePath/Great%20Isaiah%20Scroll%20Ch53.jpg?width=520","cap":"The Great Isaiah Scroll at chapter 53 — c. 125 BC, ~750 years before Muhammad (Wikimedia Commons)"},"sanaa-palimpsest-qiraat":{"src":"https://commons.wikimedia.org/wiki/Special:FilePath/Sana'a1%20Stanford%20'07%20recto.jpg?width=520","cap":"The Sanaa palimpsest — the erased lower text differs from the standard Quran (Wikimedia Commons)"},"crucifixion-denial-vs-history":{"src":"https://commons.wikimedia.org/wiki/Special:FilePath/Cristo%20crucificado.jpg?width=520","cap":"Velázquez, Christ Crucified (1632) — the best-attested fact of Jesus's life (Wikimedia Commons)"}};
 const TLACTS=[{"num":"I","range":"1000 BC – AD 400","name":"The Record Before","desc":"What already existed when Islam arrived","events":[{"y":"~1000 BC","side":"record","t":"David writes the Psalms","p":"Psalm 22: pierced hands and divided garments, a millennium early.","id":"crucifixion-denial-vs-history"},{"y":"c. 125 BC","side":"record","crit":true,"t":"The Great Isaiah Scroll","p":"The complete Isaiah sealed at Qumran, 750 years before Muhammad.","id":"manuscripts-predate-muhammad"},{"y":"AD 30/33","side":"record","t":"The crucifixion","p":"Attested by every early source; 'indisputable' to skeptical historians.","id":"crucifixion-denial-vs-history"},{"y":"c. 55","side":"record","t":"The resurrection creed","p":"1 Corinthians 15 — datable to within a few years of the events.","id":"crucifixion-denial-vs-history"},{"y":"2nd c.","side":"record","crit":true,"t":"Infancy Gospel of Thomas","p":"The clay-birds legend — later retold as history in Quran 3:49.","id":"clay-birds-apocrypha"},{"y":"4th c.","side":"record","crit":true,"t":"Sinaiticus & Vaticanus","p":"Complete Bibles, 250 years before Muhammad, matching today's text.","id":"manuscripts-predate-muhammad"}]},{"num":"II","range":"610–632","name":"The Revelation","desc":"Muhammad's career and the Quran's claims","events":[{"y":"610","side":"claim","t":"The first revelation","p":"Interpreted for Muhammad by Waraqa — a Christian who wrote the Gospel in Arabic.","id":"quran-never-quotes-scriptures"},{"y":"615–632","side":"claim","crit":true,"t":"The Quran endorses the Bible","p":"'Ask those who read the Scripture before you' (10:94); 'judge by the Gospel' (5:47).","id":"quran-affirms-torah-gospel"},{"y":"c. 615","side":"claim","t":"The Rome prediction","p":"Surah 30 — the one claimed prophecy, elastic in date and reading.","id":"prophet-test-signs"},{"y":"628","side":"record","t":"Khaybar: the poisoned meat","p":"Administered as a prophethood test; a companion dies of it.","id":"aorta-test"},{"y":"632","side":"record","crit":true,"t":"Muhammad dies","p":"'As if my aorta is being cut' — the punishment 69:46 names for a false prophet.","id":"aorta-test"}]},{"num":"III","range":"633–1064","name":"The Preservation","desc":"How the 'unchanged' Quran actually survived","events":[{"y":"~633","side":"record","crit":true,"t":"Yamama: near loss","p":"Reciters die; the Quran is collected from palm stalks and memory.","id":"compilation-lost-verses"},{"y":"~650","side":"record","crit":true,"t":"Uthman standardizes and burns","p":"Variant codices ordered destroyed (Bukhari 4987).","id":"uthman-standardization-qiraat"},{"y":"7th c.","side":"record","t":"The Sanaa palimpsest","p":"A non-Uthmanic text, erased and overwritten.","id":"sanaa-palimpsest-qiraat"},{"y":"750–900","side":"record","t":"The hadith are compiled","p":"Bukhari and Muslim — 150–250 years after the events they report.","id":"aisha-age"},{"y":"1064","side":"record","crit":true,"t":"Ibn Hazm dies","p":"The first major scholar to teach the Bible's TEXT was corrupted — four centuries late.","id":"tahrif-doctrine-late-development"}]},{"num":"IV","range":"1924–2015","name":"Modern Reckonings","desc":"The manuscripts have the last word","events":[{"y":"1924","side":"record","t":"The Cairo edition","p":"Hafs becomes the near-universal print; Warsh persists — two texts today.","id":"uthman-standardization-qiraat"},{"y":"1947","side":"record","crit":true,"t":"The Dead Sea Scrolls","p":"The pre-Muhammad Bible surfaces — and it is our Bible.","id":"manuscripts-predate-muhammad"},{"y":"1972","side":"record","t":"Sanaa manuscripts found","p":"The lower text confirms early textual plurality.","id":"sanaa-palimpsest-qiraat"},{"y":"2015","side":"record","t":"Birmingham radiocarbon dating","p":"The Quran's text is genuinely early — which answers the revisionists, not the preservation claim.","id":"quran-late-composition"}]}];
 function renderTimeline(){
   const read=store.read;
