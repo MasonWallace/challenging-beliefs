@@ -1,0 +1,875 @@
+<title>Challenging Beliefs — Islam, Examined Against the Bible</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root{
+    --bg:#0f1116; --side:#0b0d11; --panel:#161a21; --panel2:#12151b; --line:#232833; --line2:#2b313d;
+    --ink:#e7e9ec; --muted:#98a0ac; --dim:#565e6b; --gold:#82b1d8; --gold-ink:#0e1116;
+    --red:#e0736a; --red-bg:#38221f; --red-cell:#5e2b27; --red-cell-hi:#8a3a32;
+    --amber:#cf9a45; --amber-bg:#332a18; --amber-cell:#54431f; --amber-cell-hi:#7d6224;
+    --green:#7fb08d; --green-bg:#1d2c26; --green-cell:#27443a;
+    --purp:#b394e0; --purp-bg:#2c2440;
+    --serif:'Iowan Old Style','Palatino Linotype',Palatino,'Book Antiqua',Georgia,serif;
+    --sans:ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+  }
+  :root[data-theme="light"]{
+    --bg:#f3f4f6; --side:#e9ebee; --panel:#ffffff; --panel2:#f7f8fa; --line:#dfe2e7; --line2:#cfd4db;
+    --ink:#1b1e23; --muted:#5c6470; --dim:#9aa1ab; --gold:#2f6b9e; --gold-ink:#ffffff;
+    --red:#b03a31; --red-bg:#f6e4e2; --red-cell:#e7b6b1; --red-cell-hi:#cc766d;
+    --amber:#8a5f0e; --amber-bg:#f3ecd9; --amber-cell:#e4d1a2; --amber-cell-hi:#c6a75e;
+    --green:#3e7455; --green-bg:#e3ede6; --green-cell:#b7d1bf;
+    --purp:#6b4fa1; --purp-bg:#ece5f6;
+  }
+  *{box-sizing:border-box}
+  @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+  html,body{margin:0;height:100%}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.6}
+  a{color:var(--gold)}
+  button{font-family:inherit}
+  mark{background:color-mix(in srgb,var(--amber) 30%,transparent);color:inherit;border-radius:2px;padding:0 2px}
+  kbd{font-family:var(--mono);font-size:.72rem;background:var(--panel);border:1px solid var(--line2);border-bottom-width:2px;border-radius:4px;padding:1px 6px;color:var(--muted)}
+
+  .app{display:grid;grid-template-columns:216px minmax(0,1fr) 280px;min-height:100vh}
+  @media (max-width:1020px){.app{grid-template-columns:216px minmax(0,1fr)}.preview{display:none}}
+  @media (max-width:720px){.app{grid-template-columns:1fr}.side{position:sticky;top:0;z-index:40;height:auto;border-right:0;border-bottom:1px solid var(--line)}
+    .side .nav{display:flex;flex-wrap:wrap;gap:2px;padding:0 10px 10px}.side .nav h5{display:none}.side .sideprog{display:none}}
+
+  /* sidebar */
+  .side{background:var(--side);border-right:1px solid var(--line);padding:18px 0;position:sticky;top:0;height:100vh;overflow-y:auto}
+  @media (max-width:720px){.side{height:auto;overflow:visible}}
+  .logo{font-family:var(--serif);font-size:1rem;letter-spacing:.1em;padding:0 18px 14px;color:var(--ink)}
+  .logo b{color:var(--gold)}
+  .sidesearch{padding:0 14px 12px}
+  .sidesearch input{width:100%;font-family:inherit;font-size:.82rem;padding:7px 12px;border-radius:8px;border:1px solid var(--line2);background:var(--panel);color:var(--ink)}
+  .sidesearch input:focus{outline:2px solid var(--gold);outline-offset:1px}
+  .info{display:inline-grid;place-items:center;width:14px;height:14px;border:1px solid currentColor;border-radius:50%;font-size:.58rem;font-style:normal;font-weight:700;opacity:.75;cursor:help;position:relative;flex:none}
+  .info:hover,.info:focus{opacity:1}
+  .info .tip{display:none;position:absolute;left:50%;transform:translateX(-50%);top:160%;width:250px;background:var(--side);color:var(--ink);border:1px solid var(--line2);font-family:var(--sans);font-size:.76rem;line-height:1.5;padding:9px 12px;border-radius:8px;box-shadow:0 10px 30px rgba(0,0,0,.35);z-index:30;text-transform:none;letter-spacing:0;font-weight:400;text-align:left}
+  .info:hover .tip,.info:focus .tip{display:block}
+  .badge,.tag{display:inline-flex;align-items:center;gap:5px}
+  .nav a{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:7px 18px;font-size:.86rem;color:var(--muted);text-decoration:none;cursor:pointer;border-left:2px solid transparent}
+  .nav a:hover{background:var(--panel2);color:var(--ink)}
+  .nav a.on{background:var(--panel);color:var(--ink);border-left-color:var(--gold)}
+  .nav .cnt{font-family:var(--mono);font-size:.68rem;color:var(--dim)}
+  .nav h5{font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);margin:18px 18px 6px;font-weight:600}
+  .sideprog{margin:22px 18px 8px;font-size:.72rem;color:var(--muted)}
+  .pbar{height:4px;background:var(--line);border-radius:2px;margin-top:6px;overflow:hidden}
+  .pbar i{display:block;height:100%;background:var(--gold);transition:width .4s ease}
+
+  /* main */
+  .main{padding:18px 26px 80px;min-width:0}
+  .cmd{display:flex;align-items:center;gap:10px;background:var(--panel);border:1px solid var(--line2);border-radius:8px;padding:4px 8px 4px 14px;margin-bottom:18px}
+  .cmd input{flex:1;background:none;border:0;color:var(--ink);font-family:inherit;font-size:.9rem;padding:7px 0;outline:none}
+  .cmd input::placeholder{color:var(--dim)}
+  .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:20px}
+  .tile{background:var(--panel);border:1px solid var(--line2);border-radius:10px;padding:12px 14px;cursor:pointer;text-align:left;color:var(--ink)}
+  .tile:hover{border-color:var(--gold)}
+  .tile.on{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold) inset}
+  .tile .v{font-family:var(--serif);font-size:1.7rem;font-variant-numeric:tabular-nums;line-height:1.1}
+  .tile .l{font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+  .tile.t-ad .v{color:var(--purp)}.tile.t-un .v{color:var(--red)}.tile.t-co .v{color:var(--amber)}.tile.t-an .v{color:var(--green)}
+  h4.bt{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0 0 10px;font-weight:600}
+  .vwall{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:10px;align-items:start}
+  @media (max-width:1240px){.vwall{grid-template-columns:1fr 1fr}}
+  @media (max-width:700px){.vwall{grid-template-columns:1fr}}
+  .vcol{background:var(--panel2);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .vcol header{padding:14px 16px 12px;border-bottom:2px solid var(--line)}
+  .vcol.ad header{border-bottom-color:var(--purp)}
+  .vcol.ad .n,.vcol.ad .t{color:var(--purp)}
+  .vcol.ad .vt:hover{border-left-color:var(--purp)}
+  .vcol.un header{border-bottom-color:var(--red)}
+  .vcol.co header{border-bottom-color:var(--amber)}
+  .vcol.an header{border-bottom-color:var(--green)}
+  .vcol header .n{font-family:var(--serif);font-size:1.9rem;line-height:1;font-variant-numeric:tabular-nums}
+  .vcol.un .n{color:var(--red)}.vcol.co .n{color:var(--amber)}.vcol.an .n{color:var(--green)}
+  .vcol header .t{font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-left:8px}
+  .vcol.un .t{color:var(--red)}.vcol.co .t{color:var(--amber)}.vcol.an .t{color:var(--green)}
+  .vcol header .d{font-size:.74rem;color:var(--muted);margin-top:4px}
+  .vgroup h6{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin:0;padding:10px 16px 4px;font-weight:600}
+  .vt{display:block;width:100%;text-align:left;background:none;border:0;border-top:1px solid var(--line);padding:9px 16px 9px 13px;cursor:pointer;color:var(--ink);border-left:3px solid transparent}
+  .vt:hover,.vt.sel{background:var(--panel)}
+  .vt.sel{border-left-color:var(--gold)}
+  .vcol.un .vt:hover{border-left-color:var(--red)}
+  .vcol.co .vt:hover{border-left-color:var(--amber)}
+  .vcol.an .vt:hover{border-left-color:var(--green)}
+  .vt.dimmed{opacity:.25}
+  .vt h5{font-family:var(--serif);font-weight:500;font-size:.92rem;line-height:1.35;margin:0}
+  .vt .m{font-size:.66rem;color:var(--dim);letter-spacing:.05em;text-transform:uppercase;margin-top:2px;display:flex;gap:8px;align-items:center}
+  .vt .m .rd{color:var(--green)}
+  .vt .m .star{color:var(--gold)}
+
+  /* list */
+  .rows{display:flex;flex-direction:column}
+  .rowitem{display:grid;grid-template-columns:12px 1fr auto;gap:12px;align-items:center;width:100%;text-align:left;background:none;border:0;border-top:1px solid var(--line);padding:11px 6px;cursor:pointer;color:var(--ink)}
+  .rowitem:hover,.rowitem.sel{background:var(--panel2)}
+  .rowitem .stripe{width:4px;height:26px;border-radius:2px}
+  .rowitem.v-unrefuted .stripe{background:var(--red)}
+  .rowitem.v-contested .stripe{background:var(--amber)}
+  .rowitem.v-answered .stripe{background:var(--green)}
+  .rowitem h5{font-family:var(--serif);font-weight:500;font-size:1rem;margin:0;line-height:1.35}
+  .rowitem .sub{font-size:.72rem;color:var(--muted)}
+  .rowitem .meta{display:flex;gap:8px;align-items:center;font-size:.66rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;white-space:nowrap}
+  .rowitem .meta .rd{color:var(--green)}
+
+  .badge{font-size:.64rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:999px;display:inline-block}
+  .badge.v-admitted{background:var(--purp-bg);color:var(--purp)}
+  .badge.v-unrefuted{background:var(--red-bg);color:var(--red)}
+  .badge.v-contested{background:var(--amber-bg);color:var(--amber)}
+  .badge.v-answered{background:var(--green-bg);color:var(--green)}
+  .tag{font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line2);border-radius:999px;padding:2px 9px;display:inline-block}
+
+  /* case view */
+  .backbar{display:flex;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+  .backbar button.bk{background:var(--panel);border:1px solid var(--line2);color:var(--muted);border-radius:8px;padding:6px 13px;font-size:.8rem;cursor:pointer}
+  .backbar button.bk:hover{color:var(--ink);border-color:var(--gold)}
+  .pathnext{margin-left:auto;background:var(--gold);color:var(--gold-ink);border:0;border-radius:8px;padding:7px 14px;font-size:.8rem;font-weight:700;cursor:pointer}
+  .case h2{font-family:var(--serif);font-weight:500;font-size:1.6rem;line-height:1.25;margin:10px 0 14px;max-width:30ch;text-wrap:balance}
+  .case .meta{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:6px}
+  .dlab{font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:26px 0 10px}
+  .dlab.red{color:var(--red)}.dlab.blue{color:var(--gold)}
+  .claimrow{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(270px,1fr);gap:28px;align-items:start}
+  .claimrow.solo{grid-template-columns:1fr}
+  @media (max-width:900px){.claimrow{grid-template-columns:1fr}}
+  .claim p{font-size:.97rem;line-height:1.75;max-width:66ch;margin:0 0 12px}
+  .claimside{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:16px 18px;position:sticky;top:16px}
+  .claimside .passcols{grid-template-columns:1fr;gap:12px}
+  .claimside .sidenote{font-size:.76rem;color:var(--dim);margin:-4px 0 12px}
+  .defense p.lead{margin:0 0 4px}
+  .defense p{line-height:1.7;margin:0 0 10px}
+  .pts{margin:8px 0 0;padding:0;list-style:none;counter-reset:pt}
+  .pts li{position:relative;padding:10px 0 10px 36px;border-top:1px dashed color-mix(in srgb,var(--green) 25%,var(--line));line-height:1.7}
+  .pts li:first-child{border-top:0}
+  .pts li::before{counter-increment:pt;content:counter(pt);position:absolute;left:0;top:10px;width:23px;height:23px;border-radius:50%;background:var(--green-bg);color:var(--green);display:grid;place-items:center;font-size:.72rem;font-weight:700}
+  .vbox p{margin:0 0 8px;line-height:1.7}
+  .vbox p:last-child{margin-bottom:0}
+  .ref-lds{color:var(--red);font-weight:600}
+  .ref-bib{color:var(--gold);font-weight:600}
+  .qq{font-family:var(--serif);font-style:italic;background:color-mix(in srgb,var(--amber) 16%,transparent);border-radius:3px;padding:0 3px}
+  .kw{font-weight:700;text-decoration:underline;text-underline-offset:2px}
+  .talk{background:color-mix(in srgb,var(--green) 8%,var(--panel));border:1px solid color-mix(in srgb,var(--green) 30%,var(--line));border-radius:8px;padding:16px 18px;font-size:.93rem;max-width:80ch}
+  .talk p{margin:0 0 8px;line-height:1.7}
+  .talk p:last-child{margin-bottom:0}
+  .dlg{display:flex;flex-direction:column;gap:10px;max-width:76ch}
+  .dlg .msg{border-radius:12px;padding:12px 16px;max-width:88%}
+  .dlg .msg p{margin:0;font-size:.9rem;line-height:1.65}
+  .dlg .who{display:block;font-size:.64rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px}
+  .dlg .them{align-self:flex-start;background:var(--panel);border:1px solid var(--line2);border-bottom-left-radius:4px}
+  .dlg .them .who{color:var(--red)}
+  .dlg .you{align-self:flex-end;background:color-mix(in srgb,var(--green) 9%,var(--panel));border:1px solid color-mix(in srgb,var(--green) 30%,var(--line));border-bottom-right-radius:4px}
+  .dlg .you .who{color:var(--green)}
+  .corelinks{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+  .corelink{font-size:.78rem;background:var(--panel2);border:1px solid var(--line2);color:var(--gold);border-radius:999px;padding:5px 13px;cursor:pointer;text-align:left}
+  .corelink:hover{border-color:var(--gold)}
+  .gtab{width:100%;border-collapse:collapse;font-size:.86rem;margin:14px 0 6px}
+  .gtab th{text-align:left;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:8px 12px;border-bottom:2px solid var(--line2)}
+  .gtab th:nth-child(2){color:var(--red)}
+  .gtab th:nth-child(3){color:var(--gold)}
+  .gtab td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.55}
+  .gtab td:first-child{font-weight:700;white-space:nowrap;color:var(--muted)}
+  .dodont{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media (max-width:700px){.dodont{grid-template-columns:1fr}}
+  .dodont ul{margin:8px 0 0;padding-left:18px;font-size:.86rem;color:var(--muted)}
+  .dodont li{padding:3px 0;line-height:1.55}
+  .why{background:color-mix(in srgb,var(--gold) 7%,var(--panel));border:1px solid color-mix(in srgb,var(--gold) 28%,var(--line));border-radius:8px;padding:16px 18px;font-size:.93rem;max-width:80ch}
+  .why p{margin:0 0 10px;line-height:1.7}
+  .why .wtail{color:var(--muted);font-style:italic;margin-bottom:0;border-top:1px dashed color-mix(in srgb,var(--gold) 30%,var(--line));padding-top:10px}
+  .compare2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media (max-width:760px){.compare2{grid-template-columns:1fr}}
+  .pane{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:14px 16px}
+  .pane .ref{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+  .pane.bom .ref{color:var(--red)}.pane.bible .ref{color:var(--gold)}
+  .pane .scripture{font-family:var(--serif);font-size:1rem;line-height:1.65}
+  .cnote{font-size:.8rem;color:var(--muted);margin-top:8px;max-width:80ch}
+  .passcols{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media (max-width:760px){.passcols{grid-template-columns:1fr}}
+  .passcols h6{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin:0 0 8px}
+  .passcols .h-bom{color:var(--red)}.passcols .h-bib{color:var(--gold)}
+  .chips{display:flex;gap:6px;flex-wrap:wrap}
+  .chip{font-size:.78rem;font-family:var(--serif);border:1px solid var(--line2);background:var(--panel);border-radius:6px;padding:4px 10px;cursor:pointer;color:var(--ink)}
+  .chip:hover{border-color:var(--gold)}
+  .chip.open{background:var(--amber-bg);border-color:var(--gold)}
+  .chip.ext::after{content:" ↗";color:var(--muted);font-family:var(--sans);font-size:.68rem}
+  .versebox{grid-column:1/-1;background:var(--panel2);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:8px;padding:14px 18px;margin-top:4px}
+  .versebox .vr{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;display:flex;justify-content:space-between}
+  .versebox .vr button{background:none;border:0;color:var(--muted);cursor:pointer;font-size:.8rem}
+  .versebox .vtext{font-family:var(--serif);font-size:.98rem;line-height:1.7;max-width:72ch}
+  .versebox .vnum{font-family:var(--sans);font-size:.62rem;color:var(--muted);vertical-align:super;margin-right:3px}
+  .versebox .vwhy{margin-top:10px;font-size:.8rem;color:var(--muted);border-top:1px dashed var(--line);padding-top:8px;max-width:76ch}
+  .versebox .vwhy b{color:var(--gold)}
+  .srcdet{margin-top:30px;border-top:1px solid var(--line);padding-top:14px}
+  .srcdet summary{font-size:.74rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);cursor:pointer;list-style:none}
+  .srcdet summary::before{content:"▸ ";color:var(--gold)}
+  .srcdet[open] summary::before{content:"▾ "}
+  .srcdet .srcs{margin-top:12px}
+  .app.reading{grid-template-columns:216px minmax(0,1fr)}
+  .app.reading .preview{display:none}
+  body:has(.app.reading) .keysbar{right:0}
+  .srcs{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px}
+  .srcs li{display:flex;gap:9px;align-items:baseline;font-size:.85rem}
+  .sb{flex:none;font-size:.6rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;border-radius:4px;padding:2px 7px;position:relative;top:-1px}
+  .sb-scholarly{background:var(--green-bg);color:var(--green)}
+  .sb-apologetics{background:var(--amber-bg);color:var(--amber)}
+  .sb-primary,.sb-institutional{background:color-mix(in srgb,var(--gold) 16%,transparent);color:var(--gold)}
+  .sb-journalism{background:var(--panel);color:var(--muted);border:1px solid var(--line2)}
+  .sb-testimony{background:var(--red-bg);color:var(--red)}
+  .defense{background:color-mix(in srgb,var(--green) 7%,var(--panel));border:1px solid color-mix(in srgb,var(--green) 30%,var(--line));border-radius:8px;padding:16px 18px;font-size:.92rem;max-width:80ch}
+  .defense .dsrc{font-size:.78rem;color:var(--muted);margin-top:10px}
+  .vbox{display:flex;gap:12px;align-items:flex-start;border-radius:8px;padding:16px 18px;font-size:.92rem;max-width:80ch}
+  .vbox.v-admitted{background:var(--purp-bg)}.vbox.v-unrefuted{background:var(--red-bg)}.vbox.v-contested{background:var(--amber-bg)}.vbox.v-answered{background:var(--green-bg)}
+  .vbox b.vb{flex:none;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;padding-top:3px}
+  .vbox.v-admitted b.vb{color:var(--purp)}.vbox.v-unrefuted b.vb{color:var(--red)}.vbox.v-contested b.vb{color:var(--amber)}.vbox.v-answered b.vb{color:var(--green)}
+  .relrow{display:flex;gap:8px;flex-wrap:wrap}
+  .relrow button{font-size:.78rem;background:var(--panel);border:1px solid var(--line2);color:var(--ink);border-radius:999px;padding:5px 13px;cursor:pointer}
+  .relrow button:hover{border-color:var(--gold);color:var(--gold)}
+  .pinbtn{background:none;border:1px dashed var(--line2);color:var(--muted);border-radius:8px;padding:7px 14px;font-size:.8rem;cursor:pointer}
+  .pinbtn:hover{border-color:var(--gold);color:var(--gold)}
+  .pinbtn.pinned{border-style:solid;border-color:var(--gold);color:var(--gold)}
+
+  /* glossary tooltip */
+  .g{border-bottom:2px dotted var(--gold);cursor:help;position:relative}
+  .g .gt{display:none;position:absolute;left:0;top:140%;width:270px;background:var(--side);color:var(--ink);border:1px solid var(--line2);font-family:var(--sans);font-size:.78rem;line-height:1.5;padding:10px 13px;border-radius:8px;box-shadow:0 10px 30px rgba(0,0,0,.35);z-index:20;font-style:normal;font-weight:400}
+  .g:hover .gt,.g:focus .gt{display:block}
+  .g .gt b{color:var(--gold)}
+
+  /* preview */
+  .preview{background:var(--panel2);border-left:1px solid var(--line);padding:20px 18px;position:sticky;top:0;height:100vh;overflow-y:auto}
+  .preview h5.pt{font-family:var(--serif);font-weight:500;font-size:1.05rem;line-height:1.35;margin:10px 0}
+  .preview p{font-size:.78rem;color:var(--muted);margin:0 0 12px}
+  .preview .go{display:inline-block;font-size:.78rem;color:var(--gold-ink);background:var(--gold);border:0;border-radius:6px;padding:7px 14px;cursor:pointer;font-weight:700}
+  .preview h6{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin:20px 0 6px}
+  .preview .rr{font-size:.78rem;color:var(--ink);padding:6px 0;border-top:1px solid var(--line);display:block;background:none;border-left:0;border-right:0;border-bottom:0;text-align:left;width:100%;cursor:pointer}
+  .preview .rr:hover{color:var(--gold)}
+  .preview .empty{color:var(--dim);font-size:.8rem;margin-top:30px;text-align:center}
+
+  /* views: paths, timeline, glossary, compare */
+  .viewhead{margin:4px 0 22px}
+  .viewhead h2{font-family:var(--serif);font-weight:500;font-size:1.5rem;margin:0 0 4px}
+  .viewhead p{color:var(--muted);font-size:.88rem;margin:0;max-width:70ch}
+  .pathcard{background:var(--panel);border:1px solid var(--line2);border-radius:12px;padding:18px 20px;margin-bottom:14px}
+  .pathcard h3{font-family:var(--serif);font-weight:500;font-size:1.15rem;margin:0 0 4px}
+  .pathcard .pd{font-size:.82rem;color:var(--muted);margin:0 0 12px}
+  .pathcard ol{margin:0 0 14px;padding-left:20px;font-size:.84rem;color:var(--muted)}
+  .pathcard ol li{padding:2px 0}
+  .pathcard ol li.done{color:var(--green);text-decoration:line-through}
+  .pathcard .start{background:var(--gold);color:var(--gold-ink);border:0;border-radius:8px;padding:8px 16px;font-size:.82rem;font-weight:700;cursor:pointer}
+  .tlwrap{border-left:2px solid var(--line2);margin-left:70px;padding:6px 0}
+  .tlev{position:relative;padding:0 0 26px 26px}
+  .tlev::before{content:"";position:absolute;left:-7px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--gold);border:2px solid var(--bg)}
+  .tlev.crit::before{background:var(--red)}
+  .tlev .yr{position:absolute;left:-86px;top:1px;width:52px;text-align:right;font-family:var(--mono);font-size:.78rem;color:var(--muted)}
+  .tlev h4{font-family:var(--serif);font-weight:500;font-size:1.02rem;margin:0 0 3px}
+  .tlev p{font-size:.82rem;color:var(--muted);margin:0 0 5px;max-width:64ch}
+  .tlev button.jump{background:none;border:0;color:var(--gold);font-size:.76rem;cursor:pointer;padding:0;text-decoration:underline}
+  .glossgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+  .glosscard{background:var(--panel);border:1px solid var(--line2);border-radius:10px;padding:14px 16px}
+  .glosscard b{color:var(--gold);font-family:var(--serif);font-weight:600}
+  .glosscard p{font-size:.82rem;color:var(--muted);margin:6px 0 0}
+  .cmp2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media (max-width:760px){.cmp2{grid-template-columns:1fr}}
+  .cmpcol{background:var(--panel);border:1px solid var(--line2);border-radius:12px;padding:18px}
+  .cmpcol h3{font-family:var(--serif);font-weight:500;font-size:1.08rem;margin:8px 0 10px}
+  .cmpcol h6{font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin:14px 0 5px}
+  .cmpcol p{font-size:.82rem;color:var(--muted);margin:0}
+  .cmpcol .unpin{background:none;border:0;color:var(--muted);font-size:.72rem;cursor:pointer;float:right;text-decoration:underline}
+  .cmpempty{border:1px dashed var(--line2);border-radius:12px;padding:40px;text-align:center;color:var(--dim);font-size:.85rem}
+
+  .keysbar{position:fixed;bottom:0;left:216px;right:280px;display:flex;gap:16px;justify-content:center;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-top:1px solid var(--line);padding:8px;font-size:.7rem;color:var(--muted);z-index:30;flex-wrap:wrap}
+  @media (max-width:1020px){.keysbar{right:0}}
+  @media (max-width:720px){.keysbar{display:none}}
+  .toast{position:fixed;bottom:52px;left:50%;transform:translateX(-50%);background:var(--side);border:1px solid var(--gold);color:var(--ink);border-radius:8px;padding:8px 18px;font-size:.8rem;z-index:60;opacity:0;transition:opacity .3s}
+  .toast.show{opacity:1}
+  .methodfoot{border-top:1px solid var(--line);margin-top:44px;padding-top:16px;font-size:.74rem;color:var(--dim);max-width:90ch}
+</style>
+
+<div class="app">
+  <aside class="side">
+    <div class="logo">⚖ CHALLENGING <b>·</b> BELIEFS<div style="font-size:.64rem;letter-spacing:.14em;color:var(--muted);margin-top:3px">ISLAM · VS. THE BIBLE</div></div>
+    <div class="sidesearch"><input id="q" type="search" placeholder="Search claims…" autocomplete="off" aria-label="Search claims"></div>
+    <div class="nav" id="nav"></div>
+    <div class="sideprog" id="sideprog"></div>
+  </aside>
+  <main class="main" id="main"></main>
+  <aside class="preview" id="preview"></aside>
+</div>
+<div class="keysbar"><span><kbd>←</kbd>/<kbd>→</kbd> prev / next</span><span><kbd>↵</kbd> open</span><span><kbd>Esc</kbd> back</span><span><kbd>O</kbd> overview</span><span><kbd>P</kbd> paths</span><span><kbd>T</kbd> timeline</span><span><kbd>G</kbd> terms</span><span><kbd>S</kbd> gospel</span><span><kbd>H</kbd> heart of it</span></div>
+<div class="toast" id="toast"></div>
+
+<script>
+const DATA=[
+/*__DATA__*/
+];
+const VERSES=/*__VERSES__*/;
+
+const SECTIONS={bible:"The Bible Stands",jesus:"Jesus & the Cross",quran:"The Quran",muhammad:"Muhammad & Practice",doctrine:"God & Salvation"};
+const SEVLABEL={high:"major",medium:"moderate",low:"minor"};
+const PORDER=[];
+const CATS={"torah-preservation":"The preservation trap","jesus-cross":"Jesus & the crucifixion","quran-text":"The Quran's text & sources","doctrine-of-god":"Who is God","science-history":"Science & history","muhammad-test":"The prophet test","salvation":"Salvation","practice":"Law & practice"};
+const SECMAP={"torah-preservation":"bible","jesus-cross":"jesus","quran-text":"quran","science-history":"quran","doctrine-of-god":"doctrine","salvation":"doctrine","muhammad-test":"muhammad","practice":"muhammad"};
+const VLABEL={admitted:"Admitted",unrefuted:"Unrefuted",contested:"Contested",answered:"Answered"};
+const TIPS={
+  verdict:{admitted:"The church's own publications — essays, canon, official statements, sponsored histories — concede the facts of this claim. Only the interpretation is defended. You can cite this one entirely from their sources.",unrefuted:"No adequate published answer exists — or the best defenses concede the core point rather than rebut it.",contested:"A serious rebuttal exists. Read both sides; the dispute is genuine.",answered:"The best defense holds up. The criticism is weaker than commonly presented — included so nothing is cherry-picked."},
+  impact:"An editorial rating of how much this claim matters if true: MAJOR shakes the book's foundation, MODERATE is significant, MINOR is a detail.",
+  strongest:"One of the handful of cases with the most decisive documentary evidence in the entire catalog — if you read only a few, read these."};
+const CATDESC={"torah-preservation":"The cornerstone: the Quran affirms the Bible of Muhammad's day, and the manuscripts prove that Bible is ours — so corruption before Muhammad indicts the Quran and corruption after is impossible.","jesus-cross":"What the Quran says about Jesus and the crucifixion — measured against the historical record and its own concessions.","quran-text":"Where the Quran's material actually came from, and how its own text was compiled, standardized, and varied.","doctrine-of-god":"What Islam teaches about who God is — and whether the Quran ever engages the Christianity it condemns.","science-history":"Claims in the Quran measured against science and documented history.","muhammad-test":"Muhammad measured by the Bible's own tests of a prophet — prediction, signs, and the pattern of his revelations.","salvation":"Scales of deeds versus grace: what each book offers a sinner.","practice":"Islamic law and practice — apostasy, warfare provisions, marriage — documented from sahih sources."};
+function info(t){return t?`<span class="info" tabindex="0">i<span class="tip">${esc(t)}</span></span>`:"";}
+const WHYTAIL={admitted:"The facts here are conceded in the church's own publications — the only dispute is what they mean. In conversation, cite them exclusively from LDS sources; there is nothing to argue about except the interpretation.",unrefuted:"No adequate answer to this has been published. A believer must either live with the tension or produce a response no scholar has yet managed.",contested:"There is a genuine debate here — the honest move is to read both sides and weigh which explanation asks less of the evidence.",answered:"Fairly weighed, the defense wins this one. Critics who keep using it weaken their own credibility on the claims that do stand."};
+const WHYMAP={
+"torah-preservation":"Everything in Islam's case against Christianity rests on one claim: the Bible was corrupted. But the Quran itself affirms the Scriptures of Muhammad's day, commands people to judge by them and consult their readers — and the manuscripts prove the Bible of Muhammad's day is the Bible on your shelf. If the Bible stands, then every place the Quran contradicts it, the Quran falls by its own stated standard. This is the foundation of every other conversation.",
+"jesus-cross":"The crucifixion is the hinge of history and the best-attested fact of Jesus's life. A book that denies it — six centuries later, on no evidence — is not correcting history; it is contradicting it. And without the cross there is no atonement, which is exactly what Islam is left without.",
+"quran-text":"The dawah contrast — 'perfect Quran, corrupted Bible' — is the engine of Muslim confidence. If the Quran's own canon records burned codices, variant readings, lost verses, and borrowed folklore, that engine stalls, and the conversation becomes an honest comparison of two textual histories — one of which was preserved openly, the other by fire.",
+"doctrine-of-god":"A book from an omniscient God should know what Christians actually believe before condemning it. The Quran never once states the Trinity it rejects — and a critique that only ever hits a strawman is evidence about its author. Deeper still: a God who is love requires an eternal beloved; the Trinity has one, a monad does not.",
+"science-history":"The Quran stakes its authority on being free of error (4:82: 'had it been from other than Allah, they would have found much contradiction in it'). Its own test. Legendary geography, Galenic embryology, and conflated biblical characters are the test results.",
+"muhammad-test":"Islam stands or falls on one man's claim to speak for God. The Bible provides the test (Deuteronomy 18), and Islam's own canon provides the evidence: no falsifiable prophecy, revelations that track his desires closely enough that his own wife remarked on it, and a death his canon describes in the exact terms his Quran reserves for a false prophet.",
+"salvation":"This is the conversation that matters most, because it is the one that offers something. Your Muslim friend lives under scales they can never read, serving a master they can never be sure of. The gospel offers what Islam cannot: a substitute who bore the debt, a Father instead of only a Master, and the ability to KNOW (1 John 5:13).",
+"practice":"These are the provisions that shape real lives — who can leave, who can be struck, who can be taken. They matter for truth (a perfect revelation should exceed, not entrench, the ethics of its era) and for love: they are why your Muslim friend's hesitation about the gospel carries a cost you must count with them.",
+};
+const TALK={
+"torah-preservation":"Ask the two-horned question gently, over tea: **“Was the Bible corrupted before Muhammad or after? Because the Quran tells doubters to ask the people who read it (10:94), and the Dead Sea Scrolls are 800 years before Muhammad.”** Then offer to read a Gospel together — the Quran itself gives them permission (5:47).",
+"jesus-cross":"Ask: **“What's your best historical evidence that Jesus was NOT crucified?”** There isn't any — only the verse. Then open Psalm 22 (the Zabur the Quran endorses, 4:163) and read the pierced hands and divided garments, written a thousand years early.",
+"quran-text":"Never lead with this — it reads as attack. If they raise 'the Bible is corrupted,' respond with a level playing field: **“Would you apply the same test to both books? Bukhari 4987 says Uthman burned the variant Qurans. Our variant manuscripts survived — that's why you can inspect them.”**",
+"doctrine-of-god":"Ask: **“Can you show me where the Quran describes the Trinity Christians actually confess — one God, three persons?”** It never does (5:116 names Mary). Then share what the Trinity actually secures: a God who has been love from all eternity — Father loving Son — rather than a master who acquired creatures.",
+"science-history":"Use their own test: **“The Quran says if it were from other than Allah it would contain contradictions (4:82). Would you be willing to look at Surah 19:28 with me — where Mary is called the sister of Aaron?”** The Najran Christians asked this in Muhammad's lifetime; the question is as old as Islam.",
+"muhammad-test":"Ask what test they'd use on any other prophet claim, then read Deuteronomy 18:21–22 together: **“What did Muhammad predict that we could check?”** Handle with care — never mock him; the moment contempt enters, honor-defense takes over and the conversation dies.",
+"salvation":"The most fruitful question in all Muslim evangelism: **“On the Day, are you confident your scales will be heavy enough? Even Muhammad said he didn't know what would be done with him (Bukhari 7018). Would you want to know? Because John says you CAN know (1 John 5:13).”**",
+"practice":"These topics wound — raise them rarely, and never as gotchas. If apostasy law comes up: **“If Islam is true, why does leaving it need to be a crime? Truth doesn't need a death penalty to keep its followers.”** Then make sure your friend knows YOUR friendship carries no such penalty.",
+};
+const DIALOG={
+"torah-preservation":[
+{w:"them",t:"The Bible you have today is corrupted — the original Torah and Injil were changed. That's why Allah sent the Quran."},
+{w:"you",t:"Help me with the timing. Was it corrupted before Muhammad's day, or after?"},
+{w:"them",t:"Before — by Muhammad's time the Jews and Christians had already altered their books."},
+{w:"you",t:"But the Quran tells Muhammad, 'if you are in doubt, ask those who have been reading the Scripture before you' (10:94), says the Torah WITH THEM contains Allah's judgment (5:43), and commands the People of the Gospel to judge by it (5:47). Would a true prophet send doubters to corrupted books? Either Muhammad erred — or the books weren't corrupt, and then the Quran must agree with them. It doesn't."},
+{w:"them",t:"Then the corruption must have come after Muhammad."},
+{w:"you",t:"That's the other horn: the Dead Sea Scrolls are 800 years BEFORE Muhammad, and complete Bibles like Codex Sinaiticus are 200 years before — and they match the Bible on my shelf. There's no window for it. So can we do what the Quran itself says, and read the Gospel together?"}],
+"jesus-cross":[
+{w:"them",t:"Jesus was never crucified — Allah made it appear so and raised him up (4:157)."},
+{w:"you",t:"What's the evidence for that, other than the one verse? Every historical source we have — Christian, Jewish, Roman — reports the crucifixion; even atheist historians call it indisputable. One sentence, six hundred years later, against all of it."},
+{w:"them",t:"Allah put Jesus's likeness on someone else. A miracle doesn't leave evidence."},
+{w:"you",t:"Then Allah authored a deception that created Christianity — a billion people worshiping a man he didn't let die, deceived by Allah himself. Does that sound like the God of truth? And here's the strange part: your own book calls Jesus sinless, virgin-born, alive in heaven, and returning — while Muhammad is told to seek forgiveness for his sin. Whose resume points to the Savior?"}],
+"quran-text":[
+{w:"them",t:"The Quran has been perfectly preserved — not one letter changed. The Bible has thousands of variants."},
+{w:"you",t:"Can I show you something from Bukhari — your most trusted source? Hadith 4987: Muslims were differing over the Quran, so Uthman standardized one version and ordered every other copy burned. Our variant manuscripts survived; yours were burned. Which process sounds more confident about its text?"},
+{w:"them",t:"Those were just dialect differences — the seven ahruf, all revealed."},
+{w:"you",t:"Then why do Hafs and Warsh Qurans printed today still differ in hundreds of places? And Sahih Muslim 1452 has Aisha saying verses were recited as Quran when Muhammad died that aren't in your book at all. I'm not saying your book is uniquely corrupt — I'm saying both books have a textual history, and mine can be openly inspected. Judge both by the same standard."}],
+"doctrine-of-god":[
+{w:"them",t:"The Trinity is shirk — you worship three gods. God doesn't have a son; he has no wife!"},
+{w:"you",t:"You've just shown me something important: no Christian believes God had a wife, or that there are three gods. We confess ONE God — the Quran attacks a 'trinity' of Allah, Jesus, and Mary (5:116) that no Christian ever held. If the Quran came from the God who knows all hearts, why does it only ever refute a Christianity that doesn't exist?"},
+{w:"them",t:"Even so — one God in three persons is illogical."},
+{w:"you",t:"It's above reason, not against it: one 'what,' three 'whos.' And it answers a question Islam can't: your Quran calls Allah 'the Loving' — but who did he love before creation, alone for eternity? The Bible says God IS love, because the Father has loved the Son from everlasting. Love needs a beloved. A solitary god has to create in order to love; ours never had to."}],
+"science-history":[
+{w:"them",t:"The Quran contains scientific miracles — embryology, the expanding universe — things Muhammad couldn't have known!"},
+{w:"you",t:"Have you looked at where the embryology passage came from? The stages in 23:14 — including bones formed first, then clothed with flesh — match Galen, the Greek physician, right down to Galen's mistake. Muslim doctors for centuries used those verses as translations of Galen. Knowledge available in 7th-century trade routes isn't a miracle."},
+{w:"them",t:"You're reading it too literally — these are signs for reflection."},
+{w:"you",t:"Then use the Quran's own test, 4:82: if it were from other than Allah, it would contain contradictions. Read 19:28 with me — Mary, mother of Jesus, called 'sister of Aaron,' with Moses's father and Moses's brother. Christians asked Muhammad about that in his own lifetime — it's in Sahih Muslim 2135. Fourteen centuries later, the question still stands."}],
+"muhammad-test":[
+{w:"them",t:"Muhammad is the final prophet, foretold in your own Bible — the Paraclete of John 14!"},
+{w:"you",t:"Let's read it — John 14:17 says the Comforter is 'the Spirit of truth… whom the world cannot see,' who would be IN the disciples then living. Muhammad was a visible man born 500 years later. But I love that you brought up tests. What's the biblical test of a prophet? Deuteronomy 18: his predictions come true. What did Muhammad predict that we can check?"},
+{w:"them",t:"The Romans' victory — Surah 30! And his life proves his sincerity."},
+{w:"you",t:"One vague reversal with a flexible timeline, in a script where the words could also read 'Rome will be defeated.' Compare Isaiah naming Cyrus a century early, or Psalm 22 describing crucifixion a thousand years early. And sincerity isn't the test — I don't doubt he was sincere. I'm asking a smaller question: when your own canon shows revelations arriving exactly when Muhammad needed them — his own wife noticed it (Bukhari 4788) — what would distinguish that from a man's own voice?"}],
+"salvation":[
+{w:"them",t:"Islam is simple and just: do good, avoid evil, and Allah the Merciful will weigh it fairly. No one needs to die for anyone."},
+{w:"you",t:"Can I ask you the honest question that follows? On that Day, will YOUR scales be heavy enough? How would you know today?"},
+{w:"them",t:"No one can know — that would be presumption. We live between fear and hope; Allah forgives whom he wills."},
+{w:"you",t:"Even Muhammad said, 'though I am Allah's Messenger, I do not know what will be done with me' (Bukhari 7018). But John wrote, 'these things I have written that you may KNOW that you have eternal life' (1 John 5:13). Not presumption — a gift. Every Eid al-Adha you remember that Allah ransomed Abraham's son 'with a great sacrifice' (37:107). What was that ram pointing to? I can tell you what it pointed to on a hill outside Jerusalem — and why the debt on your scales has already been paid, if you'll receive it."}],
+"practice":[
+{w:"them",t:"Islam is a complete way of life — Sharia covers everything with divine justice."},
+{w:"you",t:"May I ask about one provision, not to score points but because it affects people I care about? Bukhari 6922: 'Whoever changes his religion, kill him.' Why would the truth need a death penalty to keep its followers?"},
+{w:"them",t:"That's about treason against the state in wartime, not belief — and most Muslims don't support it today."},
+{w:"you",t:"I'm glad you don't — genuinely. But it's still the classical ruling of all four schools, and it's still law in a dozen countries; people I've read about are in prison for baptism right now. Jesus said, 'If anyone hears my words and does not keep them, I do not judge him' (John 12:47) — his kingdom doesn't need a sword. Whatever you ever decide about him, know this: my friendship has no apostasy clause."}]
+};
+const ABBR=["c","cf","vs","e.g","i.e","etc","Dr","St","Mr","Mrs","ch","pp","v","vv","no","approx","Jr","Sr"];
+function splitSentences(raw){
+  const tokens=raw.split(/(?<=[.!?])\s+(?=[A-Z0-9"'(‘“])/);
+  const merged=[];
+  tokens.forEach(t=>{
+    if(merged.length){
+      const prev=merged[merged.length-1];
+      const m=prev.match(/([A-Za-z&.]+)\.$/);
+      const w=m?m[1].replace(/\./g,""):null;
+      if(w&&ABBR.includes(w)){merged[merged.length-1]=prev+" "+t;return;}
+    }
+    merged.push(t);
+  });
+  return merged;
+}
+const LDSBOOKS="(?:Quran\\s\\d+:\\d+(?:[\\-–]\\d+)?|Surah\\s[A-Za-z\\-']+|Sahih al-Bukhari\\s\\d+[a-z]?|Sahih Muslim\\s\\d+[a-z]?|Sunan Abi Dawud\\s\\d+|Sunan Ibn Majah\\s\\d+|Jami at-Tirmidhi\\s\\d+)";
+const BIBBOOKS="(?:[1-3]\\s)?(?:Genesis|Exodus|Leviticus|Numbers|Deuteronomy|Joshua|Judges|Ruth|Samuel|Kings|Chronicles|Ezra|Nehemiah|Esther|Job|Psalms?|Proverbs|Ecclesiastes|Isaiah|Jeremiah|Lamentations|Ezekiel|Daniel|Hosea|Joel|Amos|Obadiah|Jonah|Micah|Nahum|Habakkuk|Zephaniah|Haggai|Zechariah|Malachi|Matthew|Mark|Luke|John|Acts|Romans|Corinthians|Galatians|Ephesians|Philippians|Colossians|Thessalonians|Timothy|Titus|Philemon|Hebrews|James|Peter|Jude|Revelation)";
+const REFNUM="";
+const KEYWORDS=/\b(concedes?d?|conceded|disavow(?:s|ed|al)?|undisputed|unfalsifiable|no ancient manuscript|zero ancient witnesses|never recanted|does not match|do not match|no adequate answer|contradict(?:s|ing|ion)?|impossible|no record|officially disavowed)\b/gi;
+function emphasize(t){
+  t=t.replace(new RegExp("\\b("+LDSBOOKS+REFNUM+")","g"),'<span class="ref-lds">$1</span>');
+  t=t.replace(new RegExp("\\b("+BIBBOOKS+"\\s\\d+(?::\\d+(?:[\\-–]\\d+)?(?:,\\s?\\d+(?:[\\-–]\\d+)?)*)?)","g"),m=>m.includes("ref-lds")?m:'<span class="ref-bib">'+m+'</span>');
+  t=t.replace(/(^|[\s(—–])'([^'<>]{3,200}?)'(?=$|[\s.,;:)!?—–])/g,'$1<span class="qq">‘$2’</span>');
+  t=t.replace(KEYWORDS,'<b class="kw">$1</b>');
+  t=t.replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').replace(/==(.+?)==/g,'<mark>$1</mark>');
+  return t;
+}
+function rich(raw){return glossify(emphasize(esc(raw)));}
+function paras(raw,per){
+  per=per||2;
+  const s=splitSentences(raw),ps=[];
+  for(let i=0;i<s.length;i+=per)ps.push(s.slice(i,i+per).join(" "));
+  return ps.map(p=>`<p>${rich(p)}</p>`).join("");
+}
+function formatDefense(raw){
+  if(/\(\d+\)/.test(raw)){
+    const parts=raw.split(/\(\d+\)\s*/);
+    const intro=parts.shift().trim();
+    return (intro?`<p class="lead">${rich(intro)}</p>`:"")+
+      `<ol class="pts">${parts.map(p=>`<li>${rich(p.trim())}</li>`).join("")}</ol>`;
+  }
+  return paras(raw,2);
+}
+const SEVRANK={high:0,medium:1,low:2},VRANK={admitted:0,unrefuted:1,contested:2,answered:3};
+DATA.forEach(d=>{d.section=SECMAP[d.category]||"history";});
+const byId={};DATA.forEach(d=>byId[d.id]=d);
+
+const RELATED={"quran-affirms-torah-gospel":["tahrif-doctrine-late-development","manuscripts-predate-muhammad","gospel-judgment-test","injil-problem"],"tahrif-doctrine-late-development":["quran-affirms-torah-gospel","manuscripts-predate-muhammad"],"manuscripts-predate-muhammad":["quran-affirms-torah-gospel","tahrif-doctrine-late-development","crucifixion-denial-vs-history"],"gospel-judgment-test":["quran-affirms-torah-gospel","injil-problem","son-of-god-divine-claims"],"injil-problem":["gospel-judgment-test","quran-affirms-torah-gospel","quran-never-quotes-scriptures"],"crucifixion-denial-vs-history":["best-of-deceivers","salvation-scales","manuscripts-predate-muhammad"],"quran-jesus-resume":["word-and-spirit-titles","crucifixion-denial-vs-history","son-of-god-divine-claims"],"word-and-spirit-titles":["quran-jesus-resume","son-of-god-divine-claims","clay-birds-apocrypha"],"son-of-god-divine-claims":["word-and-spirit-titles","trinity-father-jesus-mary","gospel-judgment-test"],"clay-birds-apocrypha":["quran-never-quotes-scriptures","word-and-spirit-titles","dhul-qarnayn-alexander"],"quran-never-quotes-scriptures":["clay-birds-apocrypha","injil-problem","mary-sister-of-aaron"],"trinity-father-jesus-mary":["trinity-third-of-three","begets-consort-carnal-sonship","god-is-love-monad"],"trinity-third-of-three":["trinity-father-jesus-mary","begets-consort-carnal-sonship"],"begets-consort-carnal-sonship":["trinity-father-jesus-mary","trinity-third-of-three","son-of-god-divine-claims"],"god-is-love-monad":["trinity-father-jesus-mary","salvation-scales"],"best-of-deceivers":["crucifixion-denial-vs-history","taqiyya-deception"],"sun-muddy-spring":["dhul-qarnayn-alexander","cosmology-stars-missiles"],"reproductive-science-galen":["cosmology-stars-missiles","sun-muddy-spring"],"mary-sister-of-aaron":["quran-never-quotes-scriptures","samaritan-anachronism"],"samaritan-anachronism":["mary-sister-of-aaron","dhul-qarnayn-alexander"],"dhul-qarnayn-alexander":["sun-muddy-spring","clay-birds-apocrypha","samaritan-anachronism"],"cosmology-stars-missiles":["sun-muddy-spring","reproductive-science-galen"],"abrogation-satanic-verses":["compilation-lost-verses","zaynab-hastening-revelation"],"compilation-lost-verses":["uthman-standardization-qiraat","abrogation-satanic-verses","sanaa-palimpsest-qiraat"],"uthman-standardization-qiraat":["compilation-lost-verses","sanaa-palimpsest-qiraat"],"sanaa-palimpsest-qiraat":["uthman-standardization-qiraat","compilation-lost-verses"],"aisha-age":["women-and-captives","zaynab-hastening-revelation"],"women-and-captives":["aisha-age","sharia-apostasy-jizya"],"zaynab-hastening-revelation":["aisha-age","abrogation-satanic-verses","prophet-test-signs"],"prophet-test-signs":["aorta-test","zaynab-hastening-revelation"],"aorta-test":["prophet-test-signs","salvation-scales"],"salvation-scales":["god-is-love-monad","crucifixion-denial-vs-history","aorta-test"],"taqiyya-deception":["best-of-deceivers","sharia-apostasy-jizya"],"sharia-apostasy-jizya":["taqiyya-deception","women-and-captives","salvation-scales"]};
+
+const GLOSSARY=[
+{t:"tahrif",d:"'Corruption' — the Muslim doctrine that Jews and Christians altered their scriptures. The earliest Islam taught corruption of MEANING (misinterpretation); corruption of the TEXT is a doctrine that crystallized only with Ibn Hazm, four centuries after Muhammad."},
+{t:"hadith",d:"Reports of Muhammad's words and deeds, collected 150–250 years after his death and graded by chain of transmission. Sahih ('sound') collections — Bukhari and Muslim — are Islam's most trusted sources after the Quran."},
+{t:"sahih",d:"'Sound/authentic' — the highest grade of hadith reliability. When a fact sits in Sahih al-Bukhari or Sahih Muslim, mainstream Islam accepts it; that is why this site cites them constantly."},
+{t:"isnad",d:"The chain of narrators by which a hadith is transmitted. Muslim scholarship accepts or rejects reports by grading the chain, not the content — which is why some well-attested early events (like the satanic verses) are rejected on chain grounds."},
+{t:"tafsir",d:"Classical Quran commentary (al-Tabari, Ibn Kathir, al-Qurtubi). Where modern reinterpretations conflict with the unanimous early tafsir, this site notes it."},
+{t:"dawah",d:"Islamic evangelism/apologetics. Trained dawah arguments (Deedat, Zakir Naik tradition) supply the standard objections a Christian will hear — the Bible is corrupt, the Trinity is three gods, Muhammad is in the Bible."},
+{t:"Injil",d:"The Quran's word for the Gospel given to Jesus. Mainstream Islam claims it was a single revealed book, now lost — a book with no manuscript, citation, or historical trace in seven centuries between Jesus and Muhammad."},
+{t:"Tawrat",d:"The Quran's word for the Torah of Moses — which the Quran says was 'with' the Jews of Muhammad's day and contained Allah's judgment (5:43)."},
+{t:"Zabur",d:"The Psalms of David, affirmed as revelation in the Quran (4:163; 17:55) — which makes Psalm 22's crucifixion portrait shared ground a Muslim can read without betraying the Quran."},
+{t:"tawhid",d:"Islam's absolute oneness of God — the doctrine every sonship and Trinity denial defends. Christians also confess one God; the dispute is whether that one God is a solitary monad or eternally Father, Son, and Spirit."},
+{t:"shirk",d:"Associating partners with Allah — Islam's unforgivable sin (4:48). Worshiping Jesus is shirk if he is a creature; it is simple obedience if he is the eternal Creator (John 20:28)."},
+{t:"ahruf / qira'at",d:"The 'seven modes' in which the Quran was said to be revealed, and the canonical reading-traditions (Hafs, Warsh…) printed today — the framework Muslim scholarship uses to explain variant readings as all divinely revealed."},
+{t:"Uthmanic recension",d:"The standardized Quran text produced under Caliph Uthman (~650 AD), who ordered all other copies burned (Bukhari 4987). What is preserved today is this recension."},
+{t:"naskh",d:"Abrogation — Allah replacing earlier verses with later ones (2:106), including 'abrogation of recitation,' the doctrine that explains verses Companions remembered as Quran that are not in today's text."},
+{t:"taqiyya",d:"Concealment of faith under persecution — chiefly a Shia doctrine (from 3:28; 16:106). Widely misused in polemics: mainstream Sunni Islam does NOT license routine lying to non-Muslims, and accusing your Muslim friend of taqiyya is both usually false and instantly conversation-ending."},
+{t:"honor-shame",d:"The cultural operating system of most Muslim societies: identity, family honor, and community standing govern behavior more than individual guilt. It is why mocking Muhammad ends conversations, and why the gospel told as shame-bearing and honor-restoring (Hebrews 12:2) lands deeper than courtroom language alone."},
+{t:"Eid al-Adha",d:"The Feast of Sacrifice commemorating Allah ransoming Abraham's son 'with a great sacrifice' (37:107) — the best annual doorway to the gospel of substitutionary atonement."},
+{t:"jizya / dhimmi",d:"The tax and subordinate protected status imposed on Jews and Christians under Islamic rule (9:29)."},
+{t:"Deutero-Isaiah",d:"Chapters 40–55 of Isaiah, judged by most scholars to be written during the Babylonian exile — relevant here only as background to biblical scholarship debates."},
+];
+
+const PATHS=[{"id":"cornerstone","name":"The cornerstone: the Bible stands","time":"≈ 20 min","desc":"The argument every other conversation depends on: the Quran affirms the Bible of Muhammad's day, the manuscripts prove that Bible is ours, and the corruption claim dies on either horn of the dilemma.","items":["quran-affirms-torah-gospel","tahrif-doctrine-late-development","manuscripts-predate-muhammad","gospel-judgment-test","injil-problem"]},{"id":"strongest","name":"The five strongest cases","time":"≈ 25 min","desc":"The claims with the most decisive evidence and the least answer — start here if you read nothing else.","items":["quran-affirms-torah-gospel","crucifixion-denial-vs-history","injil-problem","clay-birds-apocrypha","quran-never-quotes-scriptures"]},{"id":"gospel","name":"For gospel conversations","time":"≈ 30 min","desc":"The cases that lead most naturally to the gospel itself — the scales against grace, the Quran's own exalted Jesus, and the sacrifice at the heart of Eid.","items":["salvation-scales","quran-jesus-resume","word-and-spirit-titles","crucifixion-denial-vs-history","god-is-love-monad"]},{"id":"fair","name":"What critics get wrong","time":"≈ 20 min","desc":"Where popular polemics overreach — the weak muddy-spring hadith, the taqiyya stereotype, the Rome prophecy, and the qira'at overclaim. Knowing these keeps your strong arguments credible.","items":["sun-muddy-spring","taqiyya-deception","prophet-test-signs","sanaa-palimpsest-qiraat","samaritan-anachronism"]}];
+
+const TIMELINE=[{"y":"~1000 BC","t":"David writes the Psalms (Zabur)","p":"Psalm 22 describes pierced hands and divided garments a millennium before the cross.","id":"crucifixion-denial-vs-history"},{"y":"c. 125 BC","t":"The Great Isaiah Scroll copied","p":"The complete Isaiah — including chapter 53 — sealed in a Qumran cave 750 years before Muhammad.","id":"manuscripts-predate-muhammad","crit":true},{"y":"AD 30/33","t":"The crucifixion","p":"Attested by every early source, Christian and pagan; called indisputable by skeptical historians.","id":"crucifixion-denial-vs-history"},{"y":"c. 55","t":"Paul records the resurrection creed","p":"1 Corinthians 15:3-8 — datable to within a few years of the events.","id":"crucifixion-denial-vs-history"},{"y":"2nd c.","t":"Infancy Gospel of Thomas circulates","p":"The clay-birds legend — later retold in Quran 3:49 as history.","id":"clay-birds-apocrypha","crit":true},{"y":"4th c.","t":"Codex Sinaiticus and Vaticanus","p":"Complete Bibles, 200+ years before Muhammad, matching today's text.","id":"manuscripts-predate-muhammad","crit":true},{"y":"610","t":"Muhammad's first revelation","p":"Waraqa — Khadija's Christian cousin who 'used to write the Gospel in Arabic' — interprets the experience.","id":"quran-never-quotes-scriptures"},{"y":"614–628","t":"The Byzantine-Persian war","p":"Background of Surah 30's Rome prediction — the one claimed prophecy.","id":"prophet-test-signs"},{"y":"c. 615–632","t":"The Quran affirms the Torah and Gospel","p":"'Ask those who read the Scripture before you' (10:94); 'let the People of the Gospel judge' (5:47).","id":"quran-affirms-torah-gospel","crit":true},{"y":"628","t":"Khaybar: the poisoned meat","p":"Administered as a prophethood test; his companion dies of it.","id":"aorta-test"},{"y":"632","t":"Muhammad dies","p":"'I feel as if my aorta is being cut from that poison' (Bukhari 4428) — the punishment 69:46 names for a false prophet.","id":"aorta-test","crit":true},{"y":"~633","t":"Yamama: the Quran nearly lost","p":"Reciters die in battle; Umar fears 'a large part of the Quran may be lost'; Zayd collects it from palm stalks and memory.","id":"compilation-lost-verses","crit":true},{"y":"~650","t":"Uthman standardizes and burns","p":"Muslims 'differing as the Jews and Christians differed'; all variant copies ordered burnt (Bukhari 4987).","id":"uthman-standardization-qiraat","crit":true},{"y":"7th c.","t":"The Sanaa palimpsest","p":"A non-Uthmanic Quran text, erased and overwritten — rediscovered in 1972.","id":"sanaa-palimpsest-qiraat"},{"y":"~750–900","t":"The hadith are compiled","p":"Bukhari and Muslim collect the reports — including Aisha's age, the lost verses, and the deathbed words — 150–250 years after the events.","id":"aisha-age"},{"y":"1064","t":"Ibn Hazm dies","p":"The first major scholar to teach the Bible's TEXT was corrupted — four centuries after Muhammad.","id":"tahrif-doctrine-late-development","crit":true},{"y":"1924","t":"The Cairo edition","p":"The Hafs reading becomes the near-universal printed Quran; Warsh persists in Africa — two texts in print today.","id":"uthman-standardization-qiraat"},{"y":"1947","t":"The Dead Sea Scrolls discovered","p":"The pre-Muhammad Bible surfaces at Qumran — and it is our Bible. The corruption window closes.","id":"manuscripts-predate-muhammad","crit":true}];
+
+/* ---------- state ---------- */
+const store={
+  get read(){try{return new Set(JSON.parse(localStorage.getItem("wbi_read")||"[]"))}catch(e){return new Set()}},
+  markRead(id){const r=this.read;r.add(id);localStorage.setItem("wbi_read",JSON.stringify([...r]))},
+  get pins(){try{return JSON.parse(localStorage.getItem("wbi_pins")||"[]")}catch(e){return[]}},
+  set pins(v){localStorage.setItem("wbi_pins",JSON.stringify(v))}
+};
+const state={view:"overview",section:"all",verdict:null,severity:null,q:"",sel:null,caseId:null,pathId:null};
+
+const $=s=>document.querySelector(s);
+const esc=s=>(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+function hl(text,phrases){let out=esc(text);(phrases||[]).forEach(p=>{const e=esc(p).replace(/[.*+?^${}()|[\]\\]/g,"\\$&");out=out.replace(new RegExp(e,"gi"),m=>"<mark>"+m+"</mark>");});return out;}
+function glossify(escapedText){
+  let out=escapedText;
+  GLOSSARY.forEach(g=>{
+    const e=esc(g.t).replace(/[.*+?^${}()|[\]\\]/g,"\\$&");
+    let done=false;
+    out=out.replace(new RegExp("\\b("+e+")\\b","i"),(m,w)=>{if(done)return m;done=true;
+      return '<span class="g" tabindex="0">'+w+'<span class="gt"><b>'+esc(g.t)+'</b> — '+esc(g.d)+'</span></span>';});
+  });
+  return out;
+}
+function findWhy(d,cite){
+  const key=cite.replace(/–/g,"-").replace(/\s*\(.*\)\s*/g,"").trim();
+  const m=key.match(/^([1-4]?\s?[A-Za-z&; ]+?)\s+(\d+)/);
+  const frag=m?(m[1].trim()+" "+m[2]):key;
+  const sentences=(d.claim+" "+d.rationale).replace(/–/g,"-").split(/(?<=[.!?])\s+/);
+  const hit=sentences.find(s=>s.includes(frag));
+  return hit?hit.replace(/-/g,"–"):null;
+}
+function extUrl(cite){
+  const c=cite.replace(/–/g,"-").replace(/\s*\(.*\)\s*/g,"").trim();
+  const qm=c.match(/^Quran\s+(\d+):(\d+)/i);
+  if(qm)return "https://quran.com/"+qm[1]+"/"+qm[2];
+  const qc=c.match(/^Quran\s+(\d+)/i);
+  if(qc)return "https://quran.com/"+qc[1];
+  const mm=c.match(/^([1-3]?\s?[A-Za-z ]+?)\s+(\d+)/);
+  if(mm)return "https://www.biblegateway.com/passage/?search="+encodeURIComponent(c)+"&version=KJV";
+  return "https://quran.com/";
+}
+function hadithUrl(h){
+  const m=h.replace(/\s*\(.*\)\s*/g,"").match(/^(Sahih al-Bukhari|Sahih Muslim|Sunan Abi Dawud|Sunan Ibn Majah|Jami at-Tirmidhi)\s+(\d+[a-z]?)/i);
+  if(!m)return null;
+  const map={"sahih al-bukhari":"bukhari","sahih muslim":"muslim","sunan abi dawud":"abudawud","sunan ibn majah":"ibnmajah","jami at-tirmidhi":"tirmidhi"};
+  const col=map[m[1].toLowerCase()];
+  return col?"https://sunnah.com/"+col+":"+m[2].toLowerCase():null;
+}
+function toast(msg){const t=$("#toast");t.textContent=msg;t.classList.add("show");clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove("show"),1800);}
+
+/* ---------- filtered list (ordered) ---------- */
+function filtered(){
+  const arr=DATA.filter(d=>
+    (state.section==="all"||d.section===state.section)&&
+    (!state.verdict||d.verdict===state.verdict)&&
+    (!state.severity||d.severity===state.severity)&&
+    (!state.q||(d.title+" "+d.claim+" "+(d.response||"")).toLowerCase().includes(state.q))
+  );
+  if(state.section==="peculiar")return arr.sort((a,b)=>PORDER.indexOf(a.id)-PORDER.indexOf(b.id));
+  return arr.sort((a,b)=>(b.featured?1:0)-(a.featured?1:0)||SEVRANK[a.severity]-SEVRANK[b.severity]||VRANK[a.verdict]-VRANK[b.verdict]);
+}
+
+/* ---------- sidebar ---------- */
+function renderNav(){
+  const secCount={};DATA.forEach(d=>secCount[d.section]=(secCount[d.section]||0)+1);
+  const items=[["overview","Overview",DATA.length],...Object.entries(SECTIONS).filter(([k])=>secCount[k]).map(([k,l])=>["sec:"+k,l,secCount[k]])];
+  const views=[["core","The heart of it","3"],["share","Sharing the gospel","✝"],["paths","Guided paths",PATHS.length],["timeline","Timeline","1820–2023"],["glossary","Terms explained",GLOSSARY.length]];
+  const cur=state.view==="overview"&&state.section!=="all"?"sec:"+state.section:state.view;
+  $("#nav").innerHTML=items.map(([k,l,c])=>`<a class="${cur===k?"on":""}" data-k="${k}">${l} <span class="cnt">${c}</span></a>`).join("")
+    +`<h5>Views</h5>`+views.map(([k,l,c])=>`<a class="${cur===k?"on":""}" data-k="${k}">${l} <span class="cnt">${c}</span></a>`).join("");
+  document.querySelectorAll("#nav a").forEach(a=>a.addEventListener("click",()=>{
+    const k=a.dataset.k;
+    if(k.startsWith("sec:")){state.view="overview";state.section=k.slice(4);state.caseId=null;}
+    else if(k==="overview"){state.view="overview";state.section="all";state.caseId=null;}
+    else{state.view=k;state.caseId=null;}
+    render();
+  }));
+  const read=store.read.size;
+  $("#sideprog").innerHTML=`${read} of ${DATA.length} cases read<div class="pbar"><i style="width:${Math.round(read/DATA.length*100)}%"></i></div>
+    <button id="themebtn" style="margin-top:14px;background:none;border:1px solid var(--line2);color:var(--muted);border-radius:8px;padding:5px 12px;font-size:.72rem;cursor:pointer">◐ ${document.documentElement.dataset.theme==="light"?"Dark":"Light"} mode</button>`;
+  $("#themebtn").addEventListener("click",()=>{
+    const cur=document.documentElement.dataset.theme==="light"?"dark":"light";
+    document.documentElement.dataset.theme=cur;
+    localStorage.setItem("wb_theme",cur);
+    renderNav();
+  });
+}
+
+/* ---------- preview ---------- */
+function renderPreview(){
+  const el=$("#preview");
+  const d=state.sel?byId[state.sel]:null;
+  if(!d){el.innerHTML=`<div class="empty">Hover or select a case<br>to preview it here.<br><br><kbd>J</kbd>/<kbd>K</kbd> to move · <kbd>↵</kbd> to open</div>`;return;}
+  const rel=(RELATED[d.id]||[]).filter(id=>byId[id]);
+  el.innerHTML=`<span class="badge v-${d.verdict}">${VLABEL[d.verdict]}</span>
+    <h5 class="pt">${esc(d.title)}</h5>
+    <p>${esc(d.claim.split(/(?<=\.)\s/)[0])}</p>
+    <button class="go" data-open="${d.id}">Open case →</button>
+    <h6>Connected cases</h6>
+    ${rel.map(id=>`<button class="rr" data-open="${id}">${esc(byId[id].title)}</button>`).join("")||'<p style="font-size:.75rem">—</p>'}`;
+  el.querySelectorAll("[data-open]").forEach(b=>b.addEventListener("click",()=>openCase(b.dataset.open)));
+}
+
+/* ---------- overview ---------- */
+function renderOverview(){
+  const items=filtered();
+  const anyF=state.verdict||state.severity||state.q||state.section!=="all";
+  const visible=new Set(items.map(d=>d.id));
+  const read=store.read;
+  const VDESC={admitted:"The church's own publications concede these facts — cite them from their sources alone",unrefuted:"No adequate answer exists — or the best answers concede the point",contested:"A serious rebuttal exists; both sides shown",answered:"The defense holds — included so nothing is cherry-picked"};
+  const counts={};DATA.forEach(d=>counts[d.verdict]=(counts[d.verdict]||0)+1);
+  const col=v=>{
+    const cls=v==="admitted"?"ad":v==="unrefuted"?"un":v==="contested"?"co":"an";
+    const src=state.section==="all"?DATA:DATA.filter(d=>d.section===state.section);
+    const groups=["high","medium","low"].map(s=>{
+      const g=src.filter(d=>d.verdict===v&&d.severity===s).sort((a,b)=>(b.featured?1:0)-(a.featured?1:0));
+      if(!g.length)return "";
+      return `<div class="vgroup"><h6>${s==="high"?"Major impact":s==="medium"?"Moderate impact":"Minor impact"} · ${g.length}</h6>`+
+        g.map(d=>`<button class="vt ${state.sel===d.id?"sel":""}${visible.has(d.id)?"":" dimmed"}" data-id="${d.id}">
+          <h5>${esc(d.title)}</h5>
+          <span class="m">${read.has(d.id)?'<span class="rd">✓ read</span>':""}${d.featured?'<span class="star">★ strongest evidence</span>':""}<span>${SECTIONS[d.section]}</span></span>
+        </button>`).join("")+`</div>`;
+    }).join("");
+    const cnt=src.filter(d=>d.verdict===v).length;
+    return `<div class="vcol ${cls}"><header><span class="n">${cnt}</span><span class="t">${VLABEL[v]}</span><div class="d">${VDESC[v]}</div></header>${groups}</div>`;
+  };
+  if(state.section==="peculiar"){
+    const items2=filtered();
+    $("#main").innerHTML=`
+      <div class="tiles">
+        <button class="tile on" data-v=""><div class="v">${DATA.filter(d=>d.section==="peculiar").length}</div><div class="l">Ranked entries</div></button>
+        <button class="tile t-un" data-v=""><div class="v" style="font-size:1rem;padding-top:8px">Most jaw-dropping first</div><div class="l">how this list is sorted</div></button>
+      </div>
+      <h4 class="bt">Strange to outsiders — practices and institutional behavior, ranked by how surprising they are to a non-Mormon. Not core theology; each is documented and steelmanned like everything else.</h4>
+      <div class="vcol" style="max-width:760px">${items2.map((d,i)=>`
+        <button class="vt ${state.sel===d.id?"sel":""}" data-id="${d.id}">
+          <h5><span style="font-family:var(--mono);color:var(--dim);font-size:.8rem;margin-right:8px">${String(i+1).padStart(2,"0")}</span>${esc(d.title)}</h5>
+          <span class="m">${read.has(d.id)?'<span class="rd">✓ read</span>':""}<span class="badge v-${d.verdict}">${VLABEL[d.verdict]}</span><span>impact: ${SEVLABEL[d.severity]}</span></span>
+        </button>`).join("")}</div>
+      <p class="methodfoot">Ranking is editorial: how startling the item is to someone outside the tradition, most to least. Verdicts still grade only the factual claim.</p>`;
+    document.querySelectorAll(".vt").forEach(c=>{
+      c.addEventListener("mouseenter",()=>{state.sel=c.dataset.id;renderPreview();});
+      c.addEventListener("click",()=>openCase(c.dataset.id));
+    });
+    return;
+  }
+  $("#main").innerHTML=`
+    <div class="tiles">
+      <button class="tile ${!state.verdict?"on":""}" data-v=""><div class="v">${DATA.length}</div><div class="l">Claims</div></button>
+      <button class="tile t-ad ${state.verdict==="admitted"?"on":""}" data-v="admitted"><div class="v">${counts.admitted||0}</div><div class="l">Admitted</div></button>
+      <button class="tile t-un ${state.verdict==="unrefuted"?"on":""}" data-v="unrefuted"><div class="v">${counts.unrefuted||0}</div><div class="l">Unrefuted</div></button>
+      <button class="tile t-co ${state.verdict==="contested"?"on":""}" data-v="contested"><div class="v">${counts.contested||0}</div><div class="l">Contested</div></button>
+      <button class="tile t-an ${state.verdict==="answered"?"on":""}" data-v="answered"><div class="v">${counts.answered||0}</div><div class="l">Answered</div></button>
+    </div>
+    <h4 class="bt">${state.section==="all"?"Every claim, by verdict":SECTIONS[state.section]+" — by verdict"}${anyF?` · <button id="clearf" style="background:none;border:0;color:var(--gold);cursor:pointer;text-decoration:underline;font-size:.72rem;letter-spacing:0;text-transform:none">${items.length} match filters — clear</button>`:""}</h4>
+    <div class="vwall">${col("admitted")}${col("unrefuted")}${col("contested")}${col("answered")}</div>
+    <p class="methodfoot">Steelman rules: every claim carries the best published Muslim defense; weak criticisms are marked answered; facts conceded in sahih Islamic sources are marked admitted. Compiled July 2026 from published sources — verify citations at the links before quoting. Verdicts are editorial judgments about the public argument.</p>`;
+  document.querySelectorAll(".tile").forEach(t=>t.addEventListener("click",()=>{state.verdict=t.dataset.v||null;render();}));
+  document.querySelectorAll(".vt").forEach(c=>{
+    c.addEventListener("mouseenter",()=>{state.sel=c.dataset.id;renderPreview();});
+    c.addEventListener("click",()=>openCase(c.dataset.id));
+  });
+  const cf=$("#clearf");if(cf)cf.addEventListener("click",()=>{state.verdict=null;state.severity=null;state.q="";state.section="all";render();});
+}
+
+/* ---------- case ---------- */
+function openCase(id,fromPath){
+  state.caseId=id;state.sel=id;state.view="case";
+  if(!fromPath)state.pathId=state.pathId; // keep path context if navigating within
+  store.markRead(id);
+  render();
+  window.scrollTo({top:0});
+}
+function renderCase(){
+  const d=byId[state.caseId];if(!d){state.view="overview";return renderOverview();}
+  const list=filtered();const idx=list.findIndex(x=>x.id===d.id);
+  const path=state.pathId?PATHS.find(p=>p.id===state.pathId):null;
+  let nextInPath=null;
+  if(path){const i=path.items.indexOf(d.id);if(i>-1&&i<path.items.length-1)nextInPath=path.items[i+1];}
+  const comp=d.comparison?`
+    <div class="dlab">Side by side</div>
+    <div class="compare2">
+      <div class="pane bom"><div class="ref">${esc(d.comparison.left.ref)}</div><div class="scripture">${hl(d.comparison.left.text,d.comparison.hl)}</div></div>
+      <div class="pane bible"><div class="ref">${esc(d.comparison.right.ref)}</div><div class="scripture">${hl(d.comparison.right.text,d.comparison.hl)}</div></div>
+    </div>${d.comparison.note?`<p class="cnote">${esc(d.comparison.note)}</p>`:""}`:"";
+  const chipHtml=(arr)=>arr.map(p=>{
+    const v=VERSES[p];
+    return `<button class="chip ${v?"":"ext"}" data-cite="${esc(p)}" ${v?"":`data-ext="${extUrl(p)}"`}>${esc(p)}</button>`;
+  }).join("");
+  const hadithChips=(d.hadith||[]).map(h=>{
+    const u=hadithUrl(h);
+    return u?`<a class="chip ext" href="${u}" target="_blank" rel="noopener">${esc(h)}</a>`:`<span class="chip" style="cursor:default">${esc(h)}</span>`;
+  }).join("");
+  const passages=((d.quran||[]).length||(d.hadith||[]).length||(d.bible||[]).length)?`
+    <aside class="claimside">
+      <div class="dlab" style="margin-top:0">The texts behind this claim</div>
+      <p class="sidenote">Every reference here is cited by this specific claim — click a Quran or Bible reference to read it in place; hadith open on sunnah.com.</p>
+      <div class="passcols">
+        ${(d.quran||[]).length?`<div><h6 class="h-bom">Quran</h6><div class="chips" data-side="quran">${chipHtml(d.quran)}</div></div>`:""}
+        ${(d.hadith||[]).length?`<div><h6 class="h-bom" style="color:var(--amber)">Hadith</h6><div class="chips" data-side="hadith">${hadithChips}</div></div>`:""}
+        ${(d.bible||[]).length?`<div><h6 class="h-bib">Bible</h6><div class="chips" data-side="bib">${chipHtml(d.bible)}</div></div>`:""}
+        <div id="versebox"></div>
+      </div>
+    </aside>`:"";
+  const rel=(RELATED[d.id]||[]).filter(x=>byId[x]);
+  $("#main").innerHTML=`
+    <div class="backbar">
+      <button class="bk" id="back">← ${path?esc(path.name):"All cases"}</button>
+      <span style="font-size:.72rem;color:var(--dim)">${idx+1>0?`Case ${idx+1} of ${list.length}`:""} · <kbd>←</kbd>/<kbd>→</kbd> to move</span>
+      ${nextInPath?`<button class="pathnext" id="pathnext">Next in path →</button>`:""}
+    </div>
+    <div class="case">
+      <div class="meta"><span class="badge v-${d.verdict}">${VLABEL[d.verdict]} ${info(TIPS.verdict[d.verdict])}</span><span class="tag">${SECTIONS[d.section]}</span><span class="tag">${CATS[d.category]} ${info(CATDESC[d.category])}</span><span class="tag">impact: ${SEVLABEL[d.severity]} ${info(TIPS.impact)}</span>${d.featured?`<span class="tag" style="border-color:var(--gold);color:var(--gold)">★ strongest evidence ${info(TIPS.strongest)}</span>`:""}</div>
+      <h2>${esc(d.title)}</h2>
+      <div class="claimrow${passages?"":" solo"}">
+        <div><div class="dlab red" style="margin-top:0">The claim</div><div class="claim">${paras(d.claim)}</div></div>
+        ${passages}
+      </div>
+      ${comp}
+      <div class="dlab blue">The best defense, steelmanned</div>
+      <div class="defense">${formatDefense(d.response)}${d.responseSource?`<div class="dsrc">Source: ${d.responseSource.url?`<a href="${esc(d.responseSource.url)}" target="_blank" rel="noopener">${esc(d.responseSource.name)}</a>`:esc(d.responseSource.name)}</div>`:""}</div>
+      <div class="dlab">The verdict</div>
+      <div class="vbox v-${d.verdict}"><b class="vb">${VLABEL[d.verdict]}</b><span>${paras(d.rationale)}</span></div>
+      <div class="dlab">Why this matters</div>
+      <div class="why">${paras(WHYMAP[d.category]||"")}<p class="wtail">${esc(WHYTAIL[d.verdict])}</p></div>
+      ${TALK[d.category]?`<div class="dlab" style="color:var(--green)">Bringing it up in conversation</div>
+      <div class="talk">${paras(TALK[d.category])}</div>`:""}
+      ${DIALOG[d.category]?`<div class="dlab" style="color:var(--green)">How the conversation usually goes</div>
+      <div class="dlg">${DIALOG[d.category].map(m=>`<div class="msg ${m.w}"><span class="who">${m.w==="them"?"They may say":"You respond"}</span><p>${rich(m.t)}</p></div>`).join("")}</div>`:""}
+      <details class="srcdet"><summary>Connected cases — ${rel.length} related claim${rel.length===1?"":"s"}</summary>
+      <div class="relrow" style="margin-top:12px">${rel.map(id=>`<button data-open="${id}">${esc(byId[id].title)}</button>`).join("")||"—"}</div></details>
+      <details class="srcdet"><summary>Documented by — ${d.sources.length} source${d.sources.length>1?"s":""} (click to expand)</summary>
+      <ul class="srcs">${d.sources.map(s=>`<li><span class="sb sb-${s.type}">${s.type}</span><span>${s.url?`<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)}</a>`:esc(s.name)}</span></li>`).join("")}</ul></details>
+    </div>`;
+  $("#back").addEventListener("click",()=>{state.view=path?"paths":"overview";state.caseId=null;render();});
+  if(nextInPath)$("#pathnext").addEventListener("click",()=>openCase(nextInPath));
+  document.querySelectorAll(".relrow [data-open]").forEach(b=>b.addEventListener("click",()=>openCase(b.dataset.open)));
+  document.querySelectorAll(".chip").forEach(ch=>ch.addEventListener("click",()=>{
+    if(ch.dataset.ext){window.open(ch.dataset.ext,"_blank");return;}
+    const cite=ch.dataset.cite;const v=VERSES[cite];
+    const box=$("#versebox");
+    const already=ch.classList.contains("open");
+    document.querySelectorAll(".chip.open").forEach(x=>x.classList.remove("open"));
+    if(already){box.innerHTML="";return;}
+    ch.classList.add("open");
+    const side=ch.closest("[data-side]")?ch.closest("[data-side]").dataset.side:"";
+    const why=findWhy(d,cite);
+    const whyHtml=why?`<b>Why it's cited:</b> ${esc(why)}`:(side==="quran"?"<b>Role:</b> this is the Quran passage the claim examines.":"<b>Role:</b> this is the biblical standard the claim measures against.");
+    box.innerHTML=`<div class="versebox"><div class="vr"><span>${esc(cite)}</span><button data-close>✕ close</button></div><div class="vtext">${v.verses.map(x=>`<span class="vnum">${x.v}</span>${esc(x.t)} `).join("")}</div><div class="vwhy">${whyHtml}</div></div>`;
+    box.querySelector("[data-close]").addEventListener("click",()=>{box.innerHTML="";document.querySelectorAll(".chip.open").forEach(x=>x.classList.remove("open"));});
+  }));
+  renderNav();renderPreview();
+}
+
+/* ---------- paths ---------- */
+function renderPaths(){
+  const read=store.read;
+  $("#main").innerHTML=`<div class="viewhead"><h2>Guided paths</h2><p>Curated routes through the corpus. Progress is saved in your browser; inside a path, each case offers "Next in path."</p></div>`+
+    PATHS.map(p=>{
+      const done=p.items.filter(i=>read.has(i)).length;
+      return `<div class="pathcard"><h3>${esc(p.name)}</h3><p class="pd">${esc(p.desc)} · ${p.time} · ${done}/${p.items.length} read</p>
+      <ol>${p.items.map(i=>`<li class="${read.has(i)?"done":""}">${esc(byId[i].title)}</li>`).join("")}</ol>
+      <button class="start" data-path="${p.id}">${done===0?"Start path":done>=p.items.length?"Revisit path":"Continue path"} →</button></div>`;
+    }).join("");
+  document.querySelectorAll("[data-path]").forEach(b=>b.addEventListener("click",()=>{
+    const p=PATHS.find(x=>x.id===b.dataset.path);state.pathId=p.id;
+    const read=store.read;const next=p.items.find(i=>!read.has(i))||p.items[0];
+    openCase(next,true);
+  }));
+}
+
+/* ---------- timeline ---------- */
+function renderTimeline(){
+  $("#main").innerHTML=`<div class="viewhead"><h2>The revision record</h2><p>1820–2023: the claims, the edits, and the concessions in chronological order. Red dots mark documented revisions or external findings.</p></div>
+  <div class="tlwrap">${TIMELINE.map(e=>`
+    <div class="tlev ${e.crit?"crit":""}"><span class="yr">${e.y}</span><h4>${esc(e.t)}</h4><p>${esc(e.p)}</p>${e.id&&byId[e.id]?`<button class="jump" data-open="${e.id}">→ ${esc(byId[e.id].title)}</button>`:""}</div>`).join("")}</div>`;
+  document.querySelectorAll(".jump").forEach(b=>b.addEventListener("click",()=>openCase(b.dataset.open)));
+}
+
+/* ---------- glossary ---------- */
+function renderGlossary(){
+  $("#main").innerHTML=`<div class="viewhead"><h2>Terms explained</h2><p>The special terms this subject runs on, in plain English. They're also underlined with a dotted line throughout the case files — hover any of them for the definition right there.</p></div>
+  <div class="glossgrid">${GLOSSARY.map(g=>`<div class="glosscard"><b>${esc(g.t)}</b><p>${esc(g.d)}</p></div>`).join("")}</div>`;
+}
+
+/* ---------- the heart of it ---------- */
+function renderCore(){
+  const link=id=>byId[id]?`<button class="corelink" data-open="${id}">${esc(byId[id].title)} →</button>`:"";
+  $("#main").innerHTML=`
+  <div class="viewhead"><h2>The heart of it: the Bible stands — and the Quran falls by its own standard</h2>
+  <p>If you read nothing else on this site, read this page. Islam's entire case against Christianity rests on one claim, and that claim self-destructs. Here is the whole argument, in plain terms.</p></div>
+
+  <div class="pathcard"><h3 style="color:var(--red)">1 · The dilemma no Muslim answer escapes</h3>
+  <p style="font-size:.92rem;line-height:1.75">Islam must claim the Bible was corrupted — otherwise the Bible's Jesus (crucified, risen, divine Son) refutes the Quran's. But ask one question: <b>corrupted when?</b> <span class="qq">‘Before Muhammad’</span> collides with the Quran itself, which affirms the Torah <span class="qq">‘with them’</span> as containing Allah's judgment (5:43), commands the People of the Gospel to judge by it (5:47), says doubters should <span class="qq">‘ask those who have been reading the Scripture before you’</span> (10:94), and declares <span class="qq">‘none can alter His words’</span> (6:115). No true prophet sends seekers to corrupted books. <span class="qq">‘After Muhammad’</span> collides with the manuscripts: the Dead Sea Scrolls are ~800 years before Muhammad, complete Bibles like Codex Sinaiticus ~250 years before — and they match the Bible on your shelf. <b>Why it matters:</b> if the Bible stands, then everywhere the Quran contradicts it — the cross, the Son, salvation — it is the Quran that must be thrown out, by the standard the Quran itself set.</p>
+  <div class="corelinks">${link("quran-affirms-torah-gospel")}${link("manuscripts-predate-muhammad")}${link("tahrif-doctrine-late-development")}${link("gospel-judgment-test")}${link("injil-problem")}</div></div>
+
+  <div class="pathcard"><h3 style="color:var(--red)">2 · A different Jesus — whom the Quran cannot stop exalting</h3>
+  <p style="font-size:.92rem;line-height:1.75">The Quran denies the crucifixion (4:157) — the best-attested fact of Jesus's life, called <span class="qq">‘indisputable’</span> even by atheist historians — and denies his sonship. Yet the Quran's own Jesus is virgin-born (3:47), sinless (19:19), the Messiah, <span class="qq">‘His Word… and a Spirit from Him’</span> (4:171), a raiser of the dead, alive in heaven now, and returning at the end of the age — while Muhammad is told to seek forgiveness for his sin (47:19) and lies buried in Medina. <b>Why it matters:</b> without the cross there is no atonement, and without atonement the scales are all that's left. The Quran gestures at the Savior's uniqueness in the act of denying the salvation he accomplished.</p>
+  <div class="corelinks">${link("crucifixion-denial-vs-history")}${link("quran-jesus-resume")}${link("word-and-spirit-titles")}${link("son-of-god-divine-claims")}</div></div>
+
+  <div class="pathcard"><h3 style="color:var(--red)">3 · A different salvation: the scales vs. the gift</h3>
+  <p style="font-size:.92rem;line-height:1.75">Islam offers a weighing: <span class="qq">‘those whose scales are heavy — they are the successful’</span> (23:102) — and no assurance, by design; even Muhammad said <span class="qq">‘though I am Allah's Messenger, I do not know what will be done with me’</span> (Bukhari 7018). The gospel offers what no scale can: <span class="qq">‘God demonstrates his own love for us in this: while we were still sinners, Christ died for us’</span> (Romans 5:8), and <span class="qq">‘that you may KNOW that you have eternal life’</span> (1 John 5:13). <b>Why it matters:</b> this is the conversation that actually offers your Muslim friend something — not a lost argument, but a found Father. Every Eid al-Adha they commemorate a ransom <span class="qq">‘with a great sacrifice’</span> (37:107) whose meaning their own book never explains. You know the Lamb it pointed to.</p>
+  <div class="corelinks">${link("salvation-scales")}${link("god-is-love-monad")}${link("best-of-deceivers")}</div></div>
+
+  <div class="pathcard"><h3>What follows from these three</h3>
+  <p class="pd" style="margin-bottom:10px">Everything else on this site — the borrowed legends, the compilation history, Muhammad's pattern — serves these three. The internal evidence answers <i>"why should I question the messenger?"</i>; these three answer <i>"what was wrong with the message — and what is true instead?"</i> Lead with whichever your friend can hear, but always land on the third — because that is where the real Jesus is offered.</p>
+  <button class="start" data-goto="share">How to have these conversations →</button></div>`;
+  $("#main").querySelectorAll(".corelink").forEach(b=>{if(b.dataset.open)b.addEventListener("click",()=>openCase(b.dataset.open));});
+  const g=$("#main").querySelector("[data-goto]");
+  if(g)g.addEventListener("click",()=>{state.view="share";render();});
+}
+
+/* ---------- sharing the gospel ---------- */
+function renderShare(){
+  $("#main").innerHTML=`
+  <div class="viewhead"><h2>Sharing the gospel with Muslim friends</h2>
+  <p>Built from the largest study of Muslim conversions ever done (Woodberry's Fuller Seminary survey of ~750 Muslim-background believers) and the methods of ministries with decades in this work. "The Lord's servant must not be quarrelsome but kind to everyone… correcting his opponents with gentleness" (2 Timothy 2:24–25).</p></div>
+
+  <div class="pathcard"><h3>What actually brought ex-Muslims to Christ</h3>
+  <ol style="font-size:.88rem;color:var(--muted);line-height:1.7;margin:6px 0 0;padding-left:20px">
+    <li><b style="color:var(--ink)">The lifestyle and love of Christians they knew — the #1 ranked factor.</b> Not arguments: love in Christian marriages, love for enemies, honesty, a Christian who stayed. Nabeel Qureshi's four-year debate friendship with David Wood is the canonical case — a friend both unashamedly convinced and unfailingly present. Most Muslims never have a single close Christian friend. Be the first.</li>
+    <li><b style="color:var(--ink)">Reading the actual Bible — especially the Sermon on the Mount.</b> They're taught it's corrupted; reading it is the shock. Mosab Hassan Yousef (son of a Hamas founder): "When I read 'love your enemies and pray for those who persecute you,' I was thunderstruck… this was the message I had been searching for all my life."</li>
+    <li><b style="color:var(--ink)">The character of Jesus against what they find in their own sources.</b> Mark Gabriel had the entire Quran memorized and taught at Al-Azhar; his doubts began from inside the texts. The side-by-side study of Jesus and Muhammad is what moved him.</li>
+    <li><b style="color:var(--ink)">Dreams of Jesus — handle factually.</b> Surveys consistently find ~25–33% of Muslim-background believers report a dream of Jesus before conversion. The pattern: the dream opens the door; a Bible or a Christian walks through it. Worth asking a Muslim friend, gently: "Have you ever had a dream about Jesus?" Many have, and have told no one.</li>
+    <li><b style="color:var(--ink)">Assurance against the scales.</b> The discovery that a person can KNOW they are forgiven (1 John 5:13) is consistently named as decisive by converts exhausted from earning.</li>
+  </ol></div>
+
+  <div class="pathcard"><h3>The method: honor, hospitality, questions, patience</h3>
+  <ol style="font-size:.88rem;color:var(--muted);line-height:1.7;margin:6px 0 0;padding-left:20px">
+    <li><b style="color:var(--ink)">Honor governs everything.</b> Never mock Muhammad or the Quran to a Muslim's face — an insult to the Prophet attacks their family, identity, and community; it triggers the honor-defense reflex and ends the conversation permanently. Honest questions about Muhammad are permitted; contempt never is.</li>
+    <li><b style="color:var(--ink)">Hospitality is the master key.</b> Eating together is the trust currency of Muslim culture. Accept iftar invitations; host them (halal-conscious — no pork or alcohol); reciprocate at Christmas and Easter. Most real evangelism of Muslims happens over meals in homes, not in debates.</li>
+    <li><b style="color:var(--ink)">Use the Quran as a door, never an authority.</b> "Your own book says striking things about Isa — have you seen them?" is a legitimate opener. Then get to the Bible fast and stay there.</li>
+    <li><b style="color:var(--ink)">Learn their vocabulary.</b> Isa al-Masih, Injil, Tawrat, Zabur — using the terms signals respect. But define words like 'sin,' 'salvation,' and 'Son of God' before arguing about them.</li>
+    <li><b style="color:var(--ink)">Tell the gospel in honor-shame language too.</b> Adam's sin brought shame, hiding, exile — and Jesus bore our shame publicly, 'despising the shame' (Hebrews 12:2), so God could cover us, cleanse us, and seat us with honor as His children (Luke 15:22 — robe, ring, feast). This frame lands where courtroom language doesn't.</li>
+    <li><b style="color:var(--ink)">Public polemics and personal witness are different tools.</b> Debate videos work for doubters watching anonymously at 2 a.m.; they are not a script for your neighbor's face. What dislodges certainty rarely, by itself, produces disciples — relationships do.</li>
+    <li><b style="color:var(--ink)">Expect years, and pray.</b> Qureshi: four years. Abdu Murray: nine years from persuasion to profession — because the cost is so high. This is farming, not harvesting.</li>
+  </ol></div>
+
+  <div class="pathcard"><h3>The seven objections you WILL hear — and the answers</h3>
+  <ol style="font-size:.88rem;color:var(--muted);line-height:1.7;margin:6px 0 0;padding-left:20px">
+    <li><b style="color:var(--ink)">"The Bible is corrupted."</b> The flagship — everything rests on it. Two-part answer: the Quran's own testimony (10:94; 5:47; 5:68; 6:115) endorses the Bible of Muhammad's day, and the manuscripts (Dead Sea Scrolls; Sinaiticus) prove that Bible is ours. Ask: "Corrupted before Muhammad — then why does the Quran endorse it? Or after — then why do pre-Islamic manuscripts match ours?"</li>
+    <li><b style="color:var(--ink)">"Jesus never said 'I am God.'"</b> Show he claimed what only God can: forgiving sins in his own person (Mark 2:5–7), the Daniel 7 claim at his trial that got him condemned for blasphemy (Mark 14:61–64), accepting Thomas's worship (John 20:28), 'before Abraham was, I AM' (John 8:58). Ask: "Why was he executed for blasphemy?"</li>
+    <li><b style="color:var(--ink)">"The Trinity is three gods."</b> Clarify first: what the Quran attacks (Allah, Jesus, and Mary — 5:116) is tritheism, which Christians also condemn. One God (Deuteronomy 6:4), three persons: one 'what,' three 'whos.' And the Quran itself calls Jesus God's Word and a Spirit from Him (4:171) — were God's Word and Spirit ever separate from God?</li>
+    <li><b style="color:var(--ink)">"Paul invented Christianity."</b> The resurrection creed Paul RECEIVED (1 Corinthians 15:3–8) dates to within a few years of the cross; Peter, James, and John endorsed his gospel (Galatians 2:9). If Paul hijacked it, why did the eyewitnesses die for the same message?</li>
+    <li><b style="color:var(--ink)">"Muhammad is the Paraclete of John 14."</b> Read the passage together: the Comforter is 'the SPIRIT of truth,' whom 'the world cannot see,' who would be IN the disciples then living (14:17), sent in Jesus's name (14:26). Muhammad was a visible man born 500 years later.</li>
+    <li><b style="color:var(--ink)">"The Bible names Muhammad — Song of Songs 5:16."</b> The Hebrew word machmad ('lovely/desirable') appears ~13 times in the Old Testament — including of things plundered and destroyed. In context it's a bride praising her husband's kisses. Sound-alike is not identity.</li>
+    <li><b style="color:var(--ink)">"The Gospel of Barnabas is the true gospel."</b> A demonstrated 14th–16th-century forgery — medieval Jubilee reference, wine casks, Dante quotations — and it contradicts the QURAN (it denies Jesus is the Messiah). Most Muslim scholars concede its inauthenticity.</li>
+  </ol></div>
+
+  <div class="pathcard"><h3>Count the cost — higher than you think</h3>
+  <p style="font-size:.88rem;line-height:1.7">Apostasy from Islam is criminal in ~17 countries and capital in roughly a dozen; in the West the costs are disownment, expulsion, broken engagements, and in extreme cases violence. So: <b>never out a Muslim seeker</b> — not to their family, not on social media, not in a group prayer text. Let the seeker control who knows. Don't run conversion tests with pork or alcohol — eating bacon proves nothing about faith in Christ (Romans 14). Respect gender lines: men witness to men, women to women. Time baptism wisely — it is the public act that triggers consequences. And when someone does come to Christ, <b>the church must become their family in practical fact</b> — meals, holidays, housing help — or they will drift back not from doubt but from loneliness. Say early and often: <i>"I know what this could cost you. I'm not going anywhere either way."</i></p></div>
+
+  <div class="pathcard"><h3>Seven gospel bridges (in their vocabulary)</h3>
+  <ol style="font-size:.88rem;color:var(--muted);line-height:1.7;margin:6px 0 0;padding-left:20px">
+    <li><b style="color:var(--ink)">Isa's resume → the Word made flesh.</b> Word of Allah, Spirit from Him, Messiah, virgin-born, sinless, alive, returning (3:45–49; 4:171) — "Whose resume is that? Why not read everything this one said?" → John 1:1–14.</li>
+    <li><b style="color:var(--ink)">Eid al-Adha → the Lamb of God.</b> "We ransomed him with a GREAT sacrifice" (37:107). Ask: "What was the ram pointing to? Why a ransom at all?" → Genesis 22:8; John 1:29; Mark 10:45.</li>
+    <li><b style="color:var(--ink)">The scales → assurance.</b> 23:102–103 vs. 1 John 5:13. "Are you sure your good outweighs your bad? Would you want to be sure?"</li>
+    <li><b style="color:var(--ink)">The 99 names → the missing name: Father.</b> Master–slave vs. Abba. → Luke 15 (the father RUNS — an honor-shattering act); Romans 8:15.</li>
+    <li><b style="color:var(--ink)">The Zabur → Psalm 22.</b> The Quran affirms the Psalms (4:163). Read Psalm 22 — pierced hands, divided garments, a thousand years early — then Matthew 27. The crucifixion the Quran denies in one late verse is detailed in a book it endorses.</li>
+    <li><b style="color:var(--ink)">Shame → honor.</b> Jesus bore shame publicly to cover ours and seat us with honor (Hebrews 12:2; 1 Peter 2:6 — "whoever believes in him will not be put to shame").</li>
+    <li><b style="color:var(--ink)">10:94 → permission to read.</b> The Quran itself tells doubters to consult the Book's readers. Offer to read Luke together — genealogy, reverence, structure — one chapter at a time. Nearly every conversion testimony runs through an open Bible.</li>
+  </ol></div>
+
+  <div class="pathcard"><h3>Start here</h3>
+  <p class="pd">The <b>cornerstone path</b> walks the argument everything else depends on; every case page ends with a suggested question and a scripted back-and-forth ("How the conversation usually goes") so you're ready for the counter-moves.</p>
+  <button class="start" data-goto-path="cornerstone">Open the cornerstone path →</button></div>`;
+  const b=$("#main").querySelector("[data-goto-path]");
+  if(b)b.addEventListener("click",()=>{const p=PATHS.find(x=>x.id===b.dataset.gotoPath);state.pathId=p.id;const read=store.read;const next=p.items.find(i=>!read.has(i))||p.items[0];openCase(next,true);});
+}
+
+/* ---------- router ---------- */
+function render(){
+  document.querySelector(".app").classList.toggle("reading",state.view==="case");
+  renderNav();
+  if(state.view==="case")return renderCase();
+  if(state.view==="paths")return renderPaths(),renderPreview();
+  if(state.view==="timeline")return renderTimeline(),renderPreview();
+  if(state.view==="glossary")return renderGlossary(),renderPreview();
+  if(state.view==="share")return renderShare(),renderPreview();
+  if(state.view==="core")return renderCore(),renderPreview();
+  renderOverview();renderPreview();
+}
+
+/* ---------- keyboard ---------- */
+document.addEventListener("keydown",e=>{
+  const inInput=/input|textarea/i.test(document.activeElement.tagName);
+  if(inInput){if(e.key==="Escape")document.activeElement.blur();return;}
+  const list=filtered();
+  const move=dir=>{
+    const idx=list.findIndex(x=>x.id===state.sel);
+    const next=list[Math.min(list.length-1,Math.max(0,(idx<0?0:idx+dir)))];
+    if(!next)return;
+    state.sel=next.id;
+    if(state.view==="case"){openCase(next.id);}
+    else{renderPreview();
+      const el=document.querySelector(`.vt[data-id="${next.id}"]`);
+      document.querySelectorAll(".vt.sel").forEach(x=>x.classList.remove("sel"));
+      document.querySelectorAll(`.vt[data-id="${next.id}"]`).forEach(x=>x.classList.add("sel"));
+      if(el)el.scrollIntoView({block:"nearest"});}
+  };
+  switch(e.key==="ArrowRight"?"next":e.key==="ArrowLeft"?"prev":e.key.toLowerCase()){
+    case "next":e.preventDefault();move(1);break;
+    case "prev":e.preventDefault();move(-1);break;
+    case "enter":if(state.sel&&state.view!=="case")openCase(state.sel);break;
+    case "escape":if(state.view==="case"){state.view=state.pathId?"paths":"overview";state.caseId=null;render();}else{state.q="";const q=$("#q");if(q)q.value="";state.verdict=null;state.severity=null;render();}break;
+    case "o":state.view="overview";state.section="all";state.caseId=null;render();break;
+    case "p":state.view="paths";state.caseId=null;render();break;
+    case "t":state.view="timeline";state.caseId=null;render();break;
+    case "g":state.view="glossary";state.caseId=null;render();break;
+    case "s":state.view="share";state.caseId=null;render();break;
+    case "h":state.view="core";state.caseId=null;render();break;
+  }
+});
+
+document.documentElement.dataset.theme=localStorage.getItem("wb_theme")||"dark";
+$("#q").addEventListener("input",e=>{
+  state.q=e.target.value.trim().toLowerCase();
+  if(state.view!=="overview"){state.view="overview";state.caseId=null;}
+  render();
+});
+render();
+</script>
