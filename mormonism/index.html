@@ -275,6 +275,24 @@
   .toast{position:fixed;bottom:52px;left:50%;transform:translateX(-50%);background:var(--side);border:1px solid var(--gold);color:var(--ink);border-radius:8px;padding:8px 18px;font-size:.8rem;z-index:60;opacity:0;transition:opacity .3s}
   .toast.show{opacity:1}
   .methodfoot{border-top:1px solid var(--line);margin-top:44px;padding-top:16px;font-size:.74rem;color:var(--dim);max-width:90ch}
+
+  .tourwrap{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.62);backdrop-filter:blur(4px);display:grid;place-items:center;padding:20px}
+  .tourcard{background:var(--panel);border:1px solid var(--line2);border-radius:16px;max-width:540px;width:100%;padding:30px 30px 22px;box-shadow:0 30px 80px rgba(0,0,0,.5);animation:tpop .35s cubic-bezier(.2,.7,.2,1)}
+  @keyframes tpop{from{opacity:0;transform:translateY(18px) scale(.97)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){.tourcard{animation:none}}
+  .ticon{font-size:2.1rem;margin-bottom:10px}
+  .tourcard h3{font-family:var(--serif);font-weight:500;font-size:1.45rem;margin:0 0 10px}
+  .tbody{font-size:.93rem;color:var(--muted);line-height:1.75}
+  .tbody b{color:var(--ink)}
+  .tbody .vrow2{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+  .tbody .vrow2 div{display:flex;gap:10px;align-items:baseline}
+  .tdots{display:flex;gap:6px;margin:20px 0 16px}
+  .tdots i{width:8px;height:8px;border-radius:50%;background:var(--line2)}
+  .tdots i.on{background:var(--gold)}
+  .trow{display:flex;justify-content:space-between;align-items:center}
+  .tskip{background:none;border:0;color:var(--dim);cursor:pointer;font-size:.8rem;text-decoration:underline}
+  .tback{background:none;border:1px solid var(--line2);color:var(--muted);border-radius:8px;padding:8px 16px;cursor:pointer;margin-right:8px;font-size:.85rem}
+  .tnext{background:var(--gold);color:var(--gold-ink);border:0;border-radius:8px;padding:8px 20px;font-weight:700;cursor:pointer;font-size:.85rem}
 </style>
 
 </head>
@@ -294,6 +312,7 @@
 
 <script>
 const DATA=[
+
 
 
 
@@ -724,13 +743,14 @@ function renderNav(){
   }));
   const read=store.read.size;
   $("#sideprog").innerHTML=`${read} of ${DATA.length} cases read<div class="pbar"><i style="width:${Math.round(read/DATA.length*100)}%"></i></div>
-    <button id="themebtn" style="margin-top:14px;background:none;border:1px solid var(--line2);color:var(--muted);border-radius:8px;padding:5px 12px;font-size:.72rem;cursor:pointer">◐ ${document.documentElement.dataset.theme==="light"?"Dark":"Light"} mode</button>`;
+    <button id="themebtn" style="margin-top:14px;background:none;border:1px solid var(--line2);color:var(--muted);border-radius:8px;padding:5px 12px;font-size:.72rem;cursor:pointer">◐ ${document.documentElement.dataset.theme==="light"?"Dark":"Light"} mode</button> <button id="tourbtn" style="margin-top:8px;background:none;border:1px solid var(--line2);color:var(--muted);border-radius:8px;padding:5px 12px;font-size:.72rem;cursor:pointer">✦ Replay tour</button>`;
   $("#themebtn").addEventListener("click",()=>{
     const cur=document.documentElement.dataset.theme==="light"?"dark":"light";
     document.documentElement.dataset.theme=cur;
     localStorage.setItem("wb_theme",cur);
     renderNav();
   });
+  const tb=$("#tourbtn");if(tb)tb.addEventListener("click",()=>startTour());
 }
 
 /* ---------- preview ---------- */
@@ -792,17 +812,9 @@ function renderOverview(){
     return;
   }
   $("#main").innerHTML=`
-    <div class="tiles">
-      <button class="tile ${!state.verdict?"on":""}" data-v=""><div class="v">${DATA.length}</div><div class="l">Claims</div></button>
-      <button class="tile t-ad ${state.verdict==="admitted"?"on":""}" data-v="admitted"><div class="v">${counts.admitted||0}</div><div class="l">Admitted</div></button>
-      <button class="tile t-un ${state.verdict==="unrefuted"?"on":""}" data-v="unrefuted"><div class="v">${counts.unrefuted||0}</div><div class="l">Unrefuted</div></button>
-      <button class="tile t-co ${state.verdict==="contested"?"on":""}" data-v="contested"><div class="v">${counts.contested||0}</div><div class="l">Contested</div></button>
-      <button class="tile t-an ${state.verdict==="answered"?"on":""}" data-v="answered"><div class="v">${counts.answered||0}</div><div class="l">Answered</div></button>
-    </div>
-    <h4 class="bt">${state.section==="all"?"Every claim, by verdict":SECTIONS[state.section]+" — by verdict"}${anyF?` · <button id="clearf" style="background:none;border:0;color:var(--gold);cursor:pointer;text-decoration:underline;font-size:.72rem;letter-spacing:0;text-transform:none">${items.length} match filters — clear</button>`:""}</h4>
+    <h4 class="bt">${state.section==="all"?DATA.length+" claims, sorted by where the argument stands · click any title to open its case":SECTIONS[state.section]+" — by verdict"}${anyF?` · <button id="clearf" style="background:none;border:0;color:var(--gold);cursor:pointer;text-decoration:underline;font-size:.72rem;letter-spacing:0;text-transform:none">${items.length} match filters — clear</button>`:""}</h4>
     <div class="vwall">${col("admitted")}${col("unrefuted")}${col("contested")}${col("answered")}</div>
     <p class="methodfoot">Steelman rules: every claim carries the best published defense; weak criticisms are marked answered; sections are judged by different evidence standards (manuscripts · scripture · physical evidence · policy+testimony). Compiled July 2026 from published sources — verify citations at the links before quoting. Verdicts are editorial judgments about the public argument.</p>`;
-  document.querySelectorAll(".tile").forEach(t=>t.addEventListener("click",()=>{state.verdict=t.dataset.v||null;render();}));
   document.querySelectorAll(".vt").forEach(c=>{
     c.addEventListener("mouseenter",()=>{state.sel=c.dataset.id;renderPreview();});
     c.addEventListener("click",()=>openCase(c.dataset.id));
@@ -981,6 +993,24 @@ function renderShare(){
     <li><b style="color:var(--ink)">Pray.</b> "No one can come to me unless the Father who sent me draws him" (John 6:44).</li>
   </ol></div>
 
+  <div class="pathcard"><h3>When they say "prophets are just imperfect men"</h3>
+  <p class="pd" style="margin-bottom:8px">This is the standard escape when Joseph Smith's conduct comes up — and unlike Islam (where Muhammad is the 'excellent pattern,' Quran 33:21), Mormonism officially denies prophetic perfection, so "Joseph sinned" bounces off. Two things don't bounce:</p>
+  <ol style="font-size:.88rem;color:var(--muted);line-height:1.7;margin:6px 0 0;padding-left:20px">
+    <li><b style="color:var(--ink)">Their own veneration text.</b> D&C 135:3: Joseph "has done more, <i>save Jesus only</i>, for the salvation of men in this world, than any other man." Second only to Jesus is the standard the church itself sets — and the hymn "Praise to the Man" is sung to him weekly.</li>
+    <li><b style="color:var(--ink)">Sinning is not the same as deceiving in the prophetic act itself.</b> A prophet may lose his temper; a prophet may not lie about revelation — because every book and ordinance flows through his honesty as the instrument. The record shows exactly that: public polygamy denials while secretly married to 30+ women, a "revelation" threatening Emma by name, revelations edited after the fact, the Book of Abraham. Ask: <i>"I'm not asking whether Joseph was perfect. I'm asking whether he told the truth about the revelations. Which of those does Deuteronomy 18 address?"</i></li>
+  </ol>
+  <p class="pd" style="margin-top:10px">And the fruits test (Matthew 7:15–20) is fair game — missionaries invoke it FOR Joseph ("could a bad tree produce the Book of Mormon?"). Accept the test; then open the Admitted column of this site and weigh the fruit.</p></div>
+
+  <div class="pathcard"><h3>Their canon outranks the Bible — so argue from their canon</h3>
+  <p class="pd" style="margin-bottom:8px">Article of Faith 8 says the Bible is God's word only "as far as it is translated correctly" — making it the <b>least</b> trusted book in the LDS canon — while the Book of Mormon is "the most correct of any book on earth." A Mormon can wave off Isaiah; they cannot wave off Moroni. So your most unanswerable arguments set <b>their most-trusted books against their own doctrine</b>:</p>
+  <ol style="font-size:.88rem;color:var(--muted);line-height:1.7;margin:6px 0 0;padding-left:20px">
+    <li><b style="color:var(--ink)">One God vs. many gods:</b> Alma 11:28–29 — "Is there more than one God?… No." The Book of Mormon itself refutes the plurality of gods.</li>
+    <li><b style="color:var(--ink)">Unchangeable God vs. exalted man:</b> Moroni 8:18 — "unchangeable from all eternity to all eternity" vs. King Follett's God who "was once as we are now."</li>
+    <li><b style="color:var(--ink)">Polygamy:</b> Jacob 2:24 calls David's and Solomon's wives "abominable" vs. D&C 132 calling them God-given.</li>
+    <li><b style="color:var(--ink)">No second chance vs. temple work for the dead:</b> Alma 34:32–35 — "this life is the time" vs. an entire temple system built on postmortem salvation.</li>
+  </ol>
+  <p class="pd" style="margin-top:10px">The question that lands: <i>"If I showed you that the Book of Mormon disagrees with what your church teaches today — which one would you go with?"</i> Every case above is in this catalog with full citations.</p></div>
+
   <div class="pathcard"><h3>Hosting the missionaries</h3>
   <p class="pd" style="margin-bottom:10px">Open the door. They're 18–20, homesick, on tiny budgets — <b>feed them</b>. You may be the only committed Christian who ever shares a meal with them, and more than one famous exit began with a pastor who fed a missionary the gospel instead of an argument. They teach five lessons from <i>Preach My Gospel</i>; here is your best move for each:</p>
   <div style="overflow-x:auto"><table class="gtab">
@@ -1092,6 +1122,28 @@ document.addEventListener("keydown",e=>{
     case "h":state.view="core";state.caseId=null;render();break;
   }
 });
+
+
+const TOURKEY="wb_tour";
+const TOURSTEPS=[{"icon":"⚖","title":"Welcome to the examination","body":"<b>80 documented claims</b> about Mormonism, each weighed against the Bible. Every claim shows its sources, the church's <b>strongest defense</b>, and an honest verdict — nothing is cherry-picked, and weak criticisms are called weak."},{"icon":"🏷","title":"Four verdicts, one glance","body":"Every claim lands in one of four columns:<div class=\"vrow2\"><div><span class=\"badge v-admitted\">Admitted</span><span>their own sources concede the facts</span></div><div><span class=\"badge v-unrefuted\">Unrefuted</span><span>no adequate answer exists</span></div><div><span class=\"badge v-contested\">Contested</span><span>a real debate — both sides shown</span></div><div><span class=\"badge v-answered\">Answered</span><span>the defense wins, and we say so</span></div></div>"},{"icon":"📂","title":"Open any case","body":"Click a claim title and you get the full case file: <b>the claim</b> → <b>the verses behind it</b> (click any reference to read it in place) → <b>the best defense, steelmanned</b> → <b>the verdict</b> → <b>why it matters</b> → and <b>how to bring it up in conversation</b>."},{"icon":"🧭","title":"The sidebar is your map","body":"Sections sort the claims by kind. Below them: <b>The heart of it</b> (the three foundational issues), <b>Sharing the gospel</b> (the full how-to guide), <b>Guided paths</b>, <b>Timeline</b>, and <b>Terms explained</b>. Use ← → arrow keys to move between cases; hover any ⓘ for a plain-English explainer."},{"icon":"🚀","title":"Where to start","body":"New to all this? Read <b>The heart of it</b> first — a different God, a different Jesus, a different gospel — then take the guided path <i>The five strongest cases</i>. You can replay this tour anytime from the sidebar.","cta":"Take me to the heart of it"}];
+function startTour(){
+  const old=document.querySelector(".tourwrap");if(old)old.remove();
+  let ti=0;
+  const wrap=document.createElement("div");wrap.className="tourwrap";
+  function finish(go){localStorage.setItem(TOURKEY,"1");wrap.remove();if(go){state.view="core";state.caseId=null;render();}}
+  function draw(){
+    const s=TOURSTEPS[ti];
+    wrap.innerHTML='<div class="tourcard"><div class="ticon">'+s.icon+'</div><h3>'+s.title+'</h3><div class="tbody">'+s.body+'</div>'+
+      '<div class="tdots">'+TOURSTEPS.map((_,j)=>'<i class="'+(j===ti?"on":"")+'"></i>').join("")+'</div>'+
+      '<div class="trow"><button class="tskip">Skip tour</button><div>'+(ti>0?'<button class="tback">Back</button>':'')+
+      '<button class="tnext">'+(ti===TOURSTEPS.length-1?s.cta:'Next')+'</button></div></div></div>';
+    wrap.querySelector(".tskip").addEventListener("click",()=>finish(false));
+    const bk=wrap.querySelector(".tback");if(bk)bk.addEventListener("click",()=>{ti--;draw();});
+    wrap.querySelector(".tnext").addEventListener("click",()=>{if(ti===TOURSTEPS.length-1){finish(ti===TOURSTEPS.length-1&&true);}else{ti++;draw();}});
+  }
+  document.body.appendChild(wrap);draw();
+}
+if(!localStorage.getItem(TOURKEY))setTimeout(startTour,500);
 
 document.documentElement.dataset.theme=localStorage.getItem("wb_theme")||"dark";
 $("#q").addEventListener("input",e=>{

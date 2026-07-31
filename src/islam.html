@@ -279,6 +279,24 @@
   .toast{position:fixed;bottom:52px;left:50%;transform:translateX(-50%);background:var(--side);border:1px solid var(--gold);color:var(--ink);border-radius:8px;padding:8px 18px;font-size:.8rem;z-index:60;opacity:0;transition:opacity .3s}
   .toast.show{opacity:1}
   .methodfoot{border-top:1px solid var(--line);margin-top:44px;padding-top:16px;font-size:.74rem;color:var(--dim);max-width:90ch}
+
+  .tourwrap{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.62);backdrop-filter:blur(4px);display:grid;place-items:center;padding:20px}
+  .tourcard{background:var(--panel);border:1px solid var(--line2);border-radius:16px;max-width:540px;width:100%;padding:30px 30px 22px;box-shadow:0 30px 80px rgba(0,0,0,.5);animation:tpop .35s cubic-bezier(.2,.7,.2,1)}
+  @keyframes tpop{from{opacity:0;transform:translateY(18px) scale(.97)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){.tourcard{animation:none}}
+  .ticon{font-size:2.1rem;margin-bottom:10px}
+  .tourcard h3{font-family:var(--serif);font-weight:500;font-size:1.45rem;margin:0 0 10px}
+  .tbody{font-size:.93rem;color:var(--muted);line-height:1.75}
+  .tbody b{color:var(--ink)}
+  .tbody .vrow2{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+  .tbody .vrow2 div{display:flex;gap:10px;align-items:baseline}
+  .tdots{display:flex;gap:6px;margin:20px 0 16px}
+  .tdots i{width:8px;height:8px;border-radius:50%;background:var(--line2)}
+  .tdots i.on{background:var(--gold)}
+  .trow{display:flex;justify-content:space-between;align-items:center}
+  .tskip{background:none;border:0;color:var(--dim);cursor:pointer;font-size:.8rem;text-decoration:underline}
+  .tback{background:none;border:1px solid var(--line2);color:var(--muted);border-radius:8px;padding:8px 16px;cursor:pointer;margin-right:8px;font-size:.85rem}
+  .tnext{background:var(--gold);color:var(--gold-ink);border:0;border-radius:8px;padding:8px 20px;font-weight:700;cursor:pointer;font-size:.85rem}
 </style>
 
 <div class="app">
@@ -530,13 +548,14 @@ function renderNav(){
   }));
   const read=store.read.size;
   $("#sideprog").innerHTML=`${read} of ${DATA.length} cases read<div class="pbar"><i style="width:${Math.round(read/DATA.length*100)}%"></i></div>
-    <button id="themebtn" style="margin-top:14px;background:none;border:1px solid var(--line2);color:var(--muted);border-radius:8px;padding:5px 12px;font-size:.72rem;cursor:pointer">◐ ${document.documentElement.dataset.theme==="light"?"Dark":"Light"} mode</button>`;
+    <button id="themebtn" style="margin-top:14px;background:none;border:1px solid var(--line2);color:var(--muted);border-radius:8px;padding:5px 12px;font-size:.72rem;cursor:pointer">◐ ${document.documentElement.dataset.theme==="light"?"Dark":"Light"} mode</button> <button id="tourbtn" style="margin-top:8px;background:none;border:1px solid var(--line2);color:var(--muted);border-radius:8px;padding:5px 12px;font-size:.72rem;cursor:pointer">✦ Replay tour</button>`;
   $("#themebtn").addEventListener("click",()=>{
     const cur=document.documentElement.dataset.theme==="light"?"dark":"light";
     document.documentElement.dataset.theme=cur;
     localStorage.setItem("wb_theme",cur);
     renderNav();
   });
+  const tb=$("#tourbtn");if(tb)tb.addEventListener("click",()=>startTour());
 }
 
 /* ---------- preview ---------- */
@@ -598,17 +617,9 @@ function renderOverview(){
     return;
   }
   $("#main").innerHTML=`
-    <div class="tiles">
-      <button class="tile ${!state.verdict?"on":""}" data-v=""><div class="v">${DATA.length}</div><div class="l">Claims</div></button>
-      <button class="tile t-ad ${state.verdict==="admitted"?"on":""}" data-v="admitted"><div class="v">${counts.admitted||0}</div><div class="l">Admitted</div></button>
-      <button class="tile t-un ${state.verdict==="unrefuted"?"on":""}" data-v="unrefuted"><div class="v">${counts.unrefuted||0}</div><div class="l">Unrefuted</div></button>
-      <button class="tile t-co ${state.verdict==="contested"?"on":""}" data-v="contested"><div class="v">${counts.contested||0}</div><div class="l">Contested</div></button>
-      <button class="tile t-an ${state.verdict==="answered"?"on":""}" data-v="answered"><div class="v">${counts.answered||0}</div><div class="l">Answered</div></button>
-    </div>
-    <h4 class="bt">${state.section==="all"?"Every claim, by verdict":SECTIONS[state.section]+" — by verdict"}${anyF?` · <button id="clearf" style="background:none;border:0;color:var(--gold);cursor:pointer;text-decoration:underline;font-size:.72rem;letter-spacing:0;text-transform:none">${items.length} match filters — clear</button>`:""}</h4>
+    <h4 class="bt">${state.section==="all"?DATA.length+" claims, sorted by where the argument stands · click any title to open its case":SECTIONS[state.section]+" — by verdict"}${anyF?` · <button id="clearf" style="background:none;border:0;color:var(--gold);cursor:pointer;text-decoration:underline;font-size:.72rem;letter-spacing:0;text-transform:none">${items.length} match filters — clear</button>`:""}</h4>
     <div class="vwall">${col("admitted")}${col("unrefuted")}${col("contested")}${col("answered")}</div>
     <p class="methodfoot">Steelman rules: every claim carries the best published Muslim defense; weak criticisms are marked answered; facts conceded in sahih Islamic sources are marked admitted. Compiled July 2026 from published sources — verify citations at the links before quoting. Verdicts are editorial judgments about the public argument.</p>`;
-  document.querySelectorAll(".tile").forEach(t=>t.addEventListener("click",()=>{state.verdict=t.dataset.v||null;render();}));
   document.querySelectorAll(".vt").forEach(c=>{
     c.addEventListener("mouseenter",()=>{state.sel=c.dataset.id;renderPreview();});
     c.addEventListener("click",()=>openCase(c.dataset.id));
@@ -864,6 +875,28 @@ document.addEventListener("keydown",e=>{
     case "h":state.view="core";state.caseId=null;render();break;
   }
 });
+
+
+const TOURKEY="wbi_tour";
+const TOURSTEPS=[{"icon":"⚖","title":"Welcome to the examination","body":"<b>35 documented claims</b> about Islam, each weighed against the Bible — with Quran verses, Hadith, and Bible passages cited on every case. Every claim carries the <b>strongest Muslim defense</b> and an honest verdict; popular polemics that don't survive scrutiny are excluded."},{"icon":"🏷","title":"Four verdicts, one glance","body":"Every claim lands in one of four columns:<div class=\"vrow2\"><div><span class=\"badge v-admitted\">Admitted</span><span>their own sources concede the facts</span></div><div><span class=\"badge v-unrefuted\">Unrefuted</span><span>no adequate answer exists</span></div><div><span class=\"badge v-contested\">Contested</span><span>a real debate — both sides shown</span></div><div><span class=\"badge v-answered\">Answered</span><span>the defense wins, and we say so</span></div></div><p style='margin:10px 0 0'>For Islam, <b>Admitted</b> means the facts sit in Sahih al-Bukhari, Sahih Muslim, or mainstream tafsir — sources every observant Muslim accepts.</p>"},{"icon":"💬","title":"Every case scripts the conversation","body":"Each case ends with <b>“How the conversation usually goes”</b> — a back-and-forth: <i>they may say → you respond → they may counter → you respond</i>. You'll never be caught without the next move. Quran references expand in place; hadith link straight to sunnah.com so your friend can verify instantly."},{"icon":"🧭","title":"The sidebar is your map","body":"Start with <b>The heart of it</b> — the cornerstone dilemma every other conversation depends on. Then <b>Sharing the gospel</b> (honor-shame method, the 7 objections you'll hear, security cautions), <b>Guided paths</b>, <b>Timeline</b>, and <b>Terms explained</b> (tahrif, isnad, taqiyya…)."},{"icon":"🚀","title":"Where to start","body":"Take the <b>cornerstone path</b>: the Quran affirms the Bible of Muhammad's day — and the manuscripts prove that Bible is ours. Master that one argument and every other door opens. Replay this tour anytime from the sidebar.","cta":"Take me to the heart of it"}];
+function startTour(){
+  const old=document.querySelector(".tourwrap");if(old)old.remove();
+  let ti=0;
+  const wrap=document.createElement("div");wrap.className="tourwrap";
+  function finish(go){localStorage.setItem(TOURKEY,"1");wrap.remove();if(go){state.view="core";state.caseId=null;render();}}
+  function draw(){
+    const s=TOURSTEPS[ti];
+    wrap.innerHTML='<div class="tourcard"><div class="ticon">'+s.icon+'</div><h3>'+s.title+'</h3><div class="tbody">'+s.body+'</div>'+
+      '<div class="tdots">'+TOURSTEPS.map((_,j)=>'<i class="'+(j===ti?"on":"")+'"></i>').join("")+'</div>'+
+      '<div class="trow"><button class="tskip">Skip tour</button><div>'+(ti>0?'<button class="tback">Back</button>':'')+
+      '<button class="tnext">'+(ti===TOURSTEPS.length-1?s.cta:'Next')+'</button></div></div></div>';
+    wrap.querySelector(".tskip").addEventListener("click",()=>finish(false));
+    const bk=wrap.querySelector(".tback");if(bk)bk.addEventListener("click",()=>{ti--;draw();});
+    wrap.querySelector(".tnext").addEventListener("click",()=>{if(ti===TOURSTEPS.length-1){finish(ti===TOURSTEPS.length-1&&true);}else{ti++;draw();}});
+  }
+  document.body.appendChild(wrap);draw();
+}
+if(!localStorage.getItem(TOURKEY))setTimeout(startTour,500);
 
 document.documentElement.dataset.theme=localStorage.getItem("wb_theme")||"dark";
 $("#q").addEventListener("input",e=>{
