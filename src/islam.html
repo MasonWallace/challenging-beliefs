@@ -712,6 +712,7 @@ function renderCase(){
   const cimg=IMGMAP[d.id]?`<figure class="cimg"><img src="${IMGMAP[d.id].src}" alt="${esc(IMGMAP[d.id].cap)}" loading="lazy"><figcaption>${esc(IMGMAP[d.id].cap)}</figcaption></figure>`:"";
   const passages=((d.quran||[]).length||(d.hadith||[]).length||(d.bible||[]).length||IMGMAP[d.id])?`
     <aside class="claimside">
+      ${cimg}
       <div class="dlab" style="margin-top:0">The texts behind this claim</div>
       <p class="sidenote">Every reference here is cited by this specific claim — click a Quran or Bible reference to read it in place; hadith open on sunnah.com.</p>
       <div class="passcols">
