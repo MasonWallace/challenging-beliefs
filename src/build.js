@@ -94,42 +94,12 @@ for (const s of SECTIONS) {
 }
 
 /* ---------- landing page cards ---------- */
-const card = (s, d) => `    <a class="card rise ${d}" href="${s.dir}">
-      <span class="glyph">${s.glyph}</span><br>
-      <span class="tag live">Live · ${counts[s.key]} claims</span>
-      <h2>${s.name}</h2>
-      <p>${s.blurb}</p>
-      <span class="go">${s.group === 'examine' ? 'Enter the examination' : 'Open the case'}</span>
-    </a>`;
-const examine = SECTIONS.filter(s => s.group === 'examine').map((s, i) => card(s, 'd' + Math.min(5, i + 1))).join('\n');
-const make = SECTIONS.filter(s => s.group === 'make').map((s, i) => card(s, 'd' + Math.min(5, i + 4))).join('\n');
-const total = Object.values(counts).reduce((a, b) => a + b, 0);
-
+const CARDS = SECTIONS.map(s => ({
+  dir: s.dir, glyph: s.glyph, name: s.name, blurb: s.blurb, group: s.group,
+  count: counts[s.key], unit: s.group === 'examine' ? 'claims' : 'cases'
+}));
 let g = fs.readFileSync(P('landing.html'), 'utf8');
-const block = `<main><div class="wrap">
-  <h3 class="secttl rise d3">Examining other faiths <span>against the Bible</span></h3>
-  <div class="cards">
-${examine}
-  </div>
-
-  <h3 class="secttl rise d4">Making the case <span>where the Bible isn't shared ground yet</span></h3>
-  <div class="cards">
-${make}
-  </div>
-
-  <a class="aboutbar rise d5" href="parallels.html"><span class="ab-t">🔗 The same pattern, again and again</span><span class="ab-d">One angel, one man, no witnesses — the structures these movements share, and the one test that applies evenly to all of them.</span><span class="go">Read →</span></a>
-  <a class="aboutbar rise d5" href="about.html"><span class="ab-t">📖 About this site</span><span class="ab-d">Our method, the four verdict tiers, and how to use the examinations — read this first.</span><span class="go">Read →</span></a>
-</div></main>`;
-g = g.replace(/<main>[\s\S]*?<\/main>/, () => block);
-if (!g.includes('.secttl{')) {
-  g = g.replace('</style>', `  .secttl{font-family:var(--serif);font-weight:500;font-size:1.15rem;color:var(--ink);margin:34px 0 14px;letter-spacing:.01em}
-  .secttl:first-of-type{margin-top:6px}
-  .secttl span{color:var(--dim);font-size:.86rem;font-family:var(--sans);font-style:normal}
-  .aboutbar+.aboutbar{margin-top:12px}
-</style>`);
-}
-const desc = `${total} documented cases across ${SECTIONS.length} sections — examined against the Bible, with honest verdicts and scripted conversations.`;
-g = g.replace(/<meta property="og:description" content="[^"]*">/, '<meta property="og:description" content="' + desc + '">')
-  .replace(/<meta name="description" content="Faith claims, examined against the Bible — [^"]*">/, '<meta name="description" content="' + desc + '">');
+g = g.replace(/const CARDS=\/\*__CARDS__\*\/[\s\S]*?;\n/, 'const CARDS=/*__CARDS__*/' + JSON.stringify(CARDS) + ';\n');
 fs.writeFileSync(P('landing.html'), g);
-console.log('landing: ' + SECTIONS.length + ' cards, ' + total + ' total cases');
+const total = Object.values(counts).reduce((a, b) => a + b, 0);
+console.log('landing: ' + CARDS.length + ' cards, ' + total + ' total cases');

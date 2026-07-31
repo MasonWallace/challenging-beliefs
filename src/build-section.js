@@ -53,7 +53,7 @@ module.exports = function buildSection(cfg) {
   const consts = {
     SECTIONS: cfg.SECTIONS, CATS: cfg.CATS, SECMAP: cfg.SECMAP, CATDESC: cfg.CATDESC,
     WHYMAP: cfg.WHYMAP, GLOSSARY: cfg.GLOSSARY, PATHS: cfg.PATHS, TLACTS: cfg.TLACTS,
-    IMGMAP: cfg.IMGMAP || {}, PATHIMG: {}, ACTIMG: {}, RELATED: cfg.RELATED,
+    IMGMAP: cfg.IMGMAP || {}, PATHIMG: cfg.PATHIMG || {}, ACTIMG: {}, RELATED: cfg.RELATED,
     TALK: cfg.TALK || {}, WHYTAIL: cfg.WHYTAIL, TIPS: cfg.TIPS, TOURSTEPS: cfg.TOURSTEPS,
     TIMELINE: [], WHYVERSE: {},
     PROOFS: comp.proofs.map(p => ({ v: p.v, they: p.they, you: p.you, refs: Array.isArray(p.refs) ? p.refs.join(' · ') : p.refs })),
@@ -86,7 +86,9 @@ module.exports = function buildSection(cfg) {
   s = s.slice(0, ci) + 'function renderCore(){\n' +
     '  const link=id=>byId[id]?`<button class="corelink" data-open="${id}">${esc(byId[id].title)} →</button>`:"";\n' +
     '  $("#main").innerHTML=`<div class="viewhead"><h2>' + cfg.core.title + '</h2>\n' +
-    '  <p>' + cfg.core.intro + '</p></div>' + cfg.core.html + '`;\n' +
+    '  <p>' + cfg.core.intro + '</p></div>' +
+    (cfg.core.hero ? '<figure class="corehero"><img src="' + cfg.core.hero.src + '" loading="lazy" alt=""><figcaption>' + cfg.core.hero.cap + '</figcaption></figure>' : '') +
+    cfg.core.html + '`;\n' +
     '  $("#main").querySelectorAll(".corelink").forEach(b=>{if(b.dataset.open)b.addEventListener("click",()=>openCase(b.dataset.open));});\n' +
     '  const g=$("#main").querySelector("[data-goto]");\n' +
     '  if(g)g.addEventListener("click",()=>{state.view="share";render();});\n}\n' + s.slice(cEnd + 1);

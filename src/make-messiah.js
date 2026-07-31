@@ -131,6 +131,7 @@ const TOURSTEPS = [
   { icon: "🚀", title: "Where to start", body: "Take the <b>servant path</b>: Isaiah 53, and what the Targum and the Talmud said about it long before there was anything to argue about. It is the only argument on this site that is made entirely out of their own tradition. Replay this tour anytime from the sidebar.", cta: "Take me to the heart of it" }
 ];
 const CORE = {
+  hero: {"src":"https://commons.wikimedia.org/wiki/Special:FilePath/The%20Great%20Isaiah%20Scroll%20MS%20A%20(1QIsa)%20-%20Google%20Art%20Project.jpg?width=900","cap":"The Great Isaiah Scroll, copied about 125 BC. Chapter 53 was already there, more than a century before Jesus was born."},
   navLabel: "The heart of it", navCount: "1", navTip: "The case in one page — made from their sources, not ours",
   title: "The heart of it: the two portraits, and the clock",
   intro: "If you read nothing else on this section, read this page. The case that Jesus is Israel's Messiah does not require the New Testament — it can be made from the Tanakh, the Targum, and the Talmud. But it cannot be made at all until something else is said first.",
@@ -227,6 +228,7 @@ build({
   SECTIONS: { portraits: "The two portraits", timing: "The timing", atonement: "Atonement & covenant", objections: "The objections" },
   CATS, SECMAP, CATDESC, WHYMAP, PATHS, TLACTS, RELATED,
   GLOSSARY: MERGED, primer: PRIMER,
+  PATHIMG: {"servant":"https://commons.wikimedia.org/wiki/Special:FilePath/The%20Great%20Isaiah%20Scroll%20MS%20A%20(1QIsa)%20-%20Google%20Art%20Project.jpg?width=900","clock":"https://commons.wikimedia.org/wiki/Special:FilePath/VilniusShasPage.jpg?width=900","portrait":"https://commons.wikimedia.org/wiki/Special:FilePath/Targum.jpg?width=900","covenant":"https://commons.wikimedia.org/wiki/Special:FilePath/Open%20Torah%20scroll.jpg?width=900"},
   TALK, TIPS, WHYTAIL, TOURSTEPS, core: CORE, share: SHARE,
   refRegex: "(?:Targum(?:\\\\sJonathan)?|Sukkah\\\\s\\\\d+[ab]|Yoma\\\\s\\\\d+[ab]|Sanhedrin\\\\s\\\\d+[ab]|Midrash\\\\s[A-Za-z]+|Rashi|Ibn\\\\sEzra|Maimonides|Mishnah|Talmud|4Q\\\\d+)",
   timelineIntro: "What was expected on the left; what happened and what was recorded on the right.",

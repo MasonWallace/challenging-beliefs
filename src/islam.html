@@ -482,6 +482,35 @@
   .bglab{font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--acc);margin-bottom:7px}
   .bgbox p{margin:0 0 9px;font-size:.93rem;line-height:1.72;color:var(--ink);opacity:.92}
   .bgbox p:last-child{margin-bottom:0}
+
+  /* --- the "heart of it" / share prose blocks (these had no styles at all) --- */
+  .corebox{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px 24px 22px;margin:0 0 16px}
+  .corebox h3{font-family:var(--serif);font-weight:500;font-size:1.18rem;color:var(--gold);margin:0 0 10px;line-height:1.25}
+  .corebox p{font-size:.94rem;line-height:1.78;color:var(--muted);margin:0 0 13px;max-width:78ch}
+  .corebox p:last-of-type{margin-bottom:0}
+  .corebox p b{color:var(--ink);font-weight:600}
+  .corebox p i{color:var(--ink);opacity:.85}
+  .corebox .srcdet{margin-top:16px;border-top:1px solid var(--line);padding-top:10px}
+  .corebox .pullq,.pullq{font-family:var(--serif);font-size:1.16rem;line-height:1.5;color:var(--ink);
+    border-left:3px solid var(--gold);background:linear-gradient(90deg,color-mix(in srgb,var(--gold) 10%,transparent),transparent 72%);
+    padding:14px 20px;border-radius:0 10px 10px 0;margin:16px 0;max-width:74ch}
+  .sh-list{margin:8px 0 0;padding-left:20px}
+  .sh-list li{font-size:.9rem;line-height:1.72;color:var(--muted);margin:0 0 12px}
+  .sh-list li b{color:var(--ink)}
+  .sh-list li i{color:var(--ink);opacity:.8}
+  .sa .pd{font-size:.9rem;line-height:1.72}
+  .corehero{margin:0 0 20px;border-radius:14px;overflow:hidden;border:1px solid var(--line);position:relative}
+  .corehero img{display:block;width:100%;height:230px;object-fit:cover;filter:saturate(.86) contrast(1.03)}
+  .corehero figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 18px 11px;font-size:.76rem;color:var(--ink);
+    background:linear-gradient(transparent,rgba(0,0,0,.82))}
+  @media (max-width:700px){.corehero img{height:160px}}
+
+  /* --- verse reader: opens in the reading column, capped so it can't shove the page --- */
+  #versebox:empty{display:none}
+  .claimcol .versebox{margin-top:16px;max-height:440px;overflow-y:auto;scrollbar-width:thin}
+  .claimcol .versebox .vtext{max-width:none}
+  .bghint{font-weight:400;letter-spacing:.02em;text-transform:none;color:var(--dim);font-size:.68rem}
+  .versebox.vmiss{border-left-color:var(--line2);opacity:.85}
 </style>
 
 <div class="app">
@@ -677,7 +706,8 @@ const PATHS=[{"id":"cornerstone","name":"The cornerstone: the Bible stands","tim
 const TIMELINE=[{"y":"~1000 BC","t":"David writes the Psalms (Zabur)","p":"Psalm 22 describes pierced hands and divided garments a millennium before the cross.","id":"crucifixion-denial-vs-history"},{"y":"c. 125 BC","t":"The Great Isaiah Scroll copied","p":"The complete Isaiah — including chapter 53 — sealed in a Qumran cave 750 years before Muhammad.","id":"manuscripts-predate-muhammad","crit":true},{"y":"AD 30/33","t":"The crucifixion","p":"Attested by every early source, Christian and pagan; called indisputable by skeptical historians.","id":"crucifixion-denial-vs-history"},{"y":"c. 55","t":"Paul records the resurrection creed","p":"1 Corinthians 15:3-8 — datable to within a few years of the events.","id":"crucifixion-denial-vs-history"},{"y":"2nd c.","t":"Infancy Gospel of Thomas circulates","p":"The clay-birds legend — later retold in Quran 3:49 as history.","id":"clay-birds-apocrypha","crit":true},{"y":"4th c.","t":"Codex Sinaiticus and Vaticanus","p":"Complete Bibles, 200+ years before Muhammad, matching today's text.","id":"manuscripts-predate-muhammad","crit":true},{"y":"610","t":"Muhammad's first revelation","p":"Waraqa — Khadija's Christian cousin who 'used to write the Gospel in Arabic' — interprets the experience.","id":"quran-never-quotes-scriptures"},{"y":"614–628","t":"The Byzantine-Persian war","p":"Background of Surah 30's Rome prediction — the one claimed prophecy.","id":"prophet-test-signs"},{"y":"c. 615–632","t":"The Quran affirms the Torah and Gospel","p":"'Ask those who read the Scripture before you' (10:94); 'let the People of the Gospel judge' (5:47).","id":"quran-affirms-torah-gospel","crit":true},{"y":"627","t":"Banu Qurayza","p":"600–900 surrendered men executed; Muhammad endorses the verdict as 'the judgment of Allah.'","id":"banu-qurayza-massacre","crit":true},{"y":"628","t":"Khaybar: the poisoned meat","p":"Administered as a prophethood test; his companion dies of it.","id":"aorta-test"},{"y":"632","t":"Muhammad dies","p":"'I feel as if my aorta is being cut from that poison' (Bukhari 4428) — the punishment 69:46 names for a false prophet.","id":"aorta-test","crit":true},{"y":"~633","t":"Yamama: the Quran nearly lost","p":"Reciters die in battle; Umar fears 'a large part of the Quran may be lost'; Zayd collects it from palm stalks and memory.","id":"compilation-lost-verses","crit":true},{"y":"~650","t":"Uthman standardizes and burns","p":"Muslims 'differing as the Jews and Christians differed'; all variant copies ordered burnt (Bukhari 4987).","id":"uthman-standardization-qiraat","crit":true},{"y":"7th c.","t":"The Sanaa palimpsest","p":"A non-Uthmanic Quran text, erased and overwritten — rediscovered in 1972.","id":"sanaa-palimpsest-qiraat"},{"y":"~750–900","t":"The hadith are compiled","p":"Bukhari and Muslim collect the reports — including Aisha's age, the lost verses, and the deathbed words — 150–250 years after the events.","id":"aisha-age"},{"y":"1064","t":"Ibn Hazm dies","p":"The first major scholar to teach the Bible's TEXT was corrupted — four centuries after Muhammad.","id":"tahrif-doctrine-late-development","crit":true},{"y":"1924","t":"The Cairo edition","p":"The Hafs reading becomes the near-universal printed Quran; Warsh persists in Africa — two texts in print today.","id":"uthman-standardization-qiraat"},{"y":"1947","t":"The Dead Sea Scrolls discovered","p":"The pre-Muhammad Bible surfaces at Qumran — and it is our Bible. The corruption window closes.","id":"manuscripts-predate-muhammad","crit":true}];
 
 /* ---------- state ---------- */
-const store={
+const KEY_SIMPLE="wbi_simple";
+const store={simple:localStorage.getItem(KEY_SIMPLE)!=="0",
   get read(){try{return new Set(JSON.parse(localStorage.getItem("wbi_read")||"[]"))}catch(e){return new Set()}},
   markRead(id){const r=this.read;r.add(id);localStorage.setItem("wbi_read",JSON.stringify([...r]))},
   get pins(){try{return JSON.parse(localStorage.getItem("wbi_pins")||"[]")}catch(e){return[]}},
@@ -788,7 +818,8 @@ function renderNav(){
   }));
   const read=store.read.size;
   $("#sideprog").innerHTML=`
-    <button id="themebtn" style="margin-top:14px;background:none;border:1px solid var(--line2);color:var(--muted);border-radius:8px;padding:5px 12px;font-size:.72rem;cursor:pointer">◐ ${document.documentElement.dataset.theme==="light"?"Dark":"Light"} mode</button> <button id="tourbtn" style="margin-top:8px;background:none;border:1px solid var(--line2);color:var(--muted);border-radius:8px;padding:5px 12px;font-size:.72rem;cursor:pointer">✦ Replay tour</button>`;
+    <button id="simplebtn" style="margin-top:14px;background:none;border:1px solid ${store.simple?"var(--acc)":"var(--line2)"};color:${store.simple?"var(--acc)":"var(--muted)"};border-radius:8px;padding:5px 12px;font-size:.72rem;cursor:pointer" title="Explains every case in plain, high-school-level English before the claim">◆ Simplified: ${store.simple?"on":"off"}</button> <button id="themebtn" style="margin-top:14px;background:none;border:1px solid var(--line2);color:var(--muted);border-radius:8px;padding:5px 12px;font-size:.72rem;cursor:pointer">◐ ${document.documentElement.dataset.theme==="light"?"Dark":"Light"} mode</button> <button id="tourbtn" style="margin-top:8px;background:none;border:1px solid var(--line2);color:var(--muted);border-radius:8px;padding:5px 12px;font-size:.72rem;cursor:pointer">✦ Replay tour</button>`;
+  $("#simplebtn").addEventListener("click",()=>{store.simple=!store.simple;localStorage.setItem(KEY_SIMPLE,store.simple?"1":"0");renderNav();render();});
   $("#themebtn").addEventListener("click",()=>{
     const cur=document.documentElement.dataset.theme==="light"?"dark":"light";
     document.documentElement.dataset.theme=cur;
@@ -906,8 +937,7 @@ function renderCase(){
         ${(d.quran||[]).length?`<div><h6 class="h-bom">Quran</h6><div class="chips" data-side="quran">${chipHtml(d.quran)}</div></div>`:""}
         ${(d.hadith||[]).length?`<div><h6 class="h-bom" style="color:var(--amber)">Hadith</h6><div class="chips" data-side="hadith">${hadithChips}</div></div>`:""}
         ${(d.bible||[]).length?`<div><h6 class="h-bib">Bible</h6><div class="chips" data-side="bib">${chipHtml(d.bible)}</div></div>`:""}
-        <div id="versebox"></div>
-      </div></details>
+        </div></details>
     </aside>`:"";
   const rel=(RELATED[d.id]||[]).filter(x=>byId[x]);
   $("#main").innerHTML=`
@@ -919,9 +949,9 @@ function renderCase(){
     <div class="case">
       <div class="meta"><span class="badge v-${d.verdict}">${VLABEL[d.verdict]} ${info(TIPS.verdict[d.verdict])}</span><span class="tag">${CATS[d.category]} ${info(CATDESC[d.category])}</span><span class="tag">seriousness: ${SEVLABEL[d.severity]} ${info(TIPS.impact)}</span>${d.avoid?`<span class="tag" style="border-color:var(--red);color:var(--red)">⚠ popular claim — do not use it</span>`:d.featured?`<span class="tag" style="border-color:var(--gold);color:var(--gold)">★ strongest evidence ${info(TIPS.strongest)}</span>`:isStrong(d)?`<span class="tag" style="border-color:var(--amber);color:var(--amber)">☆ strong evidence</span>`:""}</div>
       <h2>${esc(d.title)}</h2>
-      ${d.context?`<div class="bgbox"><div class="bglab">The background — in plain English</div>${paras(d.context,2)}</div>`:""}
+      ${(d.context&&store.simple)?`<div class="bgbox"><div class="bglab">Simplified <span class="bghint">— plain-English background, toggle in the sidebar</span></div>${paras(d.context,2)}</div>`:""}
       <div class="ctop">
-        <div><div class="dlab red" style="margin-top:0">The claim</div><div class="claim">${paras(d.claim)}</div></div>
+        <div class="claimcol"><div class="dlab red" style="margin-top:0">The claim</div><div class="claim">${paras(d.claim)}</div><div id="versebox"></div></div>
         ${passages}
       </div>
       ${comp}
@@ -957,10 +987,11 @@ function renderCase(){
     document.querySelectorAll(".chip.open").forEach(x=>x.classList.remove("open"));
     if(already){box.innerHTML="";return;}
     ch.classList.add("open");
+    if(!v||!v.verses){box.innerHTML=`<div class="versebox vmiss"><div class="vr"><span>${esc(cite)}</span><button data-close>✕ close</button></div><div class="vwhy">This reference is cited by the claim but isn't in the built-in reader — open it in your own Bible.</div></div>`;const cb=box.querySelector("[data-close]");if(cb)cb.addEventListener("click",()=>{box.innerHTML="";ch.classList.remove("open");});return;}
     const side=ch.closest("[data-side]")?ch.closest("[data-side]").dataset.side:"";
     const why=findWhy(d,cite);
     const whyHtml=why?`<b>Why it's cited:</b> ${esc(why)}`:(side==="quran"?"<b>Role:</b> this is the Quran passage the claim examines.":"<b>Role:</b> this is the biblical standard the claim measures against.");
-    box.innerHTML=`<div class="versebox"><div class="vr"><span>${esc(cite)}</span><button data-close>✕ close</button></div><div class="vtext">${v.verses.map(x=>`<span class="vnum">${x.v}</span>${esc(x.t)} `).join("")}</div><div class="vwhy">${whyHtml}</div></div>`;
+    requestAnimationFrame(()=>box.scrollIntoView({behavior:"smooth",block:"nearest"}));box.innerHTML=`<div class="versebox"><div class="vr"><span>${esc(cite)}</span><button data-close>✕ close</button></div><div class="vtext">${v.verses.map(x=>`<span class="vnum">${x.v}</span>${esc(x.t)} `).join("")}</div><div class="vwhy">${whyHtml}</div></div>`;
     box.querySelector("[data-close]").addEventListener("click",()=>{box.innerHTML="";document.querySelectorAll(".chip.open").forEach(x=>x.classList.remove("open"));});
   }));
   document.querySelectorAll(".cimg-x").forEach(b=>b.addEventListener("click",e=>{e.stopPropagation();showLightbox(b.dataset.full,b.dataset.cap);}));

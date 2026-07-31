@@ -127,6 +127,7 @@ const TOURSTEPS = [
   { icon: "🚀", title: "Where to start", body: "Take the <b>identity path</b>: read Deuteronomy 28 verse 1 — <i>who is being addressed?</i> — then verse 68 in context, then chapter 30, where the same covenant promises the return. One chapter, read whole, is the entire argument. Replay this tour anytime from the sidebar.", cta: "Take me to the heart of it" }
 ];
 const CORE = {
+  hero: {"src":"https://commons.wikimedia.org/wiki/Special:FilePath/Brookes%20slave%20ship%2C%20British%20Library%20(cropped).jpg?width=900","cap":"The Brookes, 1788. This is the history Deuteronomy 28:68 is read against — and the reason the chapter has the force it has."},
   navLabel: "The heart of it", navCount: "1", navTip: "One chapter, read whole — the argument everything else depends on",
   title: "The heart of it: read the whole chapter",
   intro: "If you read nothing else on this site, read this page. The Hebrew Israelite case is built almost entirely on one chapter of Deuteronomy — and it is answered by that same chapter, read from verse 1 to the end and on into chapter 30. But it cannot be answered until something else is said first.",
@@ -215,6 +216,7 @@ build({
   SECTIONS: { claim: "The identity claim", race: "Race, history & genetics", gospel: "Law & gospel", movement: "The movement" },
   CATS, SECMAP, CATDESC, WHYMAP, PATHS, TLACTS, RELATED,
   GLOSSARY: MERGED, primer: PRIMER,
+  PATHIMG: {"identity":"https://commons.wikimedia.org/wiki/Special:FilePath/Open%20Torah%20scroll.jpg?width=900","race":"https://commons.wikimedia.org/wiki/Special:FilePath/Brookes%20slave%20ship%2C%20British%20Library%20(cropped).jpg?width=900","movement":"https://commons.wikimedia.org/wiki/Special:FilePath/PikiWiki%20Israel%2032040%20Africans%20Hebrew%20Israelites%20in%20Dimona.JPG?width=900"},
   TALK, TIPS, WHYTAIL, TOURSTEPS, core: CORE, share: SHARE,
   refRegex: "(?:12 Tribes Chart|One West|1WT|IUIC|ISUPK|Great Millstone|Commandment Keepers|Church of God and Saints of Christ)",
   timelineIntro: "What the movement teaches on the left; what its own documented history shows on the right.",

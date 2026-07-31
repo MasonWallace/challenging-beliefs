@@ -482,6 +482,35 @@
   .bglab{font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--acc);margin-bottom:7px}
   .bgbox p{margin:0 0 9px;font-size:.93rem;line-height:1.72;color:var(--ink);opacity:.92}
   .bgbox p:last-child{margin-bottom:0}
+
+  /* --- the "heart of it" / share prose blocks (these had no styles at all) --- */
+  .corebox{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px 24px 22px;margin:0 0 16px}
+  .corebox h3{font-family:var(--serif);font-weight:500;font-size:1.18rem;color:var(--gold);margin:0 0 10px;line-height:1.25}
+  .corebox p{font-size:.94rem;line-height:1.78;color:var(--muted);margin:0 0 13px;max-width:78ch}
+  .corebox p:last-of-type{margin-bottom:0}
+  .corebox p b{color:var(--ink);font-weight:600}
+  .corebox p i{color:var(--ink);opacity:.85}
+  .corebox .srcdet{margin-top:16px;border-top:1px solid var(--line);padding-top:10px}
+  .corebox .pullq,.pullq{font-family:var(--serif);font-size:1.16rem;line-height:1.5;color:var(--ink);
+    border-left:3px solid var(--gold);background:linear-gradient(90deg,color-mix(in srgb,var(--gold) 10%,transparent),transparent 72%);
+    padding:14px 20px;border-radius:0 10px 10px 0;margin:16px 0;max-width:74ch}
+  .sh-list{margin:8px 0 0;padding-left:20px}
+  .sh-list li{font-size:.9rem;line-height:1.72;color:var(--muted);margin:0 0 12px}
+  .sh-list li b{color:var(--ink)}
+  .sh-list li i{color:var(--ink);opacity:.8}
+  .sa .pd{font-size:.9rem;line-height:1.72}
+  .corehero{margin:0 0 20px;border-radius:14px;overflow:hidden;border:1px solid var(--line);position:relative}
+  .corehero img{display:block;width:100%;height:230px;object-fit:cover;filter:saturate(.86) contrast(1.03)}
+  .corehero figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 18px 11px;font-size:.76rem;color:var(--ink);
+    background:linear-gradient(transparent,rgba(0,0,0,.82))}
+  @media (max-width:700px){.corehero img{height:160px}}
+
+  /* --- verse reader: opens in the reading column, capped so it can't shove the page --- */
+  #versebox:empty{display:none}
+  .claimcol .versebox{margin-top:16px;max-height:440px;overflow-y:auto;scrollbar-width:thin}
+  .claimcol .versebox .vtext{max-width:none}
+  .bghint{font-weight:400;letter-spacing:.02em;text-transform:none;color:var(--dim);font-size:.68rem}
+  .versebox.vmiss{border-left-color:var(--line2);opacity:.85}
 </style>
 
 <div class="app">
@@ -573,7 +602,8 @@ const PATHS=[{"id":"foundation","name":"The foundation: 1914 and the slave","des
 const TIMELINE=[];
 
 /* ---------- state ---------- */
-const store={
+const KEY_SIMPLE="wbjw_simple";
+const store={simple:localStorage.getItem(KEY_SIMPLE)!=="0",
   get read(){try{return new Set(JSON.parse(localStorage.getItem("wbjw_read")||"[]"))}catch(e){return new Set()}},
   markRead(id){const r=this.read;r.add(id);localStorage.setItem("wbjw_read",JSON.stringify([...r]))},
   get pins(){try{return JSON.parse(localStorage.getItem("wbjw_pins")||"[]")}catch(e){return[]}},
@@ -679,7 +709,8 @@ function renderNav(){
   }));
   const read=store.read.size;
   $("#sideprog").innerHTML=`
-    <button id="themebtn" style="margin-top:14px;background:none;border:1px solid var(--line2);color:var(--muted);border-radius:8px;padding:5px 12px;font-size:.72rem;cursor:pointer">◐ ${document.documentElement.dataset.theme==="light"?"Dark":"Light"} mode</button> <button id="tourbtn" style="margin-top:8px;background:none;border:1px solid var(--line2);color:var(--muted);border-radius:8px;padding:5px 12px;font-size:.72rem;cursor:pointer">✦ Replay tour</button>`;
+    <button id="simplebtn" style="margin-top:14px;background:none;border:1px solid ${store.simple?"var(--acc)":"var(--line2)"};color:${store.simple?"var(--acc)":"var(--muted)"};border-radius:8px;padding:5px 12px;font-size:.72rem;cursor:pointer" title="Explains every case in plain, high-school-level English before the claim">◆ Simplified: ${store.simple?"on":"off"}</button> <button id="themebtn" style="margin-top:14px;background:none;border:1px solid var(--line2);color:var(--muted);border-radius:8px;padding:5px 12px;font-size:.72rem;cursor:pointer">◐ ${document.documentElement.dataset.theme==="light"?"Dark":"Light"} mode</button> <button id="tourbtn" style="margin-top:8px;background:none;border:1px solid var(--line2);color:var(--muted);border-radius:8px;padding:5px 12px;font-size:.72rem;cursor:pointer">✦ Replay tour</button>`;
+  $("#simplebtn").addEventListener("click",()=>{store.simple=!store.simple;localStorage.setItem(KEY_SIMPLE,store.simple?"1":"0");renderNav();render();});
   $("#themebtn").addEventListener("click",()=>{
     const cur=document.documentElement.dataset.theme==="light"?"dark":"light";
     document.documentElement.dataset.theme=cur;
@@ -797,8 +828,7 @@ function renderCase(){
         ${(d.quran||[]).length?`<div><h6 class="h-bom">Watchtower</h6><div class="chips" data-side="quran">${chipHtml(d.quran)}</div></div>`:""}
         ${(d.hadith||[]).length?`<div><h6 class="h-bom" style="color:var(--amber)">Watchtower publications</h6><div class="chips" data-side="hadith">${hadithChips}</div></div>`:""}
         ${(d.bible||[]).length?`<div><h6 class="h-bib">Bible</h6><div class="chips" data-side="bib">${chipHtml(d.bible)}</div></div>`:""}
-        <div id="versebox"></div>
-      </div></details>
+        </div></details>
     </aside>`:"";
   const rel=(RELATED[d.id]||[]).filter(x=>byId[x]);
   $("#main").innerHTML=`
@@ -810,9 +840,9 @@ function renderCase(){
     <div class="case">
       <div class="meta"><span class="badge v-${d.verdict}">${VLABEL[d.verdict]} ${info(TIPS.verdict[d.verdict])}</span><span class="tag">${CATS[d.category]} ${info(CATDESC[d.category])}</span><span class="tag">seriousness: ${SEVLABEL[d.severity]} ${info(TIPS.impact)}</span>${d.avoid?`<span class="tag" style="border-color:var(--red);color:var(--red)">⚠ popular claim — do not use it</span>`:d.featured?`<span class="tag" style="border-color:var(--gold);color:var(--gold)">★ strongest evidence ${info(TIPS.strongest)}</span>`:isStrong(d)?`<span class="tag" style="border-color:var(--amber);color:var(--amber)">☆ strong evidence</span>`:""}</div>
       <h2>${esc(d.title)}</h2>
-      ${d.context?`<div class="bgbox"><div class="bglab">The background — in plain English</div>${paras(d.context,2)}</div>`:""}
+      ${(d.context&&store.simple)?`<div class="bgbox"><div class="bglab">Simplified <span class="bghint">— plain-English background, toggle in the sidebar</span></div>${paras(d.context,2)}</div>`:""}
       <div class="ctop">
-        <div><div class="dlab red" style="margin-top:0">The claim</div><div class="claim">${paras(d.claim)}</div></div>
+        <div class="claimcol"><div class="dlab red" style="margin-top:0">The claim</div><div class="claim">${paras(d.claim)}</div><div id="versebox"></div></div>
         ${passages}
       </div>
       ${comp}
@@ -848,10 +878,11 @@ function renderCase(){
     document.querySelectorAll(".chip.open").forEach(x=>x.classList.remove("open"));
     if(already){box.innerHTML="";return;}
     ch.classList.add("open");
+    if(!v||!v.verses){box.innerHTML=`<div class="versebox vmiss"><div class="vr"><span>${esc(cite)}</span><button data-close>✕ close</button></div><div class="vwhy">This reference is cited by the claim but isn't in the built-in reader — open it in your own Bible.</div></div>`;const cb=box.querySelector("[data-close]");if(cb)cb.addEventListener("click",()=>{box.innerHTML="";ch.classList.remove("open");});return;}
     const side=ch.closest("[data-side]")?ch.closest("[data-side]").dataset.side:"";
     const why=findWhy(d,cite);
     const whyHtml=why?`<b>Why it's cited:</b> ${esc(why)}`:(side==="quran"?"<b>Role:</b> this is the Watchtower teaching the claim examines.":"<b>Role:</b> this is the biblical standard the claim measures against.");
-    box.innerHTML=`<div class="versebox"><div class="vr"><span>${esc(cite)}</span><button data-close>✕ close</button></div><div class="vtext">${v.verses.map(x=>`<span class="vnum">${x.v}</span>${esc(x.t)} `).join("")}</div><div class="vwhy">${whyHtml}</div></div>`;
+    requestAnimationFrame(()=>box.scrollIntoView({behavior:"smooth",block:"nearest"}));box.innerHTML=`<div class="versebox"><div class="vr"><span>${esc(cite)}</span><button data-close>✕ close</button></div><div class="vtext">${v.verses.map(x=>`<span class="vnum">${x.v}</span>${esc(x.t)} `).join("")}</div><div class="vwhy">${whyHtml}</div></div>`;
     box.querySelector("[data-close]").addEventListener("click",()=>{box.innerHTML="";document.querySelectorAll(".chip.open").forEach(x=>x.classList.remove("open"));});
   }));
   document.querySelectorAll(".cimg-x").forEach(b=>b.addEventListener("click",e=>{e.stopPropagation();showLightbox(b.dataset.full,b.dataset.cap);}));
@@ -912,7 +943,7 @@ function renderGlossary(){
 function renderCore(){
   const link=id=>byId[id]?`<button class="corelink" data-open="${id}">${esc(byId[id].title)} →</button>`:"";
   $("#main").innerHTML=`<div class="viewhead"><h2>The heart of it: one date holds up everything else</h2>
-  <p>If you read nothing else on this site, read this page. Nearly every distinctive Jehovah's Witness doctrine is suspended from a single chain of four links — and the first link is a date that no historian, and no verse, supports.</p></div>
+  <p>If you read nothing else on this site, read this page. Nearly every distinctive Jehovah's Witness doctrine is suspended from a single chain of four links — and the first link is a date that no historian, and no verse, supports.</p></div><figure class="corehero"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Jehovah's%20witnesses%20Kingdom%20Hall%20Hong%20Kong.png?width=900" loading="lazy" alt=""><figcaption>A Kingdom Hall. Two meetings a week, no cross, and — for most of the people inside — a hope that depends on one date.</figcaption></figure>
   <div class="corebox"><h3>1 · The chain</h3>
   <p><b>607 BC → 1914 → 1919 → the Governing Body.</b> The organization teaches that Jerusalem fell in 607 BC; that 2,520 years from 607 lands on 1914; that Christ returned invisibly in 1914, inspected all religions, and in 1919 appointed the Watchtower Society over his belongings. That 1919 appointment is the entire basis for the Governing Body's authority — and therefore for the blood doctrine, the shunning policy, the two-class salvation system, and the obligation to accept every future adjustment.</p>
   <p>Pull the first link and the whole chain is on the floor. That is why this is the only page you have to read.</p>
@@ -1038,7 +1069,7 @@ function renderKnow(){
 }
 
 const ACTIMG={};
-const PATHIMG={};
+const PATHIMG={"foundation":"https://commons.wikimedia.org/wiki/Special:FilePath/Watchtower%2C%20July%201925%20(Russian%20Edition).jpg?width=900","jesus":"https://commons.wikimedia.org/wiki/Special:FilePath/Codex%20Sinaiticus%2C%20GA%2001.jpg?width=900","gospel":"https://commons.wikimedia.org/wiki/Special:FilePath/Kingdom%20Hall%20of%20Jehovah's%20Witnesses%20in%20Karlsruhe-M%C3%BChlburg%20in%20Baden-W%C3%BCrttemberg.jpg?width=900","fair":"https://commons.wikimedia.org/wiki/Special:FilePath/Kennzeichen%20f%C3%BCr%20Schutzh%C3%A4ftlinge%20in%20den%20Konzentrations%20Lagern%20Nazi%20Germany%20concentration%20camp%20prisoners'%20badges.jpg?width=900"};
 document.addEventListener("click",e=>{const im=e.target.closest(".kimg img,.ktop,.corestrip img,.actimg img");if(im)showLightbox(im.dataset.full||im.src,im.dataset.cap||"");});
 /* ---------- router ---------- */
 function render(){

@@ -132,6 +132,7 @@ const TOURSTEPS = [
   { icon: "🚀", title: "Where to start", body: "Take the <b>foundation path</b>: 607 BC → 1914 → 1919 → the Governing Body's authority. Every other doctrine hangs from that chain, and it is the one chain a Witness can check in a public library. Replay this tour anytime from the sidebar.", cta: "Take me to the heart of it" }
 ];
 const CORE = {
+  hero: {"src":"https://commons.wikimedia.org/wiki/Special:FilePath/Jehovah's%20witnesses%20Kingdom%20Hall%20Hong%20Kong.png?width=900","cap":"A Kingdom Hall. Two meetings a week, no cross, and — for most of the people inside — a hope that depends on one date."},
   navLabel: "The heart of it", navCount: "1", navTip: "The single chain every other doctrine hangs from — read this first",
   title: "The heart of it: one date holds up everything else",
   intro: "If you read nothing else on this site, read this page. Nearly every distinctive Jehovah's Witness doctrine is suspended from a single chain of four links — and the first link is a date that no historian, and no verse, supports.",
@@ -224,6 +225,7 @@ build({
   SECTIONS: { text: "The translation", prophecy: "Dates & prophecy", doctrine: "The doctrine", life: "Organization & life" },
   CATS, SECMAP, CATDESC, WHYMAP, PATHS, TLACTS, RELATED,
   GLOSSARY: MERGED, primer: PRIMER,
+  PATHIMG: {"foundation":"https://commons.wikimedia.org/wiki/Special:FilePath/Watchtower%2C%20July%201925%20(Russian%20Edition).jpg?width=900","jesus":"https://commons.wikimedia.org/wiki/Special:FilePath/Codex%20Sinaiticus%2C%20GA%2001.jpg?width=900","gospel":"https://commons.wikimedia.org/wiki/Special:FilePath/Kingdom%20Hall%20of%20Jehovah's%20Witnesses%20in%20Karlsruhe-M%C3%BChlburg%20in%20Baden-W%C3%BCrttemberg.jpg?width=900","fair":"https://commons.wikimedia.org/wiki/Special:FilePath/Kennzeichen%20f%C3%BCr%20Schutzh%C3%A4ftlinge%20in%20den%20Konzentrations%20Lagern%20Nazi%20Germany%20concentration%20camp%20prisoners'%20badges.jpg?width=900"},
   TALK, TIPS, WHYTAIL, TOURSTEPS, core: CORE, share: SHARE,
   timelineIntro: "What was published on the left; what actually happened on the right.",
   lessonsIntro: "The doorstep call and the home Bible study follow a trained sequence — build rapport, establish a felt need, introduce the literature, then the study, the meetings, and baptism. Here is each stage, the one question to ask right then, and the cases behind it. Knowing the script lets you stay warm and unhurried.",

@@ -130,6 +130,7 @@ const TOURSTEPS = [
   { icon: "🚀", title: "Where to start", body: "Take the <b>Easter path</b>: not 'the Bible says,' but what a room full of skeptical historians grants about AD 30 — a crucifixion, a set of experiences, a persecutor and a skeptical brother who both changed sides, and a creed dated within five years. Then ask what explains it. Replay this tour anytime from the sidebar.", cta: "Take me to the heart of it" }
 ];
 const CORE = {
+  hero: {"src":"https://commons.wikimedia.org/wiki/Special:FilePath/Hubble%20ultra%20deep%20field%20high%20rez%20edit1.jpg?width=900","cap":"The Hubble Ultra Deep Field. Every smudge is a galaxy — and the constants that allow any of it are the fine-tuning argument."},
   navLabel: "The heart of it", navCount: "1", navTip: "The case in one page — argued from sources a skeptic already accepts",
   title: "The heart of it: one claim you can actually check",
   intro: "If you read nothing else on this section, read this page. Christianity is unusual among religions in staking itself on a public, datable event that could in principle be disproved — and its own founding document says so first.",
@@ -225,6 +226,7 @@ build({
   SECTIONS: { god: "Does God exist?", jesus: "The resurrection", bible: "The Bible's reliability", objections: "Objections & missteps" },
   CATS, SECMAP, CATDESC, WHYMAP, PATHS, TLACTS, RELATED,
   GLOSSARY: MERGED, primer: PRIMER,
+  PATHIMG: {"existence":"https://commons.wikimedia.org/wiki/Special:FilePath/Hubble%20ultra%20deep%20field%20high%20rez%20edit1.jpg?width=900","easter":"https://commons.wikimedia.org/wiki/Special:FilePath/Pilate%20Inscription.JPG?width=900","text":"https://commons.wikimedia.org/wiki/Special:FilePath/Codex%20Sinaiticus%2C%20GA%2001.jpg?width=900","hard":"https://commons.wikimedia.org/wiki/Special:FilePath/Pool%20of%20Siloam.jpg?width=900"},
   TALK, TIPS, WHYTAIL, TOURSTEPS, core: CORE, share: SHARE,
   refRegex: "(?:Stanford Encyclopedia|SEP|Habermas|Ehrman|Oppy|Schellenberg|Bauckham|Wright|Licona|Craig|Carroll|4Q\\\\d+)",
   timelineIntro: "Claims and challenges on the left; what the ground and the manuscripts gave up on the right.",
