@@ -291,11 +291,18 @@
   .viewhead h2{font-family:var(--serif);font-weight:500;font-size:clamp(1.7rem,3.6vw,2.4rem);line-height:1.22;letter-spacing:-.01em;margin:0;max-width:30ch;color:var(--ink)}
   .viewhead h2::after{content:'';display:block;width:72px;height:4px;border-radius:2px;background:linear-gradient(90deg,var(--gold),transparent);margin-top:14px}
   .viewhead p{color:var(--muted);font-size:.95rem;margin:16px 0 0;max-width:66ch;border-left:3px solid var(--gold);padding-left:14px;line-height:1.7}
-  .gaccord{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:960px;align-items:start}
-  @media (max-width:760px){.gaccord{grid-template-columns:1fr}}
-  .gitem{background:var(--panel);border:1px solid var(--line2);border-radius:12px;padding:14px 18px}
-  .gitem b{font-family:var(--serif);font-weight:600;color:var(--gold);font-size:1rem}
-  .gitem p{color:var(--muted);font-size:.8rem;line-height:1.65;margin:6px 0 0;padding:0}
+  .gaccord{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;max-width:1000px;align-items:start}
+  .gitem{background:var(--panel);border:1px solid var(--line2);border-top:3px solid var(--gold);border-radius:10px;padding:10px 14px}
+  .gitem:nth-child(5n+2){border-top-color:var(--red)}
+  .gitem:nth-child(5n+2) b{color:var(--red)}
+  .gitem:nth-child(5n+3){border-top-color:var(--amber)}
+  .gitem:nth-child(5n+3) b{color:var(--amber)}
+  .gitem:nth-child(5n+4){border-top-color:var(--green)}
+  .gitem:nth-child(5n+4) b{color:var(--green)}
+  .gitem:nth-child(5n){border-top-color:var(--purp)}
+  .gitem:nth-child(5n) b{color:var(--purp)}
+  .gitem b{font-family:var(--serif);font-weight:600;color:var(--gold);font-size:.92rem}
+  .gitem p{color:var(--muted);font-size:.76rem;line-height:1.6;margin:5px 0 0;padding:0}
   .gitem summary{cursor:pointer;font-family:var(--serif);font-size:1.06rem;padding:15px 2px;list-style:none;display:flex;justify-content:space-between;align-items:center;color:var(--ink)}
   .gitem summary::-webkit-details-marker{display:none}
   .gitem summary::after{content:'+';font-family:var(--sans);color:var(--gold);font-size:1.2rem;font-weight:600}
@@ -345,6 +352,14 @@
   .logo{background:linear-gradient(100deg,var(--gold),var(--purp));-webkit-background-clip:text;background-clip:text;color:transparent}
   .logo b{color:transparent}
   .logo div{color:var(--muted)}
+
+  .cimg{position:relative}
+  .cimg-x{position:absolute;right:8px;bottom:30px;background:rgba(0,0,0,.65);border:1px solid rgba(255,255,255,.35);color:#fff;border-radius:8px;width:30px;height:30px;font-size:1rem;cursor:pointer;display:grid;place-items:center;backdrop-filter:blur(3px)}
+  .cimg-x:hover{background:rgba(0,0,0,.85);border-color:var(--gold)}
+  .lightbox{position:fixed;inset:0;z-index:120;background:rgba(0,0,0,.88);display:grid;place-items:center;padding:26px;cursor:zoom-out}
+  .lightbox img{max-width:92vw;max-height:82vh;border-radius:10px;box-shadow:0 30px 90px rgba(0,0,0,.6)}
+  .lightbox figcaption{color:#cfd4db;font-size:.8rem;margin-top:12px;text-align:center;max-width:80ch}
+  .lightbox .lx-close{position:fixed;top:18px;right:22px;background:none;border:1px solid rgba(255,255,255,.4);color:#fff;border-radius:8px;padding:6px 14px;cursor:pointer}
 </style>
 
 <div class="app">
@@ -664,6 +679,13 @@ function findWhy(d,cite){
   const hit=sentences.find(s=>s.includes(frag));
   return hit?hit.replace(/-/g,"–"):null;
 }
+
+function showLightbox(src,cap){
+  const lb=document.createElement("div");lb.className="lightbox";
+  lb.innerHTML='<figure style="margin:0;text-align:center"><img src="'+src+'" alt=""><figcaption>'+cap+'</figcaption></figure><button class="lx-close">✕ Close</button>';
+  lb.addEventListener("click",()=>lb.remove());
+  document.body.appendChild(lb);
+}
 function extUrl(cite){
   const c=cite.replace(/–/g,"-").replace(/\s*\(.*\)\s*/g,"").trim();
   const BOMB={"1 nephi":"1-ne","2 nephi":"2-ne","jacob":"jacob","enos":"enos","jarom":"jarom","omni":"omni","words of mormon":"w-of-m","mosiah":"mosiah","alma":"alma","helaman":"hel","3 nephi":"3-ne","4 nephi":"4-ne","mormon":"morm","ether":"ether","moroni":"moro"};
@@ -815,7 +837,7 @@ function renderCase(){
   }).join("");
   const isHigher=p=>/^(D&C|Official Declaration|Abraham|Moses|JST|Introduction|Title Page|Testimony)/i.test(p.trim());
   const bomCore=d.bom.filter(p=>!isHigher(p)),ldsOther=d.bom.filter(isHigher);
-  const cimg=IMGMAP[d.id]?`<figure class="cimg"><img src="${IMGMAP[d.id].src}" alt="${esc(IMGMAP[d.id].cap)}" loading="lazy"><figcaption>${esc(IMGMAP[d.id].cap)}</figcaption></figure>`:"";
+  const cimg=IMGMAP[d.id]?`<figure class="cimg"><img src="${IMGMAP[d.id].src}" alt="${esc(IMGMAP[d.id].cap)}" loading="lazy"><button class="cimg-x" title="Expand image" data-full="${IMGMAP[d.id].src.replace("width=520","width=1400")}" data-cap="${esc(IMGMAP[d.id].cap)}">⤢</button><figcaption>${esc(IMGMAP[d.id].cap)}</figcaption></figure>`:"";
   const passages=(d.bom.length||d.bible.length||IMGMAP[d.id])?`
     <aside class="claimside">
       ${cimg}
@@ -873,6 +895,7 @@ function renderCase(){
     box.innerHTML=`<div class="versebox"><div class="vr"><span>${esc(cite)}</span><button data-close>✕ close</button></div><div class="vtext">${v.verses.map(x=>`<span class="vnum">${x.v}</span>${esc(x.t)} `).join("")}</div><div class="vwhy">${whyHtml}</div></div>`;
     box.querySelector("[data-close]").addEventListener("click",()=>{box.innerHTML="";document.querySelectorAll(".chip.open").forEach(x=>x.classList.remove("open"));});
   }));
+  document.querySelectorAll(".cimg-x").forEach(b=>b.addEventListener("click",e=>{e.stopPropagation();showLightbox(b.dataset.full,b.dataset.cap);}));
   renderNav();renderPreview();
 }
 
