@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Challenging Beliefs">
-<meta property="og:title" content="Jehovah&#39;s Witnesses vs. the Bible — Challenging Beliefs">
-<meta property="og:description" content="49 documented claims examined against the Bible — verdicts, sources, and scripted conversations for every case.">
+<meta property="og:title" content="Jehovah&#39;s Witnesses vs. the Bible">
+<meta property="og:description" content="49 documented claims examined against the Bible.">
 <meta name="twitter:card" content="summary_large_image">
 <title>Challenging Beliefs — Jehovah's Witnesses, Examined Against the Bible</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -641,7 +641,7 @@ const store={
 const state={view:"overview",section:"all",verdict:null,severity:null,q:"",sel:null,caseId:null,pathId:null,act:0};
 
 const $=s=>document.querySelector(s);
-const esc=s=>(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+const esc=s=>String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
 function hl(text,phrases){let out=esc(text);(phrases||[]).forEach(p=>{const e=esc(p).replace(/[.*+?^${}()|[\]\\]/g,"\\$&");out=out.replace(new RegExp(e,"gi"),m=>"<mark>"+m+"</mark>");});return out;}
 function glossify(escapedText){
   let out=escapedText;

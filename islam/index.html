@@ -801,7 +801,7 @@ const store={
 const state={view:"overview",section:"all",verdict:null,severity:null,q:"",sel:null,caseId:null,pathId:null,act:0};
 
 const $=s=>document.querySelector(s);
-const esc=s=>(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+const esc=s=>String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
 function hl(text,phrases){let out=esc(text);(phrases||[]).forEach(p=>{const e=esc(p).replace(/[.*+?^${}()|[\]\\]/g,"\\$&");out=out.replace(new RegExp(e,"gi"),m=>"<mark>"+m+"</mark>");});return out;}
 function glossify(escapedText){
   let out=escapedText;
