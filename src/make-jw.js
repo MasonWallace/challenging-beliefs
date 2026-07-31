@@ -94,6 +94,117 @@ const TLACTS = [
 const RELATED = {};
 data.forEach(d => { RELATED[d.id] = data.filter(x => x.category === d.category && x.id !== d.id && !x.avoid).slice(0, 3).map(x => x.id); });
 
+const TALK = {
+  "nwt-translation": "Never say *“your Bible is fake.”* Say: **“Can we read this verse in your Bible and in mine, side by side?”** Then let the insertion do the work — at Colossians 1:16-17 ask, *“Why is ‘other’ in brackets here but not in the 1950 edition? What Greek word is it translating?”* A Witness who checks the Kingdom Interlinear at that verse is doing the whole argument for you.",
+  "chronology-607": "Do not lecture on Neo-Babylonian tablets. Ask: **“Where does the Bible say 607?”** It doesn't — 607 comes from subtracting 70 from 537, and every secular source dates the fall of Jerusalem to 587. Then the quiet follow-up: *“If 607 moves, what happens to 1914?”* Leave it there. This is a seed, not a hammer.",
+  "failed-dates": "Read Deuteronomy 18:20-22 together first — let Scripture set the test, not you. Then: **“Has the organization ever published a date that didn't happen?”** Most Witnesses know about 1975. Very few know about 1925 and the Beth Sarim mansion. Ask, don't tell — *“Would you look up Beth Sarim in your own library?”*",
+  "prophecy-authority": "The paradox is the whole conversation: **“Is the faithful and discreet slave inspired?”** Their publications say no. Then: *“If it isn't inspired, why is disagreeing with it grounds for losing my family?”* Ask it gently and without triumph. This question has walked more Witnesses out than any argument about 607.",
+  "doctrine-of-god": "Go to John 20:28 in their own Bible and read it aloud: *“My Lord and my God.”* Then ask, **“What did Jesus say back? Did he correct him?”** Follow with Hebrews 1:6 — *“Does the NWT say the angels worship him, or ‘do obeisance’? What did it say before 1971?”* One verse, in their Bible, beats ten in yours.",
+  "two-class-salvation": "At the Memorial the emblems pass by untouched — ask about that: **“Jesus said ‘drink ye all of it.’ Why did you pass it?”** Then 1 Timothy 2:5: *“Is Christ your mediator, or only theirs?”* This is the most personal question on the site. Ask it with tears in your eyes, not a raised eyebrow.",
+  "blood-doctrine": "Never open here — it is their identity and their martyrdom. If it comes up: **“Why is hemoglobin a conscience matter when the red cell it came from is a disfellowshipping offense?”** Then Acts 15 in context — *“Is this a dietary ruling for table fellowship, or a medical rule about transfusion?”* One question, then silence.",
+  "shunning-exit": "This is the wall around everything else, and the person in front of you may lose their mother over this conversation. Say it out loud: **“I know what this could cost you, and I'm not asking you to pay it today.”** Then the only question that matters: *“If it's the truth, why does leaving it have to cost you your family?”*",
+  "institutional": "Use their own standard, never a sneer: **“You test other religions by their fruits — would you apply the same test here?”** Name the UN NGO years and the Royal Commission plainly, from the primary documents, and stop. Contempt for the organization reads as contempt for them.",
+  "practice": "Where Scripture leaves liberty, don't argue the liberty — argue the conscience. **“Where does the Bible forbid a birthday?”** and then Romans 14: *“Paul says one man esteems one day above another — why isn't this a conscience matter?”* Keep it light; this is the least important door in the house."
+};
+
+const TIPS = {
+  verdict: {
+    admitted: "The Watchtower's own publications — the bound volumes, the Proclaimers history, the Index — concede the facts of this claim. Only the meaning is defended. You can cite this one entirely from their library.",
+    unrefuted: "No adequate published answer exists — or the best defenses concede the core point rather than rebut it.",
+    contested: "A serious rebuttal exists. Read both sides; the dispute is genuine.",
+    answered: "The best defense holds up. The criticism is weaker than commonly presented — included so nothing is cherry-picked."
+  },
+  impact: "How serious the claim is, if true: MAJOR strikes at the foundation, MODERATE is significant, MINOR is a detail.",
+  strongest: "One of the handful of cases with the most decisive documentary evidence in the entire catalog — if you read only a few, read these."
+};
+const WHYTAIL = {
+  admitted: "The facts here sit in the organization's own publications — the only dispute is what they mean. In conversation, cite them exclusively from Watchtower sources; a Witness can verify every word in their own library.",
+  unrefuted: "No adequate answer to this has been published. A Witness must either live with the tension or produce a response the Governing Body has not yet managed.",
+  contested: "There is a genuine debate here — the honest move is to read both sides and weigh which explanation asks less of the evidence.",
+  answered: "Fairly weighed, the defense wins this one. Christians who keep using it weaken their own credibility on the claims that do stand."
+};
+const TOURSTEPS = [
+  { icon: "🚪", title: "Welcome to the examination", body: "<b>__N__ documented claims</b> about Jehovah's Witnesses, each weighed against the Bible — with Watchtower citations and Bible passages on every case. Every claim carries the <b>strongest Witness defense</b> and an honest verdict; popular criticisms that don't survive scrutiny are marked <b>do not use</b>." },
+  { icon: "🏷", title: "Four verdicts, one glance", body: "Every claim lands in one of four columns:<div class=\"vrow2\"><div><span class=\"badge v-admitted\">Admitted</span><span>their own publications concede the facts</span></div><div><span class=\"badge v-unrefuted\">Unrefuted</span><span>no adequate answer exists</span></div><div><span class=\"badge v-contested\">Contested</span><span>a real debate — both sides shown</span></div><div><span class=\"badge v-answered\">Answered</span><span>the defense wins, and we say so</span></div></div><p style='margin:10px 0 0'>Here, <b>Admitted</b> means the facts sit in the bound volumes, the <i>Proclaimers</i> history, or the Watchtower Index — sources a Witness already trusts.</p>" },
+  { icon: "💬", title: "Every case scripts the conversation", body: "Each case ends with <b>“How the conversation usually goes”</b> — a back-and-forth: <i>they may say → you respond → they may counter → you respond</i>. You'll never be caught without the next move. Bible references expand in place; Watchtower citations are listed so your friend can look them up in their own library." },
+  { icon: "🧭", title: "The sidebar is your map", body: "Start with <b>The heart of it</b> — the one thread everything hangs from. Then <b>When they knock</b> (their six-stage study script and the question to ask at each stage), <b>Quick answers</b>, <b>Guided paths</b>, and <b>Know your neighbor</b>, which is the difference between winning an argument and reaching a person." },
+  { icon: "🚀", title: "Where to start", body: "Take the <b>foundation path</b>: 607 BC → 1914 → 1919 → the Governing Body's authority. Every other doctrine hangs from that chain, and it is the one chain a Witness can check in a public library. Replay this tour anytime from the sidebar.", cta: "Take me to the heart of it" }
+];
+const CORE = {
+  navLabel: "The heart of it", navCount: "1", navTip: "The single chain every other doctrine hangs from — read this first",
+  title: "The heart of it: one date holds up everything else",
+  intro: "If you read nothing else on this site, read this page. Nearly every distinctive Jehovah's Witness doctrine is suspended from a single chain of four links — and the first link is a date that no historian, and no verse, supports.",
+  html: `
+  <div class="corebox"><h3>1 · The chain</h3>
+  <p><b>607 BC → 1914 → 1919 → the Governing Body.</b> The organization teaches that Jerusalem fell in 607 BC; that 2,520 years from 607 lands on 1914; that Christ returned invisibly in 1914, inspected all religions, and in 1919 appointed the Watchtower Society over his belongings. That 1919 appointment is the entire basis for the Governing Body's authority — and therefore for the blood doctrine, the shunning policy, the two-class salvation system, and the obligation to accept every future adjustment.</p>
+  <p>Pull the first link and the whole chain is on the floor. That is why this is the only page you have to read.</p>
+  <details class="srcdet"><summary>Open the cases behind this</summary><div class="corelinks" style="margin-top:12px">\${link("chron-607-vs-587")}\${link("auth-fds-2012-governing-body")}</div></details></div>
+
+  <div class="corebox"><h3>2 · 607 is not in the Bible, and it is not in the ground</h3>
+  <p>No verse gives the year. 607 is produced by taking 537 BC — the return from exile — and subtracting the seventy years of Jeremiah 25. Every other line of evidence disagrees: Babylonian business tablets, astronomical diaries dated by eclipses and planetary positions, king lists, and synchronisms with Egyptian and Assyrian records all place the fall of Jerusalem at <b>587/586 BC</b>, twenty years later. There is no scholar of the Neo-Babylonian period defending 607.</p>
+  <p>In 1977 a Swedish elder named Carl Olof Jonsson submitted a careful study of exactly this to headquarters. He was disfellowshipped. His research has still never been answered.</p>
+  <details class="srcdet"><summary>Open the cases behind this</summary><div class="corelinks" style="margin-top:12px">\${link("chron-607-vs-587")}\${link("chron-jonsson-gentile-times")}\${link("chron-70-years-servitude")}</div></details></div>
+
+  <div class="corebox"><h3>3 · 1914 was not the original claim</h3>
+  <p>This is the part almost no Witness has been told. Until 1943 the organization taught that Christ's invisible presence began in <b>1874</b>, not 1914 — and 1914 was published as the year the world would <i>end</i>: <i>“the battle of the great day of God Almighty… will end in A.D. 1914 with the complete overthrow of earth's present rulership”</i> (1889). When 1914 came and the world did not end, the date was kept and its meaning was replaced. A prediction that failed became a fulfilment.</p>
+  <details class="srcdet"><summary>Open the cases behind this</summary><div class="corelinks" style="margin-top:12px">\${link("dates-1874-1914-retrofit")}\${link("dates-generation-1914-redefined")}</div></details></div>
+
+  <div class="corebox"><h3>4 · The question that does the work</h3>
+  <p>Do not argue Babylonian chronology at a doorstep. Ask one thing, kindly, and let it sit:</p>
+  <p class="pullq">“Is the faithful and discreet slave inspired?”</p>
+  <p>Their own publications answer no — the Governing Body has repeatedly said it is neither inspired nor infallible. Then the second question follows on its own: <b>if it isn't inspired, why does disagreeing with it cost me my family?</b> No date, no Greek, no history required. It is the question that has walked more Witnesses to the door than every chronology argument combined.</p>
+  <details class="srcdet"><summary>Open the cases behind this</summary><div class="corelinks" style="margin-top:12px">\${link("auth-prophet-paradox")}\${link("shunning-mechanics-family")}</div></details></div>
+
+  <div class="corebox"><h3>5 · And then the Jesus who is enough</h3>
+  <p>Everything above only clears ground. The gospel is what you plant in it. A Witness has spent their life earning a place — hours, returns, studies, the hope of surviving Armageddon and then a thousand-year probation before life is finally secure. Nobody at the Kingdom Hall has ever told them that Jesus is not the archangel but the one at whose name every knee bows, that the Spirit is not a force but the Comforter who lives in them, or that the bread and cup at that Memorial were meant for <i>them</i>.</p>
+  <p>Read John 20:28 with them, and 1 John 5:13 — <i>“that ye may know that ye have eternal life.”</i> Not hope. <b>Know.</b> That word is not in their vocabulary, and it is the whole reason to have this conversation at all.</p>
+  <p><button class="corelink" data-goto="share">How to actually have this conversation →</button></p></div>`
+};
+
+const SHARE = {
+  title: "Sharing Jesus with a Jehovah's Witness",
+  intro: "Not to win the doorstep — to reach a person who has been taught that leaving costs them their mother. Built from the testimony of former Witnesses and from ministries that have done this for decades, with gentleness (2 Timothy 2:24–25).",
+  html: `
+  <div class="pb-h">The invitation to work toward</div>
+  <div class="saybox"><span class="who">You, once there is real trust</span><p>"Would you read the Gospel of John with me — just the two of us, in your Bible, no literature on either side?"</p></div>
+  <p class="pd" style="font-size:.78rem;margin:0 0 4px">This is the ask everything builds to. Witnesses are trained to conduct a study, not to receive one; the offer to read Scripture together <i>as equals</i> is unlike anything in their week — and John is where the archangel doctrine quietly dies.</p>
+
+  <div class="pb-h">What actually reaches a Witness — ranked by what ex-Witnesses report</div><div class="pb-grid">
+  <div class="pb"><span class="num">1</span><h4>A Christian who is still there in a year</h4><p>The organization's strongest claim is that worldly friendships are shallow and conditional. A neighbor who keeps showing up, keeps being kind, and never once gloats disproves the doctrine without arguing against it. Almost every exit story has one such person in it. The single most common regret of ex-Witnesses is that nobody stayed.</p></div>
+  <div class="pb"><span class="num">2</span><h4>Questions, never lectures</h4><p>Witnesses are drilled against arguments — every objection you know has a scripted counter in the <i>Reasoning</i> book. What they have no script for is a sincere question they cannot answer, asked by someone who obviously likes them. Ask, then let silence do the work. A question travels home with them; an argument does not.</p></div>
+  <div class="pb"><span class="num">3</span><h4>Their own literature, in their own hands</h4><p>Never bring "apostate" material — the moment it appears you become a category, not a person. Instead ask them to look something up in their own library: the 1889 statement that 1914 would END the present order, Beth Sarim in the <i>Proclaimers</i> book, the pre-1971 rendering of Hebrews 1:6. Watchtower facts, found by a Witness, in a Watchtower publication, cannot be dismissed as apostate lies.</p></div>
+  <div class="pb"><span class="num">4</span><h4>Assurance — the thing they have never once been offered</h4><p>Ask, "Do you know you have eternal life?" They cannot say yes; the honest answer is a hope conditioned on the organization, Armageddon, and a thousand-year probation. Then read 1 John 5:13 in their Bible: <i>"that ye may know that ye have eternal life."</i> Many former Witnesses date the beginning of their exit to that one verse.</p></div>
+  </div>
+
+  <div class="pb-h">The method</div><div class="pb-grid">
+  <div class="pb do"><h4>Use their Bible, always</h4><p>Everything on this site can be shown in the New World Translation. Reaching for your own translation lets them file the conversation under "he doesn't trust our Bible" and stop listening. John 20:28, 1 Timothy 2:5, 1 John 5:13, Hebrews 1:6 — all of it works in theirs. Where the NWT differs, don't accuse: ask what Greek word is behind it, and ask them to check the Kingdom Interlinear.</p></div>
+  <div class="pb do"><h4>Name the cost out loud, early</h4><p>"I know that if you ended up agreeing with me, it could cost you your family. I'm not asking you to pay that today." Saying it aloud does two things: it proves you understand their world, and it quietly puts the shunning policy on the table as a thing that needs explaining. Nothing else you say will land until they believe you know what you are asking.</p></div>
+  <div class="pb do"><h4>One question, then change the subject</h4><p>The doorstep is a poor classroom, and a Witness who feels cornered will not return. Plant one thing, be genuinely warm, and let them leave wanting to come back. The people who reach Witnesses are almost never the people who won the first conversation — they are the ones who got a second, and a tenth.</p></div>
+  <div class="pb dont"><h4>Never mock the organization to their face</h4><p>To them the Governing Body is God's channel and the Kingdom Hall is their entire community, calendar, and family. Contempt for it reads as contempt for them, confirms exactly what they have been warned about "opposers," and ends the relationship. Honest questions about the organization are fair; sneering never is.</p></div>
+  <div class="pb dont"><h4>Don't open with blood, holidays, or 607</h4><p>Blood is their identity and their martyrdom; holidays are trivial; 607 is a research project. Opening on any of them wastes the one conversation you may get. Start with who Jesus is and whether they can know they are saved — the two doors that lead somewhere.</p></div>
+  <div class="pb dont"><h4>Don't try to finish it in one sitting</h4><p>Nobody leaves a high-control group in an afternoon; the typical exit takes years and runs through dozens of small doubts. Your job is to be one of them, and to be the safe person they remember when the doubt finally arrives. Play a long game or don't play.</p></div>
+  </div>
+
+  <div class="pb-h" style="margin-top:34px">How it actually goes — the deeper craft</div>
+  <p class="sh-open">Every distinctive doctrine they hold arrives through <span class="hl">one channel</span> — and their own publications say that channel is not inspired.</p>
+  <p class="sh-att">— the paradox at the centre of every conversation on this site</p>
+
+  <div class="sa"><h4 class="sat">The four questions that do the most work</h4>
+  <ol class="sh-list">
+    <li><b style="color:var(--ink)">"Is the faithful and discreet slave inspired?"</b> Their publications answer no. Then, gently: <i>if it isn't inspired, why is disagreeing with it grounds for losing my family?</i> No history, no Greek, no chronology needed — and no scripted answer exists.</li>
+    <li><b style="color:var(--ink)">"Do you know you have eternal life?"</b> Read 1 John 5:13 in their Bible and let the word <i>know</i> sit there. Their whole system is built on hope conditioned on performance; assurance is the one thing the Kingdom Hall cannot give.</li>
+    <li><b style="color:var(--ink)">"Jesus said 'drink ye all of it' — why did you pass the cup?"</b> Ask it after the Memorial, when they have just watched the emblems go by untouched. 1 Timothy 2:5 follows naturally: <i>is Christ your mediator, or only theirs?</i></li>
+    <li><b style="color:var(--ink)">"What did Jesus say when Thomas called him 'my Lord and my God'?"</b> He accepted it. Then Hebrews 1:6 — and the question of what that verse said before 1971. Two verses, both in their Bible, and the archangel doctrine has nowhere left to stand.</li>
+  </ol></div>
+
+  <div class="sa"><h4 class="sat">If they are already doubting</h4>
+  <p class="pd">A Witness who has begun to doubt is in real danger — of losing their marriage, their parents, their entire social world at once. Do not celebrate, do not push, and do not tell anyone. Offer three things: that you will still be there whatever they decide, that they can ask you anything without it becoming a project, and that the God of the Bible is not the God of the audit. Point them to ex-Witness support communities for the practical side; you carry the gospel side.</p></div>
+
+  <div class="sa"><h4 class="sat">Start here</h4>
+  <p class="pd">The <b>foundation path</b> walks the one chain everything else hangs from; every case page ends with a suggested question and a scripted back-and-forth ("How the conversation usually goes") so you are ready for the counter-moves.</p>
+  <button class="start" data-goto-path="foundation">Open the foundation path →</button></div>`
+};
+
 build({
   slug: 'jw', dataFile: 'jw-data.json', compFile: 'companion-jw.json',
   fieldMap: { quran: null, hadith: 'wt', bible: 'bible' },
@@ -101,6 +212,11 @@ build({
   railNote: "Every reference here is cited by this specific claim — click a Bible reference to read it in place. Watchtower citations are listed so a Witness can look them up in their own library.",
   SECTIONS: { text: "The translation", prophecy: "Dates & prophecy", doctrine: "The doctrine", life: "Organization & life" },
   CATS, SECMAP, CATDESC, WHYMAP, GLOSSARY, PATHS, TLACTS, RELATED,
+  TALK, TIPS, WHYTAIL, TOURSTEPS, core: CORE, share: SHARE,
+  lessonsIntro: "The doorstep call and the home Bible study follow a trained sequence — build rapport, establish a felt need, introduce the literature, then the study, the meetings, and baptism. Here is each stage, the one question to ask right then, and the cases behind it. Knowing the script lets you stay warm and unhurried.",
+  methodFoot: "Steelman rules: every claim carries the best published Watchtower defense; weak criticisms are marked answered; facts conceded in the organization's own publications are marked admitted.",
+  roleNote: "<b>Role:</b> this is the Watchtower teaching the claim examines.",
+  refRegex: "(?:The Watchtower[,]?\\\\s(?:[A-Z][a-z]+\\\\s\\\\d{1,2},\\\\s)?\\\\d{4}|Awake![,]?\\\\s(?:[A-Z][a-z]+\\\\s\\\\d{1,2},\\\\s)?\\\\d{4}|w\\\\d{2}\\\\s\\\\d{1,2}/\\\\d{1,2}|Insight on the Scriptures|Proclaimers|Kingdom Interlinear|New World Translation|NWT)",
   VLABEL: { admitted: "Admitted", unrefuted: "Unrefuted", contested: "Contested", answered: "Answered" },
   VDESC: {
     admitted: "The Watchtower's own publications concede these facts — cite them from their sources alone",
@@ -112,7 +228,6 @@ build({
   keyPrefix: 'wbjw_',
   textSwaps: [
     ['<title>Challenging Beliefs — Islam, Examined Against the Bible</title>', "<title>Challenging Beliefs — Jehovah's Witnesses, Examined Against the Bible</title>"],
-    ['Sharing the gospel with Muslim friends', "Sharing the gospel with Jehovah's Witnesses"],
     ["Know your Muslim neighbor", "Know your Jehovah's Witness neighbor"],
     ["The da'wah script", "When they knock"],
     ["Muslim friend", "Witness at your door"]
