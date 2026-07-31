@@ -387,6 +387,15 @@
   .side{display:flex;flex-direction:column}
   .sideprog{margin-top:auto !important;display:flex;gap:8px;align-items:center;padding-bottom:4px}
   .sideprog button{margin-top:0 !important;flex:1}
+
+  .ptcard{background:var(--panel);border:1px solid var(--line2);border-radius:12px;padding:18px 20px;margin-bottom:14px}
+  .ptcard .ptv{font-family:var(--serif);font-size:1.15rem;color:var(--gold);margin:0 0 10px}
+  .ptcard .who{font-size:.64rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin:0 0 5px}
+  .ptcard .who.them{color:var(--red)}
+  .ptcard .who.you{color:var(--green)}
+  .ptcard p.pt{font-size:.88rem;color:var(--muted);line-height:1.7;margin:0 0 12px}
+  .ptcard p.pt b{color:var(--ink)}
+  .ptcard .refs{font-size:.74rem;color:var(--gold);font-family:var(--serif)}
 </style>
 
 </head>
@@ -406,6 +415,7 @@
 
 <script>
 const DATA=[
+
 
 
 
@@ -838,7 +848,7 @@ function filtered(){
 /* ---------- sidebar ---------- */
 function renderNav(){
   const items=[["overview","All claims",DATA.length]];
-  const views=[["core","The heart of it","3"],["share","Sharing the gospel","✝"],["paths","Guided paths",PATHS.length],["timeline","Timeline","3 acts"],["glossary","Terms explained",GLOSSARY.length]];
+  const views=[["core","The heart of it","3"],["share","Sharing the gospel","✝"],["proofs","Their proof-texts","6"],["paths","Guided paths",PATHS.length],["timeline","Timeline","3 acts"],["glossary","Terms explained",GLOSSARY.length]];
   const cur=state.view==="overview"&&state.section!=="all"?"sec:"+state.section:state.view;
   $("#nav").innerHTML=items.map(([k,l,c])=>`<a class="${cur===k?"on":""}" data-k="${k}">${l} <span class="cnt">${c}</span></a>`).join("")
     +`<h5>Views</h5>`+views.map(([k,l,c])=>`<a class="${cur===k?"on":""}" data-k="${k}">${l} <span class="cnt">${c}</span></a>`).join("");
@@ -1218,6 +1228,18 @@ function renderShare(){
   if(b)b.addEventListener("click",()=>{state.view="paths";state.caseId=null;render();});
 }
 
+const PROOFS=[{"v":"1 Corinthians 15:29","they":"'Why are they then baptized for the dead?' — Paul endorses baptism for the dead; the early church practiced it and we restored it.","you":"Read the pronoun: Paul says 'what shall THEY do' — not 'we.' He's citing a practice of some group (possibly heretical, as many at Corinth were) to argue for resurrection, without endorsing it — the way he cites pagan poets. One ambiguous verse against the entire Bible's teaching that judgment follows death (Hebrews 9:27) can't carry a temple system. Notably, the Book of Mormon itself teaches NO post-death second chance (Alma 34:32–35).","refs":"Hebrews 9:27 · Alma 34:32-35 · Luke 16:26"},{"v":"Ezekiel 37:15-17","they":"The two sticks — the stick of Judah (the Bible) and the stick of Joseph (the Book of Mormon) — joined in God's hand!","you":"Keep reading to verse 22: God himself explains the sign — 'I will make them ONE NATION in the land upon the mountains of Israel.' The sticks are the divided kingdoms of Judah and Israel being reunited — the text interprets itself, and it's about nations, not books. A 'stick' (ets, wood) was a writing tablet at most; Nephite plates were metal.","refs":"Ezekiel 37:21-22"},{"v":"James 1:5","they":"'If any of you lack wisdom, let him ask of God' — that's why Joseph prayed, and why you should pray about the Book of Mormon (Moroni 10:4).","you":"James is writing to believers about wisdom in trials (v.2) — not about testing whether books are scripture. God's given method for testing claims is Scripture itself: the Bereans were commended for checking Paul AGAINST the scriptures (Acts 17:11), and Galatians 1:8 says even an angel preaching another gospel is accursed — praying for a feeling about a message an angel delivered is precisely backwards. Feelings confirm contradictory books to sincere people of every faith; 'the heart is deceitful' (Jeremiah 17:9).","refs":"Acts 17:11 · Galatians 1:8 · Jeremiah 17:9 · Proverbs 14:12"},{"v":"John 10:16","they":"'Other sheep I have, which are not of this fold' — Jesus meant the Nephites in America, whom he visited after his resurrection (3 Nephi 15).","you":"Jesus tells you who they are in the same breath: sheep 'not of this fold' who become 'one fold' — the Gentiles, exactly as the rest of the New Testament unfolds it (Ephesians 2:11–18: the two made one). The apostles were sent to those other sheep (Matthew 28:19). Nothing in the text hints at another hemisphere — that reading needs the Book of Mormon first, which is the question at issue.","refs":"Ephesians 2:11-18 · Acts 10:34-35"},{"v":"Amos 3:7","they":"'Surely the Lord GOD will do nothing, but he revealeth his secret unto his servants the prophets' — so there must be living prophets today.","you":"Amen to the verse — and Hebrews 1:1–2 tells us how it culminated: 'God, who spake in time past unto the fathers by the prophets, hath in these last days spoken unto us by his SON.' The question was never whether God speaks through prophets; it's whether Joseph Smith passed the prophet test God gave (Deuteronomy 18:21–22). The Independence temple prophecy is on this site — check it against that test.","refs":"Hebrews 1:1-2 · Deuteronomy 18:21-22"},{"v":"1 Corinthians 15:40-41","they":"Celestial and terrestrial bodies, differing in glory like sun, moon, and stars — the three degrees of glory!","you":"Paul is contrasting resurrection bodies with mortal bodies — 'so also is the resurrection of the dead' (v.42): sown corruptible, raised incorruptible. Two kinds of body, not three heavens for sorted people; there's no 'telestial' in any Greek manuscript — that word had to be invented. And the Book of Mormon itself knows only two destinations (Alma 41:4-6; 1 Nephi 15:35).","refs":"1 Corinthians 15:42-44 · Alma 41:4-6"}];
+
+/* ---------- their proof-texts ---------- */
+function renderProofs(){
+  $("#main").innerHTML=`<div class="viewhead"><h2>When they quote YOUR Bible</h2>
+  <p>The verses a Latter-day Saint friend will bring to you, and the two-minute responses — context first, then the question that reopens the conversation. Read the passage together whenever you can; the text itself does most of the work.</p></div>`+
+  PROOFS.map(p=>`<div class="ptcard"><h3 class="ptv">${p.v}</h3>
+    <div class="who them">They may say</div><p class="pt">${p.they}</p>
+    <div class="who you">You respond</div><p class="pt">${rich(p.you)}</p>
+    <div class="refs">Read together: ${p.refs}</div></div>`).join("");
+}
+
 /* ---------- router ---------- */
 function render(){
   document.querySelector(".app").classList.toggle("reading",state.view!=="overview");
@@ -1227,6 +1249,7 @@ function render(){
   if(state.view==="timeline")return renderTimeline(),renderPreview();
   if(state.view==="glossary")return renderGlossary(),renderPreview();
   if(state.view==="share")return renderShare(),renderPreview();
+  if(state.view==="proofs")return renderProofs(),renderPreview();
   if(state.view==="core")return renderCore(),renderPreview();
   renderOverview();renderPreview();
 }

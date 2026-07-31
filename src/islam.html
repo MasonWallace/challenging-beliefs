@@ -391,6 +391,15 @@
   .side{display:flex;flex-direction:column}
   .sideprog{margin-top:auto !important;display:flex;gap:8px;align-items:center;padding-bottom:4px}
   .sideprog button{margin-top:0 !important;flex:1}
+
+  .ptcard{background:var(--panel);border:1px solid var(--line2);border-radius:12px;padding:18px 20px;margin-bottom:14px}
+  .ptcard .ptv{font-family:var(--serif);font-size:1.15rem;color:var(--gold);margin:0 0 10px}
+  .ptcard .who{font-size:.64rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin:0 0 5px}
+  .ptcard .who.them{color:var(--red)}
+  .ptcard .who.you{color:var(--green)}
+  .ptcard p.pt{font-size:.88rem;color:var(--muted);line-height:1.7;margin:0 0 12px}
+  .ptcard p.pt b{color:var(--ink)}
+  .ptcard .refs{font-size:.74rem;color:var(--gold);font-family:var(--serif)}
 </style>
 
 <div class="app">
@@ -635,7 +644,7 @@ function filtered(){
 /* ---------- sidebar ---------- */
 function renderNav(){
   const items=[["overview","All claims",DATA.length]];
-  const views=[["core","The heart of it","3"],["share","Sharing the gospel","✝"],["paths","Guided paths",PATHS.length],["timeline","Timeline","4 acts"],["glossary","Terms explained",GLOSSARY.length]];
+  const views=[["core","The heart of it","3"],["share","Sharing the gospel","✝"],["proofs","Their proof-texts","6"],["paths","Guided paths",PATHS.length],["timeline","Timeline","4 acts"],["glossary","Terms explained",GLOSSARY.length]];
   const cur=state.view==="overview"&&state.section!=="all"?"sec:"+state.section:state.view;
   $("#nav").innerHTML=items.map(([k,l,c])=>`<a class="${cur===k?"on":""}" data-k="${k}">${l} <span class="cnt">${c}</span></a>`).join("")
     +`<h5>Views</h5>`+views.map(([k,l,c])=>`<a class="${cur===k?"on":""}" data-k="${k}">${l} <span class="cnt">${c}</span></a>`).join("");
@@ -958,6 +967,18 @@ function renderShare(){
   if(b)b.addEventListener("click",()=>{const p=PATHS.find(x=>x.id===b.dataset.gotoPath);state.pathId=p.id;const read=store.read;const next=p.items.find(i=>!read.has(i))||p.items[0];openCase(next,true);});
 }
 
+const PROOFS=[{"v":"Deuteronomy 18:18","they":"'A Prophet from among their brethren, like unto thee' — the brethren of Israel are the Ishmaelites; the prophet like Moses is Muhammad!","you":"The text answers itself: 'from among their brethren' in Deuteronomy consistently means fellow Israelites (Deut 17:15 uses the same phrase for choosing a king — no one thinks Israel's king was to be an Arab). And the New Testament names the fulfillment: Peter applies it to Jesus (Acts 3:22–26). Moses' unique profile — knew God face to face, signs and wonders (Deut 34:10–12) — fits Jesus, not Muhammad, who per the Quran itself performed no public sign (29:50–51).","refs":"Deuteronomy 17:15 · Acts 3:22-26 · Deuteronomy 34:10-12"},{"v":"John 14:16 (the Paraclete)","they":"The 'Comforter' Jesus promised is Muhammad — 'periklytos' (praised one) = Ahmad!","you":"Read verse 17: the Comforter is 'the SPIRIT of truth; whom the world cannot see… he dwelleth WITH you, and shall be IN you' — sent in Jesus's name (14:26), to the disciples then living. Muhammad was a visible man, born 500+ years later, who never dwelt in the disciples. The 'periklytos' theory requires the Greek text to have been altered — with zero support among the 5,800+ manuscripts, many pre-Islamic. And fulfilled: Acts 2.","refs":"John 14:17,26 · John 16:7 · Acts 2:1-4"},{"v":"Song of Songs 5:16","they":"'He is altogether lovely (machmadim)' — mach-mad — Muhammad is named in the Hebrew Bible!","you":"Machmad is an ordinary Hebrew word ('desirable/lovely') used about 13 times — including of temple treasures plundered (Lamentations 1:10) and things destroyed (Hosea 9:6); if it names Muhammad here, it names him there too. In context, a bride is praising her husband's kisses. A sound-alike isn't a prophecy — by that method, you could find anyone in any book.","refs":"Lamentations 1:10 · Hosea 9:6"},{"v":"John 16:12-13","they":"'I have yet many things to say unto you, but ye cannot bear them now' — Jesus promised more revelation: the Quran.","you":"Finish the sentence: 'when he, the Spirit of truth, is come, he will guide you' — the same Spirit of 14:17, given to THOSE disciples ('you'), fulfilled at Pentecost within weeks. It cannot be a book delivered six centuries later to different people that contradicts what Jesus already said — his death and resurrection (Mark 8:31), which the Quran denies.","refs":"John 16:13 · Acts 2 · Galatians 1:8"},{"v":"The Gospel of Barnabas","they":"The true gospel — it says Jesus wasn't crucified and foretold Muhammad by name!","you":"It's a 14th–16th-century forgery, and most Muslim scholars agree: it cites the papal Jubilee of 1300, medieval wine casks, and quotes Dante; no manuscript or mention exists before the 16th century. It even contradicts the Quran — it denies Jesus is the Messiah, while the Quran calls him al-Masih eleven times. If your case needs this book, your case has a problem.","refs":"Quran 3:45 · Luke 1:1-4"},{"v":"Isaiah 29:12 / 'the unlettered prophet'","they":"'The book is delivered to him that is not learned' — the unlettered Muhammad receiving the Quran in the cave!","you":"Read the whole passage: Isaiah 29 is a woe against Jerusalem ('Ariel,' v.1) whose vision has become like a sealed book — the illiterate man's 'I am not learned' is part of a picture of JUDGMENT on unresponsive Israel, not a prophecy of revelation to anyone. Verse 13 continues into the famous 'their hearts are far from me' that Jesus applies to the Pharisees (Matthew 15:8). Context is everything.","refs":"Isaiah 29:1-13 · Matthew 15:8-9"}];
+
+/* ---------- their proof-texts ---------- */
+function renderProofs(){
+  $("#main").innerHTML=`<div class="viewhead"><h2>When they quote YOUR Bible</h2>
+  <p>The verses a Muslim friend will bring to you, and the two-minute responses — context first, then the question that reopens the conversation. Read the passage together whenever you can; the text itself does most of the work.</p></div>`+
+  PROOFS.map(p=>`<div class="ptcard"><h3 class="ptv">${p.v}</h3>
+    <div class="who them">They may say</div><p class="pt">${p.they}</p>
+    <div class="who you">You respond</div><p class="pt">${rich(p.you)}</p>
+    <div class="refs">Read together: ${p.refs}</div></div>`).join("");
+}
+
 /* ---------- router ---------- */
 function render(){
   document.querySelector(".app").classList.toggle("reading",state.view!=="overview");
@@ -967,6 +988,7 @@ function render(){
   if(state.view==="timeline")return renderTimeline(),renderPreview();
   if(state.view==="glossary")return renderGlossary(),renderPreview();
   if(state.view==="share")return renderShare(),renderPreview();
+  if(state.view==="proofs")return renderProofs(),renderPreview();
   if(state.view==="core")return renderCore(),renderPreview();
   renderOverview();renderPreview();
 }
