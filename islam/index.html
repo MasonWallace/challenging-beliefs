@@ -1323,8 +1323,8 @@ window.addEventListener("hashchange",()=>{
   if(m&&byId[m[1]]){if(state.caseId!==m[1])openCase(m[1]);}
   else if(!location.hash&&state.view==="case"){state.view="overview";state.caseId=null;render();}
 });
+{const m0=location.hash.match(/^#case\/([A-Za-z0-9-]+)$/);if(m0&&byId[m0[1]]){state.caseId=m0[1];state.sel=m0[1];state.view="case";store.markRead(m0[1]);}}
 render();
-{const m0=location.hash.match(/^#case\/([A-Za-z0-9-]+)$/);if(m0&&byId[m0[1]])openCase(m0[1]);}
 </script>
 
 </body>
