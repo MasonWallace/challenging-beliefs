@@ -413,6 +413,8 @@
   }
   .arsinput{width:100%;max-width:560px;background:var(--panel);border:1px solid var(--line2);border-radius:10px;padding:12px 16px;color:var(--ink);font-family:inherit;font-size:.9rem;margin:4px 0 10px;display:block}
   .arsinput:focus{outline:none;border-color:var(--gold)}
+  #navtip{position:fixed;display:none;width:240px;background:#1a222e;border:1px solid var(--line2);border-left:3px solid var(--gold);border-radius:10px;padding:10px 14px;font-size:.74rem;line-height:1.55;color:var(--muted);z-index:120;box-shadow:0 10px 34px rgba(0,0,0,.55);pointer-events:none}
+  @media (hover:none),(max-width:720px){#navtip{display:none !important}}
 </style>
 
 <div class="app">
@@ -597,7 +599,23 @@ const GLOSSARY=[
 {t:"honor-shame",d:"The cultural operating system of most Muslim societies: identity, family honor, and community standing govern behavior more than individual guilt. It is why mocking Muhammad ends conversations, and why the gospel told as shame-bearing and honor-restoring (Hebrews 12:2) lands deeper than courtroom language alone."},
 {t:"Eid al-Adha",d:"The Feast of Sacrifice commemorating Allah ransoming Abraham's son 'with a great sacrifice' (37:107) — the best annual doorway to the gospel of substitutionary atonement."},
 {t:"jizya / dhimmi",d:"The tax and subordinate protected status imposed on Jews and Christians under Islamic rule (9:29)."},
-{t:"Deutero-Isaiah",d:"Chapters 40–55 of Isaiah, judged by most scholars to be written during the Babylonian exile — relevant here only as background to biblical scholarship debates."},
+{t:"Deutero-Isaiah",d:"Chapters 40–55 of Isaiah, judged by most scholars to be written during the Babylonian exile — relevant here only as background to biblical scholarship debates."},,
+{t:"ummah",d:"The worldwide community of Muslims — a strong transnational identity: an insult to Islam anywhere is felt as an insult to the ummah everywhere."},
+{t:"sunnah",d:"The Prophet's example — his practices, preferences, and habits, known through hadith. Doing something 'because it is sunnah' (beard, miswak, right hand first) earns reward."},
+{t:"bid'ah",d:"'Innovation' in religion — a serious accusation. Anything added to Islam after Muhammad is suspect; this is why practices vary and debates over celebrations (even his birthday) get heated."},
+{t:"kafir",d:"'Unbeliever/one who covers the truth' — the term for non-Muslims. Ranges from neutral-descriptive to deeply pejorative depending on speaker and context."},
+{t:"hafiz",d:"Someone who has memorized the entire Quran — all ~6,236 verses in Arabic. Millions worldwide have; a hafiz brings honor to a whole family and may lead Ramadan prayers."},
+{t:"wudu",d:"Ritual washing (hands, mouth, nose, face, arms, head, feet) required before prayer — broken by sleep or using the bathroom. Why Muslim colleagues wash in workplace restrooms at midday."},
+{t:"jummah",d:"Friday congregational prayer with sermon (khutbah) — the anchor of the week, obligatory for men. Muslim coworkers may need a long Friday lunch window."},
+{t:"inshallah",d:"'If God wills' — appended to any statement about the future (James 4:15 is the biblical parallel). Can also function as a polite, non-committal 'maybe.'"},
+{t:"alhamdulillah",d:"'Praise be to God' — the response to 'how are you,' good news, and sneezes. Gratitude formula woven through everyday speech."},
+{t:"astaghfirullah",d:"'I seek God's forgiveness' — uttered after mentioning or witnessing something sinful; also an exclamation of shock at impropriety."},
+{t:"du'a",d:"Personal supplication, as distinct from salah (the five formal prayers). Offering to make du'a for someone is warm; asking a Muslim friend to pray for you is received kindly."},
+{t:"halal / haram",d:"Permitted / forbidden — covering food (no pork, no alcohol, ritually slaughtered meat), finance (no interest), and conduct. 'Is it halal?' is a daily navigation question."},
+{t:"imam",d:"The prayer leader of a mosque — not a priest and not ordained; Sunni Islam has no clergy hierarchy or sacraments. Authority comes from knowledge and community standing."},
+{t:"fitra",d:"The innate disposition toward Islam every human is born with — hence converts are called 'reverts': they're understood to be returning, not converting."},
+{t:"madhhab",d:"One of the four Sunni schools of law (Hanafi, Maliki, Shafi'i, Hanbali) — why practice differs by region on details from prayer posture to food rules."},
+{t:"revert",d:"A convert to Islam — see fitra. Convert stories are celebrated in dawah exactly the way testimonies are in evangelicalism."}
 ];
 
 const PATHS=[{"id":"cornerstone","name":"The cornerstone: the Bible stands","time":"≈ 20 min","desc":"The argument every other conversation depends on: the Quran affirms the Bible of Muhammad's day, the manuscripts prove that Bible is ours, and the corruption claim dies on either horn of the dilemma.","items":["quran-affirms-torah-gospel","tahrif-doctrine-late-development","manuscripts-predate-muhammad","gospel-judgment-test","injil-problem"]},{"id":"strongest","name":"The five strongest cases","time":"≈ 25 min","desc":"The claims with the most decisive evidence and the least answer — start here if you read nothing else.","items":["quran-affirms-torah-gospel","crucifixion-denial-vs-history","injil-problem","clay-birds-apocrypha","quran-never-quotes-scriptures"]},{"id":"gospel","name":"For gospel conversations","time":"≈ 30 min","desc":"The cases that lead most naturally to the gospel itself — the scales against grace, the Quran's own exalted Jesus, and the sacrifice at the heart of Eid.","items":["salvation-scales","quran-jesus-resume","word-and-spirit-titles","crucifixion-denial-vs-history","god-is-love-monad"]},{"id":"fair","name":"What critics get wrong","time":"≈ 20 min","desc":"Where popular polemics overreach — the moon-god myth, the late-Quran theory, spread-by-the-sword, taqiyya stereotypes, and more. Knowing these keeps your strong arguments credible.","items":["sun-muddy-spring","taqiyya-deception","prophet-test-signs","sanaa-palimpsest-qiraat","samaritan-anachronism","allah-moon-god","quran-late-composition","spread-only-by-sword"]}];
@@ -674,11 +692,29 @@ function filtered(){
 
 /* ---------- sidebar ---------- */
 function renderNav(){
-  const items=[["overview","All claims",DATA.length]];
-  const views=[["core","The heart of it","3"],["share","Sharing the gospel","✝"],["proofs","Their proof-texts","6"],["theysay","They just said…",THEYSAY.length],["lessons","The da'wah script",LESSONS.length],["arsenal","Verse arsenal","🎯"],["paths","Guided paths",PATHS.length],["timeline","Timeline","4 acts"],["glossary","Terms explained",GLOSSARY.length]];
+  const items=[["overview","All claims",DATA.length,"Every documented case — search it, filter it by verdict and seriousness"]];
+  const groups=[
+    ["Start here",[
+      ["core","The heart of it","3","The three strongest cases and the foundation argument — read this first"],
+      ["paths","Guided paths",PATHS.length,"Curated reading orders — pick a goal and follow the sequence"]]],
+    ["For conversations",[
+      ["theysay","Quick answers",THEYSAY.length,"The lines you'll actually hear from them — each with a two-sentence response"],
+      ["lessons","The da'wah script",LESSONS.length,"The 6-stage street script — and the question to ask at each stage"],
+      ["proofs","Verses they quote",PROOFS.length,"Bible verses they cite at you — with the context that answers them"],
+      ["share","Sharing Jesus","✝","How to evangelize here: approach, bridges, and cautions"]]],
+    ["Reference",[
+      ["timeline","Timeline",TLACTS.length+" acts","Their claims vs. the documented record, era by era"],
+      ["glossary","Word guide",GLOSSARY.length,"Doctrine terms and insider vocabulary, explained"]]]
+  ];
   const cur=state.view==="overview"&&state.section!=="all"?"sec:"+state.section:state.view;
-  $("#nav").innerHTML=items.map(([k,l,c])=>`<a class="${cur===k?"on":""}" data-k="${k}">${l} <span class="cnt">${c}</span></a>`).join("")
-    +`<h5>Views</h5>`+views.map(([k,l,c])=>`<a class="${cur===k?"on":""}" data-k="${k}">${l} <span class="cnt">${c}</span></a>`).join("");
+  const lk=([k,l,c,tp])=>`<a class="${cur===k?"on":""}" data-k="${k}"${tp?` data-tip="${esc(tp)}"`:""}>${l} <span class="cnt">${c}</span></a>`;
+  $("#nav").innerHTML=items.map(lk).join("")+groups.map(([h,vs])=>`<h5>${h}</h5>`+vs.map(lk).join("")).join("");
+  let tipEl=document.getElementById("navtip");
+  if(!tipEl){tipEl=document.createElement("div");tipEl.id="navtip";document.body.appendChild(tipEl);}
+  document.querySelectorAll("#nav a[data-tip]").forEach(a=>{
+    a.addEventListener("mouseenter",()=>{const r=a.getBoundingClientRect();tipEl.textContent=a.dataset.tip;tipEl.style.display="block";tipEl.style.top=Math.max(8,r.top-6)+"px";tipEl.style.left=(r.right+10)+"px";});
+    a.addEventListener("mouseleave",()=>tipEl.style.display="none");
+  });
   document.querySelectorAll("#nav a").forEach(a=>a.addEventListener("click",()=>{
     const k=a.dataset.k;
     if(k.startsWith("sec:")){state.view="overview";state.section=k.slice(4);state.caseId=null;}
@@ -1076,29 +1112,6 @@ function renderLessons(){
     <div class="relrow">${L.ids.map(id=>byId[id]?`<button data-open="${id}">${esc(byId[id].title)}</button>`:"").join("")}</div></div>`).join("");
   bindOpens();
 }
-function renderArsenal(){
-  const cnt={};
-  DATA.forEach(d=>(d.bible||[]).forEach(r=>{const k=r.replace(/–/g,"-").trim();(cnt[k]=cnt[k]||[]).push(d.id);}));
-  const top=Object.entries(cnt).sort((a,b)=>b[1].length-a[1].length).slice(0,16);
-  $("#main").innerHTML=`<div class="viewhead"><h2>Verse arsenal</h2>
-  <p>Two tools. <b>Look up any reference</b> — Quran, hadith, or Bible — to find every case that cites it ("he quoted Surah 4:157 — now what?"). Below it, the Bible verses that carry the most weight across all ${DATA.length} cases: memorize these and you are armed for most conversations on this site.</p></div>
-  <input class="arsinput" id="arsq" placeholder="Type any reference — e.g. Quran 4:157, Bukhari 5134, Isaiah 53, John 1…" autocomplete="off">
-  <div id="arsout"></div>
-  <div class="dlab" style="margin-top:26px">The verses that do the most work</div>`+
-  top.map(([ref,ids])=>`<div class="ptcard"><h3 class="ptv">${esc(ref)} <span class="cnt" style="font-size:.7rem">${ids.length} case${ids.length>1?"s":""}</span></h3>
-    ${WHYVERSE[ref]?`<p class="pt">${rich(WHYVERSE[ref])}</p>`:""}
-    <div class="relrow">${ids.slice(0,6).map(id=>`<button data-open="${id}">${esc(byId[id].title)}</button>`).join("")}</div></div>`).join("");
-  bindOpens();
-  const box=$("#arsq"),out=$("#arsout");
-  box.addEventListener("input",()=>{
-    const q=box.value.toLowerCase().replace(/–/g,"-").replace(/\s+/g," ").trim();
-    if(q.length<3){out.innerHTML="";return;}
-    const hits=DATA.filter(d=>["quran","hadith","bible"].some(k=>(d[k]||[]).some(r=>r.toLowerCase().replace(/–/g,"-").includes(q))));
-    out.innerHTML=hits.length?`<div class="dlab">${hits.length} case${hits.length>1?"s":""} cite${hits.length>1?"":"s"} a matching reference</div><div class="relrow">${hits.slice(0,20).map(d=>`<button data-open="${d.id}">${esc(d.title)}</button>`).join("")}</div>`:`<p class="pt" style="color:var(--muted)">No case cites a reference matching “${esc(box.value)}” — try just the book/surah (e.g. “Quran 9” or “Bukhari”).</p>`;
-    document.querySelectorAll("#arsout [data-open]").forEach(b=>b.addEventListener("click",()=>openCase(b.dataset.open)));
-  });
-}
-
 /* ---------- router ---------- */
 function render(){
   document.querySelector(".app").classList.toggle("reading",state.view!=="overview");
@@ -1111,7 +1124,6 @@ function render(){
   if(state.view==="proofs")return renderProofs(),renderPreview();
   if(state.view==="theysay")return renderTheySay(),renderPreview();
   if(state.view==="lessons")return renderLessons(),renderPreview();
-  if(state.view==="arsenal")return renderArsenal(),renderPreview();
   if(state.view==="core")return renderCore(),renderPreview();
   renderOverview();renderPreview();
 }

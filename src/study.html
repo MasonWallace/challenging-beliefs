@@ -414,6 +414,8 @@
   }
   .arsinput{width:100%;max-width:560px;background:var(--panel);border:1px solid var(--line2);border-radius:10px;padding:12px 16px;color:var(--ink);font-family:inherit;font-size:.9rem;margin:4px 0 10px;display:block}
   .arsinput:focus{outline:none;border-color:var(--gold)}
+  #navtip{position:fixed;display:none;width:240px;background:#1a222e;border:1px solid var(--line2);border-left:3px solid var(--gold);border-radius:10px;padding:10px 14px;font-size:.74rem;line-height:1.55;color:var(--muted);z-index:120;box-shadow:0 10px 34px rgba(0,0,0,.55);pointer-events:none}
+  @media (hover:none),(max-width:720px){#navtip{display:none !important}}
 </style>
 
 <div class="app">
@@ -791,11 +793,29 @@ function filtered(){
 
 /* ---------- sidebar ---------- */
 function renderNav(){
-  const items=[["overview","All claims",DATA.length]];
-  const views=[["core","The heart of it","3"],["share","Sharing the gospel","✝"],["proofs","Their proof-texts","6"],["theysay","They just said…",THEYSAY.length],["lessons","The missionary lessons",LESSONS.length],["arsenal","Verse arsenal","🎯"],["paths","Guided paths",PATHS.length],["timeline","Timeline","3 acts"],["glossary","Terms explained",GLOSSARY.length]];
+  const items=[["overview","All claims",DATA.length,"Every documented case — search it, filter it by verdict and seriousness"]];
+  const groups=[
+    ["Start here",[
+      ["core","The heart of it","3","The three strongest cases and the foundation argument — read this first"],
+      ["paths","Guided paths",PATHS.length,"Curated reading orders — pick a goal and follow the sequence"]]],
+    ["For conversations",[
+      ["theysay","Quick answers",THEYSAY.length,"The lines you'll actually hear from them — each with a two-sentence response"],
+      ["lessons","When missionaries visit",LESSONS.length,"Their 5-lesson script — and the question to ask at each step"],
+      ["proofs","Verses they quote",PROOFS.length,"Bible verses they cite at you — with the context that answers them"],
+      ["share","Sharing Jesus","✝","How to evangelize here: approach, bridges, and cautions"]]],
+    ["Reference",[
+      ["timeline","Timeline",TLACTS.length+" acts","Their claims vs. the documented record, era by era"],
+      ["glossary","Word guide",GLOSSARY.length,"Doctrine terms and insider vocabulary, explained"]]]
+  ];
   const cur=state.view==="overview"&&state.section!=="all"?"sec:"+state.section:state.view;
-  $("#nav").innerHTML=items.map(([k,l,c])=>`<a class="${cur===k?"on":""}" data-k="${k}">${l} <span class="cnt">${c}</span></a>`).join("")
-    +`<h5>Views</h5>`+views.map(([k,l,c])=>`<a class="${cur===k?"on":""}" data-k="${k}">${l} <span class="cnt">${c}</span></a>`).join("");
+  const lk=([k,l,c,tp])=>`<a class="${cur===k?"on":""}" data-k="${k}"${tp?` data-tip="${esc(tp)}"`:""}>${l} <span class="cnt">${c}</span></a>`;
+  $("#nav").innerHTML=items.map(lk).join("")+groups.map(([h,vs])=>`<h5>${h}</h5>`+vs.map(lk).join("")).join("");
+  let tipEl=document.getElementById("navtip");
+  if(!tipEl){tipEl=document.createElement("div");tipEl.id="navtip";document.body.appendChild(tipEl);}
+  document.querySelectorAll("#nav a[data-tip]").forEach(a=>{
+    a.addEventListener("mouseenter",()=>{const r=a.getBoundingClientRect();tipEl.textContent=a.dataset.tip;tipEl.style.display="block";tipEl.style.top=Math.max(8,r.top-6)+"px";tipEl.style.left=(r.right+10)+"px";});
+    a.addEventListener("mouseleave",()=>tipEl.style.display="none");
+  });
   document.querySelectorAll("#nav a").forEach(a=>a.addEventListener("click",()=>{
     const k=a.dataset.k;
     if(k.startsWith("sec:")){state.view="overview";state.section=k.slice(4);state.caseId=null;}
@@ -1206,7 +1226,23 @@ const THEYSAY=[
 {say:"Joseph Smith sealed his testimony with his blood — he died a martyr.",quick:"He died in a gunfight, firing a smuggled pistol, after ordering a printing press destroyed for exposing his secret polygamy. That's a tragedy — but it's not Stephen's martyrdom, and dying doesn't make claims true.",id:"nauvoo-expositor-carthage"},
 {say:"Joseph saw God the Father and Jesus Christ in the Sacred Grove.",quick:"His own **1832 handwritten account** mentions one personage and says he'd already concluded all churches were false before praying — the Father and Son version arrived in 1838. Read the 1832 account together on the church's own website.",id:"first-vision-multiple-accounts"},
 {say:"The Book of Mormon has never changed — unlike the Bible's thousands of variants.",quick:"The 1837 edition changed 'the Son of' in four verses about Jesus's deity, 'white and delightsome' became 'pure and delightsome,' and thousands of other edits are documented in the church's own critical text project. The claim is simply false.",id:"1837-son-of-edits"},
-{say:"Why do you persecute us? We're Christians too.",quick:"This isn't persecution — it's the conversation Mormonism itself started by declaring all other churches' creeds an **abomination** (JS–History 1:19). The question was never sincerity; it's whether the LDS Godhead is the God of the Bible.",id:"trinity-vs-godhead"}
+{say:"Why do you persecute us? We're Christians too.",quick:"This isn't persecution — it's the conversation Mormonism itself started by declaring all other churches' creeds an **abomination** (JS–History 1:19). The question was never sincerity; it's whether the LDS Godhead is the God of the Bible.",id:"trinity-vs-godhead"},
+{t:"ward",d:"The local congregation, assigned strictly by home address — members cannot choose their congregation. Several wards share a building; a 'branch' is a small ward."},
+{t:"stake",d:"A group of 5–12 wards under a stake president — roughly a diocese. 'Stake conference' replaces normal Sunday services twice a year."},
+{t:"bishop",d:"The unpaid lay leader of a ward — typically a member with a full-time job who serves ~5 years, conducting worthiness interviews, tithing settlement, and counseling."},
+{t:"calling",d:"An assigned, unpaid church job — teacher, clerk, youth leader, organist. Nearly every active member holds one; they are 'extended' by leaders and formally accepted, not applied for."},
+{t:"ministering",d:"Assigned member-to-member visiting (formerly 'home/visiting teaching') — each household has designated members responsible for checking on them."},
+{t:"FHE / Family Home Evening",d:"Monday night reserved churchwide for family lesson, activity, and treat. Practical note: don't schedule anything with an active LDS family on a Monday evening."},
+{t:"fast & testimony meeting",d:"First Sunday of the month: members skip two meals, donate the value ('fast offering'), and take turns at the pulpit bearing testimony — the phrase 'I know the Church is true' is the liturgical core."},
+{t:"patriarchal blessing",d:"A once-in-a-lifetime prophetic blessing given by an ordained patriarch, transcribed and treated as personal scripture — it declares one's tribe of Israel lineage."},
+{t:"CTR",d:"'Choose the Right' — the church's WWJD. The CTR ring is given in Primary and worn by children and adults alike."},
+{t:"Jack Mormon",d:"Insider slang for a member who doesn't practice (drinks coffee or alcohol, skips church) but retains cultural identity. Not hostile — often affectionate."},
+{t:"RM",d:"'Returned missionary' — a status label with real social weight, especially in dating. 'Serve worthily' and 'RM' function as marriageability credentials in LDS culture."},
+{t:"seminary",d:"Daily scripture class for high schoolers — historically at 6am before school in much of the U.S. Four years covers the four LDS scripture volumes."},
+{t:"Relief Society",d:"The women's organization — every LDS woman 18+ belongs. Runs compassionate service, meal trains, and one of the Sunday classes."},
+{t:"the Brethren",d:"Collective insider term for the First Presidency and Quorum of the Twelve Apostles — 'follow the Brethren' is the standing loyalty norm."},
+{t:"sustaining",d:"The raised-hand vote to approve leaders and callings. Voting opposed is so rare it makes news; 'sustaining the prophet' is a temple-recommend question."},
+{t:"general conference",d:"The twice-yearly (April/October) worldwide broadcast weekend of leader talks — replaces church, fills Latter-day Saint social media, and supplies the next six months of lesson content."}
 ];
 const LESSONS=[
 {n:"Before they knock",t:"How to host missionaries well",what:["They're 18–25, far from home, family-funded, on a rigid schedule — feed them, learn their first names, and treat them as guests, not opponents.","They teach from a fixed manual: Preach My Gospel. You can know their script better than they do.","Your goal is not to win the visit; it's to be the one household that asked questions they can't unhear — and stayed kind."],ask:"“Can I ask you some honest questions as we go? I promise to actually read what you leave me if you'll look at one thing I show you.”",ids:["missionary-program-realities"]},
@@ -1252,29 +1288,6 @@ function renderLessons(){
     <div class="relrow">${L.ids.map(id=>byId[id]?`<button data-open="${id}">${esc(byId[id].title)}</button>`:"").join("")}</div></div>`).join("");
   bindOpens();
 }
-function renderArsenal(){
-  const cnt={};
-  DATA.forEach(d=>(d.bible||[]).forEach(r=>{const k=r.replace(/–/g,"-").trim();(cnt[k]=cnt[k]||[]).push(d.id);}));
-  const top=Object.entries(cnt).sort((a,b)=>b[1].length-a[1].length).slice(0,16);
-  $("#main").innerHTML=`<div class="viewhead"><h2>Verse arsenal</h2>
-  <p>Two tools. <b>Look up any reference</b> — theirs or the Bible's — to find every case that cites it ("she quoted Alma 7:10 — now what?"). Below it, the Bible verses that carry the most weight across all ${DATA.length} cases: memorize these and you are armed for most conversations on this site.</p></div>
-  <input class="arsinput" id="arsq" placeholder="Type any reference — e.g. Alma 7:10, D&amp;C 132, Isaiah 43, Moroni 10…" autocomplete="off">
-  <div id="arsout"></div>
-  <div class="dlab" style="margin-top:26px">The verses that do the most work</div>`+
-  top.map(([ref,ids])=>`<div class="ptcard"><h3 class="ptv">${esc(ref)} <span class="cnt" style="font-size:.7rem">${ids.length} case${ids.length>1?"s":""}</span></h3>
-    ${WHYVERSE[ref]?`<p class="pt">${rich(WHYVERSE[ref])}</p>`:""}
-    <div class="relrow">${ids.slice(0,6).map(id=>`<button data-open="${id}">${esc(byId[id].title)}</button>`).join("")}</div></div>`).join("");
-  bindOpens();
-  const box=$("#arsq"),out=$("#arsout");
-  box.addEventListener("input",()=>{
-    const q=box.value.toLowerCase().replace(/–/g,"-").replace(/\s+/g," ").trim();
-    if(q.length<3){out.innerHTML="";return;}
-    const hits=DATA.filter(d=>["bom","bible","quran","hadith"].some(k=>(d[k]||[]).some(r=>r.toLowerCase().replace(/–/g,"-").includes(q))));
-    out.innerHTML=hits.length?`<div class="dlab">${hits.length} case${hits.length>1?"s":""} cite${hits.length>1?"":"s"} a matching reference</div><div class="relrow">${hits.slice(0,20).map(d=>`<button data-open="${d.id}">${esc(d.title)}</button>`).join("")}</div>`:`<p class="pt" style="color:var(--muted)">No case cites a reference matching “${esc(box.value)}” — try just the book and chapter (e.g. “Alma 7”).</p>`;
-    document.querySelectorAll("#arsout [data-open]").forEach(b=>b.addEventListener("click",()=>openCase(b.dataset.open)));
-  });
-}
-
 /* ---------- router ---------- */
 function render(){
   document.querySelector(".app").classList.toggle("reading",state.view!=="overview");
@@ -1287,7 +1300,6 @@ function render(){
   if(state.view==="proofs")return renderProofs(),renderPreview();
   if(state.view==="theysay")return renderTheySay(),renderPreview();
   if(state.view==="lessons")return renderLessons(),renderPreview();
-  if(state.view==="arsenal")return renderArsenal(),renderPreview();
   if(state.view==="core")return renderCore(),renderPreview();
   renderOverview();renderPreview();
 }
