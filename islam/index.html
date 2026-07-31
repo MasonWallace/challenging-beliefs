@@ -490,6 +490,11 @@
   .primerbody{padding:0 0 16px;border-top:1px solid var(--line2,var(--line));margin-top:2px}
   .primerbody p{font-size:.9rem;color:var(--muted);line-height:1.72;margin:14px 0 0}
   .primerbody b{color:var(--ink)}
+
+  .bgbox{background:linear-gradient(120deg,rgba(130,177,216,.07),transparent 60%),var(--panel);border:1px solid var(--line2,var(--line));border-left:3px solid var(--acc);border-radius:0 12px 12px 0;padding:15px 20px 17px;margin:0 0 20px}
+  .bglab{font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--acc);margin-bottom:7px}
+  .bgbox p{margin:0 0 9px;font-size:.93rem;line-height:1.72;color:var(--ink);opacity:.92}
+  .bgbox p:last-child{margin-bottom:0}
 </style>
 
 </head>
@@ -1006,6 +1011,7 @@ function renderCase(){
     <div class="case">
       <div class="meta"><span class="badge v-${d.verdict}">${VLABEL[d.verdict]} ${info(TIPS.verdict[d.verdict])}</span><span class="tag">${CATS[d.category]} ${info(CATDESC[d.category])}</span><span class="tag">seriousness: ${SEVLABEL[d.severity]} ${info(TIPS.impact)}</span>${d.avoid?`<span class="tag" style="border-color:var(--red);color:var(--red)">⚠ popular claim — do not use it</span>`:d.featured?`<span class="tag" style="border-color:var(--gold);color:var(--gold)">★ strongest evidence ${info(TIPS.strongest)}</span>`:isStrong(d)?`<span class="tag" style="border-color:var(--amber);color:var(--amber)">☆ strong evidence</span>`:""}</div>
       <h2>${esc(d.title)}</h2>
+      ${d.context?`<div class="bgbox"><div class="bglab">The background — in plain English</div>${paras(d.context,2)}</div>`:""}
       <div class="ctop">
         <div><div class="dlab red" style="margin-top:0">The claim</div><div class="claim">${paras(d.claim)}</div></div>
         ${passages}
