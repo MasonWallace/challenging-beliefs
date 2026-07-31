@@ -291,11 +291,10 @@
   .tback{background:none;border:1px solid var(--line2);color:var(--muted);border-radius:8px;padding:8px 16px;cursor:pointer;margin-right:8px;font-size:.85rem}
   .tnext{background:var(--gold);color:var(--gold-ink);border:0;border-radius:8px;padding:8px 20px;font-weight:700;cursor:pointer;font-size:.85rem}
 
-  .viewhead{position:relative;margin:6px 0 30px;padding:28px 30px;background:linear-gradient(135deg,color-mix(in srgb,var(--gold) 7%,var(--panel)),var(--panel2));border:1px solid var(--line);border-radius:16px;overflow:hidden}
-  .viewhead::before{content:'';position:absolute;top:-60px;right:-60px;width:260px;height:260px;background:radial-gradient(circle,color-mix(in srgb,var(--gold) 22%,transparent),transparent 70%);pointer-events:none}
-  .viewhead::after{content:'\2696';position:absolute;right:26px;bottom:10px;font-size:3.4rem;opacity:.07;pointer-events:none}
-  .viewhead h2{font-family:var(--serif);font-weight:500;font-size:clamp(1.6rem,3.4vw,2.3rem);line-height:1.22;letter-spacing:-.01em;margin:0 0 12px;max-width:28ch;background:linear-gradient(100deg,var(--ink) 40%,var(--gold) 75%,var(--ink));background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent}
-  .viewhead p{color:var(--muted);font-size:.95rem;margin:0;max-width:66ch;border-left:3px solid var(--gold);padding-left:14px;line-height:1.7}
+  .viewhead{margin:10px 0 32px}
+  .viewhead h2{font-family:var(--serif);font-weight:500;font-size:clamp(1.7rem,3.6vw,2.4rem);line-height:1.22;letter-spacing:-.01em;margin:0;max-width:30ch;color:var(--ink)}
+  .viewhead h2::after{content:'';display:block;width:72px;height:4px;border-radius:2px;background:linear-gradient(90deg,var(--gold),transparent);margin-top:14px}
+  .viewhead p{color:var(--muted);font-size:.95rem;margin:16px 0 0;max-width:66ch;border-left:3px solid var(--gold);padding-left:14px;line-height:1.7}
   .gaccord{max-width:760px;background:var(--panel);border:1px solid var(--line2);border-radius:14px;padding:4px 22px}
   .gitem{border-bottom:1px solid var(--line)}
   .gitem:last-child{border-bottom:0}
@@ -305,6 +304,41 @@
   .gitem[open] summary::after{content:'\2013'}
   .gitem summary:hover{color:var(--gold)}
   .gitem p{color:var(--muted);font-size:.9rem;line-height:1.7;padding:0 2px 18px;margin:0;max-width:66ch}
+
+  .chs{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-bottom:18px}
+  .ch{position:relative;background:linear-gradient(150deg,color-mix(in srgb,var(--gold) 10%,var(--panel)),var(--panel));border:1px solid var(--line2);border-radius:14px;padding:20px;cursor:pointer;overflow:hidden;transition:transform .2s,border-color .2s;text-align:left;color:var(--ink);font-family:inherit}
+  .ch:hover{transform:translateY(-4px);border-color:var(--gold)}
+  .ch.on{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold) inset}
+  .ch .n{font-family:var(--serif);font-size:2.4rem;color:color-mix(in srgb,var(--gold) 50%,transparent);line-height:1;position:absolute;top:12px;right:16px}
+  .ch .range{font-family:var(--mono);font-size:.7rem;color:var(--gold);letter-spacing:.1em}
+  .ch h4{font-family:var(--serif);font-weight:500;font-size:1.12rem;margin:4px 0 6px}
+  .ch p{font-size:.78rem;color:var(--muted);margin:0 0 12px}
+  .ch .meter{height:4px;background:var(--line);border-radius:2px;overflow:hidden}
+  .ch .meter i{display:block;height:100%;background:var(--gold);transition:width .4s}
+  .chopen{background:var(--panel);border:1px solid var(--gold);border-radius:14px;padding:22px 26px}
+  .chopen>h4{font-family:var(--serif);font-weight:500;margin:0 0 16px;color:var(--gold);font-size:1.15rem}
+  .cvr{display:grid;grid-template-columns:1fr 88px 1fr;gap:0}
+  @media (max-width:700px){.cvr{grid-template-columns:1fr 62px 1fr}}
+  .cvr .hh{font-size:.68rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding-bottom:12px;text-align:center}
+  .cvr .hh.claims{color:var(--gold)}
+  .cvr .hh.record{color:var(--red)}
+  .cvr .mid{position:relative}
+  .cvr .mid::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;transform:translateX(-50%);background:var(--line2)}
+  .cvr .yr2{position:relative;z-index:2;background:var(--panel2);border:1px solid var(--line2);border-radius:999px;font-family:var(--mono);font-size:.7rem;color:var(--muted);text-align:center;padding:4px 2px;margin:24px 6px}
+  .cvr .yr2.critY{border-color:var(--red);color:var(--red)}
+  .cvr .cell{padding:8px 12px}
+  .cvr .bubble{background:var(--panel2);border:1px solid var(--line2);border-radius:12px;padding:12px 15px}
+  .cvr .bubble h4{font-family:var(--serif);font-weight:500;font-size:.96rem;margin:0 0 3px}
+  .cvr .bubble p{font-size:.78rem;color:var(--muted);margin:0;line-height:1.6}
+  .cvr .bubble.claim{border-left:3px solid var(--gold)}
+  .cvr .bubble.rec{border-left:3px solid var(--red)}
+  .cvr .jump{background:none;border:0;color:var(--gold);font-size:.74rem;cursor:pointer;padding:0;text-decoration:underline}
+  .tlhint{color:var(--dim);font-size:.8rem;text-align:center;padding:26px}
+
+  .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media (max-width:760px){.pgrid{grid-template-columns:1fr}}
+  .pgrid .pathcard{margin-bottom:0;display:flex;flex-direction:column}
+  .pgrid .pathcard .start{margin-top:auto;align-self:flex-start}
 </style>
 
 </head>
@@ -324,6 +358,7 @@
 
 <script>
 const DATA=[
+
 
 
 
@@ -421,7 +456,7 @@ const SECMAP={"kjv-dependence":"text","deutero-isaiah":"text","nt-anachronism":"
 const VLABEL={admitted:"Admitted",unrefuted:"Unrefuted",contested:"Contested",answered:"Answered"};
 const TIPS={
   verdict:{admitted:"The church's own publications — essays, canon, official statements, sponsored histories — concede the facts of this claim. Only the interpretation is defended. You can cite this one entirely from their sources.",unrefuted:"No adequate published answer exists — or the best defenses concede the core point rather than rebut it.",contested:"A serious rebuttal exists. Read both sides; the dispute is genuine.",answered:"The best defense holds up. The criticism is weaker than commonly presented — included so nothing is cherry-picked."},
-  impact:"An editorial rating of how much this claim matters if true: MAJOR shakes the book's foundation, MODERATE is significant, MINOR is a detail.",
+  impact:"How serious the claim is, if true: MAJOR strikes at the foundation, MODERATE is significant, MINOR is a detail.",
   strongest:"One of the handful of cases with the most decisive documentary evidence in the entire catalog — if you read only a few, read these."};
 const CATDESC={"kjv-dependence":"Claims that the Book of Mormon's English depends on the 1611 King James Bible rather than an ancient source.","deutero-isaiah":"The dating problem: chapters of Isaiah that scholars date after Lehi's departure appear on the brass plates.","nt-anachronism":"New Testament words and passages appearing in books set centuries before the New Testament existed.","cultural-anachronism":"Things (animals, crops, technology, institutions) the text places in ancient America that archaeology says weren't there.","doctrinal-conflict":"Places where Book of Mormon or LDS teaching conflicts with what the Bible teaches.","canon-provenance":"Evidence about where the text actually came from — edits, evolving doctrine, and prophecy tests.","prophecy":"Predictive prophecy claims measured against their fulfillment.","textual-transmission":"Claims about how the Bible's text was transmitted and whether things were removed from it.","archaeology":"What digging in the ground has and hasn't found.","dna":"What population genetics says about Native American ancestry.","demographics":"Whether the text's population numbers are possible.","provenance":"The origin story of the book itself — plates, witnesses, translation.","translation-test":"The one case where Joseph Smith's source document survives and his translation can be checked.","stylometry":"Computer analysis of writing style used to argue about who wrote the book.","origin-story":"The founding narrative — visions, angels, and how the accounts changed.","first-vision":"Joseph Smith's first vision and its differing tellings.","gold-plates":"The physical plates: who saw them and how.","exit-costs":"What it costs socially and practically to leave the LDS church.","institutional":"How the church as an institution has behaved — discipline, transparency, money.","practice-worship":"Daily-life religious requirements like the Word of Wisdom.","practice-temple":"Temple practices: garments, ceremonies, and their origins.","exaltation":"The doctrine that faithful members can become gods.","christology":"What Mormonism teaches about who Jesus is — and whether that is the Jesus of the Bible.","nature-of-god":"What Mormonism teaches about who God is — his nature, his origin, and whether there are others.","polygamy-history":"Joseph Smith's plural marriages and their aftermath, documented largely from the church's own essays.","violence-history":"Episodes of violence and coercion in early church history, and what they test.","modern-policy":"Recent policies presented as revelation — and their reversals."};
 function info(t){return t?`<span class="info" tabindex="0">i<span class="tip">${esc(t)}</span></span>`:"";}
@@ -688,7 +723,7 @@ const store={
   get pins(){try{return JSON.parse(localStorage.getItem("wb_pins")||"[]")}catch(e){return[]}},
   set pins(v){localStorage.setItem("wb_pins",JSON.stringify(v))}
 };
-const state={view:"overview",section:"all",verdict:null,severity:null,q:"",sel:null,caseId:null,pathId:null};
+const state={view:"overview",section:"all",verdict:null,severity:null,q:"",sel:null,caseId:null,pathId:null,act:0};
 
 const $=s=>document.querySelector(s);
 const esc=s=>(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
@@ -744,7 +779,7 @@ function filtered(){
 function renderNav(){
   const secCount={};DATA.forEach(d=>secCount[d.section]=(secCount[d.section]||0)+1);
   const items=[["overview","Overview",DATA.length],...Object.entries(SECTIONS).filter(([k])=>secCount[k]).map(([k,l])=>["sec:"+k,l,secCount[k]])];
-  const views=[["core","The heart of it","3"],["share","Sharing the gospel","✝"],["paths","Guided paths",PATHS.length],["timeline","Timeline","1820–2023"],["glossary","Terms explained",GLOSSARY.length]];
+  const views=[["core","The heart of it","3"],["share","Sharing the gospel","✝"],["paths","Guided paths",PATHS.length],["timeline","Timeline","3 acts"],["glossary","Terms explained",GLOSSARY.length]];
   const cur=state.view==="overview"&&state.section!=="all"?"sec:"+state.section:state.view;
   $("#nav").innerHTML=items.map(([k,l,c])=>`<a class="${cur===k?"on":""}" data-k="${k}">${l} <span class="cnt">${c}</span></a>`).join("")
     +`<h5>Views</h5>`+views.map(([k,l,c])=>`<a class="${cur===k?"on":""}" data-k="${k}">${l} <span class="cnt">${c}</span></a>`).join("");
@@ -796,7 +831,7 @@ function renderOverview(){
     const groups=["high","medium","low"].map(s=>{
       const g=src.filter(d=>d.verdict===v&&d.severity===s).sort((a,b)=>(b.featured?1:0)-(a.featured?1:0));
       if(!g.length)return "";
-      return `<div class="vgroup"><h6>${s==="high"?"Major impact":s==="medium"?"Moderate impact":"Minor impact"} · ${g.length}</h6>`+
+      return `<div class="vgroup"><h6>${s==="high"?"Most serious":s==="medium"?"Moderate":"Minor"} · ${g.length}</h6>`+
         g.map(d=>`<button class="vt ${state.sel===d.id?"sel":""}${visible.has(d.id)?"":" dimmed"}" data-id="${d.id}">
           <h5>${esc(d.title)}</h5>
           <span class="m">${read.has(d.id)?'<span class="rd">✓ read</span>':""}${d.featured?'<span class="star">★ strongest evidence</span>':""}<span>${SECTIONS[d.section]}</span></span>
@@ -816,7 +851,7 @@ function renderOverview(){
       <div class="vcol" style="max-width:760px">${items2.map((d,i)=>`
         <button class="vt ${state.sel===d.id?"sel":""}" data-id="${d.id}">
           <h5><span style="font-family:var(--mono);color:var(--dim);font-size:.8rem;margin-right:8px">${String(i+1).padStart(2,"0")}</span>${esc(d.title)}</h5>
-          <span class="m">${read.has(d.id)?'<span class="rd">✓ read</span>':""}<span class="badge v-${d.verdict}">${VLABEL[d.verdict]}</span><span>impact: ${SEVLABEL[d.severity]}</span></span>
+          <span class="m">${read.has(d.id)?'<span class="rd">✓ read</span>':""}<span class="badge v-${d.verdict}">${VLABEL[d.verdict]}</span><span>seriousness: ${SEVLABEL[d.severity]}</span></span>
         </button>`).join("")}</div>
       <p class="methodfoot">Ranking is editorial: how startling the item is to someone outside the tradition, most to least. Verdicts still grade only the factual claim.</p>`;
     document.querySelectorAll(".vt").forEach(c=>{
@@ -881,7 +916,7 @@ function renderCase(){
       ${nextInPath?`<button class="pathnext" id="pathnext">Next in path →</button>`:""}
     </div>
     <div class="case">
-      <div class="meta"><span class="badge v-${d.verdict}">${VLABEL[d.verdict]} ${info(TIPS.verdict[d.verdict])}</span><span class="tag">${SECTIONS[d.section]}</span><span class="tag">${CATS[d.category]} ${info(CATDESC[d.category])}</span><span class="tag">impact: ${SEVLABEL[d.severity]} ${info(TIPS.impact)}</span>${d.featured?`<span class="tag" style="border-color:var(--gold);color:var(--gold)">★ strongest evidence ${info(TIPS.strongest)}</span>`:""}</div>
+      <div class="meta"><span class="badge v-${d.verdict}">${VLABEL[d.verdict]} ${info(TIPS.verdict[d.verdict])}</span><span class="tag">${SECTIONS[d.section]}</span><span class="tag">${CATS[d.category]} ${info(CATDESC[d.category])}</span><span class="tag">seriousness: ${SEVLABEL[d.severity]} ${info(TIPS.impact)}</span>${d.featured?`<span class="tag" style="border-color:var(--gold);color:var(--gold)">★ strongest evidence ${info(TIPS.strongest)}</span>`:""}</div>
       <h2>${esc(d.title)}</h2>
       <div class="claimrow${passages?"":" solo"}">
         <div><div class="dlab red" style="margin-top:0">The claim</div><div class="claim">${paras(d.claim)}</div></div>
@@ -924,13 +959,12 @@ function renderCase(){
 /* ---------- paths ---------- */
 function renderPaths(){
   const read=store.read;
-  $("#main").innerHTML=`<div class="viewhead"><h2>Guided paths</h2><p>Curated routes through the corpus. Progress is saved in your browser; inside a path, each case offers "Next in path."</p></div>`+
-    PATHS.map(p=>{
+  $("#main").innerHTML=`<div class="viewhead"><h2>Guided paths</h2><p>Curated routes through the corpus. Progress is saved in your browser; inside a path, each case offers "Next in path."</p></div><div class="pgrid">`+PATHS.map(p=>{
       const done=p.items.filter(i=>read.has(i)).length;
       return `<div class="pathcard"><h3>${esc(p.name)}</h3><p class="pd">${esc(p.desc)} · ${p.time} · ${done}/${p.items.length} read</p>
       <ol>${p.items.map(i=>`<li class="${read.has(i)?"done":""}">${esc(byId[i].title)}</li>`).join("")}</ol>
       <button class="start" data-path="${p.id}">${done===0?"Start path":done>=p.items.length?"Revisit path":"Continue path"} →</button></div>`;
-    }).join("");
+    }).join("")+"</div>";
   document.querySelectorAll("[data-path]").forEach(b=>b.addEventListener("click",()=>{
     const p=PATHS.find(x=>x.id===b.dataset.path);state.pathId=p.id;
     const read=store.read;const next=p.items.find(i=>!read.has(i))||p.items[0];
@@ -939,10 +973,26 @@ function renderPaths(){
 }
 
 /* ---------- timeline ---------- */
+const TLACTS=[{"num":"I","range":"1820–1844","name":"Origins","desc":"Visions, plates, and the founding claims","events":[{"y":"1820","side":"claim","t":"The First Vision (as dated in 1838)","p":"Later accounts differ on age, personages, and the revival.","id":"first-vision-multiple-accounts"},{"y":"1823","side":"claim","t":"The angel and the plates","p":"Moroni per later accounts — 'Nephi' in the 1842 published history.","id":"angel-nephi-moroni-name-change"},{"y":"1824–25","side":"record","crit":true,"t":"The documented revival","p":"The Palmyra revival in the church records falls after the vision story places it.","id":"first-vision-revival-dating"},{"y":"1826","side":"record","t":"The Bainbridge examination","p":"Treasure-seeking with the same stone later used to translate.","id":"translation-seer-stone"},{"y":"1828","side":"record","t":"The 116 pages lost","p":"Replaced from a second, pre-existing record — never re-translated.","id":"lost-116-pages"},{"y":"1830","side":"claim","t":"The Book of Mormon published","p":"'Translated by the gift and power of God' — strict monotheism throughout.","id":"trinitarian-monotheism-1830"},{"y":"1830–33","side":"claim","crit":true,"t":"JST Genesis 50","p":"A prophecy naming Joseph, son of Joseph. No manuscript contains it.","id":"jst-genesis-50-choice-seer"},{"y":"1832","side":"claim","crit":true,"t":"The Independence prophecy","p":"'This generation shall not all pass away…' It never was built.","id":"joseph-smith-failed-prophecies"},{"y":"1835","side":"claim","t":"The papyri purchased","p":"'The writings of Abraham while he was in Egypt.'","id":"book-of-abraham-papyri"},{"y":"1837","side":"record","crit":true,"t":"The 'Son of' edits","p":"Four verses about Jesus's deity revised.","id":"1837-son-of-edits"},{"y":"1842","side":"record","crit":true,"t":"Freemasonry → endowment","p":"Master Mason March 15; endowment introduced May 4.","id":"endowment-masonic-origins"},{"y":"1843","side":"claim","crit":true,"t":"D&C 132 dictated","p":"Celestial marriage — with Emma threatened by name.","id":"dc132-emma-destroyed"},{"y":"1844","side":"claim","crit":true,"t":"King Follett discourse","p":"'I will refute that idea' — against his own 1829 text.","id":"unchangeable-god-vs-king-follett"},{"y":"1844","side":"record","crit":true,"t":"Denial, Expositor, Carthage","p":"'I can only find one' — then the press, then the pistol.","id":"nauvoo-expositor-carthage"}]},{"num":"II","range":"1852–1927","name":"The Hardening","desc":"Polygamy public, the ban, blood and oaths","events":[{"y":"1852","side":"claim","t":"Polygamy public","p":"D&C 132 canonized what Jacob 2 called abominable.","id":"jacob-polygamy-vs-dc132"},{"y":"1852","side":"claim","crit":true,"t":"The priesthood ban begins","p":"Brigham Young's restriction stands 126 years.","id":"priesthood-temple-ban-1852-1978"},{"y":"1856–57","side":"claim","crit":true,"t":"Blood atonement preached","p":"Sins beyond Christ's blood, requiring the sinner's own.","id":"blood-atonement"},{"y":"1857","side":"record","crit":true,"t":"Mountain Meadows","p":"~120 murdered under local church leadership — confirmed by the church's own history.","id":"mountain-meadows-massacre"},{"y":"1927","side":"record","t":"The oath of vengeance removed","p":"After the Smoot hearings exposed it.","id":"oath-of-vengeance"}]},{"num":"III","range":"1966–2023","name":"The Reckonings","desc":"The documents come home","events":[{"y":"1966","side":"record","crit":true,"t":"The papyri resurface","p":"Standard funerary texts. The testable translation fails.","id":"book-of-abraham-papyri"},{"y":"1978","side":"record","t":"Official Declaration 2","p":"The ban ends; every justification later disavowed.","id":"priesthood-temple-ban-1852-1978"},{"y":"1981","side":"record","crit":true,"t":"'White' becomes 'pure'","p":"2 Nephi 30:6 edited; racial headings follow in 2010.","id":"dark-skin-curse"},{"y":"1990","side":"record","crit":true,"t":"Penalty oaths removed","p":"The endowment quietly revised.","id":"endowment-masonic-origins"},{"y":"1993","side":"record","t":"The September Six","p":"Scholars disciplined in one coordinated month.","id":"september-six"},{"y":"2006","side":"record","crit":true,"t":"'Among the ancestors'","p":"The introduction rewritten after the DNA studies.","id":"dna-native-american-origins"},{"y":"2013–15","side":"record","t":"The Gospel Topics Essays","p":"The stone, the accounts, the papyri — conceded quietly.","id":"ces-letter-gospel-topics-visibility"},{"y":"2023","side":"record","crit":true,"t":"The SEC settlement","p":"$32B behind 13 shell companies.","id":"sec-ensign-peak-settlement"}]}];
 function renderTimeline(){
-  $("#main").innerHTML=`<div class="viewhead"><h2>The revision record</h2><p>1820–2023: the claims, the edits, and the concessions in chronological order. Red dots mark documented revisions or external findings.</p></div>
-  <div class="tlwrap">${TIMELINE.map(e=>`
-    <div class="tlev ${e.crit?"crit":""}"><span class="yr">${e.y}</span><h4>${esc(e.t)}</h4><p>${esc(e.p)}</p>${e.id&&byId[e.id]?`<button class="jump" data-open="${e.id}">→ ${esc(byId[e.id].title)}</button>`:""}</div>`).join("")}</div>`;
+  const read=store.read;
+  $("#main").innerHTML=`<div class="viewhead"><h2>The revision record, in three acts</h2>
+  <p>What was claimed on the left; what the documents later showed on the right. Red years mark the turning points. Click an act to open it — your reading progress fills each meter.</p></div>
+  <div class="chs">${TLACTS.map((a,i)=>{
+    const linked=a.events.filter(e=>e.id);
+    const done=linked.filter(e=>read.has(e.id)).length;
+    return `<button class="ch ${state.act===i?"on":""}" data-act="${i}"><span class="n">${a.num}</span><span class="range">${a.range}</span><h4>${a.name}</h4><p>${a.desc} · ${a.events.length} events</p><div class="meter"><i style="width:${linked.length?Math.round(done/linked.length*100):0}%"></i></div></button>`;
+  }).join("")}</div>
+  ${state.act!=null&&TLACTS[state.act]?actHtml(TLACTS[state.act]):`<p class="tlhint">Select an act to open its record.</p>`}`;
+  function actHtml(a){
+    return `<div class="chopen"><h4>Act ${a.num} · ${a.name} (${a.range})</h4>
+    <div class="cvr"><div class="hh claims">What was claimed</div><div></div><div class="hh record">What the record shows</div>
+    ${a.events.map(e=>{
+      const bubble=`<div class="bubble ${e.side==="claim"?"claim":"rec"}"><h4>${esc(e.t)}</h4><p>${esc(e.p)} ${e.id&&byId[e.id]?`<button class="jump" data-open="${e.id}">→ open the case</button>`:""}</p></div>`;
+      return `<div class="cell">${e.side==="claim"?bubble:""}</div><div class="mid"><div class="yr2 ${e.crit?"critY":""}">${e.y}</div></div><div class="cell">${e.side==="record"?bubble:""}</div>`;
+    }).join("")}</div></div>`;
+  }
+  document.querySelectorAll(".ch").forEach(b=>b.addEventListener("click",()=>{const i=+b.dataset.act;state.act=state.act===i?null:i;renderTimeline();}));
   document.querySelectorAll(".jump").forEach(b=>b.addEventListener("click",()=>openCase(b.dataset.open)));
 }
 
@@ -961,23 +1011,19 @@ function renderCore(){
 
   <div class="pathcard"><h3 style="color:var(--red)">1 · A different God</h3>
   <p style="font-size:.92rem;line-height:1.75">Mormonism teaches that God the Father is <b>an exalted man</b> — a being of flesh and bone (D&C 130:22) who <b>“was once as we are now”</b> (King Follett discourse, still quoted approvingly in the church's own <i>Becoming Like God</i> essay), one god among many, who <i>organized</i> pre-existing matter rather than creating everything from nothing. The Bible's God is categorically different: <span class="qq">‘from everlasting to everlasting, thou art God’</span> (Psalm 90:2), <span class="qq">‘God is not a man’</span> (Numbers 23:19), <span class="qq">‘before me there was no God formed, neither shall there be after me’</span> (Isaiah 43:10). <b>Why it matters:</b> worship offered to a different being is not worship of God, however sincere. This is the first commandment issue, not a technicality.</p>
-  <div class="corelinks">${link("god-exalted-man-flesh-and-bone")}${link("trinity-vs-godhead")}${link("unchangeable-god-vs-king-follett")}${link("exaltation-eternal-progression")}</div></div>
+  <details class="srcdet" style="border-top:0;padding-top:0;margin-top:12px"><summary>Open the cases behind this</summary><div class="corelinks" style="margin-top:12px">${link("god-exalted-man-flesh-and-bone")}${link("trinity-vs-godhead")}${link("unchangeable-god-vs-king-follett")}${link("exaltation-eternal-progression")}</div></details></div>
 
   <div class="pathcard"><h3 style="color:var(--red)">2 · A different Jesus</h3>
   <p style="font-size:.92rem;line-height:1.75">In LDS teaching, Jesus is the <b>firstborn spirit child</b> of heavenly parents — the literal elder brother of every human <i>and of Lucifer</i> (the church's own 2007 statement confirms the shared spirit-parentage) — a being of our species who <b>attained</b> godhood. The Bible's Jesus is the eternal Creator who was never made: <span class="qq">‘All things were made through him, and without him was not any thing made that was made’</span> (John 1:3), <span class="qq">‘he is before all things’</span> (Colossians 1:17), <span class="qq">‘the same yesterday, today, and forever’</span> (Hebrews 13:8). <b>Why it matters:</b> only an infinite, uncreated Christ can carry infinite sin. A created elder brother who climbed to divinity cannot save anyone — which is why Paul treats <span class="qq">‘another Jesus’</span> as a salvation issue (2 Corinthians 11:4), not a difference of opinion.</p>
-  <div class="corelinks">${link("jesus-firstborn-spirit-attained-godhood")}${link("jesus-lucifer-spirit-brothers")}${link("different-jesus-hinckley-1998")}${link("blood-atonement")}</div></div>
+  <details class="srcdet" style="border-top:0;padding-top:0;margin-top:12px"><summary>Open the cases behind this</summary><div class="corelinks" style="margin-top:12px">${link("jesus-firstborn-spirit-attained-godhood")}${link("jesus-lucifer-spirit-brothers")}${link("different-jesus-hinckley-1998")}${link("blood-atonement")}</div></details></div>
 
   <div class="pathcard"><h3 style="color:var(--red)">3 · A different gospel</h3>
   <p style="font-size:.92rem;line-height:1.75">The LDS gospel is grace <span class="qq">‘after all we can do’</span> (2 Nephi 25:23) — ordinances, temple worthiness, covenants kept, interviews passed, exaltation earned. The biblical gospel is the exact reverse of that order: <span class="qq">‘by grace are ye saved through faith… not of works, lest any man should boast’</span> (Ephesians 2:8–9); God <span class="qq">‘justifieth the ungodly’</span> (Romans 4:5); <span class="qq">‘It is finished’</span> (John 19:30). <b>Why it matters:</b> this is the exact error Paul pronounced anathema in Galatians 1:8 — a gospel of grace-plus-requirements. It is also Mormonism's pastoral wound: millions of sincere people on a worthiness treadmill that never lets them rest. The good news you carry is that <b>God's love has no worthiness interview</b>.</p>
-  <div class="corelinks">${link("grace-after-all-we-can-do")}${link("another-gospel-canon-closure")}${link("no-postmortem-repentance")}${link("word-of-wisdom-dietary-law")}</div></div>
+  <details class="srcdet" style="border-top:0;padding-top:0;margin-top:12px"><summary>Open the cases behind this</summary><div class="corelinks" style="margin-top:12px">${link("grace-after-all-we-can-do")}${link("another-gospel-canon-closure")}${link("no-postmortem-repentance")}${link("word-of-wisdom-dietary-law")}</div></details></div>
 
   <div class="pathcard"><h3 style="color:var(--gold)">The foundation under all of it: the Bible was not corrupted</h3>
   <p style="font-size:.92rem;line-height:1.75">Mormonism's entire justification for existing is that the Bible was corrupted — <span class="qq">‘plain and precious things taken away’</span> (1 Nephi 13) — requiring a Restoration. But the manuscript evidence closed that door: the <b>Dead Sea Scrolls</b> (c. 250 BC–70 AD) match our Old Testament across a thousand-year gap, and 5,800+ Greek New Testament manuscripts — many centuries older than Joseph Smith — allow the text to be reconstructed to within trivial variants. <b>Why it matters:</b> if the Bible was NOT corrupted, the Restoration answers a problem that never existed — and every place a new scripture contradicts the preserved Bible, it is the new scripture that must be thrown out, not the old one. The same argument, incidentally, applies to any faith that claims the Bible was changed.</p>
-  <div class="corelinks">${link("plain-precious-things-removed")}${link("another-gospel-canon-closure")}</div></div>
-
-  <div class="pathcard"><h3>What follows from these three</h3>
-  <p class="pd" style="margin-bottom:10px">Everything else on this site — the Book of Abraham papyri, the failed prophecies, the changing visions — serves these three. The historical evidence answers <i>“why should I question the messenger?”</i>; these three answer <i>“what was wrong with the message?”</i> Lead with whichever your friend can hear, but always land here — because here is where the real Jesus is offered.</p>
-  <button class="start" data-goto="share">How to have these conversations →</button></div>`;
+  <details class="srcdet" style="border-top:0;padding-top:0;margin-top:12px"><summary>Open the cases behind this</summary><div class="corelinks" style="margin-top:12px">${link("plain-precious-things-removed")}${link("another-gospel-canon-closure")}</div></details></div>`;
   $("#main").querySelectorAll(".corelink,[data-open]").forEach(b=>{if(b.dataset.open)b.addEventListener("click",()=>openCase(b.dataset.open));});
   const g=$("#main").querySelector("[data-goto]");
   if(g)g.addEventListener("click",()=>{state.view="share";render();});
