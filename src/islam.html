@@ -379,7 +379,18 @@
   .tabpane2.on{display:block}
   .pair2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
   @media (max-width:860px){.pair2{grid-template-columns:1fr}}
-  .pair2 .vbox,.pair2 .why{max-width:none;height:100%}
+  .pair2 .vbox,.pair2 .why{max-width:none}
+
+  .cimg img{max-height:230px;object-fit:cover}
+  .vdet summary{cursor:pointer;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);list-style:none;padding:4px 0}
+  .vdet summary::-webkit-details-marker{display:none}
+  .vdet summary::before{content:'▸ '}
+  .vdet[open] summary::before{content:'▾ '}
+  .vbox{display:block}
+  .vbox b.vb{display:block;margin-bottom:8px;padding-top:0}
+  .side{display:flex;flex-direction:column}
+  .sideprog{margin-top:auto !important;display:flex;gap:8px;align-items:center;padding-bottom:4px}
+  .sideprog button{margin-top:0 !important;flex:1}
 </style>
 
 <div class="app">
@@ -615,7 +626,7 @@ function filtered(){
     (state.section==="all"||d.section===state.section)&&
     (!state.verdict||d.verdict===state.verdict)&&
     (!state.severity||d.severity===state.severity)&&
-    (!state.q||(d.title+" "+d.claim+" "+(d.response||"")).toLowerCase().includes(state.q))
+    (!state.q||(d.title+" "+d.claim+" "+(d.response||"")+" "+(d.rationale||"")+" "+(CATS[d.category]||"")).toLowerCase().includes(state.q))
   );
   if(state.section==="peculiar")return arr.sort((a,b)=>PORDER.indexOf(a.id)-PORDER.indexOf(b.id));
   return arr.sort((a,b)=>(b.featured?1:0)-(a.featured?1:0)||SEVRANK[a.severity]-SEVRANK[b.severity]||VRANK[a.verdict]-VRANK[b.verdict]);
@@ -748,14 +759,14 @@ function renderCase(){
   const passages=((d.quran||[]).length||(d.hadith||[]).length||(d.bible||[]).length||IMGMAP[d.id])?`
     <aside class="claimside">
       ${cimg}
-      <div class="dlab" style="margin-top:0">The texts behind this claim</div>
+      <details class="vdet"><summary>The texts behind this claim — ${(d.quran||[]).length+(d.hadith||[]).length+(d.bible||[]).length} refs</summary>
       <p class="sidenote">Every reference here is cited by this specific claim — click a Quran or Bible reference to read it in place; hadith open on sunnah.com.</p>
       <div class="passcols">
         ${(d.quran||[]).length?`<div><h6 class="h-bom">Quran</h6><div class="chips" data-side="quran">${chipHtml(d.quran)}</div></div>`:""}
         ${(d.hadith||[]).length?`<div><h6 class="h-bom" style="color:var(--amber)">Hadith</h6><div class="chips" data-side="hadith">${hadithChips}</div></div>`:""}
         ${(d.bible||[]).length?`<div><h6 class="h-bib">Bible</h6><div class="chips" data-side="bib">${chipHtml(d.bible)}</div></div>`:""}
         <div id="versebox"></div>
-      </div>
+      </div></details>
     </aside>`:"";
   const rel=(RELATED[d.id]||[]).filter(x=>byId[x]);
   $("#main").innerHTML=`
