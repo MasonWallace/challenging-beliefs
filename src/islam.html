@@ -787,7 +787,7 @@ function renderCase(){
     <aside class="claimside">
       ${cimg}
       <details class="vdet"><summary>The texts behind this claim — ${(d.quran||[]).length+(d.hadith||[]).length+(d.bible||[]).length} refs</summary>
-      <p class="sidenote">Every reference here is cited by this specific claim — click a Quran or Bible reference to read it in place; hadith open on sunnah.com.</p>
+      <p class="sidenote">Every reference here is cited by this specific claim — click a Quran or Bible reference to read it in place (Quran: Pickthall; Bible: KJV); hadith open on sunnah.com.</p>
       <div class="passcols">
         ${(d.quran||[]).length?`<div><h6 class="h-bom">Quran</h6><div class="chips" data-side="quran">${chipHtml(d.quran)}</div></div>`:""}
         ${(d.hadith||[]).length?`<div><h6 class="h-bom" style="color:var(--amber)">Hadith</h6><div class="chips" data-side="hadith">${hadithChips}</div></div>`:""}
