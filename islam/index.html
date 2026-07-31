@@ -1155,7 +1155,7 @@ function renderArsenal(){
     const q=box.value.toLowerCase().replace(/–/g,"-").replace(/\s+/g," ").trim();
     if(q.length<3){out.innerHTML="";return;}
     const hits=DATA.filter(d=>["quran","hadith","bible"].some(k=>(d[k]||[]).some(r=>r.toLowerCase().replace(/–/g,"-").includes(q))));
-    out.innerHTML=hits.length?`<div class="dlab">${hits.length} case${hits.length>1?"s":""} cite a matching reference</div><div class="relrow">${hits.slice(0,20).map(d=>`<button data-open="${d.id}">${esc(d.title)}</button>`).join("")}</div>`:`<p class="pt" style="color:var(--muted)">No case cites a reference matching “${esc(box.value)}” — try just the book/surah (e.g. “Quran 9” or “Bukhari”).</p>`;
+    out.innerHTML=hits.length?`<div class="dlab">${hits.length} case${hits.length>1?"s":""} cite${hits.length>1?"":"s"} a matching reference</div><div class="relrow">${hits.slice(0,20).map(d=>`<button data-open="${d.id}">${esc(d.title)}</button>`).join("")}</div>`:`<p class="pt" style="color:var(--muted)">No case cites a reference matching “${esc(box.value)}” — try just the book/surah (e.g. “Quran 9” or “Bukhari”).</p>`;
     document.querySelectorAll("#arsout [data-open]").forEach(b=>b.addEventListener("click",()=>openCase(b.dataset.open)));
   });
 }
