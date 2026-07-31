@@ -1,6 +1,7 @@
 const fs = require('fs');
 const P = f => __dirname + '/' + f;
 const build = require('./build-section.js');
+const GD = require('./glossary-data.js');
 const data = JSON.parse(fs.readFileSync(P('bhi-data.json'), 'utf8'));
 
 const CATS = {
@@ -196,13 +197,24 @@ const SHARE = {
   <button class="start" data-goto-path="identity">Open the identity path →</button></div>`
 };
 
+const MERGED = (()=>{
+  const all = GLOSSARY.concat(GD.SHARED, GD.BHI);
+  const seen = new Set(); const out = [];
+  for (const g of all) { const k = g.t.toLowerCase(); if (seen.has(k)) continue; seen.add(k); out.push(g); }
+  return out.sort((a,b)=>a.t.replace(/^the /i,'').toLowerCase().localeCompare(b.t.replace(/^the /i,'').toLowerCase()));
+})();
+console.log('bhi glossary terms:', MERGED.length);
+
+const PRIMER = {"h":"New here? The story in ninety seconds","p":"<p><b>The core claim is that Black, Hispanic and Native Americans are the literal descendants of the twelve tribes of Israel</b> — and that the people known as Jews today are not. The argument runs almost entirely through one chapter: <b>Deuteronomy 28</b>, the covenant curses, and especially verse 68, which says the LORD will bring Israel back to Egypt in ships to be sold as slaves. Read as a prophecy of the transatlantic slave trade, the chapter appears to describe African-American history in detail.</p>\n    <p>Attached to it is a <b>12 Tribes Chart</b> mapping each tribe onto a modern nationality, and a doctrine identifying <b>Esau</b> and <b>Edom</b> with white people. Salvation, in the strongest camp teaching, is bounded by descent and by law-keeping.</p>\n    <p><b>This is not one organization, and that matters enormously.</b> It runs from the Church of God and Saints of Christ — founded in 1896 by William Saunders Crowdy, born enslaved, a Union Army veteran, and still a functioning denomination — through a vegan farming community at <b>Dimona</b> in Israel, to the confrontational street camps of the viral videos. They disagree with each other bitterly. Any argument that treats them as a single thing fails immediately.</p>\n    <p>And underneath all of it is a real grievance: the church was largely silent about slavery, and often worse. Names and terms in dotted underline can be hovered anywhere for a definition.</p>"};
+
 build({
   slug: 'bhi', dataFile: 'bhi-data.json', compFile: 'companion-bhi.json',
   fieldMap: { quran: null, hadith: null, bible: 'bible' },
   labels: { quran: 'Cited', hadith: 'Camp sources', bible: 'Bible' },
   railNote: "Every reference here is cited by this specific claim — click a Bible reference to read the passage in place, in the King James Version the camps themselves use.",
   SECTIONS: { claim: "The identity claim", race: "Race, history & genetics", gospel: "Law & gospel", movement: "The movement" },
-  CATS, SECMAP, CATDESC, WHYMAP, GLOSSARY, PATHS, TLACTS, RELATED,
+  CATS, SECMAP, CATDESC, WHYMAP, PATHS, TLACTS, RELATED,
+  GLOSSARY: MERGED, primer: PRIMER,
   TALK, TIPS, WHYTAIL, TOURSTEPS, core: CORE, share: SHARE,
   refRegex: "(?:12 Tribes Chart|One West|1WT|IUIC|ISUPK|Great Millstone|Commandment Keepers|Church of God and Saints of Christ)",
   timelineIntro: "What the movement teaches on the left; what its own documented history shows on the right.",

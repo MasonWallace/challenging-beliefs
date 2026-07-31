@@ -1,6 +1,7 @@
 const fs = require('fs');
 const P = f => __dirname + '/' + f;
 const build = require('./build-section.js');
+const GD = require('./glossary-data.js');
 const data = JSON.parse(fs.readFileSync(P('god-data.json'), 'utf8'));
 
 const CATS = {
@@ -206,13 +207,24 @@ const SHARE = {
   <button class="start" data-goto-path="easter">Open the Easter path →</button></div>`
 };
 
+const MERGED = (()=>{
+  const all = GLOSSARY.concat(GD.SHARED, GD.GOD);
+  const seen = new Set(); const out = [];
+  for (const g of all) { const k = g.t.toLowerCase(); if (seen.has(k)) continue; seen.add(k); out.push(g); }
+  return out.sort((a,b)=>a.t.replace(/^the /i,'').toLowerCase().localeCompare(b.t.replace(/^the /i,'').toLowerCase()));
+})();
+console.log('god glossary terms:', MERGED.length);
+
+const PRIMER = {"h":"New here? How this section works","p":"<p><b>This section runs in the opposite direction from the rest of the site.</b> Nothing here is argued from biblical authority to someone who does not hold it. Instead the case is built from sources that do not want the conclusion — skeptical historians, atheist philosophers, and the manuscript and archaeological record.</p>\n    <p><b>The first thing to get right is who you are talking to.</b> The <i>philosophical atheist</i> is rare, has genuine reasons, reads Graham Oppy and Sean Carroll, and enjoys a well-conducted argument. The <i>apathetic none</i> is the large majority, is not looking for an argument at all, and is reachable mostly through relationship. The <i>deconvert</i> was a Christian, has already heard your best material — usually from people they loved — and often carries a real injury from the church. Aiming the wrong conversation at the wrong person is the most common way this fails.</p>\n    <p><b>The realistic goal is one notch, not the whole distance:</b> from \"obviously false\" to \"actually worth thinking about.\" The arguments here are cumulative rather than knockdown — contingency, fine-tuning, moral facts, the reliability of reason — and each has a serious reply, which is printed alongside it.</p>\n    <p>A third of this section is marked <b>Contested</b> on purpose, and five entries are arguments to <b>retire</b>. Overclaiming is how these conversations are lost. Terms in dotted underline can be hovered anywhere for a definition.</p>"};
+
 build({
   slug: 'god', dataFile: 'god-data.json', compFile: 'companion-god.json',
   fieldMap: { quran: null, hadith: null, bible: 'bible' },
   labels: { quran: 'Cited', hadith: 'Sources', bible: 'Bible' },
   railNote: "Every reference here is cited by this specific claim — click a Bible reference to read it in place (KJV). Scholarly sources for each case are listed under the claim itself, and most link out.",
   SECTIONS: { god: "Does God exist?", jesus: "The resurrection", bible: "The Bible's reliability", objections: "Objections & missteps" },
-  CATS, SECMAP, CATDESC, WHYMAP, GLOSSARY, PATHS, TLACTS, RELATED,
+  CATS, SECMAP, CATDESC, WHYMAP, PATHS, TLACTS, RELATED,
+  GLOSSARY: MERGED, primer: PRIMER,
   TALK, TIPS, WHYTAIL, TOURSTEPS, core: CORE, share: SHARE,
   refRegex: "(?:Stanford Encyclopedia|SEP|Habermas|Ehrman|Oppy|Schellenberg|Bauckham|Wright|Licona|Craig|Carroll|4Q\\\\d+)",
   timelineIntro: "Claims and challenges on the left; what the ground and the manuscripts gave up on the right.",

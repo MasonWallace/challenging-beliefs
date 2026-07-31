@@ -1,6 +1,7 @@
 const fs = require('fs');
 const P = f => __dirname + '/' + f;
 const build = require('./build-section.js');
+const GD = require('./glossary-data.js');
 const data = JSON.parse(fs.readFileSync(P('jw-data.json'), 'utf8'));
 
 const CATS = {
@@ -205,13 +206,24 @@ const SHARE = {
   <button class="start" data-goto-path="foundation">Open the foundation path →</button></div>`
 };
 
+const MERGED = (()=>{
+  const all = GLOSSARY.concat(GD.SHARED, GD.JW);
+  const seen = new Set(); const out = [];
+  for (const g of all) { const k = g.t.toLowerCase(); if (seen.has(k)) continue; seen.add(k); out.push(g); }
+  return out.sort((a,b)=>a.t.replace(/^the /i,'').toLowerCase().localeCompare(b.t.replace(/^the /i,'').toLowerCase()));
+})();
+console.log('jw glossary terms:', MERGED.length);
+
+const PRIMER = {"h":"New here? The story in ninety seconds","p":"<p><b>In 1879 a Pittsburgh haberdasher named Charles Taze Russell began publishing a magazine called <i>Zion's Watch Tower</i>.</b> He taught that Christ had already returned invisibly — in 1874 — and that 1914 would bring the end of the present world order. When 1914 came and brought a world war instead of Armageddon, the date was kept and its meaning was changed: it now marked Christ's invisible enthronement rather than the end.</p>\n    <p>His successor <b>Joseph Rutherford</b>, a lawyer, took control after Russell's death in 1916, gave the movement its name in 1931, predicted the resurrection of Abraham, Isaac and Jacob by 1925, and built <b>Beth Sarim</b>, a San Diego mansion deeded to them. Later leaders added 1975. Each failure was absorbed rather than admitted.</p>\n    <p><b>The chain that holds everything together runs 607 → 1914 → 1919 → the Governing Body.</b> The organization dates Jerusalem's destruction to 607 BC, adds 2,520 years to reach 1914, and teaches that in 1919 Christ inspected all religions and appointed the Watch Tower Society over his belongings. That appointment is the basis of the Governing Body's authority — and therefore of the blood doctrine, the shunning policy, and the obligation to accept every future adjustment.</p>\n    <p>Along the way the organization produced its own Bible, the <b>New World Translation</b>, from an anonymous committee. Names and terms in dotted underline can be hovered anywhere for a definition.</p>"};
+
 build({
   slug: 'jw', dataFile: 'jw-data.json', compFile: 'companion-jw.json',
   fieldMap: { quran: null, hadith: 'wt', bible: 'bible' },
   labels: { quran: 'Watchtower', hadith: 'Watchtower publications', bible: 'Bible' },
   railNote: "Every reference here is cited by this specific claim — click a Bible reference to read it in place. Watchtower citations are listed so a Witness can look them up in their own library.",
   SECTIONS: { text: "The translation", prophecy: "Dates & prophecy", doctrine: "The doctrine", life: "Organization & life" },
-  CATS, SECMAP, CATDESC, WHYMAP, GLOSSARY, PATHS, TLACTS, RELATED,
+  CATS, SECMAP, CATDESC, WHYMAP, PATHS, TLACTS, RELATED,
+  GLOSSARY: MERGED, primer: PRIMER,
   TALK, TIPS, WHYTAIL, TOURSTEPS, core: CORE, share: SHARE,
   timelineIntro: "What was published on the left; what actually happened on the right.",
   lessonsIntro: "The doorstep call and the home Bible study follow a trained sequence — build rapport, establish a felt need, introduce the literature, then the study, the meetings, and baptism. Here is each stage, the one question to ask right then, and the cases behind it. Knowing the script lets you stay warm and unhurried.",

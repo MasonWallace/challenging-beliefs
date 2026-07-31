@@ -1,6 +1,7 @@
 const fs = require('fs');
 const P = f => __dirname + '/' + f;
 const build = require('./build-section.js');
+const GD = require('./glossary-data.js');
 const data = JSON.parse(fs.readFileSync(P('messiah-data.json'), 'utf8'));
 
 const CATS = {
@@ -207,6 +208,16 @@ const SHARE = {
   <button class="start" data-goto-path="servant">Open the servant path →</button></div>`
 };
 
+const MERGED = (()=>{
+  const all = GLOSSARY.concat(GD.SHARED, GD.MESSIAH);
+  const seen = new Set(); const out = [];
+  for (const g of all) { const k = g.t.toLowerCase(); if (seen.has(k)) continue; seen.add(k); out.push(g); }
+  return out.sort((a,b)=>a.t.replace(/^the /i,'').toLowerCase().localeCompare(b.t.replace(/^the /i,'').toLowerCase()));
+})();
+console.log('messiah glossary terms:', MERGED.length);
+
+const PRIMER = {"h":"New here? What this section is actually arguing","p":"<p><b>This section runs in the opposite direction from the rest of the site.</b> Everywhere else, the Bible is the shared standard and a movement's claims are weighed against it. Here the New Testament is not shared ground — so the case is made from the <b>Tanakh</b> (the Hebrew Bible), from the <b>Targum</b>, and from the <b>Talmud</b>: sources a Jewish friend already holds.</p>\n    <p><b>The central problem is that the Hebrew Scriptures give two portraits</b> of the one to come: a conquering king of David's line, and a servant who is despised, pierced and killed (Isaiah 53). These look irreconcilable — and the rabbis saw it too. <b>Sukkah 52a</b> resolves it with two Messiahs: Messiah ben Joseph, who is slain, and Messiah ben David, who reigns. The Christian claim is smaller than it sounds: not two figures, but one, twice.</p>\n    <p>Alongside that sit two datable arguments. <b>Daniel 9</b> has an anointed one cut off <i>before</i> the Temple is destroyed — and the Temple fell in AD 70. And <b>Yoma 39b</b>, in the Talmud itself, records that for the forty years before that destruction the Yom Kippur signs failed. Forty years before 70 is AD 30.</p>\n    <p><b>None of it can be said until something else is.</b> The Crusades, the blood libel, the expulsions, forced disputations, Luther, and the <b>Shoah</b> — that history is the room this conversation happens in, and it must be named first and unprompted. Terms in dotted underline can be hovered anywhere for a definition.</p>"};
+
 build({
   slug: 'messiah', dataFile: 'messiah-data.json', compFile: 'companion-messiah.json',
   fieldMap: { quran: null, hadith: 'rabbinic', bible: ['tanakh', 'nt'] },
@@ -214,7 +225,8 @@ build({
   railNote: "Every reference here is cited by this specific claim — click a Scripture reference to read it in place (KJV); rabbinic citations open on Sefaria so your friend can check them in the original.",
   hadithUrlBody: 'function hadithUrl(h){\n  const m=String(h).match(/^([A-Za-z\' ]+?)\\s+(\\d+[ab]?)(?::(\\d+))?/);\n  if(!m)return null;\n  const t=m[1].trim().replace(/\\s+/g,"_");\n  return "https://www.sefaria.org/search?q="+encodeURIComponent(String(h));\n}\n',
   SECTIONS: { portraits: "The two portraits", timing: "The timing", atonement: "Atonement & covenant", objections: "The objections" },
-  CATS, SECMAP, CATDESC, WHYMAP, GLOSSARY, PATHS, TLACTS, RELATED,
+  CATS, SECMAP, CATDESC, WHYMAP, PATHS, TLACTS, RELATED,
+  GLOSSARY: MERGED, primer: PRIMER,
   TALK, TIPS, WHYTAIL, TOURSTEPS, core: CORE, share: SHARE,
   refRegex: "(?:Targum(?:\\\\sJonathan)?|Sukkah\\\\s\\\\d+[ab]|Yoma\\\\s\\\\d+[ab]|Sanhedrin\\\\s\\\\d+[ab]|Midrash\\\\s[A-Za-z]+|Rashi|Ibn\\\\sEzra|Maimonides|Mishnah|Talmud|4Q\\\\d+)",
   timelineIntro: "What was expected on the left; what happened and what was recorded on the right.",

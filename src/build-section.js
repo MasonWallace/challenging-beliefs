@@ -63,6 +63,16 @@ module.exports = function buildSection(cfg) {
   if (cfg.VLABEL) { consts.VLABEL = cfg.VLABEL; consts.VDESC = cfg.VDESC; }
   for (const [k, v] of Object.entries(consts)) s = replaceConst(s, k, J(v));
 
+  /* --- the "story in ninety seconds" primer on the word guide --- */
+  {
+    const a = s.indexOf('<details class="primer"');
+    if (a < 0) throw new Error('primer anchor missing');
+    const b = s.indexOf('</details>', a) + '</details>'.length;
+    s = s.slice(0, a) + (cfg.primer
+      ? '<details class="primer" open><summary>' + cfg.primer.h + '</summary><div class="primerbody">' + cfg.primer.p + '</div></details>'
+      : '') + s.slice(b);
+  }
+
   /* --- reference-highlighting regex for their own literature --- */
   s = replaceConst(s, 'LDSBOOKS', J(cfg.refRegex || '(?!x)x'));
 
