@@ -813,12 +813,7 @@ function renderCase(){
         <div class="relrow">${rel.map(id=>`<button data-open="${id}">${esc(byId[id].title)}</button>`).join("")||"—"}</div>
       </div>
     </div>`;
-    document.querySelectorAll(".tab2").forEach(t=>t.addEventListener("click",()=>{
-    document.querySelectorAll(".tab2").forEach(x=>x.classList.remove("on"));
-    document.querySelectorAll(".tabpane2").forEach(x=>x.classList.remove("on"));
-    t.classList.add("on");document.getElementById(t.dataset.pane).classList.add("on");
-  }));
-  $("#back").addEventListener("click",()=>{state.view=path?"paths":"overview";state.caseId=null;render();});
+    $("#back").addEventListener("click",()=>{state.view=path?"paths":"overview";state.caseId=null;render();});
   if(nextInPath)$("#pathnext").addEventListener("click",()=>openCase(nextInPath));
   document.querySelectorAll(".relrow [data-open]").forEach(b=>b.addEventListener("click",()=>openCase(b.dataset.open)));
   document.querySelectorAll(".chip").forEach(ch=>ch.addEventListener("click",()=>{
@@ -979,6 +974,7 @@ function renderProofs(){
     <div class="refs">Read together: ${p.refs}</div></div>`).join("");
 }
 
+document.addEventListener("click",e=>{const t=e.target.closest(".tab2");if(!t)return;document.querySelectorAll(".tab2").forEach(x=>x.classList.remove("on"));document.querySelectorAll(".tabpane2").forEach(x=>x.classList.remove("on"));t.classList.add("on");const p=document.getElementById(t.dataset.pane);if(p)p.classList.add("on");});
 /* ---------- router ---------- */
 function render(){
   document.querySelector(".app").classList.toggle("reading",state.view!=="overview");
@@ -1026,7 +1022,7 @@ document.addEventListener("keydown",e=>{
 
 
 const TOURKEY="wbi_tour";
-const TOURSTEPS=[{"icon":"⚖","title":"Welcome to the examination","body":"<b>38 documented claims</b> about Islam, each weighed against the Bible — with Quran verses, Hadith, and Bible passages cited on every case. Every claim carries the <b>strongest Muslim defense</b> and an honest verdict; popular polemics that don't survive scrutiny are excluded."},{"icon":"🏷","title":"Four verdicts, one glance","body":"Every claim lands in one of four columns:<div class=\"vrow2\"><div><span class=\"badge v-admitted\">Admitted</span><span>their own sources concede the facts</span></div><div><span class=\"badge v-unrefuted\">Unrefuted</span><span>no adequate answer exists</span></div><div><span class=\"badge v-contested\">Contested</span><span>a real debate — both sides shown</span></div><div><span class=\"badge v-answered\">Answered</span><span>the defense wins, and we say so</span></div></div><p style='margin:10px 0 0'>For Islam, <b>Admitted</b> means the facts sit in Sahih al-Bukhari, Sahih Muslim, or mainstream tafsir — sources every observant Muslim accepts.</p>"},{"icon":"💬","title":"Every case scripts the conversation","body":"Each case ends with <b>“How the conversation usually goes”</b> — a back-and-forth: <i>they may say → you respond → they may counter → you respond</i>. You'll never be caught without the next move. Quran references expand in place; hadith link straight to sunnah.com so your friend can verify instantly."},{"icon":"🧭","title":"The sidebar is your map","body":"Start with <b>The heart of it</b> — the cornerstone dilemma every other conversation depends on. Then <b>Sharing the gospel</b> (honor-shame method, the 7 objections you'll hear, security cautions), <b>Guided paths</b>, <b>Timeline</b>, and <b>Terms explained</b> (tahrif, isnad, taqiyya…)."},{"icon":"🚀","title":"Where to start","body":"Take the <b>cornerstone path</b>: the Quran affirms the Bible of Muhammad's day — and the manuscripts prove that Bible is ours. Master that one argument and every other door opens. Replay this tour anytime from the sidebar.","cta":"Take me to the heart of it"}];
+const TOURSTEPS=[{"icon":"⚖","title":"Welcome to the examination","body":"<b>__N__ documented claims</b> about Islam, each weighed against the Bible — with Quran verses, Hadith, and Bible passages cited on every case. Every claim carries the <b>strongest Muslim defense</b> and an honest verdict; popular polemics that don't survive scrutiny are excluded."},{"icon":"🏷","title":"Four verdicts, one glance","body":"Every claim lands in one of four columns:<div class=\"vrow2\"><div><span class=\"badge v-admitted\">Admitted</span><span>their own sources concede the facts</span></div><div><span class=\"badge v-unrefuted\">Unrefuted</span><span>no adequate answer exists</span></div><div><span class=\"badge v-contested\">Contested</span><span>a real debate — both sides shown</span></div><div><span class=\"badge v-answered\">Answered</span><span>the defense wins, and we say so</span></div></div><p style='margin:10px 0 0'>For Islam, <b>Admitted</b> means the facts sit in Sahih al-Bukhari, Sahih Muslim, or mainstream tafsir — sources every observant Muslim accepts.</p>"},{"icon":"💬","title":"Every case scripts the conversation","body":"Each case ends with <b>“How the conversation usually goes”</b> — a back-and-forth: <i>they may say → you respond → they may counter → you respond</i>. You'll never be caught without the next move. Quran references expand in place; hadith link straight to sunnah.com so your friend can verify instantly."},{"icon":"🧭","title":"The sidebar is your map","body":"Start with <b>The heart of it</b> — the cornerstone dilemma every other conversation depends on. Then <b>Sharing the gospel</b> (honor-shame method, the 7 objections you'll hear, security cautions), <b>Guided paths</b>, <b>Timeline</b>, and <b>Terms explained</b> (tahrif, isnad, taqiyya…)."},{"icon":"🚀","title":"Where to start","body":"Take the <b>cornerstone path</b>: the Quran affirms the Bible of Muhammad's day — and the manuscripts prove that Bible is ours. Master that one argument and every other door opens. Replay this tour anytime from the sidebar.","cta":"Take me to the heart of it"}];
 function startTour(){
   const old=document.querySelector(".tourwrap");if(old)old.remove();
   let ti=0;

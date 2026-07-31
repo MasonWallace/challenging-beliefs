@@ -69,6 +69,12 @@
     .rise{opacity:1;transform:none;animation:none}
     a.card:hover{transform:none}
   }
+
+  .aboutbar{position:relative;z-index:1;display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin:26px auto 0;max-width:760px;background:var(--panel,rgba(255,255,255,.04));border:1px solid var(--line);border-radius:14px;padding:16px 22px;text-decoration:none;color:inherit;transition:border-color .25s}
+  .aboutbar:hover{border-color:var(--acc)}
+  .aboutbar .ab-t{font-family:var(--serif);font-size:1.05rem;color:var(--ink,inherit);white-space:nowrap}
+  .aboutbar .ab-d{color:var(--muted);font-size:.85rem;flex:1;min-width:200px}
+  .aboutbar .go{color:var(--acc);font-size:.85rem;font-weight:700;white-space:nowrap}
 </style>
 </head>
 <body>
@@ -84,7 +90,7 @@
   <div class="cards">
     <a class="card rise d4" href="mormonism/">
       <span class="glyph">📖</span><br>
-      <span class="tag live">Live · 80 claims</span>
+      <span class="tag live">Live · 85 claims</span>
       <h2>Mormonism</h2>
       <p>The Book of Mormon and LDS teaching, weighed — largely from the church's own sources.</p>
       <span class="go">Enter the examination</span>
@@ -97,10 +103,11 @@
       <span class="go">Enter the examination</span>
     </a>
   </div>
+  <a class="aboutbar rise d5" href="about.html"><span class="ab-t">📖 About this site</span><span class="ab-d">Our method, the four verdict tiers, and how to use the examinations — read this first.</span><span class="go">Read →</span></a>
 </div></main>
 
 <footer><div class="wrap">
-  <a href="about.html" style="color:var(--dim);font-size:.8rem;text-decoration:underline">About this site & our method</a><br><br><span class="v">"Be ready always to give an answer… with meekness and fear." — 1 Peter 3:15</span>
+  <span class="v">"Be ready always to give an answer… with meekness and fear." — 1 Peter 3:15</span>
 </div></footer>
 
 <script>
