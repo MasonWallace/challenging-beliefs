@@ -234,9 +234,6 @@
   .preview .empty{color:var(--dim);font-size:.8rem;margin-top:30px;text-align:center}
 
   /* views: paths, timeline, glossary, compare */
-  .viewhead{margin:4px 0 22px}
-  .viewhead h2{font-family:var(--serif);font-weight:500;font-size:1.5rem;margin:0 0 4px}
-  .viewhead p{color:var(--muted);font-size:.88rem;margin:0;max-width:70ch}
   .pathcard{background:var(--panel);border:1px solid var(--line2);border-radius:12px;padding:18px 20px;margin-bottom:14px}
   .pathcard h3{font-family:var(--serif);font-weight:500;font-size:1.15rem;margin:0 0 4px}
   .pathcard .pd{font-size:.82rem;color:var(--muted);margin:0 0 12px}
@@ -289,6 +286,21 @@
   .tskip{background:none;border:0;color:var(--dim);cursor:pointer;font-size:.8rem;text-decoration:underline}
   .tback{background:none;border:1px solid var(--line2);color:var(--muted);border-radius:8px;padding:8px 16px;cursor:pointer;margin-right:8px;font-size:.85rem}
   .tnext{background:var(--gold);color:var(--gold-ink);border:0;border-radius:8px;padding:8px 20px;font-weight:700;cursor:pointer;font-size:.85rem}
+
+  .viewhead{position:relative;margin:6px 0 30px;padding:28px 30px;background:linear-gradient(135deg,color-mix(in srgb,var(--gold) 7%,var(--panel)),var(--panel2));border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  .viewhead::before{content:'';position:absolute;top:-60px;right:-60px;width:260px;height:260px;background:radial-gradient(circle,color-mix(in srgb,var(--gold) 22%,transparent),transparent 70%);pointer-events:none}
+  .viewhead::after{content:'\2696';position:absolute;right:26px;bottom:10px;font-size:3.4rem;opacity:.07;pointer-events:none}
+  .viewhead h2{font-family:var(--serif);font-weight:500;font-size:clamp(1.6rem,3.4vw,2.3rem);line-height:1.22;letter-spacing:-.01em;margin:0 0 12px;max-width:28ch;background:linear-gradient(100deg,var(--ink) 40%,var(--gold) 75%,var(--ink));background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent}
+  .viewhead p{color:var(--muted);font-size:.95rem;margin:0;max-width:66ch;border-left:3px solid var(--gold);padding-left:14px;line-height:1.7}
+  .gaccord{max-width:760px;background:var(--panel);border:1px solid var(--line2);border-radius:14px;padding:4px 22px}
+  .gitem{border-bottom:1px solid var(--line)}
+  .gitem:last-child{border-bottom:0}
+  .gitem summary{cursor:pointer;font-family:var(--serif);font-size:1.06rem;padding:15px 2px;list-style:none;display:flex;justify-content:space-between;align-items:center;color:var(--ink)}
+  .gitem summary::-webkit-details-marker{display:none}
+  .gitem summary::after{content:'+';font-family:var(--sans);color:var(--gold);font-size:1.2rem;font-weight:600}
+  .gitem[open] summary::after{content:'\2013'}
+  .gitem summary:hover{color:var(--gold)}
+  .gitem p{color:var(--muted);font-size:.9rem;line-height:1.7;padding:0 2px 18px;margin:0;max-width:66ch}
 </style>
 
 <div class="app">
@@ -846,7 +858,7 @@ function renderTimeline(){
 /* ---------- glossary ---------- */
 function renderGlossary(){
   $("#main").innerHTML=`<div class="viewhead"><h2>Terms explained</h2><p>The special terms this subject runs on, in plain English. They're also underlined with a dotted line throughout the case files — hover any of them for the definition right there.</p></div>
-  <div class="glossgrid">${GLOSSARY.map(g=>`<div class="glosscard"><b>${esc(g.t)}</b><p>${esc(g.d)}</p></div>`).join("")}</div>`;
+  <div class="gaccord">${GLOSSARY.map(g=>`<details class="gitem"><summary>${esc(g.t)}</summary><p>${esc(g.d)}</p></details>`).join("")}</div>`;
 }
 
 /* ---------- the heart of it ---------- */
