@@ -1,0 +1,92 @@
+/* ---------- they just said / da'wah script / verse arsenal (Islam) ---------- */
+const THEYSAY=[
+{say:"Your Bible has been corrupted.",quick:"Ask the only question that matters: **corrupted before Muhammad, or after?** Before contradicts the Quran (10:94, 5:47 tell people to consult and judge by those very scriptures); after is refuted by the Dead Sea Scrolls and Codex Sinaiticus, which predate him by centuries. There is no third option.",id:"quran-affirms-torah-gospel"},
+{say:"The Quran has been perfectly preserved — not one letter changed.",quick:"Then why did Uthman burn every rival codex (Bukhari 4987)? Why did companions' Qurans differ, why does the Sanaa palimpsest have a variant lower text, and why do printed Hafs and Warsh Qurans **differ in words** today?",id:"uthman-standardization-qiraat"},
+{say:"Jesus was never crucified — Allah made it only appear so.",quick:"The crucifixion is attested by all four gospels, a creed dated within a few years of the event (1 Corinthians 15), Josephus, Tacitus, and effectively every critical historian — Ehrman calls it one of the most certain facts of history. One unwitnessed sentence written 600 years later, against all of it.",id:"crucifixion-denial-vs-history"},
+{say:"Jesus never said 'I am God, worship me.'",quick:"He said 'before Abraham was, **I am**' and they took up stones for blasphemy (John 8:58–59); he accepted worship (John 20:28), forgave sins, and claimed authority to judge the world. The exact-words demand is a test no one applies anywhere else.",id:"son-of-god-divine-claims"},
+{say:"God does not beget — how can God have a son?",quick:"The Quran refutes a **carnal** sonship Christians never taught — 6:101 asks how God can have a son 'when He has no consort.' 'Son' in Scripture is about shared nature and eternal relationship, not biology: the Word who was with God and was God (John 1:1).",id:"begets-consort-carnal-sonship"},
+{say:"The Trinity is three gods.",quick:"The Quran's own description of the Trinity is wrong — it presents Allah, Jesus, and **Mary** (5:116) and calls God 'the third of three' (5:73), tritheism no creed ever taught. One Being, three persons — and the critique never engages what Christians actually confess.",id:"trinity-third-of-three"},
+{say:"Muhammad is prophesied in your Bible — Deuteronomy 18, the Paraclete, Song of Songs 5:16.",quick:"Deuteronomy's prophet is 'from among their **brothers**' — Israelites (Acts 3:22 names Jesus); the Paraclete is 'the Spirit of truth' who would dwell **in** the disciples then living; and machamaddim is an ordinary Hebrew word for 'lovely.' Notice the deeper problem: this argument needs the Bible to be **reliable**.",id:"muhammad-in-the-bible"},
+{say:"The Quran contains scientific miracles no 7th-century man could know.",quick:"The embryology tracks Galen's stages — the standard Greek medicine of the era, including its errors (semen from between backbone and ribs, 86:6–7). Ask why a book with advance knowledge describes the science of exactly its own century.",id:"reproductive-science-galen"},
+{say:"Islam is the fastest-growing religion.",quick:"Growth is birthrate, not conversion — and truth isn't decided by census. By that standard Christianity was false for its first centuries and true after Constantine; the real question is which founder's claims survive checking.",id:"spread-only-by-sword"},
+{say:"Jesus was a Muslim — he submitted to God.",quick:"Read the Quran's own resume for Jesus: virgin-born, sinless, the Messiah, God's Word and a Spirit from Him, worker of miracles — titles it gives no one else, **including Muhammad**. Then ask why the messenger outranks the Word.",id:"quran-jesus-resume"},
+{say:"Paul corrupted Christianity — Jesus's real message was lost.",quick:"The creed in 1 Corinthians 15:3–8 — died for our sins, buried, raised — is dated by critical scholars to within about five years of the crucifixion, **before** Paul's missionary career. The 'real message' theory requires evidence, and there is none: no document, no community, no trace.",id:"crucifixion-denial-vs-history"},
+{say:"How can God die? Who was running the universe?",quick:"Christians don't teach that the divine nature died — the eternal Son took on a human nature, and it was in that nature He died (that's the two-natures doctrine, stated since the creeds). The question refutes a Christianity no one holds.",id:"son-of-god-divine-claims"},
+{say:"Aisha's marriage was normal for that time and culture.",quick:"The sources are Islam's own: married at six, consummated at nine, still playing with dolls (Bukhari 5134, 6130; Muslim 1422). The defense concedes every fact and asks you to grade the **perfect example for all time** (33:21) on a curve.",id:"aisha-age"},
+{say:"Islam gave women rights 1,300 years before the West.",quick:"Islam's own texts fix a woman's testimony at half a man's — with Muhammad's stated reason being 'deficiency of a woman's mind' (Bukhari 2658) — and her inheritance at half. Whatever the 7th-century baseline was, the question is whether this is God's final word on women.",id:"women-testimony-inheritance"},
+{say:"That hadith is weak — I only follow the Quran.",quick:"Without hadith, Islam cannot perform its own five prayers, define the pillars, or narrate Muhammad's life — and the Quran itself is compiled and contextualized entirely through them. You can't keep the religion and discard its chain of custody selectively.",id:"hadith-chain-of-custody"},
+{say:"Real jihad is inner struggle. Terrorists don't represent Islam.",quick:"Most Muslims want peace — say so sincerely. But Surah 9, by Muslim consensus among the last revealed, commands fighting the People of the Book 'until they pay the jizya and feel themselves subdued' (9:29), and classical jurisprudence of every school built on it. The question is the founder's final commands, not the average believer.",id:"sword-verses-final-command"},
+{say:"We honor Jesus more than you do — we just don't worship him.",quick:"Honoring Jesus means believing what he said — and he said the Son of Man came 'to give his life a ransom for many' (Mark 10:45) and predicted his death and resurrection. A Jesus who never died can't be the Jesus of any first-century source, including the ones the Quran says to consult.",id:"word-and-spirit-titles"},
+{say:"The Gospel of Barnabas is the true gospel.",quick:"It's a 14th–16th century forgery citing the papal Jubilee of 1300 and medieval wine casks — and it **contradicts the Quran**, denying Jesus is the Messiah, which the Quran affirms eleven times. If a case needs this book, the case is over.",id:"injil-problem"},
+{say:"Allah is just Arabic for God — we worship the same God.",quick:"On the word, agreed — Arab Christians said 'Allah' before Muhammad and say it today (this site tells Christians to drop the name-polemic). The real question is the character: can the God of the Bible, who **is** love and has a Son, be the monad of the Quran?",id:"allah-name-polemic"},
+{say:"'Ask those who read the Scripture before you' means the original, uncorrupted books.",quick:"Read the verse — Allah tells doubters to consult the Scripture-readers **of Muhammad's own day** (10:94), and 5:47 commands the People of the Gospel to judge by what's in their possession. You can't consult a book that doesn't exist.",id:"gospel-judgment-test"},
+{say:"Christians spread lies about Islam — like the moon-god myth.",quick:"They're right about that one — the moon-god claim is bad archaeology and this site marks it **Answered** and tells Christians to drop it. Then offer the trade: 'I'll hold my side to honest arguments; will you look at one of mine that isn't a myth?'",id:"allah-moon-god"},
+{say:"No one can produce a surah like the Quran — that's the miracle.",quick:"'It sounds inimitable to believers' is an aesthetic judgment, not a test — every scripture's community feels that. What can be checked is content: and the Quran's narratives track identifiable rabbinic commentary, Christian legends, and a pun on 'Ur' — in Allah's own voice.",id:"quran-borrowed-legends"}
+];
+const LESSONS=[
+{n:"Before the table",t:"How street da'wah works",what:["You'll meet it at campus tables, city-center booths, and online — often trained by iERA-style scripts with practiced openers.","The method is sequenced: establish common ground, undermine the Bible, present Muhammad and the Quran, invite the shahada.","The worker is often warm, sincere, and better rehearsed than the average Christian — which is why knowing the sequence matters more than being clever."],ask:"“I'm genuinely glad to talk about God — can we agree that whichever of us is wrong should want to find out?”",ids:["taqiyya-deception"]},
+{n:"Stage 1",t:"“Do you believe God is One?”",what:["The opener establishes tawhid as common ground: one God, no partners.","The Trinity is framed as tritheism or shirk — 'how can one be three?'","You'll be told Jesus never claimed divinity."],ask:"“I do believe God is one — Deuteronomy 6:4 is my confession too. But the Quran describes the Trinity as Allah, Jesus, and Mary (5:116) — if the critique gets the doctrine wrong, what exactly is being refuted?”",ids:["trinity-father-jesus-mary","trinity-third-of-three","son-of-god-divine-claims"]},
+{n:"Stage 2",t:"“The Bible has been changed”",what:["Tahrif is asserted as fact — 'written by men,' 'thousands of contradictions,' 'many gospels were excluded.'","The claim does the load-bearing work: if the Bible stands, Islam's case collapses."],ask:"“Was it corrupted before Muhammad or after? Before contradicts the Quran — 10:94 and 5:47 send people to those scriptures. After is refuted by manuscripts we can go see. Which one are you claiming?”",ids:["quran-affirms-torah-gospel","manuscripts-predate-muhammad","tahrif-doctrine-late-development"]},
+{n:"Stage 3",t:"“Muhammad is in your Bible”",what:["Deuteronomy 18:18 ('a prophet like you'), the Paraclete of John 14–16, and Song of Songs 5:16 will be offered as prophecies of Muhammad.","This stage quietly assumes the Bible is reliable — the opposite of Stage 2."],ask:"“A minute ago the Bible was corrupted — now it prophesies Muhammad? If the corrupted parts happen to be the ones that disagree with Islam, who decided which is which?”",ids:["muhammad-in-the-bible","quran-affirms-torah-gospel"]},
+{n:"Stage 4",t:"“Scientific miracles of the Quran”",what:["Embryology (23:14), the expanding universe, the 'barrier between two seas,' mountains as pegs — presented as knowledge impossible for the 7th century.","This is the most-rehearsed stage and the most fragile: the claims dissolve on contact with the sources."],ask:"“The Quran's embryo stages match Galen's Greek medicine — 500 years old by Muhammad's time — including its errors. Would you accept this style of argument from any other religion's book?”",ids:["reproductive-science-galen","sun-muddy-spring","cosmology-stars-missiles"]},
+{n:"Stage 5",t:"“The Quran is perfectly preserved”",what:["'Not one letter has changed' — contrasted with the Bible's manuscript variants.","Uthman's standardization, the burned codices, and today's variant Hafs/Warsh printings are never mentioned."],ask:"“If preservation proves divine origin, what do we do with Bukhari 4987 — Uthman burning every rival copy — and the fact that Qurans printed today in Medina and Morocco differ in words?”",ids:["uthman-standardization-qiraat","compilation-lost-verses","sanaa-palimpsest-qiraat"]},
+{n:"Stage 6",t:"“Take your shahada” — and your counter-invitation",what:["The close: declare the shahada, often same-day, sometimes on camera.","Your close is better news: not a works-scale you'll never balance, but a finished atonement and assurance Muhammad himself never claimed (Bukhari 7018: 'I do not know what will happen to me')."],ask:"“Muhammad told his own daughter he couldn't avail her against Allah, and said he didn't know his own fate. Jesus said 'him that cometh to me I will in no wise cast out.' Which founder can actually promise you anything?”",ids:["salvation-scales","sins-cast-on-jews-christians","quran-jesus-resume"]}
+];
+const WHYVERSE={
+"Isaiah 53:5-6":"'Wounded for our transgressions' — the crucifixion and atonement, written seven centuries early, preserved in the Great Isaiah Scroll before Christ and therefore before any possible 'corruption.'",
+"Matthew 26:52":"'Put up again thy sword' — the founders' final commands run in opposite directions, and this is Jesus's. Pairs with Surah 9 for the sharpest contrast on this site.",
+"1 Corinthians 15:3-8":"The creed critical scholars date within ~5 years of the cross: died for sins, buried, raised, seen. The earliest Christian document is already the whole gospel.",
+"John 1:1-3":"'The Word was God... all things were made through him' — the divine Word (kalimatullah, a title the Quran itself gives Jesus) who cannot be a creature.",
+"John 1:14":"'The Word was made flesh' — the incarnation in six words: not God begetting carnally, but the eternal Word entering His world.",
+"Deuteronomy 6:4":"The Shema — your genuine common ground with every Muslim. Start here, agree sincerely, then define what 'one' means.",
+"Deuteronomy 18:20-22":"God's own prophet test: speak presumptuously or fail, and you were not sent. Apply it evenly to every claimant — that's the point.",
+"Matthew 7:15-20":"'By their fruits ye shall know them' — the character test for any prophet, applied to documented actions, not caricatures.",
+"Mark 14:61-64":"'Art thou the Christ, the Son of the Blessed? I am' — the claim, at trial, under oath, with the death sentence to prove they understood him.",
+"Psalm 2:7":"'Thou art my Son' — divine sonship in Israel's own scriptures, a thousand years before the Quran said God has no son.",
+"Titus 1:2":"'God, that cannot lie' — against khayru al-makirin, 'the best of deceivers' (3:54). Two different characters; only one can be the true God.",
+"Hebrews 4:15":"A high priest 'in all points tempted like as we are, yet without sin' — the sympathy of God that a master-slave theology cannot offer.",
+"Romans 5:8":"'While we were yet sinners, Christ died for us' — love before repentance, the exact reverse of earning mercy by the scale.",
+"Luke 1:1-4":"Luke's eyewitness preface — 'having had perfect understanding of all things from the very first' — history-writing, not legend, within living memory.",
+"Matthew 5:44":"'Love your enemies, pray for them' — your posture verse. The Woodberry study found the lifestyle of Christians is the #1 reason Muslims come to Christ.",
+"Matthew 28:19":"'Make disciples of all nations, baptizing them in the name of the Father, and of the Son, and of the Holy Ghost' — one name, three persons, from Jesus's own mouth."
+};
+function bindOpens(){document.querySelectorAll("#main [data-open]").forEach(b=>b.addEventListener("click",()=>openCase(b.dataset.open)));}
+function renderTheySay(){
+  $("#main").innerHTML=`<div class="viewhead"><h2>They just said…</h2>
+  <p>Real conversations start with a line, not a topic. Find the line you just heard, answer in two sentences, then open the full case together. Use the search box to jump (Ctrl+F works too).</p></div>`+
+  THEYSAY.map(t=>`<div class="ptcard"><h3 class="ptv">“${esc(t.say)}”</h3>
+    <div class="who you">Your two sentences</div><p class="pt">${rich(t.quick)}</p>
+    <div class="relrow"><button data-open="${t.id}">Open the full case: ${esc(byId[t.id].title)}</button></div></div>`).join("");
+  bindOpens();
+}
+function renderLessons(){
+  $("#main").innerHTML=`<div class="viewhead"><h2>The da'wah script</h2>
+  <p>Street da'wah follows a trained sequence — common ground, undermine the Bible, present the Quran, invite the shahada. Here is each stage, the one question to ask right then, and the cases behind it. Knowing the script lets you stay warm and unhurried.</p></div>`+
+  LESSONS.map(L=>`<div class="ptcard"><div class="who them">${esc(L.n)}</div><h3 class="ptv">${esc(L.t)}</h3>
+    <div class="who them" style="margin-top:8px">What happens</div><p class="pt">${L.what.map(w=>"• "+esc(w)).join("<br>")}</p>
+    <div class="who you">The question to ask</div><p class="pt">${rich(L.ask)}</p>
+    <div class="relrow">${L.ids.map(id=>byId[id]?`<button data-open="${id}">${esc(byId[id].title)}</button>`:"").join("")}</div></div>`).join("");
+  bindOpens();
+}
+function renderArsenal(){
+  const cnt={};
+  DATA.forEach(d=>(d.bible||[]).forEach(r=>{const k=r.replace(/–/g,"-").trim();(cnt[k]=cnt[k]||[]).push(d.id);}));
+  const top=Object.entries(cnt).sort((a,b)=>b[1].length-a[1].length).slice(0,16);
+  $("#main").innerHTML=`<div class="viewhead"><h2>Verse arsenal</h2>
+  <p>Two tools. <b>Look up any reference</b> — Quran, hadith, or Bible — to find every case that cites it ("he quoted Surah 4:157 — now what?"). Below it, the Bible verses that carry the most weight across all ${DATA.length} cases: memorize these and you are armed for most conversations on this site.</p></div>
+  <input class="arsinput" id="arsq" placeholder="Type any reference — e.g. Quran 4:157, Bukhari 5134, Isaiah 53, John 1…" autocomplete="off">
+  <div id="arsout"></div>
+  <div class="dlab" style="margin-top:26px">The verses that do the most work</div>`+
+  top.map(([ref,ids])=>`<div class="ptcard"><h3 class="ptv">${esc(ref)} <span class="cnt" style="font-size:.7rem">${ids.length} case${ids.length>1?"s":""}</span></h3>
+    ${WHYVERSE[ref]?`<p class="pt">${rich(WHYVERSE[ref])}</p>`:""}
+    <div class="relrow">${ids.slice(0,6).map(id=>`<button data-open="${id}">${esc(byId[id].title)}</button>`).join("")}</div></div>`).join("");
+  bindOpens();
+  const box=$("#arsq"),out=$("#arsout");
+  box.addEventListener("input",()=>{
+    const q=box.value.toLowerCase().replace(/–/g,"-").replace(/\s+/g," ").trim();
+    if(q.length<3){out.innerHTML="";return;}
+    const hits=DATA.filter(d=>["quran","hadith","bible"].some(k=>(d[k]||[]).some(r=>r.toLowerCase().replace(/–/g,"-").includes(q))));
+    out.innerHTML=hits.length?`<div class="dlab">${hits.length} case${hits.length>1?"s":""} cite a matching reference</div><div class="relrow">${hits.slice(0,20).map(d=>`<button data-open="${d.id}">${esc(d.title)}</button>`).join("")}</div>`:`<p class="pt" style="color:var(--muted)">No case cites a reference matching “${esc(box.value)}” — try just the book/surah (e.g. “Quran 9” or “Bukhari”).</p>`;
+    document.querySelectorAll("#arsout [data-open]").forEach(b=>b.addEventListener("click",()=>openCase(b.dataset.open)));
+  });
+}
