@@ -364,6 +364,18 @@
   .lightbox img{max-width:92vw;max-height:82vh;border-radius:10px;box-shadow:0 30px 90px rgba(0,0,0,.6)}
   .lightbox figcaption{color:#cfd4db;font-size:.8rem;margin-top:12px;text-align:center;max-width:80ch}
   .lightbox .lx-close{position:fixed;top:18px;right:22px;background:none;border:1px solid rgba(255,255,255,.4);color:#fff;border-radius:8px;padding:6px 14px;cursor:pointer}
+
+  .ctop{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:24px;align-items:start;margin-bottom:6px}
+  @media (max-width:900px){.ctop{grid-template-columns:1fr}}
+  .tabs2{display:flex;gap:4px;border-bottom:1px solid var(--line2);margin:22px 0 0;flex-wrap:wrap}
+  .tab2{font-size:.82rem;padding:10px 18px;border:1px solid transparent;border-bottom:0;border-radius:10px 10px 0 0;color:var(--muted);cursor:pointer;background:none;font-family:inherit}
+  .tab2.on{background:var(--panel);border-color:var(--line2);color:var(--gold);font-weight:700}
+  .tab2:hover{color:var(--ink)}
+  .tabpane2{display:none;background:var(--panel);border:1px solid var(--line2);border-top:0;border-radius:0 0 12px 12px;padding:20px 22px}
+  .tabpane2.on{display:block}
+  .pair2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+  @media (max-width:860px){.pair2{grid-template-columns:1fr}}
+  .pair2 .vbox,.pair2 .why{max-width:none;height:100%}
 </style>
 
 </head>
@@ -383,6 +395,7 @@
 
 <script>
 const DATA=[
+
 
 
 
@@ -812,8 +825,7 @@ function filtered(){
 
 /* ---------- sidebar ---------- */
 function renderNav(){
-  const secCount={};DATA.forEach(d=>secCount[d.section]=(secCount[d.section]||0)+1);
-  const items=[["overview","Overview",DATA.length],...Object.entries(SECTIONS).filter(([k])=>secCount[k]).map(([k,l])=>["sec:"+k,l,secCount[k]])];
+  const items=[["overview","All claims",DATA.length]];
   const views=[["core","The heart of it","3"],["share","Sharing the gospel","✝"],["paths","Guided paths",PATHS.length],["timeline","Timeline","3 acts"],["glossary","Terms explained",GLOSSARY.length]];
   const cur=state.view==="overview"&&state.section!=="all"?"sec:"+state.section:state.view;
   $("#nav").innerHTML=items.map(([k,l,c])=>`<a class="${cur===k?"on":""}" data-k="${k}">${l} <span class="cnt">${c}</span></a>`).join("")
@@ -826,7 +838,7 @@ function renderNav(){
     render();
   }));
   const read=store.read.size;
-  $("#sideprog").innerHTML=`${read} of ${DATA.length} cases read<div class="pbar"><i style="width:${Math.round(read/DATA.length*100)}%"></i></div>
+  $("#sideprog").innerHTML=`
     <button id="themebtn" style="margin-top:14px;background:none;border:1px solid var(--line2);color:var(--muted);border-radius:8px;padding:5px 12px;font-size:.72rem;cursor:pointer">◐ ${document.documentElement.dataset.theme==="light"?"Dark":"Light"} mode</button> <button id="tourbtn" style="margin-top:8px;background:none;border:1px solid var(--line2);color:var(--muted);border-radius:8px;padding:5px 12px;font-size:.72rem;cursor:pointer">✦ Replay tour</button>`;
   $("#themebtn").addEventListener("click",()=>{
     const cur=document.documentElement.dataset.theme==="light"?"dark":"light";
@@ -869,7 +881,7 @@ function renderOverview(){
       return `<div class="vgroup"><h6>${s==="high"?"Most serious":s==="medium"?"Moderate":"Minor"} · ${g.length}</h6>`+
         g.map(d=>`<button class="vt ${state.sel===d.id?"sel":""}${visible.has(d.id)?"":" dimmed"}" data-id="${d.id}">
           <h5>${esc(d.title)}</h5>
-          <span class="m">${read.has(d.id)?'<span class="rd">✓ read</span>':""}${d.featured?'<span class="star">★ strongest evidence</span>':""}<span>${SECTIONS[d.section]}</span></span>
+          <span class="m">${read.has(d.id)?'<span class="rd">✓ read</span>':""}${d.featured?'<span class="star">★ strongest evidence</span>':""}</span>
         </button>`).join("")+`</div>`;
     }).join("");
     const cnt=src.filter(d=>d.verdict===v).length;
@@ -953,26 +965,39 @@ function renderCase(){
       ${nextInPath?`<button class="pathnext" id="pathnext">Next in path →</button>`:""}
     </div>
     <div class="case">
-      <div class="meta"><span class="badge v-${d.verdict}">${VLABEL[d.verdict]} ${info(TIPS.verdict[d.verdict])}</span><span class="tag">${SECTIONS[d.section]}</span><span class="tag">${CATS[d.category]} ${info(CATDESC[d.category])}</span><span class="tag">seriousness: ${SEVLABEL[d.severity]} ${info(TIPS.impact)}</span>${d.featured?`<span class="tag" style="border-color:var(--gold);color:var(--gold)">★ strongest evidence ${info(TIPS.strongest)}</span>`:""}</div>
+      <div class="meta"><span class="badge v-${d.verdict}">${VLABEL[d.verdict]} ${info(TIPS.verdict[d.verdict])}</span><span class="tag">${CATS[d.category]} ${info(CATDESC[d.category])}</span><span class="tag">seriousness: ${SEVLABEL[d.severity]} ${info(TIPS.impact)}</span>${d.featured?`<span class="tag" style="border-color:var(--gold);color:var(--gold)">★ strongest evidence ${info(TIPS.strongest)}</span>`:""}</div>
       <h2>${esc(d.title)}</h2>
-      <div class="claimrow${passages?"":" solo"}">
+      <div class="ctop">
         <div><div class="dlab red" style="margin-top:0">The claim</div><div class="claim">${paras(d.claim)}</div></div>
         ${passages}
       </div>
       ${comp}
-      <div class="dlab blue">The best defense, steelmanned</div>
-      <div class="defense">${formatDefense(d.response)}${d.responseSource?`<div class="dsrc">Source: ${d.responseSource.url?`<a href="${esc(d.responseSource.url)}" target="_blank" rel="noopener">${esc(d.responseSource.name)}</a>`:esc(d.responseSource.name)}</div>`:""}</div>
-      <div class="dlab">The verdict</div>
-      <div class="vbox v-${d.verdict}"><b class="vb">${VLABEL[d.verdict]}</b><span>${paras(d.rationale)}</span></div>
-      <div class="dlab">Why this matters</div>
-      <div class="why">${paras(WHYMAP[d.category]||"")}<p class="wtail">${esc(WHYTAIL[d.verdict])}</p></div>
-      ${TALK[d.category]?`<div class="dlab" style="color:var(--green)">Bringing it up in conversation</div>
-      <div class="talk">${paras(TALK[d.category])}</div>`:""}
-      <details class="srcdet"><summary>Connected cases — ${rel.length} related claim${rel.length===1?"":"s"}</summary>
-      <div class="relrow" style="margin-top:12px">${rel.map(id=>`<button data-open="${id}">${esc(byId[id].title)}</button>`).join("")||"—"}</div></details>
-      <details class="srcdet"><summary>Documented by — ${d.sources.length} source${d.sources.length>1?"s":""} (click to expand)</summary>
-      <ul class="srcs">${d.sources.map(s=>`<li><span class="sb sb-${s.type}">${s.type}</span><span>${s.url?`<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)}</a>`:esc(s.name)}</span></li>`).join("")}</ul></details>
+      <div class="tabs2">
+        <button class="tab2 on" data-pane="pane-case">🛡 Defense & Verdict</button>
+        <button class="tab2" data-pane="pane-talk">💬 Conversation</button>
+        <button class="tab2" data-pane="pane-src">📚 Sources & connections</button>
+      </div>
+      <div class="tabpane2 on" id="pane-case">
+        <div class="dlab blue" style="margin-top:0">The best defense, steelmanned</div>
+        <div class="defense">${formatDefense(d.response)}${d.responseSource?`<div class="dsrc">Source: ${d.responseSource.url?`<a href="${esc(d.responseSource.url)}" target="_blank" rel="noopener">${esc(d.responseSource.name)}</a>`:esc(d.responseSource.name)}</div>`:""}</div>
+        <div class="pair2">
+          <div><div class="dlab">The verdict</div><div class="vbox v-${d.verdict}"><b class="vb">${VLABEL[d.verdict]}</b><span>${paras(d.rationale)}</span></div></div>
+          <div><div class="dlab">Why this matters</div><div class="why">${paras(WHYMAP[d.category]||"")}<p class="wtail">${esc(WHYTAIL[d.verdict])}</p></div></div>
+        </div>
+      </div>
+      <div class="tabpane2" id="pane-talk">${TALK[d.category]?`<div class="dlab" style="margin-top:0;color:var(--green)">Bringing it up in conversation</div><div class="talk">${paras(TALK[d.category])}</div>`:"<p class=\"txt\" style=\"color:var(--muted)\">No conversation guide for this category yet.</p>"}</div>
+      <div class="tabpane2" id="pane-src">
+        <div class="dlab" style="margin-top:0">Documented by — ${d.sources.length} source${d.sources.length>1?"s":""}</div>
+        <ul class="srcs">${d.sources.map(s=>`<li><span class="sb sb-${s.type}">${s.type}</span><span>${s.url?`<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)}</a>`:esc(s.name)}</span></li>`).join("")}</ul>
+        <div class="dlab">Connected cases</div>
+        <div class="relrow">${rel.map(id=>`<button data-open="${id}">${esc(byId[id].title)}</button>`).join("")||"—"}</div>
+      </div>
     </div>`;
+    document.querySelectorAll(".tab2").forEach(t=>t.addEventListener("click",()=>{
+    document.querySelectorAll(".tab2").forEach(x=>x.classList.remove("on"));
+    document.querySelectorAll(".tabpane2").forEach(x=>x.classList.remove("on"));
+    t.classList.add("on");document.getElementById(t.dataset.pane).classList.add("on");
+  }));
   $("#back").addEventListener("click",()=>{state.view=path?"paths":"overview";state.caseId=null;render();});
   if(nextInPath)$("#pathnext").addEventListener("click",()=>openCase(nextInPath));
   document.querySelectorAll(".relrow [data-open]").forEach(b=>b.addEventListener("click",()=>openCase(b.dataset.open)));
