@@ -457,6 +457,13 @@
   .sa{position:relative;border-left:2px solid var(--line2);margin:0 0 0 10px;padding:0 0 26px 26px;background:none;border-top:0;border-right:0;border-bottom:0;border-radius:0}
   .sa::before{content:'';position:absolute;left:-7px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--gold);border:2px solid var(--bg)}
   .sa h4.sat{font-family:var(--serif);font-weight:600;font-size:1.12rem;margin:0 0 10px;color:var(--ink)}
+
+  .bubble.crit{border-left-width:4px;background:color-mix(in srgb,var(--gold) 7%,var(--panel));box-shadow:0 0 0 1px color-mix(in srgb,var(--gold) 35%,transparent)}
+  .bubble.crit h4{font-size:1.02rem}
+  .tpx{display:inline-block;font-size:.6rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--gold);border:1px solid color-mix(in srgb,var(--gold) 50%,transparent);border-radius:20px;padding:2px 9px;margin:0 6px 7px 0}
+  .donechip{display:inline-block;font-size:.6rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--green);border:1px solid color-mix(in srgb,var(--green) 50%,transparent);border-radius:20px;padding:2px 9px;margin:0 0 7px}
+  .bubble.done{border-left-color:var(--green)}
+  .bubble.done h4{color:color-mix(in srgb,var(--green) 55%,var(--ink))}
 </style>
 
 <div class="app">
@@ -977,7 +984,7 @@ function renderTimeline(){
     return `<div class="chopen"><h4>Act ${a.num} · ${a.name} (${a.range})</h4>
     <div class="cvr"><div class="hh claims">What was claimed</div><div></div><div class="hh record">What the record shows</div>
     ${a.events.map(e=>{
-      const bubble=`<div class="bubble ${e.side==="claim"?"claim":"rec"}">${e.id&&IMGMAP[e.id]?`<img class="ebthumb" src="${IMGMAP[e.id].src}" loading="lazy">`:""}<h4>${esc(e.t)}</h4><p>${esc(e.p)} ${e.id&&byId[e.id]?`<button class="jump" data-open="${e.id}">→ open the case</button>`:""}</p></div>`;
+      const bubble=`<div class="bubble ${e.side==="claim"?"claim":"rec"}${e.crit?" crit":""}${e.id&&store.read.has(e.id)?" done":""}">${e.id&&IMGMAP[e.id]?`<img class="ebthumb" src="${IMGMAP[e.id].src}" loading="lazy">`:""}${e.crit?`<span class="tpx">★ turning point</span>`:""}${e.id&&store.read.has(e.id)?`<span class="donechip">✓ read</span>`:""}<h4>${esc(e.t)}</h4><p>${esc(e.p)} ${e.id&&byId[e.id]?`<button class="jump" data-open="${e.id}">→ open the case</button>`:""}</p></div>`;
       return `<div class="cell">${e.side==="claim"?bubble:""}</div><div class="mid"><div class="yr2 ${e.crit?"critY":""}">${e.y}</div></div><div class="cell">${e.side==="record"?bubble:""}</div>`;
     }).join("")}</div></div>`;
   }
@@ -1019,9 +1026,7 @@ function renderCore(){
 function renderShare(){
   $("#main").innerHTML=`
   <div class="viewhead"><h2>Sharing the gospel with Muslim friends</h2>
-  <p>Built from the largest study of Muslim conversions ever done (Woodberry's Fuller Seminary survey of ~750 Muslim-background believers) and the methods of ministries with decades in this work. "The Lord's servant must not be quarrelsome but kind to everyone… correcting his opponents with gentleness" (2 Timothy 2:24–25).</p></div>
-  <p class="sh-open">Of ~750 former Muslims surveyed, the #1 reason they followed Jesus was <span class="hl">the lifestyle and love of the Christians they knew</span> — not arguments.</p>
-  <p class="sh-att">— Woodberry, Shubin &amp; Marks, "Why Muslims Follow Jesus" (Fuller Seminary study, Christianity Today, 2007)</p>
+  <p>Not to win arguments — to help real people meet the real Jesus, with gentleness (2 Timothy 2:24–25). Built from the largest study of Muslim conversions ever done and ministries with decades in this work.</p></div>
   <div class="pb-h">The invitation to work toward</div>
   <div class="saybox"><span class="who">You, once trust is real</span><p>"Would you read one Gospel — Luke — with me? The Quran itself says to judge by the Injil."</p></div>
   <p class="pd" style="font-size:.78rem;margin:0 0 4px">Quran 5:47 commands it; 10:94 points doubters to the Scripture-readers. You are asking them to do what their own book says.</p>
@@ -1030,6 +1035,9 @@ function renderShare(){
 
   <div class="pb-h">The method</div><div class="pb-grid"><div class="pb do"><h4>Honor governs everything</h4><p>Never mock Muhammad or the Quran to a Muslim's face — an insult to the Prophet attacks their family, identity, and community; it triggers the honor-defense reflex and ends the conversation permanently. Honest questions about Muhammad are permitted; contempt never is.</p></div><div class="pb do"><h4>Hospitality is the master key</h4><p>Eating together is the trust currency of Muslim culture. Accept iftar invitations; host them (halal-conscious — no pork or alcohol); reciprocate at Christmas and Easter. Most real evangelism of Muslims happens over meals in homes, not in debates.</p></div><div class="pb dont"><h4>Use the Quran as a door, never an authority</h4><p>"Your own book says striking things about Isa — have you seen them?" is a legitimate opener. Then get to the Bible fast and stay there.</p></div><div class="pb do"><h4>Learn their vocabulary</h4><p>Isa al-Masih, Injil, Tawrat, Zabur — using the terms signals respect. But define words like 'sin,' 'salvation,' and 'Son of God' before arguing about them.</p></div><div class="pb do"><h4>Tell the gospel in honor-shame language too</h4><p>Adam's sin brought shame, hiding, exile — and Jesus bore our shame publicly, 'despising the shame' (Hebrews 12:2), so God could cover us, cleanse us, and seat us with honor as His children (Luke 15:22 — robe, ring, feast). This frame lands where courtroom language doesn't.</p></div><div class="pb do"><h4>Public polemics and personal witness are different tools</h4><p>Debate videos work for doubters watching anonymously at 2 a.m.; they are not a script for your neighbor's face. What dislodges certainty rarely, by itself, produces disciples — relationships do.</p></div><div class="pb do"><h4>Expect years, and pray</h4><p>Qureshi: four years. Abdu Murray: nine years from persuasion to profession — because the cost is so high. This is farming, not harvesting.</p></div></div>
 
+  <div class="pb-h" style="margin-top:34px">How it actually goes — the deeper craft</div>
+  <p class="sh-open">Of ~750 former Muslims surveyed, the #1 reason they followed Jesus was <span class="hl">the lifestyle and love of the Christians they knew</span> — not arguments.</p>
+  <p class="sh-att">— Woodberry, Shubin &amp; Marks, "Why Muslims Follow Jesus" (Fuller Seminary study, Christianity Today, 2007)</p>
   <div class="sa"><h4 class="sat">The seven objections you WILL hear — and the answers</h4>
   <ol style="font-size:.88rem;color:var(--muted);line-height:1.7;margin:6px 0 0;padding-left:20px">
     <li><b style="color:var(--ink)">"The Bible is corrupted."</b> The flagship — everything rests on it. Two-part answer: the Quran's own testimony (10:94; 5:47; 5:68; 6:115) endorses the Bible of Muhammad's day, and the manuscripts (Dead Sea Scrolls; Sinaiticus) prove that Bible is ours. Ask: "Corrupted before Muhammad — then why does the Quran endorse it? Or after — then why do pre-Islamic manuscripts match ours?"</li>
