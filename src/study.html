@@ -401,6 +401,16 @@
   .dlg .them .who{color:var(--red)}
   .dlg .you{align-self:flex-end;background:color-mix(in srgb,var(--green) 9%,var(--panel));border:1px solid color-mix(in srgb,var(--green) 30%,var(--line));border-bottom-right-radius:4px}
   .dlg .you .who{color:var(--green)}
+
+  /* final mobile overrides — must stay last in the stylesheet */
+  @media (max-width:720px){
+    .app{grid-template-columns:1fr}
+    .side{position:static;height:auto;border-right:0;border-bottom:1px solid var(--line);padding-bottom:10px}
+    .preview{display:none}
+    .ctop{grid-template-columns:1fr}
+    .pair2{grid-template-columns:1fr}
+    .case h2{font-size:1.5rem}
+  }
 </style>
 
 <div class="app">

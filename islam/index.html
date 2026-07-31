@@ -404,6 +404,16 @@
   .ptcard p.pt{font-size:.88rem;color:var(--muted);line-height:1.7;margin:0 0 12px}
   .ptcard p.pt b{color:var(--ink)}
   .ptcard .refs{font-size:.74rem;color:var(--gold);font-family:var(--serif)}
+
+  /* final mobile overrides — must stay last in the stylesheet */
+  @media (max-width:720px){
+    .app{grid-template-columns:1fr}
+    .side{position:static;height:auto;border-right:0;border-bottom:1px solid var(--line);padding-bottom:10px}
+    .preview{display:none}
+    .ctop{grid-template-columns:1fr}
+    .pair2{grid-template-columns:1fr}
+    .case h2{font-size:1.5rem}
+  }
 </style>
 
 </head>
