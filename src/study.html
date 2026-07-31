@@ -757,12 +757,15 @@ function renderCase(){
     const v=VERSES[p];
     return `<button class="chip ${v?"":"ext"}" data-cite="${esc(p)}" ${v?"":`data-ext="${extUrl(p)}"`}>${esc(p)}</button>`;
   }).join("");
+  const isHigher=p=>/^(D&C|Official Declaration|Abraham|Moses|JST|Introduction|Title Page|Testimony)/i.test(p.trim());
+  const bomCore=d.bom.filter(p=>!isHigher(p)),ldsOther=d.bom.filter(isHigher);
   const passages=(d.bom.length||d.bible.length)?`
     <aside class="claimside">
       <div class="dlab" style="margin-top:0">The verses behind this claim</div>
-      <p class="sidenote">Every reference here is cited by this specific claim — click one to read it in place.</p>
+      <p class="sidenote">Every reference here is cited by this specific claim — click one to read it in place. Remember: Mormons hold their own scriptures above the Bible, so citations from their books carry the most weight with them.</p>
       <div class="passcols">
-        ${d.bom.length?`<div><h6 class="h-bom">Book of Mormon / LDS scripture</h6><div class="chips" data-side="bom">${chipHtml(d.bom)}</div></div>`:""}
+        ${bomCore.length?`<div><h6 class="h-bom">Book of Mormon</h6><div class="chips" data-side="bom">${chipHtml(bomCore)}</div></div>`:""}
+        ${ldsOther.length?`<div><h6 class="h-bom" style="color:var(--amber)">D&C & Pearl of Great Price</h6><div class="chips" data-side="bom">${chipHtml(ldsOther)}</div></div>`:""}
         ${d.bible.length?`<div><h6 class="h-bib">Bible</h6><div class="chips" data-side="bib">${chipHtml(d.bible)}</div></div>`:""}
         <div id="versebox"></div>
       </div>
@@ -992,7 +995,7 @@ function renderShare(){
 
 /* ---------- router ---------- */
 function render(){
-  document.querySelector(".app").classList.toggle("reading",state.view==="case");
+  document.querySelector(".app").classList.toggle("reading",state.view!=="overview");
   renderNav();
   if(state.view==="case")return renderCase();
   if(state.view==="paths")return renderPaths(),renderPreview();

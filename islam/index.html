@@ -874,7 +874,7 @@ function renderShare(){
 
 /* ---------- router ---------- */
 function render(){
-  document.querySelector(".app").classList.toggle("reading",state.view==="case");
+  document.querySelector(".app").classList.toggle("reading",state.view!=="overview");
   renderNav();
   if(state.view==="case")return renderCase();
   if(state.view==="paths")return renderPaths(),renderPreview();
