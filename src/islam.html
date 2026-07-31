@@ -433,6 +433,30 @@
   .corestrip img{width:100%;height:120px;object-fit:cover;border-radius:12px;cursor:zoom-in}
   .corestrip figcaption{font-size:.68rem;color:var(--muted);margin-top:5px;line-height:1.45}
   @media (max-width:720px){.corestrip{grid-template-columns:1fr}.kimg{float:none;width:100%;margin:0 0 12px}}
+
+  .kgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+  .kgrid .ptcard{margin-bottom:0}
+  .ktop{width:100%;height:150px;object-fit:cover;border-radius:10px;margin-bottom:10px;cursor:zoom-in;display:block}
+  @media (max-width:860px){.kgrid{grid-template-columns:1fr}}
+  .bubble .ebthumb{float:right;width:54px;height:54px;object-fit:cover;border-radius:8px;margin:0 0 6px 10px;border:1px solid var(--line2)}
+  .sh-open{font-family:var(--serif);font-size:1.5rem;line-height:1.6;max-width:64ch;margin:4px 0 8px;color:var(--ink)}
+  .sh-open .hl{background:linear-gradient(transparent 52%,color-mix(in srgb,var(--gold) 32%,transparent) 52%)}
+  .sh-att{color:var(--dim,#6b7482);font-size:.8rem;margin:0 0 26px}
+  .pb-h{font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin:26px 0 12px}
+  .pb-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:8px}
+  @media (max-width:760px){.pb-grid{grid-template-columns:1fr}}
+  .pb{background:var(--panel);border:1px solid var(--line2);border-radius:13px;padding:18px 20px;position:relative}
+  .pb .num{position:absolute;top:10px;right:16px;font-family:var(--serif);font-size:2.3rem;color:var(--line2);font-weight:700;line-height:1}
+  .pb h4{margin:0 0 6px;font-size:.95rem;padding-right:44px;color:var(--ink)}
+  .pb p{margin:0;color:var(--muted);font-size:.83rem;line-height:1.65}
+  .pb.do{border-top:3px solid var(--green)}
+  .pb.dont{border-top:3px solid var(--red)}
+  .saybox{background:color-mix(in srgb,var(--green) 8%,var(--panel));border:1px solid color-mix(in srgb,var(--green) 30%,var(--line2));border-radius:14px 14px 14px 4px;padding:14px 18px;max-width:66ch;margin-bottom:6px}
+  .saybox .who{font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green);display:block;margin-bottom:4px}
+  .saybox p{margin:0;font-size:.95rem;font-family:var(--serif)}
+  .sa{position:relative;border-left:2px solid var(--line2);margin:0 0 0 10px;padding:0 0 26px 26px;background:none;border-top:0;border-right:0;border-bottom:0;border-radius:0}
+  .sa::before{content:'';position:absolute;left:-7px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--gold);border:2px solid var(--bg)}
+  .sa h4.sat{font-family:var(--serif);font-weight:600;font-size:1.12rem;margin:0 0 10px;color:var(--ink)}
 </style>
 
 <div class="app">
@@ -950,10 +974,10 @@ function renderTimeline(){
   }).join("")}</div>
   ${state.act!=null&&TLACTS[state.act]?actHtml(TLACTS[state.act]):`<p class="tlhint">Select an act to open its record.</p>`}`;
   function actHtml(a){
-    return `<div class="chopen"><h4>Act ${a.num} · ${a.name} (${a.range})</h4>${ACTIMG[a.num]?`<figure class="actimg"><img src="${ACTIMG[a.num].src}" loading="lazy" data-cap="${ACTIMG[a.num].cap}"><figcaption>${ACTIMG[a.num].cap}</figcaption></figure>`:""}
+    return `<div class="chopen"><h4>Act ${a.num} · ${a.name} (${a.range})</h4>
     <div class="cvr"><div class="hh claims">What was claimed</div><div></div><div class="hh record">What the record shows</div>
     ${a.events.map(e=>{
-      const bubble=`<div class="bubble ${e.side==="claim"?"claim":"rec"}"><h4>${esc(e.t)}</h4><p>${esc(e.p)} ${e.id&&byId[e.id]?`<button class="jump" data-open="${e.id}">→ open the case</button>`:""}</p></div>`;
+      const bubble=`<div class="bubble ${e.side==="claim"?"claim":"rec"}">${e.id&&IMGMAP[e.id]?`<img class="ebthumb" src="${IMGMAP[e.id].src}" loading="lazy">`:""}<h4>${esc(e.t)}</h4><p>${esc(e.p)} ${e.id&&byId[e.id]?`<button class="jump" data-open="${e.id}">→ open the case</button>`:""}</p></div>`;
       return `<div class="cell">${e.side==="claim"?bubble:""}</div><div class="mid"><div class="yr2 ${e.crit?"critY":""}">${e.y}</div></div><div class="cell">${e.side==="record"?bubble:""}</div>`;
     }).join("")}</div></div>`;
   }
@@ -996,28 +1020,17 @@ function renderShare(){
   $("#main").innerHTML=`
   <div class="viewhead"><h2>Sharing the gospel with Muslim friends</h2>
   <p>Built from the largest study of Muslim conversions ever done (Woodberry's Fuller Seminary survey of ~750 Muslim-background believers) and the methods of ministries with decades in this work. "The Lord's servant must not be quarrelsome but kind to everyone… correcting his opponents with gentleness" (2 Timothy 2:24–25).</p></div>
+  <p class="sh-open">Of ~750 former Muslims surveyed, the #1 reason they followed Jesus was <span class="hl">the lifestyle and love of the Christians they knew</span> — not arguments.</p>
+  <p class="sh-att">— Woodberry, Shubin &amp; Marks, "Why Muslims Follow Jesus" (Fuller Seminary study, Christianity Today, 2007)</p>
+  <div class="pb-h">The invitation to work toward</div>
+  <div class="saybox"><span class="who">You, once trust is real</span><p>"Would you read one Gospel — Luke — with me? The Quran itself says to judge by the Injil."</p></div>
+  <p class="pd" style="font-size:.78rem;margin:0 0 4px">Quran 5:47 commands it; 10:94 points doubters to the Scripture-readers. You are asking them to do what their own book says.</p>
 
-  <div class="pathcard"><h3>What actually brought ex-Muslims to Christ</h3>
-  <ol style="font-size:.88rem;color:var(--muted);line-height:1.7;margin:6px 0 0;padding-left:20px">
-    <li><b style="color:var(--ink)">The lifestyle and love of Christians they knew — the #1 ranked factor.</b> Not arguments: love in Christian marriages, love for enemies, honesty, a Christian who stayed. Nabeel Qureshi's four-year debate friendship with David Wood is the canonical case — a friend both unashamedly convinced and unfailingly present. Most Muslims never have a single close Christian friend. Be the first.</li>
-    <li><b style="color:var(--ink)">Reading the actual Bible — especially the Sermon on the Mount.</b> They're taught it's corrupted; reading it is the shock. Mosab Hassan Yousef (son of a Hamas founder): "When I read 'love your enemies and pray for those who persecute you,' I was thunderstruck… this was the message I had been searching for all my life."</li>
-    <li><b style="color:var(--ink)">The character of Jesus against what they find in their own sources.</b> Mark Gabriel had the entire Quran memorized and taught at Al-Azhar; his doubts began from inside the texts. The side-by-side study of Jesus and Muhammad is what moved him.</li>
-    <li><b style="color:var(--ink)">Dreams of Jesus — handle factually.</b> Surveys consistently find ~25–33% of Muslim-background believers report a dream of Jesus before conversion. The pattern: the dream opens the door; a Bible or a Christian walks through it. Worth asking a Muslim friend, gently: "Have you ever had a dream about Jesus?" Many have, and have told no one.</li>
-    <li><b style="color:var(--ink)">Assurance against the scales.</b> The discovery that a person can KNOW they are forgiven (1 John 5:13) is consistently named as decisive by converts exhausted from earning.</li>
-  </ol></div>
+  <div class="pb-h">What actually brought ex-Muslims to Christ — the Woodberry findings, ranked</div><div class="pb-grid"><div class="pb"><span class="num">1</span><h4>The lifestyle and love of Christians they knew — the #1 ranked factor</h4><p>Not arguments: love in Christian marriages, love for enemies, honesty, a Christian who stayed. Nabeel Qureshi's four-year debate friendship with David Wood is the canonical case — a friend both unashamedly convinced and unfailingly present. Most Muslims never have a single close Christian friend. Be the first.</p></div><div class="pb"><span class="num">2</span><h4>Reading the actual Bible — especially the Sermon on the Mount</h4><p>They're taught it's corrupted; reading it is the shock. Mosab Hassan Yousef (son of a Hamas founder): "When I read 'love your enemies and pray for those who persecute you,' I was thunderstruck… this was the message I had been searching for all my life."</p></div><div class="pb"><span class="num">3</span><h4>The character of Jesus against what they find in their own sources</h4><p>Mark Gabriel had the entire Quran memorized and taught at Al-Azhar; his doubts began from inside the texts. The side-by-side study of Jesus and Muhammad is what moved him.</p></div><div class="pb"><span class="num">4</span><h4>Dreams of Jesus — handle factually</h4><p>Surveys consistently find ~25–33% of Muslim-background believers report a dream of Jesus before conversion. The pattern: the dream opens the door; a Bible or a Christian walks through it. Worth asking a Muslim friend, gently: "Have you ever had a dream about Jesus?" Many have, and have told no one.</p></div><div class="pb"><span class="num">5</span><h4>Assurance against the scales</h4><p>The discovery that a person can KNOW they are forgiven (1 John 5:13) is consistently named as decisive by converts exhausted from earning.</p></div></div>
 
-  <div class="pathcard"><h3>The method: honor, hospitality, questions, patience</h3>
-  <ol style="font-size:.88rem;color:var(--muted);line-height:1.7;margin:6px 0 0;padding-left:20px">
-    <li><b style="color:var(--ink)">Honor governs everything.</b> Never mock Muhammad or the Quran to a Muslim's face — an insult to the Prophet attacks their family, identity, and community; it triggers the honor-defense reflex and ends the conversation permanently. Honest questions about Muhammad are permitted; contempt never is.</li>
-    <li><b style="color:var(--ink)">Hospitality is the master key.</b> Eating together is the trust currency of Muslim culture. Accept iftar invitations; host them (halal-conscious — no pork or alcohol); reciprocate at Christmas and Easter. Most real evangelism of Muslims happens over meals in homes, not in debates.</li>
-    <li><b style="color:var(--ink)">Use the Quran as a door, never an authority.</b> "Your own book says striking things about Isa — have you seen them?" is a legitimate opener. Then get to the Bible fast and stay there.</li>
-    <li><b style="color:var(--ink)">Learn their vocabulary.</b> Isa al-Masih, Injil, Tawrat, Zabur — using the terms signals respect. But define words like 'sin,' 'salvation,' and 'Son of God' before arguing about them.</li>
-    <li><b style="color:var(--ink)">Tell the gospel in honor-shame language too.</b> Adam's sin brought shame, hiding, exile — and Jesus bore our shame publicly, 'despising the shame' (Hebrews 12:2), so God could cover us, cleanse us, and seat us with honor as His children (Luke 15:22 — robe, ring, feast). This frame lands where courtroom language doesn't.</li>
-    <li><b style="color:var(--ink)">Public polemics and personal witness are different tools.</b> Debate videos work for doubters watching anonymously at 2 a.m.; they are not a script for your neighbor's face. What dislodges certainty rarely, by itself, produces disciples — relationships do.</li>
-    <li><b style="color:var(--ink)">Expect years, and pray.</b> Qureshi: four years. Abdu Murray: nine years from persuasion to profession — because the cost is so high. This is farming, not harvesting.</li>
-  </ol></div>
+  <div class="pb-h">The method</div><div class="pb-grid"><div class="pb do"><h4>Honor governs everything</h4><p>Never mock Muhammad or the Quran to a Muslim's face — an insult to the Prophet attacks their family, identity, and community; it triggers the honor-defense reflex and ends the conversation permanently. Honest questions about Muhammad are permitted; contempt never is.</p></div><div class="pb do"><h4>Hospitality is the master key</h4><p>Eating together is the trust currency of Muslim culture. Accept iftar invitations; host them (halal-conscious — no pork or alcohol); reciprocate at Christmas and Easter. Most real evangelism of Muslims happens over meals in homes, not in debates.</p></div><div class="pb dont"><h4>Use the Quran as a door, never an authority</h4><p>"Your own book says striking things about Isa — have you seen them?" is a legitimate opener. Then get to the Bible fast and stay there.</p></div><div class="pb do"><h4>Learn their vocabulary</h4><p>Isa al-Masih, Injil, Tawrat, Zabur — using the terms signals respect. But define words like 'sin,' 'salvation,' and 'Son of God' before arguing about them.</p></div><div class="pb do"><h4>Tell the gospel in honor-shame language too</h4><p>Adam's sin brought shame, hiding, exile — and Jesus bore our shame publicly, 'despising the shame' (Hebrews 12:2), so God could cover us, cleanse us, and seat us with honor as His children (Luke 15:22 — robe, ring, feast). This frame lands where courtroom language doesn't.</p></div><div class="pb do"><h4>Public polemics and personal witness are different tools</h4><p>Debate videos work for doubters watching anonymously at 2 a.m.; they are not a script for your neighbor's face. What dislodges certainty rarely, by itself, produces disciples — relationships do.</p></div><div class="pb do"><h4>Expect years, and pray</h4><p>Qureshi: four years. Abdu Murray: nine years from persuasion to profession — because the cost is so high. This is farming, not harvesting.</p></div></div>
 
-  <div class="pathcard"><h3>The seven objections you WILL hear — and the answers</h3>
+  <div class="sa"><h4 class="sat">The seven objections you WILL hear — and the answers</h4>
   <ol style="font-size:.88rem;color:var(--muted);line-height:1.7;margin:6px 0 0;padding-left:20px">
     <li><b style="color:var(--ink)">"The Bible is corrupted."</b> The flagship — everything rests on it. Two-part answer: the Quran's own testimony (10:94; 5:47; 5:68; 6:115) endorses the Bible of Muhammad's day, and the manuscripts (Dead Sea Scrolls; Sinaiticus) prove that Bible is ours. Ask: "Corrupted before Muhammad — then why does the Quran endorse it? Or after — then why do pre-Islamic manuscripts match ours?"</li>
     <li><b style="color:var(--ink)">"Jesus never said 'I am God.'"</b> Show he claimed what only God can: forgiving sins in his own person (Mark 2:5–7), the Daniel 7 claim at his trial that got him condemned for blasphemy (Mark 14:61–64), accepting Thomas's worship (John 20:28), 'before Abraham was, I AM' (John 8:58). Ask: "Why was he executed for blasphemy?"</li>
@@ -1028,10 +1041,10 @@ function renderShare(){
     <li><b style="color:var(--ink)">"The Gospel of Barnabas is the true gospel."</b> A demonstrated 14th–16th-century forgery — medieval Jubilee reference, wine casks, Dante quotations — and it contradicts the QURAN (it denies Jesus is the Messiah). Most Muslim scholars concede its inauthenticity.</li>
   </ol></div>
 
-  <div class="pathcard"><h3>Count the cost — higher than you think</h3>
+  <div class="sa"><h4 class="sat">Count the cost — higher than you think</h4>
   <p style="font-size:.88rem;line-height:1.7">Apostasy from Islam is criminal in ~17 countries and capital in roughly a dozen; in the West the costs are disownment, expulsion, broken engagements, and in extreme cases violence. So: <b>never out a Muslim seeker</b> — not to their family, not on social media, not in a group prayer text. Let the seeker control who knows. Don't run conversion tests with pork or alcohol — eating bacon proves nothing about faith in Christ (Romans 14). Respect gender lines: men witness to men, women to women. Time baptism wisely — it is the public act that triggers consequences. And when someone does come to Christ, <b>the church must become their family in practical fact</b> — meals, holidays, housing help — or they will drift back not from doubt but from loneliness. Say early and often: <i>"I know what this could cost you. I'm not going anywhere either way."</i></p></div>
 
-  <div class="pathcard"><h3>Seven gospel bridges (in their vocabulary)</h3>
+  <div class="sa"><h4 class="sat">Seven gospel bridges (in their vocabulary)</h4>
   <ol style="font-size:.88rem;color:var(--muted);line-height:1.7;margin:6px 0 0;padding-left:20px">
     <li><b style="color:var(--ink)">Isa's resume → the Word made flesh.</b> Word of Allah, Spirit from Him, Messiah, virgin-born, sinless, alive, returning (3:45–49; 4:171) — "Whose resume is that? Why not read everything this one said?" → John 1:1–14.</li>
     <li><b style="color:var(--ink)">Eid al-Adha → the Lamb of God.</b> "We ransomed him with a GREAT sacrifice" (37:107). Ask: "What was the ram pointing to? Why a ransom at all?" → Genesis 22:8; John 1:29; Mark 10:45.</li>
@@ -1042,7 +1055,7 @@ function renderShare(){
     <li><b style="color:var(--ink)">10:94 → permission to read.</b> The Quran itself tells doubters to consult the Book's readers. Offer to read Luke together — genealogy, reverence, structure — one chapter at a time. Nearly every conversion testimony runs through an open Bible.</li>
   </ol></div>
 
-  <div class="pathcard"><h3>Start here</h3>
+  <div class="sa"><h4 class="sat">Start here</h4>
   <p class="pd">The <b>cornerstone path</b> walks the argument everything else depends on; every case page ends with a suggested question and a scripted back-and-forth ("How the conversation usually goes") so you're ready for the counter-moves.</p>
   <button class="start" data-goto-path="cornerstone">Open the cornerstone path →</button></div>`;
   const b=$("#main").querySelector("[data-goto-path]");
@@ -1140,7 +1153,7 @@ function renderKnow(){
   $("#main").innerHTML=`<div class="viewhead"><h2>Know your Muslim neighbor</h2>
   <p>Understanding before argument. Surprising true facts for conversational fluency, the rhythm of their religious life so you can love them practically, and how they've been taught to see you — so nothing they say catches you off guard.</p></div>
   <div class="tabs2">${tabs.map(([k,l])=>`<button class="tab2 ${on===k?"on":""}" data-pane="${k}">${l}</button>`).join("")}</div>
-  <div class="tabpane2 ${on==="kt-facts"?"on":""}" id="kt-facts">${KNOW.didyouknow.map(x=>`<div class="ptcard">${x.img?`<figure class="kimg"><img src="${x.img.src}" loading="lazy" data-full="${x.img.src.replace("width=520","width=1400")}" data-cap="${esc(x.img.cap)}"><figcaption>${esc(x.img.cap)}</figcaption></figure>`:""}<h3 class="ptv">${esc(x.t)}</h3><p class="pt">${rich(x.d)}</p><div class="refs">${x.src?`<a href="${esc(x.src)}" target="_blank" rel="noopener">Source</a>`:""}${x.id&&byId[x.id]?` · <button class="klink" data-open="${x.id}">Related case: ${esc(byId[x.id].title)}</button>`:""}</div></div>`).join("")}</div>
+  <div class="tabpane2 ${on==="kt-facts"?"on":""}" id="kt-facts"><div class="kgrid">${KNOW.didyouknow.map(x=>`<div class="ptcard">${x.img?`<img class="ktop" src="${x.img.src}" loading="lazy" data-full="${x.img.src.replace("width=520","width=1400")}" data-cap="${esc(x.img.cap)}">`:""}<h3 class="ptv">${esc(x.t)}</h3><p class="pt">${rich(x.d)}</p><div class="refs">${x.src?`<a href="${esc(x.src)}" target="_blank" rel="noopener">Source</a>`:""}${x.id&&byId[x.id]?` · <button class="klink" data-open="${x.id}">Related case: ${esc(byId[x.id].title)}</button>`:""}</div></div>`).join("")}</div></div>
   <div class="tabpane2 ${on==="kt-week"?"on":""}" id="kt-week">${KNOW.week.map(x=>`<div class="ptcard"><h3 class="ptv">${esc(x.t)}</h3><p class="pt">${rich(x.d)}</p>${x.tip?`<div class="who you">For you as their friend</div><p class="pt">${rich(x.tip)}</p>`:""}</div>`).join("")}</div>
   <div class="tabpane2 ${on==="kt-you"?"on":""}" id="kt-you">${KNOW.aboutyou.map(x=>`<div class="ptcard"><h3 class="ptv">${esc(x.t)}</h3><p class="pt">${rich(x.d)}</p>${x.tip?`<div class="who you">How to navigate it</div><p class="pt">${rich(x.tip)}</p>`:""}</div>`).join("")}</div>`;
   document.querySelectorAll("#main .tab2").forEach(t=>t.addEventListener("click",()=>{state.knowTab=t.dataset.pane;}));
@@ -1149,7 +1162,7 @@ function renderKnow(){
 
 const ACTIMG={"I":{"src":"https://commons.wikimedia.org/wiki/Special:FilePath/The%20Great%20Isaiah%20Scroll%20MS%20A%20(1QIsa)%20-%20Google%20Art%20Project.jpg?width=1000","cap":"Act I: the record before — the Great Isaiah Scroll, c. 125 BC"},"II":{"src":"https://commons.wikimedia.org/wiki/Special:FilePath/Jabal%20al-Nour%20And%20cave%20Hira.jpg?width=1000","cap":"Act II: Jabal al-Nour and the cave of Hira, where the revelations began"},"III":{"src":"https://commons.wikimedia.org/wiki/Special:FilePath/Samarkand%20Kufic%20Quran%2C%201905%20(2022-07-05)%2003.jpg?width=1000","cap":"Act III: the preservation era — the Samarkand Kufic Quran"},"IV":{"src":"https://commons.wikimedia.org/wiki/Special:FilePath/Supplicating%20Pilgrim%20at%20Masjid%20Al%20Haram.%20Mecca%2C%20Saudi%20Arabia.jpg?width=1000","cap":"Act IV: modern reckonings — Masjid al-Haram, Mecca"}};
 const PATHIMG={"cornerstone":"https://commons.wikimedia.org/wiki/Special:FilePath/Codex%20Sinaiticus%2C%20GA%2001.jpg?width=800","strongest":"https://commons.wikimedia.org/wiki/Special:FilePath/Samarkand%20Kufic%20Quran%2C%201905%20(2022-07-05)%2003.jpg?width=800","gospel":"https://commons.wikimedia.org/wiki/Special:FilePath/Cristo%20crucificado.jpg?width=800","fair":"https://commons.wikimedia.org/wiki/Special:FilePath/Supplicating%20Pilgrim%20at%20Masjid%20Al%20Haram.%20Mecca%2C%20Saudi%20Arabia.jpg?width=800"};
-document.addEventListener("click",e=>{const im=e.target.closest(".kimg img,.corestrip img,.actimg img");if(im)showLightbox(im.dataset.full||im.src,im.dataset.cap||"");});
+document.addEventListener("click",e=>{const im=e.target.closest(".kimg img,.ktop,.corestrip img,.actimg img");if(im)showLightbox(im.dataset.full||im.src,im.dataset.cap||"");});
 /* ---------- router ---------- */
 function render(){
   document.querySelector(".app").classList.toggle("reading",state.view!=="overview");

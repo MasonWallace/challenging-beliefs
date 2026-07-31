@@ -438,6 +438,30 @@
   .corestrip img{width:100%;height:120px;object-fit:cover;border-radius:12px;cursor:zoom-in}
   .corestrip figcaption{font-size:.68rem;color:var(--muted);margin-top:5px;line-height:1.45}
   @media (max-width:720px){.corestrip{grid-template-columns:1fr}.kimg{float:none;width:100%;margin:0 0 12px}}
+
+  .kgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+  .kgrid .ptcard{margin-bottom:0}
+  .ktop{width:100%;height:150px;object-fit:cover;border-radius:10px;margin-bottom:10px;cursor:zoom-in;display:block}
+  @media (max-width:860px){.kgrid{grid-template-columns:1fr}}
+  .bubble .ebthumb{float:right;width:54px;height:54px;object-fit:cover;border-radius:8px;margin:0 0 6px 10px;border:1px solid var(--line2)}
+  .sh-open{font-family:var(--serif);font-size:1.5rem;line-height:1.6;max-width:64ch;margin:4px 0 8px;color:var(--ink)}
+  .sh-open .hl{background:linear-gradient(transparent 52%,color-mix(in srgb,var(--gold) 32%,transparent) 52%)}
+  .sh-att{color:var(--dim,#6b7482);font-size:.8rem;margin:0 0 26px}
+  .pb-h{font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin:26px 0 12px}
+  .pb-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:8px}
+  @media (max-width:760px){.pb-grid{grid-template-columns:1fr}}
+  .pb{background:var(--panel);border:1px solid var(--line2);border-radius:13px;padding:18px 20px;position:relative}
+  .pb .num{position:absolute;top:10px;right:16px;font-family:var(--serif);font-size:2.3rem;color:var(--line2);font-weight:700;line-height:1}
+  .pb h4{margin:0 0 6px;font-size:.95rem;padding-right:44px;color:var(--ink)}
+  .pb p{margin:0;color:var(--muted);font-size:.83rem;line-height:1.65}
+  .pb.do{border-top:3px solid var(--green)}
+  .pb.dont{border-top:3px solid var(--red)}
+  .saybox{background:color-mix(in srgb,var(--green) 8%,var(--panel));border:1px solid color-mix(in srgb,var(--green) 30%,var(--line2));border-radius:14px 14px 14px 4px;padding:14px 18px;max-width:66ch;margin-bottom:6px}
+  .saybox .who{font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green);display:block;margin-bottom:4px}
+  .saybox p{margin:0;font-size:.95rem;font-family:var(--serif)}
+  .sa{position:relative;border-left:2px solid var(--line2);margin:0 0 0 10px;padding:0 0 26px 26px;background:none;border-top:0;border-right:0;border-bottom:0;border-radius:0}
+  .sa::before{content:'';position:absolute;left:-7px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--gold);border:2px solid var(--bg)}
+  .sa h4.sat{font-family:var(--serif);font-weight:600;font-size:1.12rem;margin:0 0 10px;color:var(--ink)}
 </style>
 
 </head>
@@ -457,6 +481,7 @@
 
 <script>
 const DATA=[
+
 
 
 
@@ -1178,10 +1203,10 @@ function renderTimeline(){
   }).join("")}</div>
   ${state.act!=null&&TLACTS[state.act]?actHtml(TLACTS[state.act]):`<p class="tlhint">Select an act to open its record.</p>`}`;
   function actHtml(a){
-    return `<div class="chopen"><h4>Act ${a.num} · ${a.name} (${a.range})</h4>${ACTIMG[a.num]?`<figure class="actimg"><img src="${ACTIMG[a.num].src}" loading="lazy" data-cap="${ACTIMG[a.num].cap}"><figcaption>${ACTIMG[a.num].cap}</figcaption></figure>`:""}
+    return `<div class="chopen"><h4>Act ${a.num} · ${a.name} (${a.range})</h4>
     <div class="cvr"><div class="hh claims">What was claimed</div><div></div><div class="hh record">What the record shows</div>
     ${a.events.map(e=>{
-      const bubble=`<div class="bubble ${e.side==="claim"?"claim":"rec"}"><h4>${esc(e.t)}</h4><p>${esc(e.p)} ${e.id&&byId[e.id]?`<button class="jump" data-open="${e.id}">→ open the case</button>`:""}</p></div>`;
+      const bubble=`<div class="bubble ${e.side==="claim"?"claim":"rec"}">${e.id&&IMGMAP[e.id]?`<img class="ebthumb" src="${IMGMAP[e.id].src}" loading="lazy">`:""}<h4>${esc(e.t)}</h4><p>${esc(e.p)} ${e.id&&byId[e.id]?`<button class="jump" data-open="${e.id}">→ open the case</button>`:""}</p></div>`;
       return `<div class="cell">${e.side==="claim"?bubble:""}</div><div class="mid"><div class="yr2 ${e.crit?"critY":""}">${e.y}</div></div><div class="cell">${e.side==="record"?bubble:""}</div>`;
     }).join("")}</div></div>`;
   }
@@ -1228,29 +1253,17 @@ function renderShare(){
   $("#main").innerHTML=`
   <div class="viewhead"><h2>Sharing the gospel with Mormon friends</h2>
   <p>This whole site exists for one reason: not to win arguments, but to help real people meet the real Jesus. "The Lord's servant must not be quarrelsome but kind to everyone… correcting his opponents with gentleness" (2 Timothy 2:24–25). What follows is built from documented ex-Mormon conversions and the methods of ministries that have done this for decades.</p></div>
+  <p class="sh-open">"Read the Bible <span class="hl">as a child would</span>." Eighteen months of the New Testament later, the missionary sent to convert a pastor <span class="hl">surrendered to Christ</span> — knowing what it would cost him.</p>
+  <p class="sh-att">— the Wilder family's story (Lynn Wilder, <i>Unveiling Grace</i>); her BYU resignation came on 3/16, in honor of John 3:16</p>
+  <div class="pb-h">Say this early — as a friend, before any crisis</div>
+  <div class="saybox"><span class="who">You, over hot chocolate</span><p>"If Mormonism ever turned out not to be true — that wouldn't mean Jesus isn't."</p></div>
+  <p class="pd" style="font-size:.78rem;margin:0 0 4px">Said in advance, that sentence routes a future faith crisis toward Christ instead of atheism.</p>
 
-  <div class="pathcard"><h3>What actually brought ex-Mormons to Christ</h3>
-  <p class="pd" style="margin-bottom:8px">The recurring patterns across published testimonies, ranked by how often they appear:</p>
-  <ol style="font-size:.88rem;color:var(--muted);line-height:1.7;margin:6px 0 0;padding-left:20px">
-    <li><b style="color:var(--ink)">Reading the New Testament for itself — without the LDS lens.</b> The single most common catalyst. A missionary in Orlando tried to convert a Baptist pastor; the pastor fed him, shared the gospel, and challenged him to "read the Bible as a child." Eighteen months of reading the New Testament later, the missionary surrendered to Christ knowing it would cost him everything. His mother — a tenured BYU professor — re-read the New Testament with the family, "saw the difference between their Mormon Christ and the biblical Jesus," and resigned from BYU on 3/16 in honor of John 3:16 (Lynn Wilder, <i>Unveiling Grace</i>).</li>
-    <li><b style="color:var(--ink)">Grace answering worthiness exhaustion.</b> The recommend-interview treadmill produces a documented spiritual fatigue. The message that lands: complete forgiveness not conditional on ongoing performance.</li>
-    <li><b style="color:var(--ink)">Facts crack the shelf — a loving Christian decides where they land.</b> The CES Letter gets people <i>out</i>, but the default landing after an "all true or all false" faith collapses is atheism, not Christ. The two-part structure repeats in testimony after testimony: evidence broke the shelf, and <i>a specific Christian who loved them without conditions</i> carried them to Jesus instead of to nothing.</li>
-    <li><b style="color:var(--ink)">Being loved without an agenda.</b> Mormon culture knows friendship-with-an-agenda ("friendshipping"). A friendship that survives their doubts — and survives their leaving — is startling, because their community's version is often conditional.</li>
-  </ol>
-  <p class="pd" style="margin-top:10px"><b style="color:var(--ink)">The one sentence to say early, before any crisis:</b> <i>"If Mormonism turned out not to be true, that wouldn't mean Jesus isn't."</i> Said in advance, that sentence routes a future faith crisis toward Christ instead of atheism.</p></div>
+  <div class="pb-h">What actually brought ex-Mormons to Christ — ranked by how often it appears in testimonies</div><div class="pb-grid"><div class="pb"><span class="num">1</span><h4>Reading the New Testament for itself — without the LDS lens</h4><p>The single most common catalyst. A missionary in Orlando tried to convert a Baptist pastor; the pastor fed him, shared the gospel, and challenged him to "read the Bible as a child." Eighteen months of reading the New Testament later, the missionary surrendered to Christ knowing it would cost him everything. His mother — a tenured BYU professor — re-read the New Testament with the family, "saw the difference between their Mormon Christ and the biblical Jesus," and resigned from BYU on 3/16 in honor of John 3:16 (Lynn Wilder, <i>Unveiling Grace</i>).</p></div><div class="pb"><span class="num">2</span><h4>Grace answering worthiness exhaustion</h4><p>The recommend-interview treadmill produces a documented spiritual fatigue. The message that lands: complete forgiveness not conditional on ongoing performance.</p></div><div class="pb"><span class="num">3</span><h4>Facts crack the shelf — a loving Christian decides where they land</h4><p>The CES Letter gets people <i>out</i>, but the default landing after an "all true or all false" faith collapses is atheism, not Christ. The two-part structure repeats in testimony after testimony: evidence broke the shelf, and <i>a specific Christian who loved them without conditions</i> carried them to Jesus instead of to nothing.</p></div><div class="pb"><span class="num">4</span><h4>Being loved without an agenda</h4><p>Mormon culture knows friendship-with-an-agenda ("friendshipping"). A friendship that survives their doubts — and survives their leaving — is startling, because their community's version is often conditional.</p></div></div>
 
-  <div class="pathcard"><h3>The method: questions, their sources, and patience</h3>
-  <ol style="font-size:.88rem;color:var(--muted);line-height:1.7;margin:6px 0 0;padding-left:20px">
-    <li><b style="color:var(--ink)">Witness Christ — don't debate Mormonism.</b> Emphasize Jesus as substitute, not merely example. Compassion over confrontation: see them as burdened, not as enemies.</li>
-    <li><b style="color:var(--ink)">Ask questions instead of making statements</b> (the Columbo method): "What do you mean by that?" forces definitions; "How did you come to that conclusion?" shifts the burden of proof — crucial against testimony-as-trump-card.</li>
-    <li><b style="color:var(--ink)">Learn "Mormonese."</b> Grace, salvation, eternal life, atonement — shared words, different meanings. Define terms before arguing about them, or you'll agree loudly while meaning opposite things.</li>
-    <li><b style="color:var(--ink)">Cite only their own sources.</b> Gospel Topics Essays, the Joseph Smith Papers, church manuals. Never use a claim you can't document from LDS sources — one overstated attack discredits ten true ones and feeds the persecution narrative.</li>
-    <li><b style="color:var(--ink)">Never mock what they hold sacred.</b> The 2003 Temple Square street preachers who desecrated garments were denounced by 23 evangelical ministers — and every yelled slogan functions as a testimony meeting for the Mormon hearing it, because their doctrine codes opposition as evidence of truth.</li>
-    <li><b style="color:var(--ink)">Plant one seed per conversation, and keep the friendship no matter what.</b> Exits take years. If your friendship is conditional on agreement, you're offering the same deal the church does.</li>
-    <li><b style="color:var(--ink)">Pray.</b> "No one can come to me unless the Father who sent me draws him" (John 6:44).</li>
-  </ol></div>
+  <div class="pb-h">The method</div><div class="pb-grid"><div class="pb do"><h4>Witness Christ — don't debate Mormonism</h4><p>Emphasize Jesus as substitute, not merely example. Compassion over confrontation: see them as burdened, not as enemies.</p></div><div class="pb do"><h4>Ask questions instead of making statements</h4><p>(the Columbo method): "What do you mean by that?" forces definitions; "How did you come to that conclusion?" shifts the burden of proof — crucial against testimony-as-trump-card.</p></div><div class="pb do"><h4>Learn "Mormonese."</h4><p>Grace, salvation, eternal life, atonement — shared words, different meanings. Define terms before arguing about them, or you'll agree loudly while meaning opposite things.</p></div><div class="pb do"><h4>Cite only their own sources</h4><p>Gospel Topics Essays, the Joseph Smith Papers, church manuals. Never use a claim you can't document from LDS sources — one overstated attack discredits ten true ones and feeds the persecution narrative.</p></div><div class="pb dont"><h4>Never mock what they hold sacred</h4><p>The 2003 Temple Square street preachers who desecrated garments were denounced by 23 evangelical ministers — and every yelled slogan functions as a testimony meeting for the Mormon hearing it, because their doctrine codes opposition as evidence of truth.</p></div><div class="pb do"><h4>Plant one seed per conversation, and keep the friendship no matter what</h4><p>Exits take years. If your friendship is conditional on agreement, you're offering the same deal the church does.</p></div><div class="pb do"><h4>Pray</h4><p>"No one can come to me unless the Father who sent me draws him" (John 6:44).</p></div></div>
 
-  <div class="pathcard"><h3>When they say "prophets are just imperfect men"</h3>
+  <div class="sa"><h4 class="sat">When they say "prophets are just imperfect men"</h4>
   <p class="pd" style="margin-bottom:8px">This is the standard escape when Joseph Smith's conduct comes up — and unlike Islam (where Muhammad is the 'excellent pattern,' Quran 33:21), Mormonism officially denies prophetic perfection, so "Joseph sinned" bounces off. Two things don't bounce:</p>
   <ol style="font-size:.88rem;color:var(--muted);line-height:1.7;margin:6px 0 0;padding-left:20px">
     <li><b style="color:var(--ink)">Their own veneration text.</b> D&C 135:3: Joseph "has done more, <i>save Jesus only</i>, for the salvation of men in this world, than any other man." Second only to Jesus is the standard the church itself sets — and the hymn "Praise to the Man" is sung to him weekly.</li>
@@ -1258,7 +1271,7 @@ function renderShare(){
   </ol>
   <p class="pd" style="margin-top:10px">And the fruits test (Matthew 7:15–20) is fair game — missionaries invoke it FOR Joseph ("could a bad tree produce the Book of Mormon?"). Accept the test; then open the Admitted column of this site and weigh the fruit.</p></div>
 
-  <div class="pathcard"><h3>Their canon outranks the Bible — so argue from their canon</h3>
+  <div class="sa"><h4 class="sat">Their canon outranks the Bible — so argue from their canon</h4>
   <p class="pd" style="margin-bottom:8px">Article of Faith 8 says the Bible is God's word only "as far as it is translated correctly" — making it the <b>least</b> trusted book in the LDS canon — while the Book of Mormon is "the most correct of any book on earth." A Mormon can wave off Isaiah; they cannot wave off Moroni. So your most unanswerable arguments set <b>their most-trusted books against their own doctrine</b>:</p>
   <ol style="font-size:.88rem;color:var(--muted);line-height:1.7;margin:6px 0 0;padding-left:20px">
     <li><b style="color:var(--ink)">One God vs. many gods:</b> Alma 11:28–29 — "Is there more than one God?… No." The Book of Mormon itself refutes the plurality of gods.</li>
@@ -1268,7 +1281,7 @@ function renderShare(){
   </ol>
   <p class="pd" style="margin-top:10px">The question that lands: <i>"If I showed you that the Book of Mormon disagrees with what your church teaches today — which one would you go with?"</i> Every case above is in this catalog with full citations.</p></div>
 
-  <div class="pathcard"><h3>Hosting the missionaries</h3>
+  <div class="sa"><h4 class="sat">Hosting the missionaries</h4>
   <p class="pd" style="margin-bottom:10px">Open the door. They're 18–20, homesick, on tiny budgets — <b>feed them</b>. You may be the only committed Christian who ever shares a meal with them, and more than one famous exit began with a pastor who fed a missionary the gospel instead of an argument. They teach five lessons from <i>Preach My Gospel</i>; here is your best move for each:</p>
   <div style="overflow-x:auto"><table class="gtab">
     <tr><th>Their lesson</th><th>What it claims</th><th>Your best question</th></tr>
@@ -1279,13 +1292,13 @@ function renderShare(){
     <tr><td>5 · Laws & Ordinances</td><td>Priesthood, temple ordinances, eternal marriage, baptism for the dead</td><td>Open Hebrews together: priests stand daily, "but this man, after he had offered one sacrifice for sins for ever, sat down" (Hebrews 10:11–14; 7:23–25). Ask: "Why is Jesus seated?" Because the work is finished.</td></tr>
   </table></div></div>
 
-  <div class="pathcard"><h3>Conversation dynamics you must know</h3>
+  <div class="sa"><h4 class="sat">Conversation dynamics you must know</h4>
   <p style="font-size:.88rem;line-height:1.7"><b>When they bear testimony</b> ("I know the church is true…"): it's a trained move that converts facts into personal experience. Don't argue with it — get underneath it: <i>"Thank you — I can tell that's precious to you. How do you tell the difference between a feeling that's from God and one that's just deeply felt? People of many faiths describe the same burning confirmation of contradictory things."</i> Then bear your own, differently grounded: <i>"My confidence isn't in my feelings about Jesus — it's in what he did in history. My feelings have bad days; the empty tomb doesn't."</i></p>
   <p style="font-size:.88rem;line-height:1.7"><b>The shelf:</b> Mormons "shelve" unresolved doubts until the shelf breaks. You're placing weight on a shelf you can't see — so don't demand resolution: <i>"You don't have to answer now — just sit with it."</i></p>
   <p style="font-size:.88rem;line-height:1.7"><b>Milk before meat:</b> your friend may sincerely not know the hard history, and the missionaries at your table may know less than you do. Never say "your church hides this" — say <i>"I read this in an LDS source — can you help me understand it?"</i></p>
   <p style="font-size:.88rem;line-height:1.7"><b>Count their cost out loud.</b> Doubting can mean bishop interviews, a warned spouse, missed weddings, family distance. Never gloat over a crack in their faith. Say: <i>"I know what this could cost you — I'm not going anywhere either way."</i> Be the unconditional community their ward's conditional version can't be. Expect years, not weeks.</p></div>
 
-  <div class="pathcard"><h3>Seven gospel bridges (in their vocabulary)</h3>
+  <div class="sa"><h4 class="sat">Seven gospel bridges (in their vocabulary)</h4>
   <ol style="font-size:.88rem;color:var(--muted);line-height:1.7;margin:6px 0 0;padding-left:20px">
     <li><b style="color:var(--ink)">Worthiness → Grace.</b> "I'm not worthy either — that's exactly who Jesus came for." 2 Nephi 25:23 vs. Romans 4:5: God justifies <i>the ungodly</i>.</li>
     <li><b style="color:var(--ink)">Exaltation → Adoption.</b> Becoming gods someday vs. becoming God's child now: Romans 8:15–17 — an inheritance received, not a status achieved. The word "adoption" itself quietly dismantles the pre-existence framework.</li>
@@ -1296,7 +1309,7 @@ function renderShare(){
     <li><b style="color:var(--ink)">The Great Apostasy → the unfailing Christ.</b> "Which is more likely — that Jesus lost his church for 1,700 years, or that he kept his promise?" (Matthew 16:18; Ephesians 3:21).</li>
   </ol></div>
 
-  <div class="pathcard"><h3>The gospel, side by side</h3>
+  <div class="sa"><h4 class="sat">The gospel, side by side</h4>
   <div style="overflow-x:auto"><table class="gtab">
     <tr><th></th><th>LDS teaching</th><th>Biblical gospel</th></tr>
     <tr><td>God</td><td>An exalted man; one of many gods; once as we are now</td><td>Eternally God, "from everlasting to everlasting" (Psalm 90:2); no God formed before or after him (Isaiah 43:10)</td></tr>
@@ -1306,12 +1319,12 @@ function renderShare(){
     <tr><td>Destiny</td><td>Faithful members become gods with eternal increase (D&amp;C 132:19–20)</td><td>Adopted children of God, glorified with Christ — worshipers forever, never rival deities (Romans 8:17; Revelation 22:3)</td></tr>
   </table></div></div>
 
-  <div class="pathcard"><h3>When they say "I know the church is true — I've felt it"</h3>
+  <div class="sa"><h4 class="sat">When they say "I know the church is true — I've felt it"</h4>
   <p class="pd" style="margin-bottom:8px">Don't attack the feeling; question the test. Try:</p>
   <div class="talk" style="max-width:none"><p><b>"I believe you felt something real. But Muslims, Hindus, and I have all felt things too — feelings tell us something happened in us, not whether a book is true. If God gave us a way to test prophets that doesn't depend on feelings (Deuteronomy 18:22, 1 John 4:1), would you be willing to apply it to Joseph Smith with me?"</b></p>
   <p>Also worth knowing: Moroni 10:4's invitation to pray about the book presumes the answer. Jeremiah 17:9 and Proverbs 14:12 explain why the heart alone is not a safe judge.</p></div></div>
 
-  <div class="pathcard"><h3>Do / Don't</h3>
+  <div class="sa"><h4 class="sat">Do / Don't</h4>
   <div class="dodont">
     <div><b style="color:var(--green);font-size:.8rem;letter-spacing:.1em">DO</b><ul>
       <li>Lead with Jesus and grace — the "better offer" — not just problems</li>
@@ -1329,7 +1342,7 @@ function renderShare(){
     </ul></div>
   </div></div>
 
-  <div class="pathcard"><h3>Start here</h3>
+  <div class="sa"><h4 class="sat">Start here</h4>
   <p class="pd">The <b>For gospel conversations</b> guided path walks the six cases that lead most naturally to the gospel. Every case page ends with a "Bringing it up in conversation" box — a question you can actually ask.</p>
   <button class="start" data-goto-path="gospel">Open the gospel-conversations path →</button></div>`;
   const b=$("#main").querySelector("[data-goto-path]");
@@ -1429,7 +1442,7 @@ function renderKnow(){
   $("#main").innerHTML=`<div class="viewhead"><h2>Know your Latter-day Saint neighbor</h2>
   <p>Understanding before argument. Surprising true facts for conversational fluency, the rhythm of their religious life so you can love them practically, and how they've been taught to see you — so nothing they say catches you off guard.</p></div>
   <div class="tabs2">${tabs.map(([k,l])=>`<button class="tab2 ${on===k?"on":""}" data-pane="${k}">${l}</button>`).join("")}</div>
-  <div class="tabpane2 ${on==="kt-facts"?"on":""}" id="kt-facts">${KNOW.didyouknow.map(x=>`<div class="ptcard">${x.img?`<figure class="kimg"><img src="${x.img.src}" loading="lazy" data-full="${x.img.src.replace("width=520","width=1400")}" data-cap="${esc(x.img.cap)}"><figcaption>${esc(x.img.cap)}</figcaption></figure>`:""}<h3 class="ptv">${esc(x.t)}</h3><p class="pt">${rich(x.d)}</p><div class="refs">${x.src?`<a href="${esc(x.src)}" target="_blank" rel="noopener">Source</a>`:""}${x.id&&byId[x.id]?` · <button class="klink" data-open="${x.id}">Related case: ${esc(byId[x.id].title)}</button>`:""}</div></div>`).join("")}</div>
+  <div class="tabpane2 ${on==="kt-facts"?"on":""}" id="kt-facts"><div class="kgrid">${KNOW.didyouknow.map(x=>`<div class="ptcard">${x.img?`<img class="ktop" src="${x.img.src}" loading="lazy" data-full="${x.img.src.replace("width=520","width=1400")}" data-cap="${esc(x.img.cap)}">`:""}<h3 class="ptv">${esc(x.t)}</h3><p class="pt">${rich(x.d)}</p><div class="refs">${x.src?`<a href="${esc(x.src)}" target="_blank" rel="noopener">Source</a>`:""}${x.id&&byId[x.id]?` · <button class="klink" data-open="${x.id}">Related case: ${esc(byId[x.id].title)}</button>`:""}</div></div>`).join("")}</div></div>
   <div class="tabpane2 ${on==="kt-week"?"on":""}" id="kt-week">${KNOW.week.map(x=>`<div class="ptcard"><h3 class="ptv">${esc(x.t)}</h3><p class="pt">${rich(x.d)}</p>${x.tip?`<div class="who you">For you as their friend</div><p class="pt">${rich(x.tip)}</p>`:""}</div>`).join("")}</div>
   <div class="tabpane2 ${on==="kt-you"?"on":""}" id="kt-you">${KNOW.aboutyou.map(x=>`<div class="ptcard"><h3 class="ptv">${esc(x.t)}</h3><p class="pt">${rich(x.d)}</p>${x.tip?`<div class="who you">How to navigate it</div><p class="pt">${rich(x.tip)}</p>`:""}</div>`).join("")}</div>`;
   document.querySelectorAll("#main .tab2").forEach(t=>t.addEventListener("click",()=>{state.knowTab=t.dataset.pane;}));
@@ -1438,7 +1451,7 @@ function renderKnow(){
 
 const ACTIMG={"I":{"src":"https://commons.wikimedia.org/wiki/Special:FilePath/The%20%22Sacred%20Grove%22.jpg?width=1000","cap":"Act I begins in the Sacred Grove near Palmyra"},"II":{"src":"https://commons.wikimedia.org/wiki/Special:FilePath/Mormon%20Pioneer%20handcart%20statue.jpg?width=1000","cap":"Act II: the pioneer exodus and the hardening in Utah"},"III":{"src":"https://commons.wikimedia.org/wiki/Special:FilePath/Salt%20Lake%20Temple%20UT2.jpg?width=1000","cap":"Act III: the modern reckonings"}};
 const PATHIMG={"strong":"https://commons.wikimedia.org/wiki/Special:FilePath/Joseph%20Smith%20Papyrus%20I.jpg?width=800","fair":"https://commons.wikimedia.org/wiki/Special:FilePath/Christus%20statue%20temple%20square%20salt%20lake%20city.jpg?width=800","prov":"https://commons.wikimedia.org/wiki/Special:FilePath/Book%20of%20Mormon%201830%20edition%20reprint.jpg?width=800","practice":"https://commons.wikimedia.org/wiki/Special:FilePath/Salt%20Lake%20Temple%20UT2.jpg?width=800","gospel":"https://commons.wikimedia.org/wiki/Special:FilePath/Cristo%20crucificado.jpg?width=800","theology":"https://commons.wikimedia.org/wiki/Special:FilePath/The%20Great%20Isaiah%20Scroll%20MS%20A%20(1QIsa)%20-%20Google%20Art%20Project.jpg?width=800","history-hard":"https://commons.wikimedia.org/wiki/Special:FilePath/G.%20W.%20Fasel%20-%20Charles%20G.%20Crehen%20-%20Nagel%20%26%20Weingaertner%20-%20Martyrdom%20of%20Joseph%20and%20Hiram%20Smith%20in%20Carthage%20jail%2C%20June%2027th%2C%201844.jpg?width=800"};
-document.addEventListener("click",e=>{const im=e.target.closest(".kimg img,.corestrip img,.actimg img");if(im)showLightbox(im.dataset.full||im.src,im.dataset.cap||"");});
+document.addEventListener("click",e=>{const im=e.target.closest(".kimg img,.ktop,.corestrip img,.actimg img");if(im)showLightbox(im.dataset.full||im.src,im.dataset.cap||"");});
 /* ---------- router ---------- */
 function render(){
   document.querySelector(".app").classList.toggle("reading",state.view!=="overview");
