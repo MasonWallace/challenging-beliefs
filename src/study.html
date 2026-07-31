@@ -1,0 +1,1011 @@
+<title>Challenging Beliefs — Mormonism, Examined Against the Bible</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root{
+    --bg:#0f1116; --side:#0b0d11; --panel:#161a21; --panel2:#12151b; --line:#232833; --line2:#2b313d;
+    --ink:#e7e9ec; --muted:#98a0ac; --dim:#565e6b; --gold:#82b1d8; --gold-ink:#0e1116;
+    --red:#e0736a; --red-bg:#38221f; --red-cell:#5e2b27; --red-cell-hi:#8a3a32;
+    --amber:#cf9a45; --amber-bg:#332a18; --amber-cell:#54431f; --amber-cell-hi:#7d6224;
+    --green:#7fb08d; --green-bg:#1d2c26; --green-cell:#27443a;
+    --purp:#b394e0; --purp-bg:#2c2440;
+    --serif:'Iowan Old Style','Palatino Linotype',Palatino,'Book Antiqua',Georgia,serif;
+    --sans:ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+  }
+  :root[data-theme="light"]{
+    --bg:#f3f4f6; --side:#e9ebee; --panel:#ffffff; --panel2:#f7f8fa; --line:#dfe2e7; --line2:#cfd4db;
+    --ink:#1b1e23; --muted:#5c6470; --dim:#9aa1ab; --gold:#2f6b9e; --gold-ink:#ffffff;
+    --red:#b03a31; --red-bg:#f6e4e2; --red-cell:#e7b6b1; --red-cell-hi:#cc766d;
+    --amber:#8a5f0e; --amber-bg:#f3ecd9; --amber-cell:#e4d1a2; --amber-cell-hi:#c6a75e;
+    --green:#3e7455; --green-bg:#e3ede6; --green-cell:#b7d1bf;
+    --purp:#6b4fa1; --purp-bg:#ece5f6;
+  }
+  *{box-sizing:border-box}
+  @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+  html,body{margin:0;height:100%}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.6}
+  a{color:var(--gold)}
+  button{font-family:inherit}
+  mark{background:color-mix(in srgb,var(--amber) 30%,transparent);color:inherit;border-radius:2px;padding:0 2px}
+  kbd{font-family:var(--mono);font-size:.72rem;background:var(--panel);border:1px solid var(--line2);border-bottom-width:2px;border-radius:4px;padding:1px 6px;color:var(--muted)}
+
+  .app{display:grid;grid-template-columns:216px minmax(0,1fr) 280px;min-height:100vh}
+  @media (max-width:1020px){.app{grid-template-columns:216px minmax(0,1fr)}.preview{display:none}}
+  @media (max-width:720px){.app{grid-template-columns:1fr}.side{position:sticky;top:0;z-index:40;height:auto;border-right:0;border-bottom:1px solid var(--line)}
+    .side .nav{display:flex;flex-wrap:wrap;gap:2px;padding:0 10px 10px}.side .nav h5{display:none}.side .sideprog{display:none}}
+
+  /* sidebar */
+  .side{background:var(--side);border-right:1px solid var(--line);padding:18px 0;position:sticky;top:0;height:100vh;overflow-y:auto}
+  @media (max-width:720px){.side{height:auto;overflow:visible}}
+  .logo{font-family:var(--serif);font-size:1rem;letter-spacing:.1em;padding:0 18px 14px;color:var(--ink)}
+  .logo b{color:var(--gold)}
+  .sidesearch{padding:0 14px 12px}
+  .sidesearch input{width:100%;font-family:inherit;font-size:.82rem;padding:7px 12px;border-radius:8px;border:1px solid var(--line2);background:var(--panel);color:var(--ink)}
+  .sidesearch input:focus{outline:2px solid var(--gold);outline-offset:1px}
+  .info{display:inline-grid;place-items:center;width:14px;height:14px;border:1px solid currentColor;border-radius:50%;font-size:.58rem;font-style:normal;font-weight:700;opacity:.75;cursor:help;position:relative;flex:none}
+  .info:hover,.info:focus{opacity:1}
+  .info .tip{display:none;position:absolute;left:50%;transform:translateX(-50%);top:160%;width:250px;background:var(--side);color:var(--ink);border:1px solid var(--line2);font-family:var(--sans);font-size:.76rem;line-height:1.5;padding:9px 12px;border-radius:8px;box-shadow:0 10px 30px rgba(0,0,0,.35);z-index:30;text-transform:none;letter-spacing:0;font-weight:400;text-align:left}
+  .info:hover .tip,.info:focus .tip{display:block}
+  .badge,.tag{display:inline-flex;align-items:center;gap:5px}
+  .nav a{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:7px 18px;font-size:.86rem;color:var(--muted);text-decoration:none;cursor:pointer;border-left:2px solid transparent}
+  .nav a:hover{background:var(--panel2);color:var(--ink)}
+  .nav a.on{background:var(--panel);color:var(--ink);border-left-color:var(--gold)}
+  .nav .cnt{font-family:var(--mono);font-size:.68rem;color:var(--dim)}
+  .nav h5{font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);margin:18px 18px 6px;font-weight:600}
+  .sideprog{margin:22px 18px 8px;font-size:.72rem;color:var(--muted)}
+  .pbar{height:4px;background:var(--line);border-radius:2px;margin-top:6px;overflow:hidden}
+  .pbar i{display:block;height:100%;background:var(--gold);transition:width .4s ease}
+
+  /* main */
+  .main{padding:18px 26px 80px;min-width:0}
+  .cmd{display:flex;align-items:center;gap:10px;background:var(--panel);border:1px solid var(--line2);border-radius:8px;padding:4px 8px 4px 14px;margin-bottom:18px}
+  .cmd input{flex:1;background:none;border:0;color:var(--ink);font-family:inherit;font-size:.9rem;padding:7px 0;outline:none}
+  .cmd input::placeholder{color:var(--dim)}
+  .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:20px}
+  .tile{background:var(--panel);border:1px solid var(--line2);border-radius:10px;padding:12px 14px;cursor:pointer;text-align:left;color:var(--ink)}
+  .tile:hover{border-color:var(--gold)}
+  .tile.on{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold) inset}
+  .tile .v{font-family:var(--serif);font-size:1.7rem;font-variant-numeric:tabular-nums;line-height:1.1}
+  .tile .l{font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+  .tile.t-ad .v{color:var(--purp)}.tile.t-un .v{color:var(--red)}.tile.t-co .v{color:var(--amber)}.tile.t-an .v{color:var(--green)}
+  h4.bt{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0 0 10px;font-weight:600}
+  .vwall{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:10px;align-items:start}
+  @media (max-width:1240px){.vwall{grid-template-columns:1fr 1fr}}
+  @media (max-width:700px){.vwall{grid-template-columns:1fr}}
+  .vcol{background:var(--panel2);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .vcol header{padding:14px 16px 12px;border-bottom:2px solid var(--line)}
+  .vcol.ad header{border-bottom-color:var(--purp)}
+  .vcol.ad .n,.vcol.ad .t{color:var(--purp)}
+  .vcol.ad .vt:hover{border-left-color:var(--purp)}
+  .vcol.un header{border-bottom-color:var(--red)}
+  .vcol.co header{border-bottom-color:var(--amber)}
+  .vcol.an header{border-bottom-color:var(--green)}
+  .vcol header .n{font-family:var(--serif);font-size:1.9rem;line-height:1;font-variant-numeric:tabular-nums}
+  .vcol.un .n{color:var(--red)}.vcol.co .n{color:var(--amber)}.vcol.an .n{color:var(--green)}
+  .vcol header .t{font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-left:8px}
+  .vcol.un .t{color:var(--red)}.vcol.co .t{color:var(--amber)}.vcol.an .t{color:var(--green)}
+  .vcol header .d{font-size:.74rem;color:var(--muted);margin-top:4px}
+  .vgroup h6{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin:0;padding:10px 16px 4px;font-weight:600}
+  .vt{display:block;width:100%;text-align:left;background:none;border:0;border-top:1px solid var(--line);padding:9px 16px 9px 13px;cursor:pointer;color:var(--ink);border-left:3px solid transparent}
+  .vt:hover,.vt.sel{background:var(--panel)}
+  .vt.sel{border-left-color:var(--gold)}
+  .vcol.un .vt:hover{border-left-color:var(--red)}
+  .vcol.co .vt:hover{border-left-color:var(--amber)}
+  .vcol.an .vt:hover{border-left-color:var(--green)}
+  .vt.dimmed{opacity:.25}
+  .vt h5{font-family:var(--serif);font-weight:500;font-size:.92rem;line-height:1.35;margin:0}
+  .vt .m{font-size:.66rem;color:var(--dim);letter-spacing:.05em;text-transform:uppercase;margin-top:2px;display:flex;gap:8px;align-items:center}
+  .vt .m .rd{color:var(--green)}
+  .vt .m .star{color:var(--gold)}
+
+  /* list */
+  .rows{display:flex;flex-direction:column}
+  .rowitem{display:grid;grid-template-columns:12px 1fr auto;gap:12px;align-items:center;width:100%;text-align:left;background:none;border:0;border-top:1px solid var(--line);padding:11px 6px;cursor:pointer;color:var(--ink)}
+  .rowitem:hover,.rowitem.sel{background:var(--panel2)}
+  .rowitem .stripe{width:4px;height:26px;border-radius:2px}
+  .rowitem.v-unrefuted .stripe{background:var(--red)}
+  .rowitem.v-contested .stripe{background:var(--amber)}
+  .rowitem.v-answered .stripe{background:var(--green)}
+  .rowitem h5{font-family:var(--serif);font-weight:500;font-size:1rem;margin:0;line-height:1.35}
+  .rowitem .sub{font-size:.72rem;color:var(--muted)}
+  .rowitem .meta{display:flex;gap:8px;align-items:center;font-size:.66rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;white-space:nowrap}
+  .rowitem .meta .rd{color:var(--green)}
+
+  .badge{font-size:.64rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:999px;display:inline-block}
+  .badge.v-admitted{background:var(--purp-bg);color:var(--purp)}
+  .badge.v-unrefuted{background:var(--red-bg);color:var(--red)}
+  .badge.v-contested{background:var(--amber-bg);color:var(--amber)}
+  .badge.v-answered{background:var(--green-bg);color:var(--green)}
+  .tag{font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line2);border-radius:999px;padding:2px 9px;display:inline-block}
+
+  /* case view */
+  .backbar{display:flex;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+  .backbar button.bk{background:var(--panel);border:1px solid var(--line2);color:var(--muted);border-radius:8px;padding:6px 13px;font-size:.8rem;cursor:pointer}
+  .backbar button.bk:hover{color:var(--ink);border-color:var(--gold)}
+  .pathnext{margin-left:auto;background:var(--gold);color:var(--gold-ink);border:0;border-radius:8px;padding:7px 14px;font-size:.8rem;font-weight:700;cursor:pointer}
+  .case h2{font-family:var(--serif);font-weight:500;font-size:1.6rem;line-height:1.25;margin:10px 0 14px;max-width:30ch;text-wrap:balance}
+  .case .meta{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:6px}
+  .dlab{font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:26px 0 10px}
+  .dlab.red{color:var(--red)}.dlab.blue{color:var(--gold)}
+  .claimrow{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(270px,1fr);gap:28px;align-items:start}
+  .claimrow.solo{grid-template-columns:1fr}
+  @media (max-width:900px){.claimrow{grid-template-columns:1fr}}
+  .claim p{font-size:.97rem;line-height:1.75;max-width:66ch;margin:0 0 12px}
+  .claimside{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:16px 18px;position:sticky;top:16px}
+  .claimside .passcols{grid-template-columns:1fr;gap:12px}
+  .claimside .sidenote{font-size:.76rem;color:var(--dim);margin:-4px 0 12px}
+  .defense p.lead{margin:0 0 4px}
+  .defense p{line-height:1.7;margin:0 0 10px}
+  .pts{margin:8px 0 0;padding:0;list-style:none;counter-reset:pt}
+  .pts li{position:relative;padding:10px 0 10px 36px;border-top:1px dashed color-mix(in srgb,var(--green) 25%,var(--line));line-height:1.7}
+  .pts li:first-child{border-top:0}
+  .pts li::before{counter-increment:pt;content:counter(pt);position:absolute;left:0;top:10px;width:23px;height:23px;border-radius:50%;background:var(--green-bg);color:var(--green);display:grid;place-items:center;font-size:.72rem;font-weight:700}
+  .vbox p{margin:0 0 8px;line-height:1.7}
+  .vbox p:last-child{margin-bottom:0}
+  .ref-lds{color:var(--red);font-weight:600}
+  .ref-bib{color:var(--gold);font-weight:600}
+  .qq{font-family:var(--serif);font-style:italic;background:color-mix(in srgb,var(--amber) 16%,transparent);border-radius:3px;padding:0 3px}
+  .kw{font-weight:700;text-decoration:underline;text-underline-offset:2px}
+  .talk{background:color-mix(in srgb,var(--green) 8%,var(--panel));border:1px solid color-mix(in srgb,var(--green) 30%,var(--line));border-radius:8px;padding:16px 18px;font-size:.93rem;max-width:80ch}
+  .talk p{margin:0 0 8px;line-height:1.7}
+  .talk p:last-child{margin-bottom:0}
+  .corelinks{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+  .corelink{font-size:.78rem;background:var(--panel2);border:1px solid var(--line2);color:var(--gold);border-radius:999px;padding:5px 13px;cursor:pointer;text-align:left}
+  .corelink:hover{border-color:var(--gold)}
+  .gtab{width:100%;border-collapse:collapse;font-size:.86rem;margin:14px 0 6px}
+  .gtab th{text-align:left;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:8px 12px;border-bottom:2px solid var(--line2)}
+  .gtab th:nth-child(2){color:var(--red)}
+  .gtab th:nth-child(3){color:var(--gold)}
+  .gtab td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.55}
+  .gtab td:first-child{font-weight:700;white-space:nowrap;color:var(--muted)}
+  .dodont{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media (max-width:700px){.dodont{grid-template-columns:1fr}}
+  .dodont ul{margin:8px 0 0;padding-left:18px;font-size:.86rem;color:var(--muted)}
+  .dodont li{padding:3px 0;line-height:1.55}
+  .why{background:color-mix(in srgb,var(--gold) 7%,var(--panel));border:1px solid color-mix(in srgb,var(--gold) 28%,var(--line));border-radius:8px;padding:16px 18px;font-size:.93rem;max-width:80ch}
+  .why p{margin:0 0 10px;line-height:1.7}
+  .why .wtail{color:var(--muted);font-style:italic;margin-bottom:0;border-top:1px dashed color-mix(in srgb,var(--gold) 30%,var(--line));padding-top:10px}
+  .compare2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media (max-width:760px){.compare2{grid-template-columns:1fr}}
+  .pane{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:14px 16px}
+  .pane .ref{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+  .pane.bom .ref{color:var(--red)}.pane.bible .ref{color:var(--gold)}
+  .pane .scripture{font-family:var(--serif);font-size:1rem;line-height:1.65}
+  .cnote{font-size:.8rem;color:var(--muted);margin-top:8px;max-width:80ch}
+  .passcols{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media (max-width:760px){.passcols{grid-template-columns:1fr}}
+  .passcols h6{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin:0 0 8px}
+  .passcols .h-bom{color:var(--red)}.passcols .h-bib{color:var(--gold)}
+  .chips{display:flex;gap:6px;flex-wrap:wrap}
+  .chip{font-size:.78rem;font-family:var(--serif);border:1px solid var(--line2);background:var(--panel);border-radius:6px;padding:4px 10px;cursor:pointer;color:var(--ink)}
+  .chip:hover{border-color:var(--gold)}
+  .chip.open{background:var(--amber-bg);border-color:var(--gold)}
+  .chip.ext::after{content:" ↗";color:var(--muted);font-family:var(--sans);font-size:.68rem}
+  .versebox{grid-column:1/-1;background:var(--panel2);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:8px;padding:14px 18px;margin-top:4px}
+  .versebox .vr{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;display:flex;justify-content:space-between}
+  .versebox .vr button{background:none;border:0;color:var(--muted);cursor:pointer;font-size:.8rem}
+  .versebox .vtext{font-family:var(--serif);font-size:.98rem;line-height:1.7;max-width:72ch}
+  .versebox .vnum{font-family:var(--sans);font-size:.62rem;color:var(--muted);vertical-align:super;margin-right:3px}
+  .versebox .vwhy{margin-top:10px;font-size:.8rem;color:var(--muted);border-top:1px dashed var(--line);padding-top:8px;max-width:76ch}
+  .versebox .vwhy b{color:var(--gold)}
+  .srcdet{margin-top:30px;border-top:1px solid var(--line);padding-top:14px}
+  .srcdet summary{font-size:.74rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);cursor:pointer;list-style:none}
+  .srcdet summary::before{content:"▸ ";color:var(--gold)}
+  .srcdet[open] summary::before{content:"▾ "}
+  .srcdet .srcs{margin-top:12px}
+  .app.reading{grid-template-columns:216px minmax(0,1fr)}
+  .app.reading .preview{display:none}
+  body:has(.app.reading) .keysbar{right:0}
+  .srcs{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px}
+  .srcs li{display:flex;gap:9px;align-items:baseline;font-size:.85rem}
+  .sb{flex:none;font-size:.6rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;border-radius:4px;padding:2px 7px;position:relative;top:-1px}
+  .sb-scholarly{background:var(--green-bg);color:var(--green)}
+  .sb-apologetics{background:var(--amber-bg);color:var(--amber)}
+  .sb-primary,.sb-institutional{background:color-mix(in srgb,var(--gold) 16%,transparent);color:var(--gold)}
+  .sb-journalism{background:var(--panel);color:var(--muted);border:1px solid var(--line2)}
+  .sb-testimony{background:var(--red-bg);color:var(--red)}
+  .defense{background:color-mix(in srgb,var(--green) 7%,var(--panel));border:1px solid color-mix(in srgb,var(--green) 30%,var(--line));border-radius:8px;padding:16px 18px;font-size:.92rem;max-width:80ch}
+  .defense .dsrc{font-size:.78rem;color:var(--muted);margin-top:10px}
+  .vbox{display:flex;gap:12px;align-items:flex-start;border-radius:8px;padding:16px 18px;font-size:.92rem;max-width:80ch}
+  .vbox.v-admitted{background:var(--purp-bg)}.vbox.v-unrefuted{background:var(--red-bg)}.vbox.v-contested{background:var(--amber-bg)}.vbox.v-answered{background:var(--green-bg)}
+  .vbox b.vb{flex:none;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;padding-top:3px}
+  .vbox.v-admitted b.vb{color:var(--purp)}.vbox.v-unrefuted b.vb{color:var(--red)}.vbox.v-contested b.vb{color:var(--amber)}.vbox.v-answered b.vb{color:var(--green)}
+  .relrow{display:flex;gap:8px;flex-wrap:wrap}
+  .relrow button{font-size:.78rem;background:var(--panel);border:1px solid var(--line2);color:var(--ink);border-radius:999px;padding:5px 13px;cursor:pointer}
+  .relrow button:hover{border-color:var(--gold);color:var(--gold)}
+  .pinbtn{background:none;border:1px dashed var(--line2);color:var(--muted);border-radius:8px;padding:7px 14px;font-size:.8rem;cursor:pointer}
+  .pinbtn:hover{border-color:var(--gold);color:var(--gold)}
+  .pinbtn.pinned{border-style:solid;border-color:var(--gold);color:var(--gold)}
+
+  /* glossary tooltip */
+  .g{border-bottom:2px dotted var(--gold);cursor:help;position:relative}
+  .g .gt{display:none;position:absolute;left:0;top:140%;width:270px;background:var(--side);color:var(--ink);border:1px solid var(--line2);font-family:var(--sans);font-size:.78rem;line-height:1.5;padding:10px 13px;border-radius:8px;box-shadow:0 10px 30px rgba(0,0,0,.35);z-index:20;font-style:normal;font-weight:400}
+  .g:hover .gt,.g:focus .gt{display:block}
+  .g .gt b{color:var(--gold)}
+
+  /* preview */
+  .preview{background:var(--panel2);border-left:1px solid var(--line);padding:20px 18px;position:sticky;top:0;height:100vh;overflow-y:auto}
+  .preview h5.pt{font-family:var(--serif);font-weight:500;font-size:1.05rem;line-height:1.35;margin:10px 0}
+  .preview p{font-size:.78rem;color:var(--muted);margin:0 0 12px}
+  .preview .go{display:inline-block;font-size:.78rem;color:var(--gold-ink);background:var(--gold);border:0;border-radius:6px;padding:7px 14px;cursor:pointer;font-weight:700}
+  .preview h6{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin:20px 0 6px}
+  .preview .rr{font-size:.78rem;color:var(--ink);padding:6px 0;border-top:1px solid var(--line);display:block;background:none;border-left:0;border-right:0;border-bottom:0;text-align:left;width:100%;cursor:pointer}
+  .preview .rr:hover{color:var(--gold)}
+  .preview .empty{color:var(--dim);font-size:.8rem;margin-top:30px;text-align:center}
+
+  /* views: paths, timeline, glossary, compare */
+  .viewhead{margin:4px 0 22px}
+  .viewhead h2{font-family:var(--serif);font-weight:500;font-size:1.5rem;margin:0 0 4px}
+  .viewhead p{color:var(--muted);font-size:.88rem;margin:0;max-width:70ch}
+  .pathcard{background:var(--panel);border:1px solid var(--line2);border-radius:12px;padding:18px 20px;margin-bottom:14px}
+  .pathcard h3{font-family:var(--serif);font-weight:500;font-size:1.15rem;margin:0 0 4px}
+  .pathcard .pd{font-size:.82rem;color:var(--muted);margin:0 0 12px}
+  .pathcard ol{margin:0 0 14px;padding-left:20px;font-size:.84rem;color:var(--muted)}
+  .pathcard ol li{padding:2px 0}
+  .pathcard ol li.done{color:var(--green);text-decoration:line-through}
+  .pathcard .start{background:var(--gold);color:var(--gold-ink);border:0;border-radius:8px;padding:8px 16px;font-size:.82rem;font-weight:700;cursor:pointer}
+  .tlwrap{border-left:2px solid var(--line2);margin-left:70px;padding:6px 0}
+  .tlev{position:relative;padding:0 0 26px 26px}
+  .tlev::before{content:"";position:absolute;left:-7px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--gold);border:2px solid var(--bg)}
+  .tlev.crit::before{background:var(--red)}
+  .tlev .yr{position:absolute;left:-86px;top:1px;width:52px;text-align:right;font-family:var(--mono);font-size:.78rem;color:var(--muted)}
+  .tlev h4{font-family:var(--serif);font-weight:500;font-size:1.02rem;margin:0 0 3px}
+  .tlev p{font-size:.82rem;color:var(--muted);margin:0 0 5px;max-width:64ch}
+  .tlev button.jump{background:none;border:0;color:var(--gold);font-size:.76rem;cursor:pointer;padding:0;text-decoration:underline}
+  .glossgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+  .glosscard{background:var(--panel);border:1px solid var(--line2);border-radius:10px;padding:14px 16px}
+  .glosscard b{color:var(--gold);font-family:var(--serif);font-weight:600}
+  .glosscard p{font-size:.82rem;color:var(--muted);margin:6px 0 0}
+  .cmp2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media (max-width:760px){.cmp2{grid-template-columns:1fr}}
+  .cmpcol{background:var(--panel);border:1px solid var(--line2);border-radius:12px;padding:18px}
+  .cmpcol h3{font-family:var(--serif);font-weight:500;font-size:1.08rem;margin:8px 0 10px}
+  .cmpcol h6{font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin:14px 0 5px}
+  .cmpcol p{font-size:.82rem;color:var(--muted);margin:0}
+  .cmpcol .unpin{background:none;border:0;color:var(--muted);font-size:.72rem;cursor:pointer;float:right;text-decoration:underline}
+  .cmpempty{border:1px dashed var(--line2);border-radius:12px;padding:40px;text-align:center;color:var(--dim);font-size:.85rem}
+
+  .keysbar{position:fixed;bottom:0;left:216px;right:280px;display:flex;gap:16px;justify-content:center;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-top:1px solid var(--line);padding:8px;font-size:.7rem;color:var(--muted);z-index:30;flex-wrap:wrap}
+  @media (max-width:1020px){.keysbar{right:0}}
+  @media (max-width:720px){.keysbar{display:none}}
+  .toast{position:fixed;bottom:52px;left:50%;transform:translateX(-50%);background:var(--side);border:1px solid var(--gold);color:var(--ink);border-radius:8px;padding:8px 18px;font-size:.8rem;z-index:60;opacity:0;transition:opacity .3s}
+  .toast.show{opacity:1}
+  .methodfoot{border-top:1px solid var(--line);margin-top:44px;padding-top:16px;font-size:.74rem;color:var(--dim);max-width:90ch}
+</style>
+
+<div class="app">
+  <aside class="side">
+    <div class="logo">⚖ CHALLENGING <b>·</b> BELIEFS<div style="font-size:.64rem;letter-spacing:.14em;color:var(--muted);margin-top:3px">MORMONISM · VS. THE BIBLE</div></div>
+    <div class="sidesearch"><input id="q" type="search" placeholder="Search claims…" autocomplete="off" aria-label="Search claims"></div>
+    <div class="nav" id="nav"></div>
+    <div class="sideprog" id="sideprog"></div>
+  </aside>
+  <main class="main" id="main"></main>
+  <aside class="preview" id="preview"></aside>
+</div>
+<div class="keysbar"><span><kbd>←</kbd>/<kbd>→</kbd> prev / next</span><span><kbd>↵</kbd> open</span><span><kbd>Esc</kbd> back</span><span><kbd>O</kbd> overview</span><span><kbd>P</kbd> paths</span><span><kbd>T</kbd> timeline</span><span><kbd>G</kbd> terms</span><span><kbd>S</kbd> gospel</span><span><kbd>H</kbd> heart of it</span></div>
+<div class="toast" id="toast"></div>
+
+<script>
+const DATA=[
+/*__DATA__*/
+];
+const VERSES=/*__VERSES__*/;
+
+const SECTIONS={text:"The Text",doctrine:"The Doctrine",history:"The History",peculiar:"Strange to Outsiders"};
+const SEVLABEL={high:"major",medium:"moderate",low:"minor"};
+const PORDER=["endowment-masonic-origins","temple-garments-practice","eternal-polygamy-today","temple-wedding-family-exclusion","policy-of-exclusion-2015","word-of-wisdom-dietary-law","abuse-helpline-2022","quitmormon-resignation-difficulty","sec-ensign-peak-settlement","tithing-enforcement","byu-honor-code-disaffiliation","september-six","ces-letter-gospel-topics-visibility","missionary-program-realities","social-costs-shunning","grenfell-exit-testimony"];
+const CATS={"kjv-dependence":"KJV dependence","deutero-isaiah":"Isaiah dating","nt-anachronism":"NT anachronism","cultural-anachronism":"Cultural anachronism","doctrinal-conflict":"Doctrinal conflict","canon-provenance":"Canon & provenance","prophecy":"Prophecy","textual-transmission":"Textual transmission","archaeology":"Archaeology","dna":"DNA","demographics":"Demographics","provenance":"Provenance","translation-test":"Translation test","stylometry":"Stylometry","origin-story":"Origin story","first-vision":"First Vision","gold-plates":"Gold plates","exit-costs":"Exit costs","institutional":"Institutional","practice-worship":"Worship & worthiness","practice-temple":"Temple practice","exaltation":"Exaltation","christology":"Who is Jesus","nature-of-god":"Who is God","polygamy-history":"Polygamy","violence-history":"Violence & conflict","modern-policy":"Modern policy"};
+const SECMAP={"kjv-dependence":"text","deutero-isaiah":"text","nt-anachronism":"text","cultural-anachronism":"text","doctrinal-conflict":"doctrine","canon-provenance":"doctrine","prophecy":"doctrine","textual-transmission":"doctrine","exaltation":"doctrine","archaeology":"history","dna":"history","demographics":"history","provenance":"history","translation-test":"history","stylometry":"history","origin-story":"history","first-vision":"history","gold-plates":"history","practice-worship":"peculiar","practice-temple":"peculiar","exit-costs":"peculiar","institutional":"peculiar","christology":"doctrine","nature-of-god":"doctrine","polygamy-history":"history","violence-history":"history","modern-policy":"peculiar"};
+const VLABEL={admitted:"Admitted",unrefuted:"Unrefuted",contested:"Contested",answered:"Answered"};
+const TIPS={
+  verdict:{admitted:"The church's own publications — essays, canon, official statements, sponsored histories — concede the facts of this claim. Only the interpretation is defended. You can cite this one entirely from their sources.",unrefuted:"No adequate published answer exists — or the best defenses concede the core point rather than rebut it.",contested:"A serious rebuttal exists. Read both sides; the dispute is genuine.",answered:"The best defense holds up. The criticism is weaker than commonly presented — included so nothing is cherry-picked."},
+  impact:"An editorial rating of how much this claim matters if true: MAJOR shakes the book's foundation, MODERATE is significant, MINOR is a detail.",
+  strongest:"One of the handful of cases with the most decisive documentary evidence in the entire catalog — if you read only a few, read these."};
+const CATDESC={"kjv-dependence":"Claims that the Book of Mormon's English depends on the 1611 King James Bible rather than an ancient source.","deutero-isaiah":"The dating problem: chapters of Isaiah that scholars date after Lehi's departure appear on the brass plates.","nt-anachronism":"New Testament words and passages appearing in books set centuries before the New Testament existed.","cultural-anachronism":"Things (animals, crops, technology, institutions) the text places in ancient America that archaeology says weren't there.","doctrinal-conflict":"Places where Book of Mormon or LDS teaching conflicts with what the Bible teaches.","canon-provenance":"Evidence about where the text actually came from — edits, evolving doctrine, and prophecy tests.","prophecy":"Predictive prophecy claims measured against their fulfillment.","textual-transmission":"Claims about how the Bible's text was transmitted and whether things were removed from it.","archaeology":"What digging in the ground has and hasn't found.","dna":"What population genetics says about Native American ancestry.","demographics":"Whether the text's population numbers are possible.","provenance":"The origin story of the book itself — plates, witnesses, translation.","translation-test":"The one case where Joseph Smith's source document survives and his translation can be checked.","stylometry":"Computer analysis of writing style used to argue about who wrote the book.","origin-story":"The founding narrative — visions, angels, and how the accounts changed.","first-vision":"Joseph Smith's first vision and its differing tellings.","gold-plates":"The physical plates: who saw them and how.","exit-costs":"What it costs socially and practically to leave the LDS church.","institutional":"How the church as an institution has behaved — discipline, transparency, money.","practice-worship":"Daily-life religious requirements like the Word of Wisdom.","practice-temple":"Temple practices: garments, ceremonies, and their origins.","exaltation":"The doctrine that faithful members can become gods.","christology":"What Mormonism teaches about who Jesus is — and whether that is the Jesus of the Bible.","nature-of-god":"What Mormonism teaches about who God is — his nature, his origin, and whether there are others.","polygamy-history":"Joseph Smith's plural marriages and their aftermath, documented largely from the church's own essays.","violence-history":"Episodes of violence and coercion in early church history, and what they test.","modern-policy":"Recent policies presented as revelation — and their reversals."};
+function info(t){return t?`<span class="info" tabindex="0">i<span class="tip">${esc(t)}</span></span>`:"";}
+const WHYTAIL={admitted:"The facts here are conceded in the church's own publications — the only dispute is what they mean. In conversation, cite them exclusively from LDS sources; there is nothing to argue about except the interpretation.",unrefuted:"No adequate answer to this has been published. A believer must either live with the tension or produce a response no scholar has yet managed.",contested:"There is a genuine debate here — the honest move is to read both sides and weigh which explanation asks less of the evidence.",answered:"Fairly weighed, the defense wins this one. Critics who keep using it weaken their own credibility on the claims that do stand."};
+const WHYMAP={
+"kjv-dependence":"The Book of Mormon claims to be an independent translation of a record written centuries before English existed. If its English actually derives from the 1611 King James Bible — printing conventions and translation errors included — then the claimed translation process didn't happen as described, and Joseph Smith's central credential as a prophet rests on it.",
+"deutero-isaiah":"If chapters of Isaiah were written after Lehi's family left Jerusalem, they could not have been on the brass plates the Nephites carried. That would mean the book's narrative frame is impossible on its own terms — not a detail, but a load-bearing wall.",
+"nt-anachronism":"New Testament language appearing in books set centuries before the New Testament means the text knows literature it could not have known. Every such passage is evidence the real author lived after the New Testament — in Joseph Smith's world, not Nephi's.",
+"cultural-anachronism":"The book describes a physical civilization: animals, crops, metals, institutions. If archaeology consistently finds none of it where and when the book requires it, the claim that this is real history — not fiction — loses its footing one item at a time.",
+"doctrinal-conflict":"Mormonism claims to restore biblical Christianity. Where its scripture or doctrine contradicts the Bible, a member must choose which authority wins — and every such conflict undercuts the claim that the two books teach one gospel.",
+"canon-provenance":"These cases test where the text and its doctrines actually came from. Edited verses, doctrines that reverse themselves, and prophecies that failed all point the same direction: a human author revising as he went — which is fatal to the claim of divine dictation.",
+"prophecy":"The Bible's own test for a prophet (Deuteronomy 18) is whether his predictions come true. This is the standard Joseph Smith must pass to be what the church claims he is.",
+"textual-transmission":"The entire justification for a 'Restoration' is that the Bible was corrupted and truths were lost. If the manuscript evidence shows the Bible was NOT substantially corrupted, the Restoration answers a problem that never existed.",
+"archaeology":"A book describing million-person civilizations should leave physical remains. Their total absence is not one missing artifact — it is the silence of an entire continent where a civilization is supposed to have been.",
+"dna":"The book's own title page says the Lamanites are Israelites. If genetics shows Native Americans came from Asia, the church is left redefining who the book was even about — which it has already had to do in print.",
+"demographics":"If the book's population numbers can't work, its battle accounts and civilizations are storytelling, not history. This one the defense handles better than critics admit — which is worth knowing too.",
+"provenance":"How the book actually came to be — the stone in the hat, the lost pages, the interested witnesses — is the foundation everything else stands on. Cracks here are cracks under the whole building.",
+"translation-test":"This is the only case where Joseph Smith's source document survives and his translation can be graded against real Egyptology. It is the closest thing to a laboratory test of his prophetic gift that will ever exist — and the church's own essay concedes the mismatch.",
+"stylometry":"Computer authorship analysis gets cited by both sides. Knowing why neither side's studies settle anything protects you from being fooled by confident-sounding statistics.",
+"origin-story":"The founding miracles are the reason the church exists. If the accounts of those miracles changed shape over time — names, dates, participants — that pattern is evidence about whether they happened.",
+"first-vision":"The First Vision is, in the church's own words, the foundation of the Restoration. If the story grew and changed across Smith's retellings, the foundation was still being drafted years after the event.",
+"gold-plates":"Everything depends on whether real plates existed and were what Smith said. No neutral person ever examined them — so the entire case rests on interested witnesses, which is why their reliability matters so much.",
+"exit-costs":"The cost of leaving tells you how a belief system holds its members: by persuasion or by pressure. These facts matter to anyone weighing what joining — or leaving — would actually mean for their family and life.",
+"institutional":"How the institution behaves under scrutiny — toward scholars, money, and its own history — is evidence about whether it acts like a custodian of truth or a organization protecting itself.",
+"practice-worship":"Requirements like the Word of Wisdom decide who gets temple access — and in LDS teaching, temple access decides eternal standing. A rule the founding revelation called optional now gates salvation itself.",
+"practice-temple":"Temple ordinances are, in LDS teaching, required for exaltation. Where those ceremonies actually came from — and how they've been quietly revised — bears directly on whether they are ancient and divine or modern and borrowed.",
+"exaltation":"This is the doctrine that most sharply separates Mormonism from biblical monotheism: not whether God loves his children, but whether they become beings of the same kind he is. Isaiah says no god will be formed after him; D&C 132 says the faithful 'shall be gods.' Both cannot be true.",
+"christology":"Everything in Christianity hangs on who Jesus is. If he is a created elder brother who earned his godhood, he is not the eternal God the Bible says made all things — and a created Christ cannot carry the infinite weight of sin. This is not a side issue; it is whether the Jesus being trusted is the Jesus who saves.",
+"nature-of-god":"Who God is comes before every other question. An exalted man from another world who organized pre-existing matter is a different being from the eternal 'I AM' who created everything from nothing — and devotion offered to a different being is what the Bible has always called by another name.",
+"polygamy-history":"The founding prophet secretly married other men's wives and girls as young as fourteen while publicly denying it — in the same years the revelations were coming. Jesus said prophets are known by their fruits (Matthew 7:15–20); this is the character evidence that test requires.",
+"violence-history":"How a movement treats its critics and enemies reveals what drives it. These events do not by themselves disprove any doctrine — but they test the claim that this institution was being led by God through its formative decades.",
+"modern-policy":"Revelation that reverses itself within a few years — on who can be baptized, on who counts as an apostate — raises the same question the failed prophecies do: is the voice being followed God's voice, or the leadership's?"};
+const TALK={
+"kjv-dependence":"Ask, don't lecture: **“If the plates were written a thousand years before English existed, why does the translation contain the King James translators' mistakes?”** Then let them look it up — the evidence is strongest when they find it themselves.",
+"deutero-isaiah":"Try: **“Lehi left Jerusalem in 600 BC — how did chapters scholars date fifty years later get onto the brass plates?”** Most members have never heard the question; be patient with the silence that follows.",
+"nt-anachronism":"Open a Book of Mormon and a Bible side by side and read Moroni 7:45 next to 1 Corinthians 13. Then ask gently: **“Which direction do you think the copying went?”**",
+"cultural-anachronism":"Keep it light, not mocking: **“If millions of Nephites had horses and steel, what should archaeologists have found by now?”** Concede the honest apologetic answers where they exist — it earns you the right to press where they don't.",
+"doctrinal-conflict":"Read the two passages together and ask **“if these disagree, which one should we trust?”** — then keep the conversation on what the Bible actually says. Scripture does the heavy lifting; you just turn the pages.",
+"canon-provenance":"Ask: **“If the Book of Mormon was translated by the power of God, why did Joseph Smith need to revise what God said?”** The 1837 edits and the failed prophecies are documented in sources the church itself publishes.",
+"prophecy":"Share Deuteronomy 18:22 and ask them to apply it themselves: **“What test would you use on anyone else claiming to be a prophet? Should Joseph Smith be exempt from it?”**",
+"textual-transmission":"Ask: **“If God preserved the Book of Mormon perfectly through one man, why couldn't he preserve the Bible through thousands of manuscripts?”** The Dead Sea Scrolls are your friend here — the Bible passed the test the Restoration says it failed.",
+"archaeology":"Ask what evidence they'd expect if the book were true, before showing what's missing — people defend conclusions but follow their own reasoning. The Smithsonian's statement is a neutral source they can check.",
+"dna":"Point to the church's own 2006 change — 'principal ancestors' to 'among the ancestors' — and ask: **“Why did the introduction need to change if the book was right?”**",
+"demographics":"This one is a trap for critics — the LDS answer is decent. Better to know it and skip it than to lead with a losing argument.",
+"provenance":"Ask about the hat: **“Did you know the church's own essay says Joseph put a stone in his hat and didn't use the plates? Why were the plates needed at all?”** Cite only the Gospel Topics essay — their source, not yours.",
+"translation-test":"This is the strongest single conversation you can have. **“The papyri exist. Egyptologists can read them. The church's own essay admits they don't match the Book of Abraham. What follows from that?”** Ask it with sorrow, not triumph.",
+"stylometry":"Skip the dueling computer studies in conversation — neither side's numbers persuade anyone. Spend the time on the papyri or on grace instead.",
+"origin-story":"Ask which version of the story they were taught, then show them the earlier accounts on the Joseph Smith Papers site — the church's own archive. Let the documents raise the question for you.",
+"first-vision":"Gently: **“The 1832 account in Joseph's own handwriting mentions one personage and no revival. Why did the story grow?”** They can read it at josephsmithpapers.org — an official church site.",
+"gold-plates":"Ask: **“Would you accept eleven interested witnesses and no artifact as proof of any other religion's founding miracle?”** The consistency standard is the point, not the witnesses' sincerity.",
+"exit-costs":"Lead with compassion, not accusation — many members quietly know these costs. **“If the church is true, why does leaving it cost people their families?”** Then be the Christian whose friendship doesn't have a worthiness interview.",
+"institutional":"Institutional behavior opens doors testimony can't: the SEC order and the September Six are documented by neutral sources. Ask: **“Is this how a church led by Jesus handles truth?”**",
+"practice-worship":"Ask over the coffee they can't drink with you: **“Where does the New Testament make a drink a condition for entering God's presence?”** Then read Colossians 2:16 together.",
+"practice-temple":"Never mock the garments — sacred things deserve gentle questions: **“If the endowment is ancient, why did it match 1842 Freemasonry, and why was it changed in 1990?”**",
+"exaltation":"This is the heart of everything. Read Isaiah 43:10 together and ask: **“Can 'you may become a god' and 'before me there was no God formed, neither shall there be after me' both be true?”** Then tell them what the real gospel offers instead — not godhood earned, but sonship given (John 1:12).",
+"christology":"Ask: **“Who do you believe Jesus was before Bethlehem?”** Their honest answer — the firstborn spirit child — opens John 1:1–3 for you: the Word wasn't born first; he *was* God and made ALL things. Read it together, slowly, and let the verse do the work.",
+"nature-of-god":"Ask: **“Has God always been God?”** Then read Psalm 90:2 together — and Moroni 8:18 from their own book, which agrees with the Bible against the King Follett doctrine. Most members have never had to square those two.",
+"polygamy-history":"Use only the church's own essay: **“Did you know the church's website now confirms Joseph had about 30–40 wives, some already married to other men?”** Ask how that fits with his public denials. Be gentle — for many members this one wounds deeply.",
+"violence-history":"History works best as shared discovery, not accusation: **“Have you read what the church's own historians wrote about Mountain Meadows?”** Let the church-published history make the point so you don't have to.",
+"modern-policy":"Ask: **“If the 2015 policy was revelation and the 2019 reversal was revelation, how should we test revelation?”** It is the failed-prophecy question in modern clothes — and it's about events they lived through."};
+const ABBR=["c","cf","vs","e.g","i.e","etc","Dr","St","Mr","Mrs","ch","pp","v","vv","no","approx","Jr","Sr"];
+function splitSentences(raw){
+  const tokens=raw.split(/(?<=[.!?])\s+(?=[A-Z0-9"'(‘“])/);
+  const merged=[];
+  tokens.forEach(t=>{
+    if(merged.length){
+      const prev=merged[merged.length-1];
+      const m=prev.match(/([A-Za-z&.]+)\.$/);
+      const w=m?m[1].replace(/\./g,""):null;
+      if(w&&ABBR.includes(w)){merged[merged.length-1]=prev+" "+t;return;}
+    }
+    merged.push(t);
+  });
+  return merged;
+}
+const LDSBOOKS="(?:[1-4]\\s)?(?:Nephi|Jacob(?!\\w)|Enos|Jarom|Omni|Words of Mormon|Mosiah|Alma|Helaman|Mormon|Ether|Moroni|D&amp;C|Abraham|Moses)";
+const BIBBOOKS="(?:[1-3]\\s)?(?:Genesis|Exodus|Leviticus|Numbers|Deuteronomy|Joshua|Judges|Ruth|Samuel|Kings|Chronicles|Ezra|Nehemiah|Esther|Job|Psalms?|Proverbs|Ecclesiastes|Isaiah|Jeremiah|Lamentations|Ezekiel|Daniel|Hosea|Joel|Amos|Obadiah|Jonah|Micah|Nahum|Habakkuk|Zephaniah|Haggai|Zechariah|Malachi|Matthew|Mark|Luke|John|Acts|Romans|Corinthians|Galatians|Ephesians|Philippians|Colossians|Thessalonians|Timothy|Titus|Philemon|Hebrews|James|Peter|Jude|Revelation)";
+const REFNUM="\\s\\d+(?::\\d+(?:[\\-–]\\d+)?(?:,\\s?\\d+(?:[\\-–]\\d+)?)*)?";
+const KEYWORDS=/\b(concedes?d?|conceded|disavow(?:s|ed|al)?|undisputed|unfalsifiable|no ancient manuscript|zero ancient witnesses|never recanted|does not match|do not match|no adequate answer|contradict(?:s|ing|ion)?|impossible|no record|officially disavowed)\b/gi;
+function emphasize(t){
+  t=t.replace(new RegExp("\\b("+LDSBOOKS+REFNUM+")","g"),'<span class="ref-lds">$1</span>');
+  t=t.replace(new RegExp("\\b("+BIBBOOKS+REFNUM+")","g"),m=>m.includes("ref-lds")?m:'<span class="ref-bib">'+m+'</span>');
+  t=t.replace(/(^|[\s(—–])'([^'<>]{3,200}?)'(?=$|[\s.,;:)!?—–])/g,'$1<span class="qq">‘$2’</span>');
+  t=t.replace(KEYWORDS,'<b class="kw">$1</b>');
+  t=t.replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').replace(/==(.+?)==/g,'<mark>$1</mark>');
+  return t;
+}
+function rich(raw){return glossify(emphasize(esc(raw)));}
+function paras(raw,per){
+  per=per||2;
+  const s=splitSentences(raw),ps=[];
+  for(let i=0;i<s.length;i+=per)ps.push(s.slice(i,i+per).join(" "));
+  return ps.map(p=>`<p>${rich(p)}</p>`).join("");
+}
+function formatDefense(raw){
+  if(/\(\d+\)/.test(raw)){
+    const parts=raw.split(/\(\d+\)\s*/);
+    const intro=parts.shift().trim();
+    return (intro?`<p class="lead">${rich(intro)}</p>`:"")+
+      `<ol class="pts">${parts.map(p=>`<li>${rich(p.trim())}</li>`).join("")}</ol>`;
+  }
+  return paras(raw,2);
+}
+const SEVRANK={high:0,medium:1,low:2},VRANK={admitted:0,unrefuted:1,contested:2,answered:3};
+DATA.forEach(d=>{d.section=SECMAP[d.category]||"history";});
+const byId={};DATA.forEach(d=>byId[d.id]=d);
+
+const RELATED={
+"kjv-isaiah-block-quotation":["kjv-italics-revision","kjv-translation-errors-copied","deutero-isaiah-problem"],
+"kjv-italics-revision":["kjv-isaiah-block-quotation","kjv-translation-errors-copied","deutero-isaiah-problem"],
+"kjv-translation-errors-copied":["kjv-isaiah-block-quotation","kjv-italics-revision","sermon-on-mount-3-nephi"],
+"deutero-isaiah-problem":["kjv-isaiah-block-quotation","kjv-italics-revision","source-parallels-voth-late-war"],
+"sermon-on-mount-3-nephi":["mark-long-ending-mormon-9","nt-phrasing-in-preexilic-books","kjv-translation-errors-copied"],
+"nt-phrasing-in-preexilic-books":["sermon-on-mount-3-nephi","hebrews-in-alma-12-13","mark-long-ending-mormon-9"],
+"hebrews-in-alma-12-13":["nt-phrasing-in-preexilic-books","sermon-on-mount-3-nephi"],
+"mark-long-ending-mormon-9":["sermon-on-mount-3-nephi","nt-phrasing-in-preexilic-books"],
+"horses-anachronism":["steel-and-ferrous-metallurgy","wheat-barley-silk","no-nephite-material-culture"],
+"steel-and-ferrous-metallurgy":["horses-anachronism","wheat-barley-silk","no-nephite-material-culture"],
+"wheat-barley-silk":["horses-anachronism","steel-and-ferrous-metallurgy","no-nephite-material-culture"],
+"greek-names-timothy-lachoneus":["church-bible-synagogue-terms","nt-phrasing-in-preexilic-books"],
+"church-bible-synagogue-terms":["greek-names-timothy-lachoneus","kjv-isaiah-block-quotation"],
+"another-gospel-canon-closure":["grace-after-all-we-can-do","plain-precious-things-removed"],
+"grace-after-all-we-can-do":["another-gospel-canon-closure","no-postmortem-repentance"],
+"dark-skin-curse":["dna-native-american-origins","trinitarian-monotheism-1830"],
+"fortunate-fall":["original-sin-infant-baptism","grace-after-all-we-can-do"],
+"original-sin-infant-baptism":["fortunate-fall","no-postmortem-repentance"],
+"trinitarian-monotheism-1830":["1837-son-of-edits","unchangeable-god-vs-king-follett"],
+"1837-son-of-edits":["trinitarian-monotheism-1830","unchangeable-god-vs-king-follett","dark-skin-curse"],
+"jacob-polygamy-vs-dc132":["unchangeable-god-vs-king-follett","no-postmortem-repentance"],
+"unchangeable-god-vs-king-follett":["trinitarian-monotheism-1830","1837-son-of-edits","jacob-polygamy-vs-dc132"],
+"no-postmortem-repentance":["jacob-polygamy-vs-dc132","grace-after-all-we-can-do"],
+"born-at-jerusalem":["plain-precious-things-removed"],
+"plain-precious-things-removed":["another-gospel-canon-closure","jst-genesis-50-choice-seer"],
+"no-nephite-material-culture":["no-semitic-inscriptions","dna-native-american-origins","horses-anachronism"],
+"no-semitic-inscriptions":["no-nephite-material-culture","book-of-abraham-papyri"],
+"dna-native-american-origins":["population-growth-impossible","no-nephite-material-culture","dark-skin-curse"],
+"population-growth-impossible":["dna-native-american-origins","no-nephite-material-culture"],
+"translation-seer-stone":["lost-116-pages","book-of-abraham-papyri","witnesses-character-and-vision","ces-letter-gospel-topics-visibility"],
+"lost-116-pages":["translation-seer-stone","gold-plates-never-examined"],
+"witnesses-character-and-vision":["gold-plates-never-examined","translation-seer-stone"],
+"gold-plates-never-examined":["witnesses-character-and-vision","lost-116-pages"],
+"kinderhook-plates":["book-of-abraham-papyri","translation-seer-stone"],
+"source-parallels-voth-late-war":["stylometry-wordprint-studies","deutero-isaiah-problem"],
+"book-of-abraham-papyri":["kinderhook-plates","translation-seer-stone","jst-genesis-50-choice-seer"],
+"stylometry-wordprint-studies":["source-parallels-voth-late-war"],
+"jst-genesis-50-choice-seer":["book-of-abraham-papyri","plain-precious-things-removed","angel-nephi-moroni-name-change"],
+"angel-nephi-moroni-name-change":["first-vision-multiple-accounts","jst-genesis-50-choice-seer"],
+"first-vision-multiple-accounts":["first-vision-revival-dating","angel-nephi-moroni-name-change"],
+"first-vision-revival-dating":["first-vision-multiple-accounts"],
+"quitmormon-resignation-difficulty":["temple-wedding-family-exclusion","byu-honor-code-disaffiliation","grenfell-exit-testimony"],
+"temple-wedding-family-exclusion":["quitmormon-resignation-difficulty","social-costs-shunning"],
+"byu-honor-code-disaffiliation":["quitmormon-resignation-difficulty","social-costs-shunning"],
+"social-costs-shunning":["temple-wedding-family-exclusion","byu-honor-code-disaffiliation","grenfell-exit-testimony"],
+"grenfell-exit-testimony":["quitmormon-resignation-difficulty","social-costs-shunning"],
+"ces-letter-gospel-topics-visibility":["september-six","sec-ensign-peak-settlement","translation-seer-stone"],
+"september-six":["ces-letter-gospel-topics-visibility","dna-native-american-origins"],
+"sec-ensign-peak-settlement":["ces-letter-gospel-topics-visibility","september-six"],
+"nephite-non-levite-priesthood":["temples-outside-jerusalem","hebrews-in-alma-12-13"],
+"temples-outside-jerusalem":["nephite-non-levite-priesthood","endowment-masonic-origins"],
+"christ-remains-in-heaven-acts-3":["sermon-on-mount-3-nephi","mark-long-ending-mormon-9"],
+"joseph-smith-failed-prophecies":["jst-genesis-50-choice-seer","unchangeable-god-vs-king-follett","kinderhook-plates"],
+"word-of-wisdom-dietary-law":["temple-garments-practice","temple-wedding-family-exclusion"],
+"temple-garments-practice":["word-of-wisdom-dietary-law","endowment-masonic-origins","grenfell-exit-testimony"],
+"exaltation-eternal-progression":["unchangeable-god-vs-king-follett","heavenly-mother-doctrine","trinitarian-monotheism-1830"],
+"priesthood-temple-ban-1852-1978":["dark-skin-curse","ces-letter-gospel-topics-visibility"],
+"endowment-masonic-origins":["temple-garments-practice","temple-wedding-family-exclusion","translation-seer-stone"],
+"heavenly-mother-doctrine":["exaltation-eternal-progression","trinitarian-monotheism-1830","premortal-spirit-children"],
+"jesus-firstborn-spirit-attained-godhood":["jesus-lucifer-spirit-brothers","different-jesus-hinckley-1998","trinity-vs-godhead"],
+"jesus-lucifer-spirit-brothers":["jesus-firstborn-spirit-attained-godhood","premortal-spirit-children"],
+"god-exalted-man-flesh-and-bone":["unchangeable-god-vs-king-follett","exaltation-eternal-progression","trinity-vs-godhead"],
+"different-jesus-hinckley-1998":["jesus-firstborn-spirit-attained-godhood","trinity-vs-godhead","another-gospel-canon-closure"],
+"premortal-spirit-children":["heavenly-mother-doctrine","jesus-lucifer-spirit-brothers"],
+"trinity-vs-godhead":["god-exalted-man-flesh-and-bone","trinitarian-monotheism-1830","jesus-firstborn-spirit-attained-godhood"],
+"blood-atonement":["god-exalted-man-flesh-and-bone","prophetic-fallibility-unfalsifiable","grace-after-all-we-can-do"],
+"js-polygamy-wives-count-ages":["js-polyandry","js-polygamy-denials","dc132-emma-destroyed","jacob-polygamy-vs-dc132"],
+"js-polyandry":["js-polygamy-wives-count-ages","js-polygamy-denials"],
+"dc132-emma-destroyed":["js-polygamy-wives-count-ages","eternal-polygamy-today","jacob-polygamy-vs-dc132"],
+"js-polygamy-denials":["js-polygamy-wives-count-ages","nauvoo-expositor-carthage"],
+"eternal-polygamy-today":["dc132-emma-destroyed","temple-wedding-family-exclusion"],
+"mountain-meadows-massacre":["oath-of-vengeance","danites-1838","blood-atonement"],
+"nauvoo-expositor-carthage":["js-polygamy-denials","danites-1838"],
+"oath-of-vengeance":["mountain-meadows-massacre","endowment-masonic-origins"],
+"danites-1838":["mountain-meadows-massacre","nauvoo-expositor-carthage"],
+"policy-of-exclusion-2015":["joseph-smith-failed-prophecies","prophetic-fallibility-unfalsifiable","priesthood-temple-ban-1852-1978"],
+"tithing-enforcement":["sec-ensign-peak-settlement","word-of-wisdom-dietary-law","temple-wedding-family-exclusion"],
+"missionary-program-realities":["quitmormon-resignation-difficulty","byu-honor-code-disaffiliation"],
+"prophetic-fallibility-unfalsifiable":["god-exalted-man-flesh-and-bone","blood-atonement","joseph-smith-failed-prophecies"],
+"abuse-helpline-2022":["sec-ensign-peak-settlement","september-six"]};
+
+const GLOSSARY=[
+{t:"Deutero-Isaiah",d:"Chapters 40–55 of Isaiah, judged by most scholars to be written by an anonymous author during the Babylonian exile (c. 545–539 BC) — long after the historical Isaiah, and after Lehi's claimed departure."},
+{t:"KJV italics",d:"Words printed in italics in the King James Bible to mark text the 1611 translators supplied that has no equivalent in the Hebrew or Greek — a feature of the printed English page only."},
+{t:"brass plates",d:"The record Nephi obtains in Jerusalem c. 600 BC, said to contain the law of Moses and the writings of prophets down to Jeremiah — the Book of Mormon's claimed source for its biblical quotations."},
+{t:"tumbaga",d:"A Mesoamerican gold-copper alloy. Apologists propose the gold plates were tumbaga, which would match the witnesses' ~40–60 lb weight estimates better than solid gold."},
+{t:"loanshift",d:"Applying an existing word to a new, unfamiliar thing (as Spaniards called bison 'cows'). The standard apologetic explanation for horses, wheat, and steel in the Book of Mormon."},
+{t:"stylometry",d:"Statistical analysis of writing style (word frequencies, function words) used to attribute authorship. Applied to the Book of Mormon by both BYU researchers and critics — inconclusively."},
+{t:"JST",d:"The Joseph Smith Translation (1830–33): Smith's revision of the KJV Bible, adding and altering text by revelation. Not supported by any ancient manuscript at its major additions."},
+{t:"seer stone",d:"A brown stone Joseph Smith found c. 1822 and used for treasure-seeking; the same stone he later placed in a hat to dictate the Book of Mormon. Photographed and published by the church in 2015."},
+{t:"Urim and Thummim",d:"Biblical divination objects (Exodus 28:30). Early Mormons used the term loosely for both the Nephite 'interpreters' and Smith's own seer stone."},
+{t:"Gospel Topics Essays",d:"Thirteen essays the church published quietly in 2013–2015 conceding long-disputed historical facts: the seer stone method, multiple First Vision accounts, Smith's polygamy, the papyri mismatch."},
+{t:"FAIR",d:"Faithful Answers, Informed Response — the largest volunteer LDS apologetics organization. Not an official church voice, but the standard source for the best defense of any criticism."},
+{t:"limited geography model",d:"The apologetic thesis that Book of Mormon events occupied only a small region (usually Mesoamerica), not the hemisphere — replacing the traditional reading to blunt archaeological and DNA objections."},
+{t:"haplogroup",d:"A population sharing a common genetic ancestor on the maternal (mtDNA) or paternal (Y) line. Native American haplogroups trace to Siberia/East Asia, not the ancient Near East."},
+{t:"felix culpa",d:"'Happy fault' — the Christian tradition that Adam's fall occasioned a greater good (the Incarnation). Cited by LDS scholars as precedent for 2 Nephi 2's necessary-fall doctrine."},
+{t:"textual criticism",d:"The discipline of reconstructing a text's original wording by comparing its surviving manuscripts — the science behind claims about the long ending of Mark and the KJV's late readings."},
+{t:"endowment",d:"The LDS temple ceremony of covenants, signs, and tokens introduced by Joseph Smith in May 1842 — seven weeks after his Masonic initiation. Its penalty oaths and five points of fellowship were removed in 1990."},
+{t:"temple recommend",d:"The renewable pass required to enter an LDS temple, granted after worthiness interviews covering tithing, the Word of Wisdom, garment wearing, and belief — the gate to the ordinances LDS teaching ties to exaltation."},
+{t:"theosis",d:"The ancient Christian doctrine of deification — believers 'partaking of the divine nature' (2 Peter 1:4). LDS apologists cite it as precedent for exaltation; patristic scholars reply that theosis always preserved the Creator/creature distinction."},
+{t:"exaltation",d:"The highest LDS salvation: becoming a god in the celestial kingdom through temple ordinances and celestial marriage (D&C 132), with eternal increase and divine creative capacity."},
+{t:"sealing",d:"The temple ordinance binding a marriage or family 'for time and all eternity.' A living man may hold sealings to multiple women (serially); a living woman may hold only one."},
+{t:"Journal of Discourses",d:"The 26-volume official-printer collection of 19th-century LDS sermons (1854–1886), including Brigham Young's Adam-God and blood-atonement teachings — now treated by apologists as non-canonical."},
+{t:"King Follett discourse",d:"Joseph Smith's April 1844 funeral sermon — his most famous: God 'was once as we are now, and is an exalted man,' and the Saints must learn 'how to be gods yourselves.'"}];
+
+const PATHS=[
+{id:"strong",name:"The five strongest cases",time:"≈ 20 min",desc:"The claims with the most evidence and the least answer — including the one directly testable translation.",items:["book-of-abraham-papyri","deutero-isaiah-problem","kjv-italics-revision","no-nephite-material-culture","jst-genesis-50-choice-seer"]},
+{id:"fair",name:"What critics get wrong",time:"≈ 20 min",desc:"The famous criticisms that are weaker than advertised — and why honesty about them makes the strong ones credible.",items:["kinderhook-plates","translation-seer-stone","stylometry-wordprint-studies","source-parallels-voth-late-war","witnesses-character-and-vision","born-at-jerusalem"]},
+{id:"prov",name:"The provenance story, in order",time:"≈ 45 min",desc:"From the First Vision to the King Follett discourse — the origin story told through its own documents, chronologically.",items:["first-vision-multiple-accounts","first-vision-revival-dating","angel-nephi-moroni-name-change","witnesses-character-and-vision","gold-plates-never-examined","translation-seer-stone","lost-116-pages","1837-son-of-edits","trinitarian-monotheism-1830","unchangeable-god-vs-king-follett","jacob-polygamy-vs-dc132","book-of-abraham-papyri"]},
+{id:"practice",name:"The practices outsiders ask about",time:"≈ 25 min",desc:"Coffee and tea, the garments, the endowment ceremony, becoming gods, Heavenly Mother, and the priesthood ban — the doctrines and practices, documented from LDS sources and weighed fairly.",items:["word-of-wisdom-dietary-law","temple-garments-practice","endowment-masonic-origins","exaltation-eternal-progression","heavenly-mother-doctrine","priesthood-temple-ban-1852-1978"]},
+{id:"gospel",name:"For gospel conversations",time:"≈ 30 min",desc:"The cases that lead most naturally to the gospel itself — grace against the worthiness treadmill, who God is, and the one testable translation. Read these before your first real conversation.",items:["grace-after-all-we-can-do","exaltation-eternal-progression","unchangeable-god-vs-king-follett","book-of-abraham-papyri","first-vision-multiple-accounts","word-of-wisdom-dietary-law"]},
+{id:"theology",name:"A different God, Jesus, and gospel",time:"≈ 35 min",desc:"The core theology, in order: who they say God is, who they say Jesus is, and what that does to the gospel. The most important path on this site.",items:["god-exalted-man-flesh-and-bone","trinity-vs-godhead","jesus-firstborn-spirit-attained-godhood","jesus-lucifer-spirit-brothers","different-jesus-hinckley-1998","exaltation-eternal-progression","heavenly-mother-doctrine","grace-after-all-we-can-do"]},
+{id:"history-hard",name:"The hardest history",time:"≈ 40 min",desc:"Joseph Smith's polygamy in his own church's words, the Expositor and Carthage, and Mountain Meadows. Heavy — read with the goal of understanding, not ammunition.",items:["js-polygamy-wives-count-ages","js-polyandry","dc132-emma-destroyed","js-polygamy-denials","nauvoo-expositor-carthage","mountain-meadows-massacre","oath-of-vengeance"]}];
+
+const TIMELINE=[
+{y:"1820",t:"The First Vision (as dated in the 1838 account)",p:"Later accounts differ on Smith's age, who appeared, and the revival that prompted it.",id:"first-vision-multiple-accounts"},
+{y:"1823",t:"The angel and the plates",p:"Moroni per later accounts — 'Nephi' in the 1842 published history.",id:"angel-nephi-moroni-name-change"},
+{y:"1824–25",t:"The documented Palmyra revival",p:"The large revival in the church records falls after the vision narrative places it.",id:"first-vision-revival-dating",crit:true},
+{y:"1826",t:"Bainbridge court examination",p:"Smith examined over 'glass-looking' — treasure-seeking with the same stone later used for translation.",id:"translation-seer-stone"},
+{y:"1828",t:"The 116 pages are lost",p:"The replacement comes from a second, pre-existing record covering the same period.",id:"lost-116-pages"},
+{y:"1829",t:"The Book of Mormon dictated",p:"Seer stone in a hat, plates often covered or absent — per the church's 2013 essay.",id:"translation-seer-stone"},
+{y:"1830",t:"The Book of Mormon published",p:"Strict monotheism, no plurality of gods, no exaltation — 1820s Protestant theology throughout.",id:"trinitarian-monotheism-1830"},
+{y:"1830–33",t:"The Joseph Smith Translation",p:"Genesis 50 gains a prophecy of a seer named Joseph, son of Joseph. No manuscript contains it.",id:"jst-genesis-50-choice-seer",crit:true},
+{y:"1832",t:"The Independence temple prophecy",p:"'This generation shall not all pass away until an house shall be built.' It never was.",id:"joseph-smith-failed-prophecies",crit:true},
+{y:"1833",t:"The Word of Wisdom",p:"Given 'not by commandment or constraint' — a worthiness requirement by 1921.",id:"word-of-wisdom-dietary-law"},
+{y:"1835",t:"The Egyptian papyri purchased",p:"Declared 'the writings of Abraham while he was in Egypt.'",id:"book-of-abraham-papyri"},
+{y:"1837",t:"The 'Son of' edits",p:"Four verses in 1 Nephi revised to soften the identification of Jesus as God the Father.",id:"1837-son-of-edits",crit:true},
+{y:"1838",t:"The witnesses depart",p:"All Three Witnesses out of the church by 1838. None ever recant.",id:"witnesses-character-and-vision"},
+{y:"1838",t:"Missouri: the Danites",p:"A secret band expels dissenters; the war ends in expulsion and Haun's Mill.",id:"danites-1838"},
+{y:"1842",t:"Freemasonry and the endowment",p:"Smith made a Master Mason March 15–16; the endowment introduced May 4, with tokens, signs, and penalties.",id:"endowment-masonic-origins",crit:true},
+{y:"1843",t:"The Kinderhook plates",p:"A planted forgery; Smith's comparative identification was wrong but no translation followed.",id:"kinderhook-plates"},
+{y:"1843",t:"D&C 132 dictated",p:"Celestial marriage canonized — with Emma threatened by name: 'she shall be destroyed.'",id:"dc132-emma-destroyed",crit:true},
+{y:"1844",t:"The King Follett discourse",p:"'I will refute that idea' — Smith overturns the theology of his own 1829 text.",id:"unchangeable-god-vs-king-follett",crit:true},
+{y:"1844",t:"'I can only find one' — then the Expositor, then Carthage",p:"Smith publicly denies polygamy in May with 30+ wives; orders the press destroyed in June; killed June 27.",id:"nauvoo-expositor-carthage",crit:true},
+{y:"1852",t:"Polygamy public",p:"D&C 132 canonized doctrine the Book of Mormon calls abominable.",id:"jacob-polygamy-vs-dc132"},
+{y:"1852",t:"The priesthood ban begins",p:"Brigham Young announces the restriction on Black members. It stands 126 years.",id:"priesthood-temple-ban-1852-1978",crit:true},
+{y:"1856–57",t:"The Reformation and blood atonement",p:"Young preaches sins beyond Christ's blood, requiring the sinner's own.",id:"blood-atonement",crit:true},
+{y:"1857",t:"Mountain Meadows",p:"About 120 murdered by militia under local church leadership. The church's own history confirms it.",id:"mountain-meadows-massacre",crit:true},
+{y:"1927",t:"The oath of vengeance removed",p:"After the Smoot hearings exposed it, the vengeance prayer quietly leaves the endowment.",id:"oath-of-vengeance"},
+{y:"1966",t:"The papyri resurface",p:"Identified as standard funerary texts. The one testable translation fails the test.",id:"book-of-abraham-papyri",crit:true},
+{y:"1978",t:"Official Declaration 2",p:"The priesthood ban ends by revelation; the 2013 essay later disavows every justification once taught.",id:"priesthood-temple-ban-1852-1978"},
+{y:"1980–81",t:"Kinderhook tested; church publishes the result",p:"19th-century forgery confirmed in the church's own magazine.",id:"kinderhook-plates"},
+{y:"1981",t:"'White' becomes 'pure'",p:"2 Nephi 30:6 edited; racial chapter headings follow in 2010.",id:"dark-skin-curse",crit:true},
+{y:"1990",t:"Penalty oaths removed from the endowment",p:"The throat-and-bowel penalty mimes and five points of fellowship quietly dropped.",id:"endowment-masonic-origins",crit:true},
+{y:"1993",t:"The September Six",p:"Coordinated discipline of scholars and feminists chills Mormon studies.",id:"september-six"},
+{y:"2002–03",t:"The DNA publications",p:"Murphy and Southerton publish; discipline follows.",id:"dna-native-american-origins"},
+{y:"2006",t:"'Principal ancestors' becomes 'among the ancestors'",p:"The Book of Mormon's printed introduction quietly edited.",id:"dna-native-american-origins",crit:true},
+{y:"2013–15",t:"The Gospel Topics Essays",p:"The church concedes the stone, the accounts, the papyri — in essays rolled out quietly.",id:"ces-letter-gospel-topics-visibility"},
+{y:"2019",t:"Civil-wedding penalty removed",p:"The one-year wait after a civil ceremony ends, citing excluded families.",id:"temple-wedding-family-exclusion"},
+{y:"2023",t:"The SEC settlement",p:"$5M for two decades of concealed holdings behind shell LLCs.",id:"sec-ensign-peak-settlement"}];
+
+/* ---------- state ---------- */
+const store={
+  get read(){try{return new Set(JSON.parse(localStorage.getItem("wb_read")||"[]"))}catch(e){return new Set()}},
+  markRead(id){const r=this.read;r.add(id);localStorage.setItem("wb_read",JSON.stringify([...r]))},
+  get pins(){try{return JSON.parse(localStorage.getItem("wb_pins")||"[]")}catch(e){return[]}},
+  set pins(v){localStorage.setItem("wb_pins",JSON.stringify(v))}
+};
+const state={view:"overview",section:"all",verdict:null,severity:null,q:"",sel:null,caseId:null,pathId:null};
+
+const $=s=>document.querySelector(s);
+const esc=s=>(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+function hl(text,phrases){let out=esc(text);(phrases||[]).forEach(p=>{const e=esc(p).replace(/[.*+?^${}()|[\]\\]/g,"\\$&");out=out.replace(new RegExp(e,"gi"),m=>"<mark>"+m+"</mark>");});return out;}
+function glossify(escapedText){
+  let out=escapedText;
+  GLOSSARY.forEach(g=>{
+    const e=esc(g.t).replace(/[.*+?^${}()|[\]\\]/g,"\\$&");
+    let done=false;
+    out=out.replace(new RegExp("\\b("+e+")\\b","i"),(m,w)=>{if(done)return m;done=true;
+      return '<span class="g" tabindex="0">'+w+'<span class="gt"><b>'+esc(g.t)+'</b> — '+esc(g.d)+'</span></span>';});
+  });
+  return out;
+}
+function findWhy(d,cite){
+  const key=cite.replace(/–/g,"-").replace(/\s*\(.*\)\s*/g,"").trim();
+  const m=key.match(/^([1-4]?\s?[A-Za-z&; ]+?)\s+(\d+)/);
+  const frag=m?(m[1].trim()+" "+m[2]):key;
+  const sentences=(d.claim+" "+d.rationale).replace(/–/g,"-").split(/(?<=[.!?])\s+/);
+  const hit=sentences.find(s=>s.includes(frag));
+  return hit?hit.replace(/-/g,"–"):null;
+}
+function extUrl(cite){
+  const c=cite.replace(/–/g,"-").replace(/\s*\(.*\)\s*/g,"").trim();
+  const BOMB={"1 nephi":"1-ne","2 nephi":"2-ne","jacob":"jacob","enos":"enos","jarom":"jarom","omni":"omni","words of mormon":"w-of-m","mosiah":"mosiah","alma":"alma","helaman":"hel","3 nephi":"3-ne","4 nephi":"4-ne","mormon":"morm","ether":"ether","moroni":"moro"};
+  const dcm=c.match(/^D&C\s+(\d+)/i);
+  if(dcm)return "https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/"+dcm[1]+"?lang=eng";
+  if(/^official declaration\s*2/i.test(c))return "https://www.churchofjesuschrist.org/study/scriptures/dc-testament/od/2?lang=eng";
+  const abm=c.match(/^Abraham\s+(\d+)/i);
+  if(abm)return "https://www.churchofjesuschrist.org/study/scriptures/pgp/abr/"+abm[1]+"?lang=eng";
+  const mm=c.match(/^([1-4]?\s?[A-Za-z ]+?)\s+(\d+)/);
+  if(mm){const b=mm[1].trim().toLowerCase();
+    if(BOMB[b])return "https://www.churchofjesuschrist.org/study/scriptures/bofm/"+BOMB[b]+"/"+mm[2]+"?lang=eng";
+    if(/^jst/i.test(c))return "https://www.churchofjesuschrist.org/study/scriptures/jst?lang=eng";
+    return "https://www.biblegateway.com/passage/?search="+encodeURIComponent(c)+"&version=KJV";}
+  return "https://www.churchofjesuschrist.org/study/scriptures?lang=eng";
+}
+function toast(msg){const t=$("#toast");t.textContent=msg;t.classList.add("show");clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove("show"),1800);}
+
+/* ---------- filtered list (ordered) ---------- */
+function filtered(){
+  const arr=DATA.filter(d=>
+    (state.section==="all"||d.section===state.section)&&
+    (!state.verdict||d.verdict===state.verdict)&&
+    (!state.severity||d.severity===state.severity)&&
+    (!state.q||(d.title+" "+d.claim+" "+(d.response||"")).toLowerCase().includes(state.q))
+  );
+  if(state.section==="peculiar")return arr.sort((a,b)=>PORDER.indexOf(a.id)-PORDER.indexOf(b.id));
+  return arr.sort((a,b)=>(b.featured?1:0)-(a.featured?1:0)||SEVRANK[a.severity]-SEVRANK[b.severity]||VRANK[a.verdict]-VRANK[b.verdict]);
+}
+
+/* ---------- sidebar ---------- */
+function renderNav(){
+  const secCount={};DATA.forEach(d=>secCount[d.section]=(secCount[d.section]||0)+1);
+  const items=[["overview","Overview",DATA.length],...Object.entries(SECTIONS).filter(([k])=>secCount[k]).map(([k,l])=>["sec:"+k,l,secCount[k]])];
+  const views=[["core","The heart of it","3"],["share","Sharing the gospel","✝"],["paths","Guided paths",PATHS.length],["timeline","Timeline","1820–2023"],["glossary","Terms explained",GLOSSARY.length]];
+  const cur=state.view==="overview"&&state.section!=="all"?"sec:"+state.section:state.view;
+  $("#nav").innerHTML=items.map(([k,l,c])=>`<a class="${cur===k?"on":""}" data-k="${k}">${l} <span class="cnt">${c}</span></a>`).join("")
+    +`<h5>Views</h5>`+views.map(([k,l,c])=>`<a class="${cur===k?"on":""}" data-k="${k}">${l} <span class="cnt">${c}</span></a>`).join("");
+  document.querySelectorAll("#nav a").forEach(a=>a.addEventListener("click",()=>{
+    const k=a.dataset.k;
+    if(k.startsWith("sec:")){state.view="overview";state.section=k.slice(4);state.caseId=null;}
+    else if(k==="overview"){state.view="overview";state.section="all";state.caseId=null;}
+    else{state.view=k;state.caseId=null;}
+    render();
+  }));
+  const read=store.read.size;
+  $("#sideprog").innerHTML=`${read} of ${DATA.length} cases read<div class="pbar"><i style="width:${Math.round(read/DATA.length*100)}%"></i></div>
+    <button id="themebtn" style="margin-top:14px;background:none;border:1px solid var(--line2);color:var(--muted);border-radius:8px;padding:5px 12px;font-size:.72rem;cursor:pointer">◐ ${document.documentElement.dataset.theme==="light"?"Dark":"Light"} mode</button>`;
+  $("#themebtn").addEventListener("click",()=>{
+    const cur=document.documentElement.dataset.theme==="light"?"dark":"light";
+    document.documentElement.dataset.theme=cur;
+    localStorage.setItem("wb_theme",cur);
+    renderNav();
+  });
+}
+
+/* ---------- preview ---------- */
+function renderPreview(){
+  const el=$("#preview");
+  const d=state.sel?byId[state.sel]:null;
+  if(!d){el.innerHTML=`<div class="empty">Hover or select a case<br>to preview it here.<br><br><kbd>J</kbd>/<kbd>K</kbd> to move · <kbd>↵</kbd> to open</div>`;return;}
+  const rel=(RELATED[d.id]||[]).filter(id=>byId[id]);
+  el.innerHTML=`<span class="badge v-${d.verdict}">${VLABEL[d.verdict]}</span>
+    <h5 class="pt">${esc(d.title)}</h5>
+    <p>${esc(d.claim.split(/(?<=\.)\s/)[0])}</p>
+    <button class="go" data-open="${d.id}">Open case →</button>
+    <h6>Connected cases</h6>
+    ${rel.map(id=>`<button class="rr" data-open="${id}">${esc(byId[id].title)}</button>`).join("")||'<p style="font-size:.75rem">—</p>'}`;
+  el.querySelectorAll("[data-open]").forEach(b=>b.addEventListener("click",()=>openCase(b.dataset.open)));
+}
+
+/* ---------- overview ---------- */
+function renderOverview(){
+  const items=filtered();
+  const anyF=state.verdict||state.severity||state.q||state.section!=="all";
+  const visible=new Set(items.map(d=>d.id));
+  const read=store.read;
+  const VDESC={admitted:"The church's own publications concede these facts — cite them from their sources alone",unrefuted:"No adequate answer exists — or the best answers concede the point",contested:"A serious rebuttal exists; both sides shown",answered:"The defense holds — included so nothing is cherry-picked"};
+  const counts={};DATA.forEach(d=>counts[d.verdict]=(counts[d.verdict]||0)+1);
+  const col=v=>{
+    const cls=v==="admitted"?"ad":v==="unrefuted"?"un":v==="contested"?"co":"an";
+    const src=state.section==="all"?DATA:DATA.filter(d=>d.section===state.section);
+    const groups=["high","medium","low"].map(s=>{
+      const g=src.filter(d=>d.verdict===v&&d.severity===s).sort((a,b)=>(b.featured?1:0)-(a.featured?1:0));
+      if(!g.length)return "";
+      return `<div class="vgroup"><h6>${s==="high"?"Major impact":s==="medium"?"Moderate impact":"Minor impact"} · ${g.length}</h6>`+
+        g.map(d=>`<button class="vt ${state.sel===d.id?"sel":""}${visible.has(d.id)?"":" dimmed"}" data-id="${d.id}">
+          <h5>${esc(d.title)}</h5>
+          <span class="m">${read.has(d.id)?'<span class="rd">✓ read</span>':""}${d.featured?'<span class="star">★ strongest evidence</span>':""}<span>${SECTIONS[d.section]}</span></span>
+        </button>`).join("")+`</div>`;
+    }).join("");
+    const cnt=src.filter(d=>d.verdict===v).length;
+    return `<div class="vcol ${cls}"><header><span class="n">${cnt}</span><span class="t">${VLABEL[v]}</span><div class="d">${VDESC[v]}</div></header>${groups}</div>`;
+  };
+  if(state.section==="peculiar"){
+    const items2=filtered();
+    $("#main").innerHTML=`
+      <div class="tiles">
+        <button class="tile on" data-v=""><div class="v">${DATA.filter(d=>d.section==="peculiar").length}</div><div class="l">Ranked entries</div></button>
+        <button class="tile t-un" data-v=""><div class="v" style="font-size:1rem;padding-top:8px">Most jaw-dropping first</div><div class="l">how this list is sorted</div></button>
+      </div>
+      <h4 class="bt">Strange to outsiders — practices and institutional behavior, ranked by how surprising they are to a non-Mormon. Not core theology; each is documented and steelmanned like everything else.</h4>
+      <div class="vcol" style="max-width:760px">${items2.map((d,i)=>`
+        <button class="vt ${state.sel===d.id?"sel":""}" data-id="${d.id}">
+          <h5><span style="font-family:var(--mono);color:var(--dim);font-size:.8rem;margin-right:8px">${String(i+1).padStart(2,"0")}</span>${esc(d.title)}</h5>
+          <span class="m">${read.has(d.id)?'<span class="rd">✓ read</span>':""}<span class="badge v-${d.verdict}">${VLABEL[d.verdict]}</span><span>impact: ${SEVLABEL[d.severity]}</span></span>
+        </button>`).join("")}</div>
+      <p class="methodfoot">Ranking is editorial: how startling the item is to someone outside the tradition, most to least. Verdicts still grade only the factual claim.</p>`;
+    document.querySelectorAll(".vt").forEach(c=>{
+      c.addEventListener("mouseenter",()=>{state.sel=c.dataset.id;renderPreview();});
+      c.addEventListener("click",()=>openCase(c.dataset.id));
+    });
+    return;
+  }
+  $("#main").innerHTML=`
+    <div class="tiles">
+      <button class="tile ${!state.verdict?"on":""}" data-v=""><div class="v">${DATA.length}</div><div class="l">Claims</div></button>
+      <button class="tile t-ad ${state.verdict==="admitted"?"on":""}" data-v="admitted"><div class="v">${counts.admitted||0}</div><div class="l">Admitted</div></button>
+      <button class="tile t-un ${state.verdict==="unrefuted"?"on":""}" data-v="unrefuted"><div class="v">${counts.unrefuted||0}</div><div class="l">Unrefuted</div></button>
+      <button class="tile t-co ${state.verdict==="contested"?"on":""}" data-v="contested"><div class="v">${counts.contested||0}</div><div class="l">Contested</div></button>
+      <button class="tile t-an ${state.verdict==="answered"?"on":""}" data-v="answered"><div class="v">${counts.answered||0}</div><div class="l">Answered</div></button>
+    </div>
+    <h4 class="bt">${state.section==="all"?"Every claim, by verdict":SECTIONS[state.section]+" — by verdict"}${anyF?` · <button id="clearf" style="background:none;border:0;color:var(--gold);cursor:pointer;text-decoration:underline;font-size:.72rem;letter-spacing:0;text-transform:none">${items.length} match filters — clear</button>`:""}</h4>
+    <div class="vwall">${col("admitted")}${col("unrefuted")}${col("contested")}${col("answered")}</div>
+    <p class="methodfoot">Steelman rules: every claim carries the best published defense; weak criticisms are marked answered; sections are judged by different evidence standards (manuscripts · scripture · physical evidence · policy+testimony). Compiled July 2026 from published sources — verify citations at the links before quoting. Verdicts are editorial judgments about the public argument.</p>`;
+  document.querySelectorAll(".tile").forEach(t=>t.addEventListener("click",()=>{state.verdict=t.dataset.v||null;render();}));
+  document.querySelectorAll(".vt").forEach(c=>{
+    c.addEventListener("mouseenter",()=>{state.sel=c.dataset.id;renderPreview();});
+    c.addEventListener("click",()=>openCase(c.dataset.id));
+  });
+  const cf=$("#clearf");if(cf)cf.addEventListener("click",()=>{state.verdict=null;state.severity=null;state.q="";state.section="all";render();});
+}
+
+/* ---------- case ---------- */
+function openCase(id,fromPath){
+  state.caseId=id;state.sel=id;state.view="case";
+  if(!fromPath)state.pathId=state.pathId; // keep path context if navigating within
+  store.markRead(id);
+  render();
+  window.scrollTo({top:0});
+}
+function renderCase(){
+  const d=byId[state.caseId];if(!d){state.view="overview";return renderOverview();}
+  const list=filtered();const idx=list.findIndex(x=>x.id===d.id);
+  const path=state.pathId?PATHS.find(p=>p.id===state.pathId):null;
+  let nextInPath=null;
+  if(path){const i=path.items.indexOf(d.id);if(i>-1&&i<path.items.length-1)nextInPath=path.items[i+1];}
+  const comp=d.comparison?`
+    <div class="dlab">Side by side</div>
+    <div class="compare2">
+      <div class="pane bom"><div class="ref">${esc(d.comparison.left.ref)}</div><div class="scripture">${hl(d.comparison.left.text,d.comparison.hl)}</div></div>
+      <div class="pane bible"><div class="ref">${esc(d.comparison.right.ref)}</div><div class="scripture">${hl(d.comparison.right.text,d.comparison.hl)}</div></div>
+    </div>${d.comparison.note?`<p class="cnote">${esc(d.comparison.note)}</p>`:""}`:"";
+  const chipHtml=(arr)=>arr.map(p=>{
+    const v=VERSES[p];
+    return `<button class="chip ${v?"":"ext"}" data-cite="${esc(p)}" ${v?"":`data-ext="${extUrl(p)}"`}>${esc(p)}</button>`;
+  }).join("");
+  const passages=(d.bom.length||d.bible.length)?`
+    <aside class="claimside">
+      <div class="dlab" style="margin-top:0">The verses behind this claim</div>
+      <p class="sidenote">Every reference here is cited by this specific claim — click one to read it in place.</p>
+      <div class="passcols">
+        ${d.bom.length?`<div><h6 class="h-bom">Book of Mormon / LDS scripture</h6><div class="chips" data-side="bom">${chipHtml(d.bom)}</div></div>`:""}
+        ${d.bible.length?`<div><h6 class="h-bib">Bible</h6><div class="chips" data-side="bib">${chipHtml(d.bible)}</div></div>`:""}
+        <div id="versebox"></div>
+      </div>
+    </aside>`:"";
+  const rel=(RELATED[d.id]||[]).filter(x=>byId[x]);
+  $("#main").innerHTML=`
+    <div class="backbar">
+      <button class="bk" id="back">← ${path?esc(path.name):"All cases"}</button>
+      <span style="font-size:.72rem;color:var(--dim)">${idx+1>0?`Case ${idx+1} of ${list.length}`:""} · <kbd>←</kbd>/<kbd>→</kbd> to move</span>
+      ${nextInPath?`<button class="pathnext" id="pathnext">Next in path →</button>`:""}
+    </div>
+    <div class="case">
+      <div class="meta"><span class="badge v-${d.verdict}">${VLABEL[d.verdict]} ${info(TIPS.verdict[d.verdict])}</span><span class="tag">${SECTIONS[d.section]}</span><span class="tag">${CATS[d.category]} ${info(CATDESC[d.category])}</span><span class="tag">impact: ${SEVLABEL[d.severity]} ${info(TIPS.impact)}</span>${d.featured?`<span class="tag" style="border-color:var(--gold);color:var(--gold)">★ strongest evidence ${info(TIPS.strongest)}</span>`:""}</div>
+      <h2>${esc(d.title)}</h2>
+      <div class="claimrow${passages?"":" solo"}">
+        <div><div class="dlab red" style="margin-top:0">The claim</div><div class="claim">${paras(d.claim)}</div></div>
+        ${passages}
+      </div>
+      ${comp}
+      <div class="dlab blue">The best defense, steelmanned</div>
+      <div class="defense">${formatDefense(d.response)}${d.responseSource?`<div class="dsrc">Source: ${d.responseSource.url?`<a href="${esc(d.responseSource.url)}" target="_blank" rel="noopener">${esc(d.responseSource.name)}</a>`:esc(d.responseSource.name)}</div>`:""}</div>
+      <div class="dlab">The verdict</div>
+      <div class="vbox v-${d.verdict}"><b class="vb">${VLABEL[d.verdict]}</b><span>${paras(d.rationale)}</span></div>
+      <div class="dlab">Why this matters</div>
+      <div class="why">${paras(WHYMAP[d.category]||"")}<p class="wtail">${esc(WHYTAIL[d.verdict])}</p></div>
+      ${TALK[d.category]?`<div class="dlab" style="color:var(--green)">Bringing it up in conversation</div>
+      <div class="talk">${paras(TALK[d.category])}</div>`:""}
+      <details class="srcdet"><summary>Connected cases — ${rel.length} related claim${rel.length===1?"":"s"}</summary>
+      <div class="relrow" style="margin-top:12px">${rel.map(id=>`<button data-open="${id}">${esc(byId[id].title)}</button>`).join("")||"—"}</div></details>
+      <details class="srcdet"><summary>Documented by — ${d.sources.length} source${d.sources.length>1?"s":""} (click to expand)</summary>
+      <ul class="srcs">${d.sources.map(s=>`<li><span class="sb sb-${s.type}">${s.type}</span><span>${s.url?`<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)}</a>`:esc(s.name)}</span></li>`).join("")}</ul></details>
+    </div>`;
+  $("#back").addEventListener("click",()=>{state.view=path?"paths":"overview";state.caseId=null;render();});
+  if(nextInPath)$("#pathnext").addEventListener("click",()=>openCase(nextInPath));
+  document.querySelectorAll(".relrow [data-open]").forEach(b=>b.addEventListener("click",()=>openCase(b.dataset.open)));
+  document.querySelectorAll(".chip").forEach(ch=>ch.addEventListener("click",()=>{
+    if(ch.dataset.ext){window.open(ch.dataset.ext,"_blank");return;}
+    const cite=ch.dataset.cite;const v=VERSES[cite];
+    const box=$("#versebox");
+    const already=ch.classList.contains("open");
+    document.querySelectorAll(".chip.open").forEach(x=>x.classList.remove("open"));
+    if(already){box.innerHTML="";return;}
+    ch.classList.add("open");
+    const side=ch.closest("[data-side]")?ch.closest("[data-side]").dataset.side:"";
+    const why=findWhy(d,cite);
+    const whyHtml=why?`<b>Why it's cited:</b> ${esc(why)}`:(side==="bom"?"<b>Role:</b> this is the Book of Mormon passage the claim examines.":"<b>Role:</b> this is the biblical standard the claim measures against.");
+    box.innerHTML=`<div class="versebox"><div class="vr"><span>${esc(cite)}</span><button data-close>✕ close</button></div><div class="vtext">${v.verses.map(x=>`<span class="vnum">${x.v}</span>${esc(x.t)} `).join("")}</div><div class="vwhy">${whyHtml}</div></div>`;
+    box.querySelector("[data-close]").addEventListener("click",()=>{box.innerHTML="";document.querySelectorAll(".chip.open").forEach(x=>x.classList.remove("open"));});
+  }));
+  renderNav();renderPreview();
+}
+
+/* ---------- paths ---------- */
+function renderPaths(){
+  const read=store.read;
+  $("#main").innerHTML=`<div class="viewhead"><h2>Guided paths</h2><p>Curated routes through the corpus. Progress is saved in your browser; inside a path, each case offers "Next in path."</p></div>`+
+    PATHS.map(p=>{
+      const done=p.items.filter(i=>read.has(i)).length;
+      return `<div class="pathcard"><h3>${esc(p.name)}</h3><p class="pd">${esc(p.desc)} · ${p.time} · ${done}/${p.items.length} read</p>
+      <ol>${p.items.map(i=>`<li class="${read.has(i)?"done":""}">${esc(byId[i].title)}</li>`).join("")}</ol>
+      <button class="start" data-path="${p.id}">${done===0?"Start path":done>=p.items.length?"Revisit path":"Continue path"} →</button></div>`;
+    }).join("");
+  document.querySelectorAll("[data-path]").forEach(b=>b.addEventListener("click",()=>{
+    const p=PATHS.find(x=>x.id===b.dataset.path);state.pathId=p.id;
+    const read=store.read;const next=p.items.find(i=>!read.has(i))||p.items[0];
+    openCase(next,true);
+  }));
+}
+
+/* ---------- timeline ---------- */
+function renderTimeline(){
+  $("#main").innerHTML=`<div class="viewhead"><h2>The revision record</h2><p>1820–2023: the claims, the edits, and the concessions in chronological order. Red dots mark documented revisions or external findings.</p></div>
+  <div class="tlwrap">${TIMELINE.map(e=>`
+    <div class="tlev ${e.crit?"crit":""}"><span class="yr">${e.y}</span><h4>${esc(e.t)}</h4><p>${esc(e.p)}</p>${e.id&&byId[e.id]?`<button class="jump" data-open="${e.id}">→ ${esc(byId[e.id].title)}</button>`:""}</div>`).join("")}</div>`;
+  document.querySelectorAll(".jump").forEach(b=>b.addEventListener("click",()=>openCase(b.dataset.open)));
+}
+
+/* ---------- glossary ---------- */
+function renderGlossary(){
+  $("#main").innerHTML=`<div class="viewhead"><h2>Terms explained</h2><p>The special terms this subject runs on, in plain English. They're also underlined with a dotted line throughout the case files — hover any of them for the definition right there.</p></div>
+  <div class="glossgrid">${GLOSSARY.map(g=>`<div class="glosscard"><b>${esc(g.t)}</b><p>${esc(g.d)}</p></div>`).join("")}</div>`;
+}
+
+/* ---------- the heart of it ---------- */
+function renderCore(){
+  const link=id=>byId[id]?`<button class="corelink" data-open="${id}">${esc(byId[id].title)} →</button>`:"";
+  $("#main").innerHTML=`
+  <div class="viewhead"><h2>The heart of it: a different God, a different Jesus, a different gospel</h2>
+  <p>If you read nothing else on this site, read this page. Mormonism's problems are not a pile of historical trivia — they converge on three foundational differences that decide everything. This is why the theology matters, in plain terms.</p></div>
+
+  <div class="pathcard"><h3 style="color:var(--red)">1 · A different God</h3>
+  <p style="font-size:.92rem;line-height:1.75">Mormonism teaches that God the Father is <b>an exalted man</b> — a being of flesh and bone (D&C 130:22) who <b>“was once as we are now”</b> (King Follett discourse, still quoted approvingly in the church's own <i>Becoming Like God</i> essay), one god among many, who <i>organized</i> pre-existing matter rather than creating everything from nothing. The Bible's God is categorically different: <span class="qq">‘from everlasting to everlasting, thou art God’</span> (Psalm 90:2), <span class="qq">‘God is not a man’</span> (Numbers 23:19), <span class="qq">‘before me there was no God formed, neither shall there be after me’</span> (Isaiah 43:10). <b>Why it matters:</b> worship offered to a different being is not worship of God, however sincere. This is the first commandment issue, not a technicality.</p>
+  <div class="corelinks">${link("god-exalted-man-flesh-and-bone")}${link("trinity-vs-godhead")}${link("unchangeable-god-vs-king-follett")}${link("exaltation-eternal-progression")}</div></div>
+
+  <div class="pathcard"><h3 style="color:var(--red)">2 · A different Jesus</h3>
+  <p style="font-size:.92rem;line-height:1.75">In LDS teaching, Jesus is the <b>firstborn spirit child</b> of heavenly parents — the literal elder brother of every human <i>and of Lucifer</i> (the church's own 2007 statement confirms the shared spirit-parentage) — a being of our species who <b>attained</b> godhood. The Bible's Jesus is the eternal Creator who was never made: <span class="qq">‘All things were made through him, and without him was not any thing made that was made’</span> (John 1:3), <span class="qq">‘he is before all things’</span> (Colossians 1:17), <span class="qq">‘the same yesterday, today, and forever’</span> (Hebrews 13:8). <b>Why it matters:</b> only an infinite, uncreated Christ can carry infinite sin. A created elder brother who climbed to divinity cannot save anyone — which is why Paul treats <span class="qq">‘another Jesus’</span> as a salvation issue (2 Corinthians 11:4), not a difference of opinion.</p>
+  <div class="corelinks">${link("jesus-firstborn-spirit-attained-godhood")}${link("jesus-lucifer-spirit-brothers")}${link("different-jesus-hinckley-1998")}${link("blood-atonement")}</div></div>
+
+  <div class="pathcard"><h3 style="color:var(--red)">3 · A different gospel</h3>
+  <p style="font-size:.92rem;line-height:1.75">The LDS gospel is grace <span class="qq">‘after all we can do’</span> (2 Nephi 25:23) — ordinances, temple worthiness, covenants kept, interviews passed, exaltation earned. The biblical gospel is the exact reverse of that order: <span class="qq">‘by grace are ye saved through faith… not of works, lest any man should boast’</span> (Ephesians 2:8–9); God <span class="qq">‘justifieth the ungodly’</span> (Romans 4:5); <span class="qq">‘It is finished’</span> (John 19:30). <b>Why it matters:</b> this is the exact error Paul pronounced anathema in Galatians 1:8 — a gospel of grace-plus-requirements. It is also Mormonism's pastoral wound: millions of sincere people on a worthiness treadmill that never lets them rest. The good news you carry is that <b>God's love has no worthiness interview</b>.</p>
+  <div class="corelinks">${link("grace-after-all-we-can-do")}${link("another-gospel-canon-closure")}${link("no-postmortem-repentance")}${link("word-of-wisdom-dietary-law")}</div></div>
+
+  <div class="pathcard"><h3>What follows from these three</h3>
+  <p class="pd" style="margin-bottom:10px">Everything else on this site — the Book of Abraham papyri, the failed prophecies, the changing visions — serves these three. The historical evidence answers <i>“why should I question the messenger?”</i>; these three answer <i>“what was wrong with the message?”</i> Lead with whichever your friend can hear, but always land here — because here is where the real Jesus is offered.</p>
+  <button class="start" data-goto="share">How to have these conversations →</button></div>`;
+  $("#main").querySelectorAll(".corelink,[data-open]").forEach(b=>{if(b.dataset.open)b.addEventListener("click",()=>openCase(b.dataset.open));});
+  const g=$("#main").querySelector("[data-goto]");
+  if(g)g.addEventListener("click",()=>{state.view="share";render();});
+}
+
+/* ---------- sharing the gospel ---------- */
+function renderShare(){
+  $("#main").innerHTML=`
+  <div class="viewhead"><h2>Sharing the gospel with Mormon friends</h2>
+  <p>This whole site exists for one reason: not to win arguments, but to help real people meet the real Jesus. "The Lord's servant must not be quarrelsome but kind to everyone… correcting his opponents with gentleness" (2 Timothy 2:24–25). What follows is built from documented ex-Mormon conversions and the methods of ministries that have done this for decades.</p></div>
+
+  <div class="pathcard"><h3>What actually brought ex-Mormons to Christ</h3>
+  <p class="pd" style="margin-bottom:8px">The recurring patterns across published testimonies, ranked by how often they appear:</p>
+  <ol style="font-size:.88rem;color:var(--muted);line-height:1.7;margin:6px 0 0;padding-left:20px">
+    <li><b style="color:var(--ink)">Reading the New Testament for itself — without the LDS lens.</b> The single most common catalyst. A missionary in Orlando tried to convert a Baptist pastor; the pastor fed him, shared the gospel, and challenged him to "read the Bible as a child." Eighteen months of reading the New Testament later, the missionary surrendered to Christ knowing it would cost him everything. His mother — a tenured BYU professor — re-read the New Testament with the family, "saw the difference between their Mormon Christ and the biblical Jesus," and resigned from BYU on 3/16 in honor of John 3:16 (Lynn Wilder, <i>Unveiling Grace</i>).</li>
+    <li><b style="color:var(--ink)">Grace answering worthiness exhaustion.</b> The recommend-interview treadmill produces a documented spiritual fatigue. The message that lands: complete forgiveness not conditional on ongoing performance.</li>
+    <li><b style="color:var(--ink)">Facts crack the shelf — a loving Christian decides where they land.</b> The CES Letter gets people <i>out</i>, but the default landing after an "all true or all false" faith collapses is atheism, not Christ. The two-part structure repeats in testimony after testimony: evidence broke the shelf, and <i>a specific Christian who loved them without conditions</i> carried them to Jesus instead of to nothing.</li>
+    <li><b style="color:var(--ink)">Being loved without an agenda.</b> Mormon culture knows friendship-with-an-agenda ("friendshipping"). A friendship that survives their doubts — and survives their leaving — is startling, because their community's version is often conditional.</li>
+  </ol>
+  <p class="pd" style="margin-top:10px"><b style="color:var(--ink)">The one sentence to say early, before any crisis:</b> <i>"If Mormonism turned out not to be true, that wouldn't mean Jesus isn't."</i> Said in advance, that sentence routes a future faith crisis toward Christ instead of atheism.</p></div>
+
+  <div class="pathcard"><h3>The method: questions, their sources, and patience</h3>
+  <ol style="font-size:.88rem;color:var(--muted);line-height:1.7;margin:6px 0 0;padding-left:20px">
+    <li><b style="color:var(--ink)">Witness Christ — don't debate Mormonism.</b> Emphasize Jesus as substitute, not merely example. Compassion over confrontation: see them as burdened, not as enemies.</li>
+    <li><b style="color:var(--ink)">Ask questions instead of making statements</b> (the Columbo method): "What do you mean by that?" forces definitions; "How did you come to that conclusion?" shifts the burden of proof — crucial against testimony-as-trump-card.</li>
+    <li><b style="color:var(--ink)">Learn "Mormonese."</b> Grace, salvation, eternal life, atonement — shared words, different meanings. Define terms before arguing about them, or you'll agree loudly while meaning opposite things.</li>
+    <li><b style="color:var(--ink)">Cite only their own sources.</b> Gospel Topics Essays, the Joseph Smith Papers, church manuals. Never use a claim you can't document from LDS sources — one overstated attack discredits ten true ones and feeds the persecution narrative.</li>
+    <li><b style="color:var(--ink)">Never mock what they hold sacred.</b> The 2003 Temple Square street preachers who desecrated garments were denounced by 23 evangelical ministers — and every yelled slogan functions as a testimony meeting for the Mormon hearing it, because their doctrine codes opposition as evidence of truth.</li>
+    <li><b style="color:var(--ink)">Plant one seed per conversation, and keep the friendship no matter what.</b> Exits take years. If your friendship is conditional on agreement, you're offering the same deal the church does.</li>
+    <li><b style="color:var(--ink)">Pray.</b> "No one can come to me unless the Father who sent me draws him" (John 6:44).</li>
+  </ol></div>
+
+  <div class="pathcard"><h3>Hosting the missionaries</h3>
+  <p class="pd" style="margin-bottom:10px">Open the door. They're 18–20, homesick, on tiny budgets — <b>feed them</b>. You may be the only committed Christian who ever shares a meal with them, and more than one famous exit began with a pastor who fed a missionary the gospel instead of an argument. They teach five lessons from <i>Preach My Gospel</i>; here is your best move for each:</p>
+  <div style="overflow-x:auto"><table class="gtab">
+    <tr><th>Their lesson</th><th>What it claims</th><th>Your best question</th></tr>
+    <tr><td>1 · Restoration</td><td>Total apostasy after the apostles; church restored through Joseph Smith; pray for a feeling about the Book of Mormon</td><td>"Jesus said the gates of hell would not prevail against his church (Matthew 16:18). If the church totally failed for 1,700 years, was Jesus wrong?" On praying for a feeling: "I test messages against Scripture (Acts 17:11; Galatians 1:8) — would you test it that way with me?"</td></tr>
+    <tr><td>2 · Plan of Salvation</td><td>Premortal spirits; three degrees of glory; nearly everyone gets a kingdom</td><td>"Scripture says we become God's children by adoption (Romans 8:15; John 1:12) — doesn't that mean we weren't naturally his children before? And if almost everyone gets a kingdom of glory… what did Jesus save us from?"</td></tr>
+    <tr><td>3 · The Gospel</td><td>Faith, repentance, baptism by LDS authority, enduring to the end; grace "after all we can do"</td><td>The most fruitful question in this work: "What must I do to be completely forgiven — and have you done it? Have you actually done 'all you can do'?" Then read Ephesians 2:8–9 and Romans 4:5 together — God justifies the ungodly.</td></tr>
+    <tr><td>4 · Commandments</td><td>Follow the prophet, Word of Wisdom, tithing, chastity</td><td>Don't fight the rules — probe the function: "When you keep all of this, do you ever feel like it's enough? How would you know?" Then: "For me obedience is gratitude for a salvation I already have, not the entry fee for one I hope to get."</td></tr>
+    <tr><td>5 · Laws & Ordinances</td><td>Priesthood, temple ordinances, eternal marriage, baptism for the dead</td><td>Open Hebrews together: priests stand daily, "but this man, after he had offered one sacrifice for sins for ever, sat down" (Hebrews 10:11–14; 7:23–25). Ask: "Why is Jesus seated?" Because the work is finished.</td></tr>
+  </table></div></div>
+
+  <div class="pathcard"><h3>Conversation dynamics you must know</h3>
+  <p style="font-size:.88rem;line-height:1.7"><b>When they bear testimony</b> ("I know the church is true…"): it's a trained move that converts facts into personal experience. Don't argue with it — get underneath it: <i>"Thank you — I can tell that's precious to you. How do you tell the difference between a feeling that's from God and one that's just deeply felt? People of many faiths describe the same burning confirmation of contradictory things."</i> Then bear your own, differently grounded: <i>"My confidence isn't in my feelings about Jesus — it's in what he did in history. My feelings have bad days; the empty tomb doesn't."</i></p>
+  <p style="font-size:.88rem;line-height:1.7"><b>The shelf:</b> Mormons "shelve" unresolved doubts until the shelf breaks. You're placing weight on a shelf you can't see — so don't demand resolution: <i>"You don't have to answer now — just sit with it."</i></p>
+  <p style="font-size:.88rem;line-height:1.7"><b>Milk before meat:</b> your friend may sincerely not know the hard history, and the missionaries at your table may know less than you do. Never say "your church hides this" — say <i>"I read this in an LDS source — can you help me understand it?"</i></p>
+  <p style="font-size:.88rem;line-height:1.7"><b>Count their cost out loud.</b> Doubting can mean bishop interviews, a warned spouse, missed weddings, family distance. Never gloat over a crack in their faith. Say: <i>"I know what this could cost you — I'm not going anywhere either way."</i> Be the unconditional community their ward's conditional version can't be. Expect years, not weeks.</p></div>
+
+  <div class="pathcard"><h3>Seven gospel bridges (in their vocabulary)</h3>
+  <ol style="font-size:.88rem;color:var(--muted);line-height:1.7;margin:6px 0 0;padding-left:20px">
+    <li><b style="color:var(--ink)">Worthiness → Grace.</b> "I'm not worthy either — that's exactly who Jesus came for." 2 Nephi 25:23 vs. Romans 4:5: God justifies <i>the ungodly</i>.</li>
+    <li><b style="color:var(--ink)">Exaltation → Adoption.</b> Becoming gods someday vs. becoming God's child now: Romans 8:15–17 — an inheritance received, not a status achieved. The word "adoption" itself quietly dismantles the pre-existence framework.</li>
+    <li><b style="color:var(--ink)">"I know" → "I trust."</b> Feelings vs. history: Moroni 10:4 vs. 1 Corinthians 15:3–8. "My confidence stays true on my worst-feeling day."</li>
+    <li><b style="color:var(--ink)">The endless temple → the finished cross.</b> Hebrews 10:11–14: their priests stand daily; our High Priest <b>sat down</b>. Ask why.</li>
+    <li><b style="color:var(--ink)">Enduring to the end → assurance now.</b> 1 John 5:13: "that ye may KNOW that ye have eternal life." Ask: "If you died tonight, do you know? John says you can."</li>
+    <li><b style="color:var(--ink)">Repentance-as-forsaking → repentance-as-return.</b> Kimball's crushing standard vs. the Father who runs to the prodigal mid-confession (Luke 15; 1 John 1:9). Listen for their fatigue.</li>
+    <li><b style="color:var(--ink)">The Great Apostasy → the unfailing Christ.</b> "Which is more likely — that Jesus lost his church for 1,700 years, or that he kept his promise?" (Matthew 16:18; Ephesians 3:21).</li>
+  </ol></div>
+
+  <div class="pathcard"><h3>The gospel, side by side</h3>
+  <div style="overflow-x:auto"><table class="gtab">
+    <tr><th></th><th>LDS teaching</th><th>Biblical gospel</th></tr>
+    <tr><td>God</td><td>An exalted man; one of many gods; once as we are now</td><td>Eternally God, "from everlasting to everlasting" (Psalm 90:2); no God formed before or after him (Isaiah 43:10)</td></tr>
+    <tr><td>Jesus</td><td>Firstborn spirit child, our elder brother, attained godhood</td><td>The eternal Word who <i>was</i> God and became flesh (John 1:1,14); Creator of all things (Colossians 1:16)</td></tr>
+    <tr><td>Salvation</td><td>Resurrection for all; exaltation through ordinances, covenants, and worthiness — "after all we can do"</td><td>A gift received by faith, "not of works, lest any man should boast" (Ephesians 2:8–9); "It is finished" (John 19:30)</td></tr>
+    <tr><td>Assurance</td><td>Renewable temple recommends; worthiness reviewed by interview</td><td>"He that believeth on the Son hath everlasting life" — present tense (John 3:36); "no condemnation" (Romans 8:1)</td></tr>
+    <tr><td>Destiny</td><td>Faithful members become gods with eternal increase (D&amp;C 132:19–20)</td><td>Adopted children of God, glorified with Christ — worshipers forever, never rival deities (Romans 8:17; Revelation 22:3)</td></tr>
+  </table></div></div>
+
+  <div class="pathcard"><h3>When they say "I know the church is true — I've felt it"</h3>
+  <p class="pd" style="margin-bottom:8px">Don't attack the feeling; question the test. Try:</p>
+  <div class="talk" style="max-width:none"><p><b>"I believe you felt something real. But Muslims, Hindus, and I have all felt things too — feelings tell us something happened in us, not whether a book is true. If God gave us a way to test prophets that doesn't depend on feelings (Deuteronomy 18:22, 1 John 4:1), would you be willing to apply it to Joseph Smith with me?"</b></p>
+  <p>Also worth knowing: Moroni 10:4's invitation to pray about the book presumes the answer. Jeremiah 17:9 and Proverbs 14:12 explain why the heart alone is not a safe judge.</p></div></div>
+
+  <div class="pathcard"><h3>Do / Don't</h3>
+  <div class="dodont">
+    <div><b style="color:var(--green);font-size:.8rem;letter-spacing:.1em">DO</b><ul>
+      <li>Lead with Jesus and grace — the "better offer" — not just problems</li>
+      <li>Read Bible passages together and let Scripture speak</li>
+      <li>Learn their vocabulary: "gospel," "salvation," "heaven" mean different things to them</li>
+      <li>Invite them to read John or Galatians with you, one chapter at a time</li>
+      <li>Feed them dinner. Ex-Mormons consistently say love opened the door</li>
+    </ul></div>
+    <div><b style="color:var(--red);font-size:.8rem;letter-spacing:.1em">DON'T</b><ul>
+      <li>Dogpile — one question, then listen</li>
+      <li>Use the weak arguments (this site marks them <i>answered</i>) — one bad argument discredits ten good ones</li>
+      <li>Mock garments, temples, or Joseph Smith personally</li>
+      <li>Expect a decision on the spot — exits take months or years</li>
+      <li>Win the argument and lose the person</li>
+    </ul></div>
+  </div></div>
+
+  <div class="pathcard"><h3>Start here</h3>
+  <p class="pd">The <b>For gospel conversations</b> guided path walks the six cases that lead most naturally to the gospel. Every case page ends with a "Bringing it up in conversation" box — a question you can actually ask.</p>
+  <button class="start" data-goto-path="gospel">Open the gospel-conversations path →</button></div>`;
+  const b=$("#main").querySelector("[data-goto-path]");
+  if(b)b.addEventListener("click",()=>{state.view="paths";state.caseId=null;render();});
+}
+
+/* ---------- router ---------- */
+function render(){
+  document.querySelector(".app").classList.toggle("reading",state.view==="case");
+  renderNav();
+  if(state.view==="case")return renderCase();
+  if(state.view==="paths")return renderPaths(),renderPreview();
+  if(state.view==="timeline")return renderTimeline(),renderPreview();
+  if(state.view==="glossary")return renderGlossary(),renderPreview();
+  if(state.view==="share")return renderShare(),renderPreview();
+  if(state.view==="core")return renderCore(),renderPreview();
+  renderOverview();renderPreview();
+}
+
+/* ---------- keyboard ---------- */
+document.addEventListener("keydown",e=>{
+  const inInput=/input|textarea/i.test(document.activeElement.tagName);
+  if(inInput){if(e.key==="Escape")document.activeElement.blur();return;}
+  const list=filtered();
+  const move=dir=>{
+    const idx=list.findIndex(x=>x.id===state.sel);
+    const next=list[Math.min(list.length-1,Math.max(0,(idx<0?0:idx+dir)))];
+    if(!next)return;
+    state.sel=next.id;
+    if(state.view==="case"){openCase(next.id);}
+    else{renderPreview();
+      const el=document.querySelector(`.vt[data-id="${next.id}"]`);
+      document.querySelectorAll(".vt.sel").forEach(x=>x.classList.remove("sel"));
+      document.querySelectorAll(`.vt[data-id="${next.id}"]`).forEach(x=>x.classList.add("sel"));
+      if(el)el.scrollIntoView({block:"nearest"});}
+  };
+  switch(e.key==="ArrowRight"?"next":e.key==="ArrowLeft"?"prev":e.key.toLowerCase()){
+    case "next":e.preventDefault();move(1);break;
+    case "prev":e.preventDefault();move(-1);break;
+    case "enter":if(state.sel&&state.view!=="case")openCase(state.sel);break;
+    case "escape":if(state.view==="case"){state.view=state.pathId?"paths":"overview";state.caseId=null;render();}else{state.q="";const q=$("#q");if(q)q.value="";state.verdict=null;state.severity=null;render();}break;
+    case "o":state.view="overview";state.section="all";state.caseId=null;render();break;
+    case "p":state.view="paths";state.caseId=null;render();break;
+    case "t":state.view="timeline";state.caseId=null;render();break;
+    case "g":state.view="glossary";state.caseId=null;render();break;
+    case "s":state.view="share";state.caseId=null;render();break;
+    case "h":state.view="core";state.caseId=null;render();break;
+  }
+});
+
+document.documentElement.dataset.theme=localStorage.getItem("wb_theme")||"dark";
+$("#q").addEventListener("input",e=>{
+  state.q=e.target.value.trim().toLowerCase();
+  if(state.view!=="overview"){state.view="overview";state.caseId=null;}
+  render();
+});
+render();
+</script>
