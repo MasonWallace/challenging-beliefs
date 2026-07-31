@@ -217,6 +217,7 @@ build({
   CATS, SECMAP, CATDESC, WHYMAP, GLOSSARY, PATHS, TLACTS, RELATED,
   TALK, TIPS, WHYTAIL, TOURSTEPS, core: CORE, share: SHARE,
   refRegex: "(?:Targum(?:\\\\sJonathan)?|Sukkah\\\\s\\\\d+[ab]|Yoma\\\\s\\\\d+[ab]|Sanhedrin\\\\s\\\\d+[ab]|Midrash\\\\s[A-Za-z]+|Rashi|Ibn\\\\sEzra|Maimonides|Mishnah|Talmud|4Q\\\\d+)",
+  timelineIntro: "What was expected on the left; what happened and what was recorded on the right.",
   lessonsIntro: "There is no script to counter here — this is the other direction. These are the stages of a real friendship in which this conversation becomes possible: earning the right to speak, listening first, asking rather than telling, and knowing when to stop. Each stage carries the one thing to do right then, and the cases behind it.",
   methodFoot: "Method: every case carries the strongest published counter-missionary reply; arguments that fail are marked don't use; the strongest cases are the ones made from Jewish sources alone.",
   roleNote: "<b>Role:</b> this is the passage the argument rests on.",

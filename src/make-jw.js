@@ -213,6 +213,7 @@ build({
   SECTIONS: { text: "The translation", prophecy: "Dates & prophecy", doctrine: "The doctrine", life: "Organization & life" },
   CATS, SECMAP, CATDESC, WHYMAP, GLOSSARY, PATHS, TLACTS, RELATED,
   TALK, TIPS, WHYTAIL, TOURSTEPS, core: CORE, share: SHARE,
+  timelineIntro: "What was published on the left; what actually happened on the right.",
   lessonsIntro: "The doorstep call and the home Bible study follow a trained sequence — build rapport, establish a felt need, introduce the literature, then the study, the meetings, and baptism. Here is each stage, the one question to ask right then, and the cases behind it. Knowing the script lets you stay warm and unhurried.",
   methodFoot: "Steelman rules: every claim carries the best published Watchtower defense; weak criticisms are marked answered; facts conceded in the organization's own publications are marked admitted.",
   roleNote: "<b>Role:</b> this is the Watchtower teaching the claim examines.",

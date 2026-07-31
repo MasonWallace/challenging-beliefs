@@ -215,6 +215,7 @@ build({
   CATS, SECMAP, CATDESC, WHYMAP, GLOSSARY, PATHS, TLACTS, RELATED,
   TALK, TIPS, WHYTAIL, TOURSTEPS, core: CORE, share: SHARE,
   refRegex: "(?:Stanford Encyclopedia|SEP|Habermas|Ehrman|Oppy|Schellenberg|Bauckham|Wright|Licona|Craig|Carroll|4Q\\\\d+)",
+  timelineIntro: "Claims and challenges on the left; what the ground and the manuscripts gave up on the right.",
   lessonsIntro: "There is no opposing script to counter here — the stages below are the shape of a conversation that actually goes somewhere: working out who you're talking to, clearing the bad arguments, conceding what's hard, arguing from their sources, and knowing when to stop and offer a person instead. Each stage carries the one thing to do right then, and the cases behind it.",
   methodFoot: "Method: every case carries the strongest naturalistic reply; a third are marked contested on purpose; popular Christian arguments that fail are marked don't use.",
   roleNote: "<b>Role:</b> this is the passage the argument refers to.",

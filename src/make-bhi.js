@@ -205,6 +205,7 @@ build({
   CATS, SECMAP, CATDESC, WHYMAP, GLOSSARY, PATHS, TLACTS, RELATED,
   TALK, TIPS, WHYTAIL, TOURSTEPS, core: CORE, share: SHARE,
   refRegex: "(?:12 Tribes Chart|One West|1WT|IUIC|ISUPK|Great Millstone|Commandment Keepers|Church of God and Saints of Christ)",
+  timelineIntro: "What the movement teaches on the left; what its own documented history shows on the right.",
   lessonsIntro: "A street teaching follows a practised sequence — draw the crowd, establish the grievance, produce the chart, deliver the curses, then the call to wake up. Here is each stage, the one question to ask right then, and the cases behind it. Knowing the sequence lets you stay warm and unhurried.",
   methodFoot: "Steelman rules: every claim carries the strongest published camp defense; where the camps are right the case says so; popular Christian responses that fail are marked do not use.",
   roleNote: "<b>Role:</b> this is the passage the claim is built on.",
