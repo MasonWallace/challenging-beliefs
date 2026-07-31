@@ -525,6 +525,44 @@
   .claimcol .versebox .vtext{max-width:none}
   .bghint{font-weight:400;letter-spacing:.02em;text-transform:none;color:var(--dim);font-size:.68rem}
   .versebox.vmiss{border-left-color:var(--line2);opacity:.85}
+
+  .setbox{margin-top:16px;display:flex;flex-direction:column;gap:7px;max-width:210px}
+  .setrow{display:flex;gap:7px}
+  .setrow .setbtn{flex:1}
+  .setbtn{background:none;border:1px solid var(--line2);color:var(--muted);border-radius:8px;padding:6px 10px;
+    font-size:.72rem;font-family:inherit;cursor:pointer;text-align:center;white-space:nowrap;transition:border-color .15s,color .15s}
+  .setbtn:hover{border-color:var(--acc);color:var(--ink)}
+  .setbtn b{font-weight:700;letter-spacing:.04em}
+  .setbtn.wide{width:100%}
+  .setbtn.on{border-color:var(--acc);color:var(--acc)}
+  .setbtn.on:hover{color:var(--ink)}
+
+  /* --- mobile: settings must stay reachable, and wide blocks must scroll not push --- */
+  @media (max-width:720px){
+    .side .sideprog{display:block !important;padding:0 10px 10px}
+    .setbox{margin-top:8px;max-width:none;flex-direction:row;flex-wrap:wrap;gap:6px}
+    .setbox .setbtn.wide{width:auto;flex:1 1 100%}
+    .setbox .setrow{flex:1 1 100%}
+    .gtab{display:block;overflow-x:auto;max-width:100%;-webkit-overflow-scrolling:touch}
+    .gtab td:first-child{white-space:normal}
+    .chs,.actgrid,.tl,.tlact{max-width:100%;overflow-x:auto}
+    #main table{max-width:100%}
+    #main img,#main figure{max-width:100%}
+    .corebox,.sa,.pb,.ptcard{max-width:100%;overflow-wrap:anywhere}
+  }
+
+  /* --- timeline: 1fr won't shrink below content width, which pushed the page sideways --- */
+  .cvr{grid-template-columns:minmax(0,1fr) 88px minmax(0,1fr)}
+  @media (max-width:700px){.cvr{grid-template-columns:minmax(0,1fr) 62px minmax(0,1fr)}}
+  @media (max-width:560px){
+    .tlwrap{margin-left:10px}
+    .cvr{grid-template-columns:minmax(0,1fr) 40px minmax(0,1fr)}
+    .cell{padding:6px 5px}
+    .bubble{padding:9px 10px}
+    .bubble h4{font-size:.86rem}
+    .bubble p{font-size:.72rem}
+    .bubble .ebthumb{width:40px;height:40px;margin-left:7px}
+  }
 </style>
 
 </head>
@@ -544,6 +582,10 @@
 
 <script>
 const DATA=[
+
+
+
+
 {"id":"kjv-isaiah-block-quotation","category":"kjv-dependence","severity":"high","verdict":"unrefuted","title":"Isaiah chapters reproduced verbatim in King James English","claim":"Roughly 21 chapters of Isaiah appear in the Book of Mormon in wording overwhelmingly identical to the King James Version of 1611/1769, despite the claim that the text was independently translated from 6th-century BC plates written in 'reformed Egyptian.' Royal Skousen's own critical-text work confirms the quotations match the standard later KJV printings (not even the 1611 original), demonstrating dependence on a contemporary printed English Bible rather than an independent rendering of a Hebrew source. Where the Book of Mormon does vary from the KJV, the variants rarely reflect superior Hebrew readings.","bom":["1 Nephi 20–21","2 Nephi 7–8","2 Nephi 12–24","2 Nephi 27","Mosiah 14","3 Nephi 22"],"bible":["Isaiah 48–49","Isaiah 50–51","Isaiah 2–14","Isaiah 29","Isaiah 53","Isaiah 54"],"sources":[{"name":"David P. Wright, 'Isaiah in the Book of Mormon: Or Joseph Smith in Isaiah' (American Apocrypha, Signature Books, 2002)","type":"scholarly","url":"https://user.xmission.com/~research/central/isabm2.html"},{"name":"Royal Skousen, The History of the Text of the Book of Mormon, Part 5: The King James Quotations (2019), summarized at BYU Studies","type":"scholarly","url":"https://byustudies.byu.edu/article/royal-skousens-book-of-mormon-critical-text-project"},{"name":"LDS Discussions, 'The King James Bible and the Book of Mormon'","type":"primary","url":"https://www.ldsdiscussions.com/kjv"}],"response":"FAIR and Skousen argue the translation was not a word-for-word rendering of the plates: when the underlying record paralleled the biblical text, the familiar KJV wording was given (either by Joseph consulting a Bible or, in Skousen's tight-control model, by revelation supplying KJV-style text), so KJV wording is a feature of the translation, not evidence against an ancient source. Skousen further argues some Book of Mormon Isaiah variants reflect Early Modern English textual streams rather than copying.","responseSource":{"name":"FAIR, 'Isaiah and the Book of Mormon'","url":"https://www.fairlatterdaysaints.org/answers/Isaiah_and_the_Book_of_Mormon"},"rationale":"The core datum — that the English text derives from the KJV, including its post-1611 printing conventions — is conceded by the leading LDS textual scholar (Skousen); apologetic responses reinterpret the dependence rather than rebut it.","context":"The Book of Mormon says Lehi's family carried brass plates out of Jerusalem around 600 BC containing the Hebrew scriptures, and quotes long stretches of Isaiah from them. The question is what those quotations look like. They match the King James Version of 1611 — an English translation made more than two thousand years later — word for word, including its distinctive phrasing. A fresh translation from ancient plates would not be expected to land on one particular English edition."},
 {"id":"kjv-italics-revision","category":"kjv-dependence","severity":"high","verdict":"unrefuted","title":"Book of Mormon Isaiah variants cluster on KJV italicized words","claim":"The KJV printed in italics words its translators supplied that had no equivalent in the Hebrew — a typographic artifact of the 1611 English edition. David Wright showed that a conservative 22–38% of all Book of Mormon Isaiah variants from the KJV occur at or around these italicized words, and about 40% of KJV-italicized words are simply dropped, sometimes producing readings that are ungrammatical or contrary to the Hebrew. Since italics exist only on the printed English page, this pattern indicates the reviser was working from an open King James Bible, not an ancient Hebrew text.","bom":["2 Nephi 12:16","2 Nephi 16:2","2 Nephi 19:1","2 Nephi 12–24 (variant pattern)"],"bible":["Isaiah 2:16","Isaiah 6:2","Isaiah 9:1"],"sources":[{"name":"David P. Wright, 'Isaiah in the Book of Mormon: Or Joseph Smith in Isaiah' (American Apocrypha, 2002)","type":"scholarly","url":"https://user.xmission.com/~research/central/isabm2.html"},{"name":"Dialogue: 'Joseph Smith's Interpretation of Isaiah in the Book of Mormon'","type":"scholarly","url":"https://www.dialoguejournal.com/articles/joseph-smiths-interpretation-of-isaiah-in-the-book-of-mormon/"}],"response":"Stan Spencer (Interpreter Foundation) accepts the correlation but argues Joseph Smith, as an 'unlearned reader,' treated the visually distinct italicized words as suspect and revised around them while dictating, which is compatible with a revealed base-text model; FAIR similarly argues the italics marked genuinely weaker text that a prophetic revision would naturally target.","responseSource":{"name":"Stan Spencer, 'Missing Words: King James Bible Italics…', Interpreter","url":"https://interpreterfoundation.org/journal/missing-words-king-james-bible-italics-the-translation-of-the-book-of-mormon-and-joseph-smith-as-an-unlearned-reader"},"rationale":"Both critical and apologetic literature now agree the variants target the KJV's italics — a purely typographic feature of a 19th-century printed Bible; the rebuttals concede the dependence and offer only a reframing, and cases where italics-deletion damages the sense against the Hebrew remain unanswered.","context":"Open a King James Bible and you will see some words printed in italics. Those are words the 1611 translators added to make the English read smoothly — they are not in the Hebrew or Greek. Nobody translating from ancient plates would know which words those were. So it matters a great deal where the Book of Mormon's Isaiah differs from the KJV: the changes cluster on exactly those italicized words."},
 {"id":"kjv-translation-errors-copied","category":"kjv-dependence","severity":"high","verdict":"unrefuted","title":"KJV mistranslations and translation artifacts reproduced verbatim","claim":"The Book of Mormon reproduces specific KJV translation errors that a translation from an independent Hebrew source would not contain: e.g., 'and upon all the glory shall be a defence' (2 Nephi 14:5, where Hebrew chuppah means 'canopy'), 'make him of quick understanding' (2 Nephi 21:3, misrendering Hebrew 'his delight shall be in the fear of the LORD'), and the KJV's incorrect double plurals 'seraphims'/'cherubims' (2 Nephi 16:2). These are artifacts of the 1611 translators' English, not of any ancient text.","bom":["2 Nephi 14:5","2 Nephi 16:2","2 Nephi 21:3","Mosiah 14"],"bible":["Isaiah 4:5","Isaiah 6:2","Isaiah 11:3","Isaiah 53"],"comparison":{"left":{"ref":"2 Nephi 14:5 (Book of Mormon)","text":"And the Lord will create upon every dwelling-place of mount Zion, and upon her assemblies, a cloud and smoke by day and the shining of a flaming fire by night; for upon all the glory of Zion shall be a defence."},"right":{"ref":"Isaiah 4:5 (KJV, 1611)","text":"And the LORD will create upon every dwelling place of mount Zion, and upon her assemblies, a cloud and smoke by day, and the shining of a flaming fire by night: for upon all the glory shall be a defence."},"hl":["shall be a defence","a cloud and smoke by day","shining of a flaming fire by night"],"note":"'Defence' is the KJV translators' misreading of Hebrew chuppah ('canopy, bridal chamber') — an error of 1611 English, reproduced on plates allegedly written centuries before English existed."},"sources":[{"name":"David P. Wright, 'Isaiah in the Book of Mormon' (American Apocrypha, 2002)","type":"scholarly","url":"https://user.xmission.com/~research/central/isabm2.html"},{"name":"Grant H. Palmer, An Insider's View of Mormon Origins (Signature Books, 2002), ch. 3","type":"scholarly","url":"https://archive.org/details/insidersviewofmo0000palm"},{"name":"LDS Discussions, 'The King James Bible and the Book of Mormon'","type":"primary","url":"https://www.ldsdiscussions.com/kjv"}],"response":"FAIR argues that a 'functional' translation intended for a KJV-reading audience acceptably retains familiar KJV phrasing even where imperfect, that some alleged errors are defensible renderings of ambiguous Hebrew, and that God communicates 'after the manner of their language' (D&C 1:24); the errors therefore belong to the English translation layer, not the plates.","responseSource":{"name":"FAIR, 'KJV translation errors in the Book of Mormon'","url":"https://www.fairlatterdaysaints.org/answers/KJV_translation_errors_in_the_Book_of_Mormon"},"rationale":"The presence of KJV-specific translation artifacts is conceded; the defense relocates them to a divine-translation convention rather than showing the readings are not KJV errors, and no variant systematically corrects the KJV toward the Hebrew.","context":"Every translation makes mistakes, and the 1611 King James has a number of known ones — places where later scholarship showed the translators misread the Hebrew. Those errors belong to that English edition; they are not in the underlying ancient text. This case looks at what happens when the Book of Mormon quotes passages containing them, and whether a translation made directly from an older source would reproduce a seventeenth-century mistake."},
@@ -1063,7 +1105,13 @@ function renderNav(){
   }));
   const read=store.read.size;
   $("#sideprog").innerHTML=`
-    <button id="simplebtn" style="margin-top:14px;background:none;border:1px solid ${store.simple?"var(--acc)":"var(--line2)"};color:${store.simple?"var(--acc)":"var(--muted)"};border-radius:8px;padding:5px 12px;font-size:.72rem;cursor:pointer" title="Explains every case in plain, high-school-level English before the claim">◆ Simplified: ${store.simple?"on":"off"}</button> <button id="themebtn" style="margin-top:14px;background:none;border:1px solid var(--line2);color:var(--muted);border-radius:8px;padding:5px 12px;font-size:.72rem;cursor:pointer">◐ ${document.documentElement.dataset.theme==="light"?"Dark":"Light"} mode</button> <button id="tourbtn" style="margin-top:8px;background:none;border:1px solid var(--line2);color:var(--muted);border-radius:8px;padding:5px 12px;font-size:.72rem;cursor:pointer">✦ Replay tour</button>`;
+    <div class="setbox">
+      <button id="simplebtn" class="setbtn wide${store.simple?" on":""}" title="Explains every case in plain, high-school-level English above the claim">${store.simple?"◆":"◇"} Simplified <b>${store.simple?"on":"off"}</b></button>
+      <div class="setrow">
+        <button id="themebtn" class="setbtn">◐ ${document.documentElement.dataset.theme==="light"?"Dark":"Light"}</button>
+        <button id="tourbtn" class="setbtn">✦ Tour</button>
+      </div>
+    </div>`;
   $("#simplebtn").addEventListener("click",()=>{store.simple=!store.simple;localStorage.setItem(KEY_SIMPLE,store.simple?"1":"0");renderNav();render();});
   $("#themebtn").addEventListener("click",()=>{
     const cur=document.documentElement.dataset.theme==="light"?"dark":"light";

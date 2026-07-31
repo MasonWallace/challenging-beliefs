@@ -524,6 +524,44 @@
   .claimcol .versebox .vtext{max-width:none}
   .bghint{font-weight:400;letter-spacing:.02em;text-transform:none;color:var(--dim);font-size:.68rem}
   .versebox.vmiss{border-left-color:var(--line2);opacity:.85}
+
+  .setbox{margin-top:16px;display:flex;flex-direction:column;gap:7px;max-width:210px}
+  .setrow{display:flex;gap:7px}
+  .setrow .setbtn{flex:1}
+  .setbtn{background:none;border:1px solid var(--line2);color:var(--muted);border-radius:8px;padding:6px 10px;
+    font-size:.72rem;font-family:inherit;cursor:pointer;text-align:center;white-space:nowrap;transition:border-color .15s,color .15s}
+  .setbtn:hover{border-color:var(--acc);color:var(--ink)}
+  .setbtn b{font-weight:700;letter-spacing:.04em}
+  .setbtn.wide{width:100%}
+  .setbtn.on{border-color:var(--acc);color:var(--acc)}
+  .setbtn.on:hover{color:var(--ink)}
+
+  /* --- mobile: settings must stay reachable, and wide blocks must scroll not push --- */
+  @media (max-width:720px){
+    .side .sideprog{display:block !important;padding:0 10px 10px}
+    .setbox{margin-top:8px;max-width:none;flex-direction:row;flex-wrap:wrap;gap:6px}
+    .setbox .setbtn.wide{width:auto;flex:1 1 100%}
+    .setbox .setrow{flex:1 1 100%}
+    .gtab{display:block;overflow-x:auto;max-width:100%;-webkit-overflow-scrolling:touch}
+    .gtab td:first-child{white-space:normal}
+    .chs,.actgrid,.tl,.tlact{max-width:100%;overflow-x:auto}
+    #main table{max-width:100%}
+    #main img,#main figure{max-width:100%}
+    .corebox,.sa,.pb,.ptcard{max-width:100%;overflow-wrap:anywhere}
+  }
+
+  /* --- timeline: 1fr won't shrink below content width, which pushed the page sideways --- */
+  .cvr{grid-template-columns:minmax(0,1fr) 88px minmax(0,1fr)}
+  @media (max-width:700px){.cvr{grid-template-columns:minmax(0,1fr) 62px minmax(0,1fr)}}
+  @media (max-width:560px){
+    .tlwrap{margin-left:10px}
+    .cvr{grid-template-columns:minmax(0,1fr) 40px minmax(0,1fr)}
+    .cell{padding:6px 5px}
+    .bubble{padding:9px 10px}
+    .bubble h4{font-size:.86rem}
+    .bubble p{font-size:.72rem}
+    .bubble .ebthumb{width:40px;height:40px;margin-left:7px}
+  }
 </style>
 
 </head>
@@ -746,7 +784,13 @@ function renderNav(){
   }));
   const read=store.read.size;
   $("#sideprog").innerHTML=`
-    <button id="simplebtn" style="margin-top:14px;background:none;border:1px solid ${store.simple?"var(--acc)":"var(--line2)"};color:${store.simple?"var(--acc)":"var(--muted)"};border-radius:8px;padding:5px 12px;font-size:.72rem;cursor:pointer" title="Explains every case in plain, high-school-level English before the claim">◆ Simplified: ${store.simple?"on":"off"}</button> <button id="themebtn" style="margin-top:14px;background:none;border:1px solid var(--line2);color:var(--muted);border-radius:8px;padding:5px 12px;font-size:.72rem;cursor:pointer">◐ ${document.documentElement.dataset.theme==="light"?"Dark":"Light"} mode</button> <button id="tourbtn" style="margin-top:8px;background:none;border:1px solid var(--line2);color:var(--muted);border-radius:8px;padding:5px 12px;font-size:.72rem;cursor:pointer">✦ Replay tour</button>`;
+    <div class="setbox">
+      <button id="simplebtn" class="setbtn wide${store.simple?" on":""}" title="Explains every case in plain, high-school-level English above the claim">${store.simple?"◆":"◇"} Simplified <b>${store.simple?"on":"off"}</b></button>
+      <div class="setrow">
+        <button id="themebtn" class="setbtn">◐ ${document.documentElement.dataset.theme==="light"?"Dark":"Light"}</button>
+        <button id="tourbtn" class="setbtn">✦ Tour</button>
+      </div>
+    </div>`;
   $("#simplebtn").addEventListener("click",()=>{store.simple=!store.simple;localStorage.setItem(KEY_SIMPLE,store.simple?"1":"0");renderNav();render();});
   $("#themebtn").addEventListener("click",()=>{
     const cur=document.documentElement.dataset.theme==="light"?"dark":"light";
@@ -943,7 +987,7 @@ function renderPaths(){
 }
 
 /* ---------- timeline ---------- */
-const IMGMAP={};
+const IMGMAP={"deut-28-68-ships-to-egypt":{"src":"https://commons.wikimedia.org/wiki/Special:FilePath/Brookes%20slave%20ship%2C%20British%20Library%20(cropped).jpg?width=520","cap":"The Brookes, 1788 — the history Deuteronomy 28:68 is read against (Wikimedia Commons)"},"ben-ammi-dimona-community":{"src":"https://commons.wikimedia.org/wiki/Special:FilePath/PikiWiki%20Israel%2032040%20Africans%20Hebrew%20Israelites%20in%20Dimona.JPG?width=520","cap":"The African Hebrew Israelites of Jerusalem at Dimona — vegan, communal, peaceable (Dr. Avishai Teicher / PikiWiki Israel)"},"bloodline-versus-abrahams-offspring-by-faith":{"src":"https://commons.wikimedia.org/wiki/Special:FilePath/Torah%20ark%20in%20Beit%20El%20synagogue%20in%20Lod.jpg?width=520","cap":"A Torah ark. Paul's answer in Galatians: 'if ye be Christ's, then are ye Abraham's seed' (Wikimedia Commons)"}};
 const TLACTS=[{"num":"I","range":"1896–1930","name":"The founding generation","desc":"Born out of Reconstruction's collapse — and nothing like the street camps","events":[{"y":"1896","side":"record","crit":true,"t":"Crowdy founds the Church of God and Saints of Christ","p":"William Saunders Crowdy — born enslaved in Maryland in 1847, a Union Army veteran — begins the oldest documented Black Hebrew Israelite body. It still exists.","id":"movement-origins-1886-1969"},{"y":"1899","side":"record","t":"Frank Cherry's Church of the Living God","p":"A second independent founding, teaching that the biblical Israelites were Black."},{"y":"1919","side":"record","t":"Wentworth Matthew's Commandment Keepers","p":"The Harlem strand that moved closest to rabbinic Judaism — Hebrew, Torah, and a rabbinical seminary.","id":"movement-origins-1886-1969"}]},{"num":"II","range":"1960–2000","name":"Dimona, One West, and the street","desc":"The movement splits into a farming village and a megaphone","events":[{"y":"1966–69","side":"record","crit":true,"t":"Ben Ammi leads the exodus to Dimona","p":"Chicago to Liberia to Israel. The community is vegan, communal, peaceable — and a living rebuttal to the claim that the movement is one thing.","id":"ben-ammi-dimona-community"},{"y":"1969–80s","side":"record","crit":true,"t":"The One West Camp","p":"A Harlem address becomes the doctrinal root of the confrontational street camps — the 12 Tribes Chart, the Edomite doctrine, the uniforms.","id":"twelve-tribes-chart"},{"y":"1990s","side":"claim","t":"The chart goes national","p":"Tribe-to-nationality mapping spreads through the camps as settled fact, though no source older than the twentieth century has ever been produced.","id":"twelve-tribes-chart"},{"y":"2000","side":"record","crit":true,"t":"The year-2000 prophecy fails","p":"A dated prediction, a failure, a rebrand, and a succession — all documented in the movement's own record.","id":"year-2000-failed-prophecy"}]},{"num":"III","range":"2003–2026","name":"The viral era","desc":"New camps, new audiences, and a fight over what the movement is","events":[{"y":"2003","side":"record","t":"IUIC founded","p":"Israel United in Christ becomes the largest and most media-savvy camp — and teaches Christ, unlike the strictest One West descendants."},{"y":"2010s","side":"record","t":"The confrontation clips","p":"Street footage makes the movement famous for its harshest five minutes — a frame that fits neither Dimona nor the 1896 church.","id":"avoid-viral-media-frames"},{"y":"2016","side":"record","crit":true,"t":"The hate-group designation","p":"The SPLC lists specific radical camps. The camps are right that a listing is not a refutation; critics are right that the teaching listed is real.","id":"splc-hate-designation"},{"y":"2019–","side":"record","t":"Attacks claimed and disowned","p":"Violence by individuals citing the identity, condemned by most of the movement — the reason blanket labels are both wrong and useless.","id":"avoid-blanket-hate-group-label"}]}];
 function renderTimeline(){
   const read=store.read;

@@ -511,6 +511,44 @@
   .claimcol .versebox .vtext{max-width:none}
   .bghint{font-weight:400;letter-spacing:.02em;text-transform:none;color:var(--dim);font-size:.68rem}
   .versebox.vmiss{border-left-color:var(--line2);opacity:.85}
+
+  .setbox{margin-top:16px;display:flex;flex-direction:column;gap:7px;max-width:210px}
+  .setrow{display:flex;gap:7px}
+  .setrow .setbtn{flex:1}
+  .setbtn{background:none;border:1px solid var(--line2);color:var(--muted);border-radius:8px;padding:6px 10px;
+    font-size:.72rem;font-family:inherit;cursor:pointer;text-align:center;white-space:nowrap;transition:border-color .15s,color .15s}
+  .setbtn:hover{border-color:var(--acc);color:var(--ink)}
+  .setbtn b{font-weight:700;letter-spacing:.04em}
+  .setbtn.wide{width:100%}
+  .setbtn.on{border-color:var(--acc);color:var(--acc)}
+  .setbtn.on:hover{color:var(--ink)}
+
+  /* --- mobile: settings must stay reachable, and wide blocks must scroll not push --- */
+  @media (max-width:720px){
+    .side .sideprog{display:block !important;padding:0 10px 10px}
+    .setbox{margin-top:8px;max-width:none;flex-direction:row;flex-wrap:wrap;gap:6px}
+    .setbox .setbtn.wide{width:auto;flex:1 1 100%}
+    .setbox .setrow{flex:1 1 100%}
+    .gtab{display:block;overflow-x:auto;max-width:100%;-webkit-overflow-scrolling:touch}
+    .gtab td:first-child{white-space:normal}
+    .chs,.actgrid,.tl,.tlact{max-width:100%;overflow-x:auto}
+    #main table{max-width:100%}
+    #main img,#main figure{max-width:100%}
+    .corebox,.sa,.pb,.ptcard{max-width:100%;overflow-wrap:anywhere}
+  }
+
+  /* --- timeline: 1fr won't shrink below content width, which pushed the page sideways --- */
+  .cvr{grid-template-columns:minmax(0,1fr) 88px minmax(0,1fr)}
+  @media (max-width:700px){.cvr{grid-template-columns:minmax(0,1fr) 62px minmax(0,1fr)}}
+  @media (max-width:560px){
+    .tlwrap{margin-left:10px}
+    .cvr{grid-template-columns:minmax(0,1fr) 40px minmax(0,1fr)}
+    .cell{padding:6px 5px}
+    .bubble{padding:9px 10px}
+    .bubble h4{font-size:.86rem}
+    .bubble p{font-size:.72rem}
+    .bubble .ebthumb{width:40px;height:40px;margin-left:7px}
+  }
 </style>
 
 <div class="app">
@@ -714,7 +752,13 @@ function renderNav(){
   }));
   const read=store.read.size;
   $("#sideprog").innerHTML=`
-    <button id="simplebtn" style="margin-top:14px;background:none;border:1px solid ${store.simple?"var(--acc)":"var(--line2)"};color:${store.simple?"var(--acc)":"var(--muted)"};border-radius:8px;padding:5px 12px;font-size:.72rem;cursor:pointer" title="Explains every case in plain, high-school-level English before the claim">◆ Simplified: ${store.simple?"on":"off"}</button> <button id="themebtn" style="margin-top:14px;background:none;border:1px solid var(--line2);color:var(--muted);border-radius:8px;padding:5px 12px;font-size:.72rem;cursor:pointer">◐ ${document.documentElement.dataset.theme==="light"?"Dark":"Light"} mode</button> <button id="tourbtn" style="margin-top:8px;background:none;border:1px solid var(--line2);color:var(--muted);border-radius:8px;padding:5px 12px;font-size:.72rem;cursor:pointer">✦ Replay tour</button>`;
+    <div class="setbox">
+      <button id="simplebtn" class="setbtn wide${store.simple?" on":""}" title="Explains every case in plain, high-school-level English above the claim">${store.simple?"◆":"◇"} Simplified <b>${store.simple?"on":"off"}</b></button>
+      <div class="setrow">
+        <button id="themebtn" class="setbtn">◐ ${document.documentElement.dataset.theme==="light"?"Dark":"Light"}</button>
+        <button id="tourbtn" class="setbtn">✦ Tour</button>
+      </div>
+    </div>`;
   $("#simplebtn").addEventListener("click",()=>{store.simple=!store.simple;localStorage.setItem(KEY_SIMPLE,store.simple?"1":"0");renderNav();render();});
   $("#themebtn").addEventListener("click",()=>{
     const cur=document.documentElement.dataset.theme==="light"?"dark":"light";
@@ -911,7 +955,7 @@ function renderPaths(){
 }
 
 /* ---------- timeline ---------- */
-const IMGMAP={};
+const IMGMAP={"isaiah-53-rabbinic-messianic-reading":{"src":"https://commons.wikimedia.org/wiki/Special:FilePath/Isaiah%20scroll%20at%20the%20Shrine%20of%20the%20Book.jpg?width=520","cap":"The Great Isaiah Scroll — chapter 53 existed a century before Jesus (Wikimedia Commons)"},"yoma-39b-forty-years":{"src":"https://commons.wikimedia.org/wiki/Special:FilePath/Jerusalem%20Modell%20BW%202.JPG?width=520","cap":"A model of the Second Temple, where the Yom Kippur signs are said to have failed for forty years (Wikimedia Commons)"},"atonement-after-the-temple":{"src":"https://commons.wikimedia.org/wiki/Special:FilePath/Western%20wall%20and%20its%20square%2C%20jerusalem.jpg?width=520","cap":"The Western Wall — what remains of the Temple platform, and the altar that has been gone since AD 70 (Wikimedia Commons)"},"nt-jewish-library":{"src":"https://commons.wikimedia.org/wiki/Special:FilePath/Praha%20Spanish%20Synagogue%20Interior%2001.jpg?width=520","cap":"A synagogue interior — the setting in which the first Jesus-followers argued from the Tanakh (Wikimedia Commons)"},"jeremiah-31-new-covenant":{"src":"https://commons.wikimedia.org/wiki/Special:FilePath/Torah%20ark%20in%20Beit%20El%20synagogue%20in%20Lod.jpg?width=520","cap":"A Torah ark. The 'new covenant' is Jeremiah's phrase, made with Israel and Judah by name (Wikimedia Commons)"},"sukkah-52a-two-messiahs":{"src":"https://commons.wikimedia.org/wiki/Special:FilePath/VilniusShasPage.jpg?width=520","cap":"A page of the Vilna Talmud — where Sukkah 52a proposes two Messiahs (Wikimedia Commons)"}};
 const TLACTS=[{"num":"I","range":"200 BC – AD 30","name":"The expectation","desc":"What Jewish people were waiting for, in their own pre-Christian sources","events":[{"y":"c. 150 BC","side":"record","crit":true,"t":"The Great Isaiah Scroll is copied","p":"Isaiah 53 sealed in a Qumran cave, more than a century before Jesus — the text is not a Christian edit.","id":"isaiah-53-rabbinic-messianic-reading"},{"y":"c. 100 BC","side":"record","t":"Psalms of Solomon","p":"A Davidic king expected to purge Jerusalem and gather the tribes — the royal portrait, in Jewish hands."},{"y":"c. 100 BC","side":"record","crit":true,"t":"4Q521","p":"A Dead Sea Scroll Messiah who heals the blind and raises the dead — the exact answer Jesus later sends to John the Baptist.","id":"second-temple-messianic-expectation"},{"y":"c. 200 BC","side":"record","t":"The Septuagint","p":"Jewish translators render Isaiah 7:14 'almah' as 'parthenos' — centuries before there was any Christian reason to.","id":"isaiah-7-14-almah"}]},{"num":"II","range":"AD 30 – 135","name":"Inside Judaism","desc":"A Jewish movement, a Jewish argument, and the Temple's end","events":[{"y":"AD 30","side":"record","crit":true,"t":"The forty years begin","p":"Yoma 39b: from this point the Yom Kippur lot fails, the crimson thread stops whitening, the western lamp goes out.","id":"yoma-39b-forty-years"},{"y":"AD 50s","side":"record","t":"Paul writes Romans 9–11","p":"'Hath God cast away his people? God forbid.' The frame that forbids Christian contempt is in the New Testament itself.","id":"hosea-blindness-restoration-romans-11"},{"y":"AD 70","side":"record","crit":true,"t":"The Temple is destroyed","p":"The altar of Leviticus 17:11 ends. Daniel 9's anointed one was to be cut off before this, not after.","id":"daniel-9-cut-off-before-destruction"},{"y":"AD 132–135","side":"record","t":"Bar Kokhba","p":"Rabbi Akiva declares Bar Kokhba the Messiah; the revolt is crushed. Messianic claims were live, mainstream, and testable."}]},{"num":"III","range":"AD 500 – 2026","name":"The long estrangement — and the recovery","desc":"How the argument hardened, what Christians did, and what changed","events":[{"y":"c. 500","side":"record","crit":true,"t":"Sukkah 52a","p":"The Talmud's two Messiahs — one who suffers and dies, one who reigns. The two portraits are conceded inside the tradition.","id":"sukkah-52a-two-messiahs"},{"y":"1096","side":"record","crit":true,"t":"The Rhineland massacres","p":"Crusaders slaughter Jewish communities on the way to Jerusalem. This is where 'Christian' begins to mean what it means.","id":"avoid-jews-killed-jesus"},{"y":"1144","side":"record","t":"The blood libel is born at Norwich","p":"A fabrication that would kill Jewish people for eight centuries, invented by Christians."},{"y":"c. 1100","side":"claim","crit":true,"t":"Rashi reads Isaiah 53 as Israel","p":"The national reading becomes standard — and it was not standard before him.","id":"isaiah-53-servant-distinct-from-israel"},{"y":"1290 / 1492","side":"record","t":"Expulsions","p":"England, then Spain. Forced disputations and Talmud burnings run alongside."},{"y":"1543","side":"record","crit":true,"t":"Luther, 'On the Jews and Their Lies'","p":"Quoted approvingly four centuries later by the Nazi party. Christians should name this before a Jewish friend has to."},{"y":"1941–45","side":"record","crit":true,"t":"The Shoah","p":"Six million, in Christian Europe. Nothing you say lands until you have acknowledged the room you are standing in."},{"y":"1947","side":"record","crit":true,"t":"The Dead Sea Scrolls surface","p":"Isaiah 53 and Psalm 22 are proved to predate Jesus by a century. The 'Christians changed the text' argument closes.","id":"prophecy-isaiah53-psalm22"},{"y":"1990s–","side":"record","t":"Jewish scholarship reads the New Testament","p":"Levine, Boyarin, the Jewish Annotated New Testament — the NT recovered as a Jewish library, by Jewish scholars.","id":"nt-jewish-library"}]}];
 function renderTimeline(){
   const read=store.read;
