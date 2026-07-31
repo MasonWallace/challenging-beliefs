@@ -3,77 +3,111 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Challenging Beliefs — Faith Claims Examined Against the Bible</title>
-<meta name="description" content="Documented claims examining other faiths against the Bible — steelmanned defenses, honest verdicts, and guidance for sharing the gospel with grace.">
+<title>Challenging Beliefs</title>
+<meta name="description" content="Faith claims, examined against the Bible.">
 <style>
   :root{
-    --bg:#0f1116;--panel:#161a21;--panel2:#12151b;--line:#232833;--line2:#2b313d;
-    --ink:#e7e9ec;--muted:#98a0ac;--dim:#565e6b;--acc:#82b1d8;--red:#e0736a;--green:#7fb08d;
+    --bg:#0b0d12;--panel:#141821;--line:#242a36;--ink:#eceef2;--muted:#949cab;--dim:#525a68;
+    --acc:#82b1d8;--acc2:#b394e0;--warm:#cf9a45;--green:#7fb08d;
     --serif:'Iowan Old Style','Palatino Linotype',Palatino,'Book Antiqua',Georgia,serif;
     --sans:ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
   }
-  @media (prefers-color-scheme:light){:root{
-    --bg:#f3f4f6;--panel:#ffffff;--panel2:#f7f8fa;--line:#dfe2e7;--line2:#cfd4db;
-    --ink:#1b1e23;--muted:#5c6470;--dim:#9aa1ab;--acc:#2f6b9e;--red:#b03a31;--green:#3e7455;
-  }}
   *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6;min-height:100vh;display:flex;flex-direction:column}
-  .wrap{max-width:880px;margin:0 auto;padding:0 22px;width:100%}
-  header{padding:80px 0 30px;text-align:center}
-  .mark{font-family:var(--serif);letter-spacing:.16em;font-size:1rem;color:var(--muted)}
-  .mark b{color:var(--acc)}
-  h1{font-family:var(--serif);font-weight:500;font-size:clamp(2rem,5.5vw,3.1rem);line-height:1.15;margin:18px 0 16px;letter-spacing:-.01em}
-  .lede{color:var(--muted);max-width:56ch;margin:0 auto;font-size:1.02rem}
-  .lede b{color:var(--ink)}
-  main{flex:1;padding:44px 0 60px}
-  .cards{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  html,body{margin:0;height:100%}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6;overflow-x:hidden;min-height:100vh;display:flex;flex-direction:column}
+
+  /* drifting aurora blobs */
+  .sky{position:fixed;inset:0;z-index:0;pointer-events:none;filter:blur(90px);opacity:.5}
+  .blob{position:absolute;border-radius:50%}
+  .b1{width:44vw;height:44vw;background:radial-gradient(circle,#1d4468,transparent 65%);top:-12%;left:-8%;animation:drift1 26s ease-in-out infinite alternate}
+  .b2{width:36vw;height:36vw;background:radial-gradient(circle,#3c2a5e,transparent 65%);bottom:-10%;right:-6%;animation:drift2 32s ease-in-out infinite alternate}
+  .b3{width:26vw;height:26vw;background:radial-gradient(circle,#5e4a1f,transparent 65%);top:40%;left:55%;animation:drift3 38s ease-in-out infinite alternate}
+  @keyframes drift1{from{transform:translate(0,0) scale(1)}to{transform:translate(9vw,7vh) scale(1.15)}}
+  @keyframes drift2{from{transform:translate(0,0) scale(1.1)}to{transform:translate(-8vw,-9vh) scale(.95)}}
+  @keyframes drift3{from{transform:translate(0,0)}to{transform:translate(-10vw,10vh)}}
+
+  .wrap{max-width:900px;margin:0 auto;padding:0 24px;width:100%;position:relative;z-index:1}
+
+  header{padding:11vh 0 5vh;text-align:center}
+  .scale{font-size:2.6rem;display:inline-block;animation:sway 6s ease-in-out infinite;transform-origin:top center;filter:drop-shadow(0 6px 22px rgba(130,177,216,.35))}
+  @keyframes sway{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+  h1{font-family:var(--serif);font-weight:500;font-size:clamp(2.4rem,7vw,4.2rem);line-height:1.08;letter-spacing:-.015em;margin:18px 0 14px;
+    background:linear-gradient(100deg,var(--ink) 30%,var(--acc) 55%,var(--acc2) 75%,var(--ink) 95%);background-size:220% 100%;
+    -webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 9s linear infinite}
+  @keyframes shimmer{to{background-position:-220% 0}}
+  .sub{color:var(--muted);font-size:1.08rem;margin:0}
+
+  main{flex:1;padding:2vh 0 8vh}
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:18px}
   @media (max-width:680px){.cards{grid-template-columns:1fr}}
-  a.card{display:block;background:var(--panel);border:1px solid var(--line2);border-radius:14px;padding:26px 26px 22px;text-decoration:none;color:var(--ink);transition:transform .18s ease,border-color .18s}
-  a.card:hover{transform:translateY(-3px);border-color:var(--acc)}
-  .card .tag{display:inline-block;font-size:.66rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;border-radius:999px;padding:3px 10px;margin-bottom:12px}
-  .tag.live{background:color-mix(in srgb,var(--green) 18%,transparent);color:var(--green)}
-  .tag.soon{background:var(--panel2);color:var(--dim);border:1px solid var(--line)}
-  .card h2{font-family:var(--serif);font-weight:500;font-size:1.45rem;margin:0 0 8px}
-  .card p{color:var(--muted);font-size:.9rem;margin:0 0 14px}
-  .card .go{color:var(--acc);font-size:.86rem;font-weight:600}
-  .card.disabled{opacity:.65;pointer-events:none}
-  .how{margin-top:44px;background:var(--panel2);border:1px solid var(--line);border-radius:14px;padding:24px 26px}
-  .how h3{font-family:var(--serif);font-weight:500;font-size:1.15rem;margin:0 0 8px}
-  .how p{color:var(--muted);font-size:.9rem;margin:0 0 8px;max-width:74ch}
-  .how b{color:var(--ink)}
-  footer{border-top:1px solid var(--line);padding:22px 0 30px;text-align:center;color:var(--dim);font-size:.8rem}
-  footer .v{font-family:var(--serif);font-style:italic;color:var(--muted);margin-bottom:6px}
+  a.card{position:relative;display:block;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:34px 30px 28px;text-decoration:none;color:var(--ink);overflow:hidden;transition:transform .25s ease,border-color .25s,box-shadow .25s}
+  a.card::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 200px at var(--mx,50%) -20%,rgba(130,177,216,.14),transparent 70%);opacity:0;transition:opacity .3s}
+  a.card:hover{transform:translateY(-6px);border-color:var(--acc);box-shadow:0 18px 50px rgba(0,0,0,.45)}
+  a.card:hover::before{opacity:1}
+  .card .glyph{font-size:2rem;margin-bottom:14px;display:inline-block;transition:transform .3s}
+  a.card:hover .glyph{transform:scale(1.15) rotate(-4deg)}
+  .card h2{font-family:var(--serif);font-weight:500;font-size:1.7rem;margin:0 0 6px}
+  .card p{color:var(--muted);font-size:.92rem;margin:0 0 18px}
+  .card .go{color:var(--acc);font-size:.88rem;font-weight:700;letter-spacing:.02em}
+  .card .go::after{content:" →";transition:margin-left .25s}
+  a.card:hover .go::after{margin-left:6px}
+  .tag{display:inline-block;font-size:.64rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;border-radius:999px;padding:4px 12px;margin-bottom:14px}
+  .tag.live{background:rgba(127,176,141,.16);color:var(--green)}
+  .tag.soon{background:rgba(148,156,171,.1);color:var(--dim);border:1px solid var(--line)}
+  a.card.soon-card{pointer-events:none}
+  a.card.soon-card .go{color:var(--dim)}
+
+  .rise{opacity:0;transform:translateY(26px);animation:rise .9s cubic-bezier(.2,.7,.2,1) forwards}
+  .d1{animation-delay:.05s}.d2{animation-delay:.18s}.d3{animation-delay:.32s}.d4{animation-delay:.46s}.d5{animation-delay:.6s}
+  @keyframes rise{to{opacity:1;transform:none}}
+
+  footer{position:relative;z-index:1;border-top:1px solid var(--line);padding:22px 0 30px;text-align:center;color:var(--dim);font-size:.82rem}
+  footer .v{font-family:var(--serif);font-style:italic;color:var(--muted)}
+
+  @media (prefers-reduced-motion:reduce){
+    .blob,.scale,h1{animation:none}
+    .rise{opacity:1;transform:none;animation:none}
+    a.card:hover{transform:none}
+  }
 </style>
 </head>
 <body>
-<header><div class="wrap">
-  <div class="mark">⚖ CHALLENGING <b>·</b> BELIEFS</div>
-  <h1>Faith claims, examined against the Bible.</h1>
-  <p class="lede">Documented claims — each with its sources, the <b>strongest published defense</b>, an honest verdict, and a way to bring it up in real conversation. Built to help Christians understand other faiths deeply, engage them fairly, and share the gospel with gentleness and respect.</p>
-</div></header>
+<div class="sky"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
+
+<header class="wrap">
+  <span class="scale rise d1">⚖</span>
+  <h1 class="rise d2">Challenging Beliefs</h1>
+  <p class="sub rise d3">Faith claims, examined against the Bible.</p>
+</header>
+
 <main><div class="wrap">
   <div class="cards">
-    <a class="card" href="mormonism/">
+    <a class="card rise d4" href="mormonism/">
+      <span class="glyph">📖</span><br>
       <span class="tag live">Live · 80 claims</span>
       <h2>Mormonism</h2>
-      <p>The Book of Mormon, LDS doctrine, history, and practice — weighed against the Bible, from the church's own sources wherever possible. Includes a full guide to sharing the gospel with Latter-day Saint friends.</p>
-      <span class="go">Enter the examination →</span>
+      <p>The Book of Mormon and LDS teaching, weighed — largely from the church's own sources.</p>
+      <span class="go">Enter the examination</span>
     </a>
-    <a class="card disabled" href="#" aria-disabled="true">
+    <a class="card soon-card rise d5" href="islam/" aria-disabled="true">
+      <span class="glyph">☪️</span><br>
       <span class="tag soon">In preparation</span>
       <h2>Islam</h2>
-      <p>The Quran's claims about Jesus, the Bible, and salvation — examined by the same rules: primary sources, steelmanned responses, honest verdicts.</p>
+      <p>The Quran's claims about Jesus and the Bible, examined by the same rules.</p>
       <span class="go">Coming soon</span>
     </a>
   </div>
-  <div class="how">
-    <h3>The rules every section follows</h3>
-    <p><b>Steelman first.</b> Every claim carries the best published defense from the faith's own scholars before any verdict is rendered. <b>Cite their sources.</b> Wherever possible, facts are documented from the faith's own publications. <b>Name weak arguments as weak.</b> Criticisms that don't survive scrutiny are marked answered — an examination that inflates weak claims forfeits the right to be believed on strong ones. <b>Aim at the person, not the argument.</b> The goal is never to win — it is that real people meet the real Jesus.</p>
-  </div>
 </div></main>
+
 <footer><div class="wrap">
-  <div class="v">"But sanctify the Lord God in your hearts: and be ready always to give an answer to every man that asketh you a reason of the hope that is in you with meekness and fear." — 1 Peter 3:15</div>
-  Verify citations at their sources before quoting. Verdicts are editorial judgments about the state of the public argument.
+  <span class="v">"Be ready always to give an answer… with meekness and fear." — 1 Peter 3:15</span>
 </div></footer>
+
+<script>
+document.querySelectorAll("a.card").forEach(c=>c.addEventListener("mousemove",e=>{
+  const r=c.getBoundingClientRect();
+  c.style.setProperty("--mx",((e.clientX-r.left)/r.width*100)+"%");
+}));
+</script>
 </body>
 </html>
