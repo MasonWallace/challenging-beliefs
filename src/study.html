@@ -973,6 +973,7 @@ function renderOverview(){
 /* ---------- case ---------- */
 function openCase(id,fromPath){
   state.caseId=id;state.sel=id;state.view="case";
+  if(location.hash!=="#case/"+id)try{history.pushState(null,"","#case/"+id)}catch(e){}
   if(!fromPath)state.pathId=state.pathId; // keep path context if navigating within
   store.markRead(id);
   render();
@@ -1322,9 +1323,8 @@ function renderTheySay(){
 function renderLessons(){
   $("#main").innerHTML=`<div class="viewhead"><h2>When the missionaries come</h2>
   <p>LDS missionaries teach a fixed curriculum — <i>Preach My Gospel</i>, Lessons 1–5. Here is what each lesson will say, the one question to ask right then, and the cases behind it. Knowing their script lets you be relaxed, warm, and ready.</p></div>`+
-  LESSONS.map(L=>`<div class="ptcard"><div class="who them">${esc(L.n)}</div><h3 class="ptv">${esc(L.t)}</h3>
-    <div class="who them" style="margin-top:8px">They will teach</div><p class="pt">${L.what.map(w=>"• "+esc(w)).join("<br>")}</p>
-    <div class="who you">The question to ask</div><p class="pt">${rich(L.ask)}</p>
+  LESSONS.map(L=>`<div class="sa"><span class="tpx">${esc(L.n)}</span><h4 class="sat">${esc(L.t)}</h4><div class="who them">They will teach</div><p class="pt">${L.what.map(w=>"• "+esc(w)).join("<br>")}</p>
+    <div class="saybox" style="margin-top:12px"><span class="who">The question to ask</span><p>${rich(L.ask)}</p></div>
     <div class="relrow">${L.ids.map(id=>byId[id]?`<button data-open="${id}">${esc(byId[id].title)}</button>`:"").join("")}</div></div>`).join("");
   bindOpens();
 }
@@ -1348,6 +1348,7 @@ const PATHIMG={"strong":"https://commons.wikimedia.org/wiki/Special:FilePath/Jos
 document.addEventListener("click",e=>{const im=e.target.closest(".kimg img,.ktop,.corestrip img,.actimg img");if(im)showLightbox(im.dataset.full||im.src,im.dataset.cap||"");});
 /* ---------- router ---------- */
 function render(){
+  if(state.view!=="case"&&location.hash.indexOf("#case/")===0)try{history.replaceState(null,"",location.pathname+location.search)}catch(e){}
   document.querySelector(".app").classList.toggle("reading",state.view!=="overview");
   renderNav();
   if(state.view==="case")return renderCase();
@@ -1422,5 +1423,11 @@ $("#q").addEventListener("input",e=>{
   if(state.view!=="overview"){state.view="overview";state.caseId=null;}
   render();
 });
+window.addEventListener("hashchange",()=>{
+  const m=location.hash.match(/^#case\/([A-Za-z0-9-]+)$/);
+  if(m&&byId[m[1]]){if(state.caseId!==m[1])openCase(m[1]);}
+  else if(!location.hash&&state.view==="case"){state.view="overview";state.caseId=null;render();}
+});
 render();
+{const m0=location.hash.match(/^#case\/([A-Za-z0-9-]+)$/);if(m0&&byId[m0[1]])openCase(m0[1]);}
 </script>
