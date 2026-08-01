@@ -54,7 +54,7 @@ for(const [out,load] of SETS){
     if(chOnly){
       const bk=books[chOnly[1].trim().toLowerCase()]; if(!bk)return;
       const ch=bk.chapters[parseInt(chOnly[2],10)-1]; if(!ch)return;
-      if(ch.verses.length>60)return;
+      if(ch.verses.length>130)return;
       res[orig]={ref:bk.book+' '+ch.chapter,cited:'',verses:ch.verses.map((v,i)=>({v:i+1,t:v.text}))};
       ok++; return;
     }
