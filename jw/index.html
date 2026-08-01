@@ -1068,20 +1068,14 @@ function plainHtml(d){
     const t=b.t.toLowerCase();
     return KINDRE(t);
   };
-  const SEMHUE={"k-claim":"red","k-text":"gold","k-def":"purp","k-gap":"amber","k-strength":"teal","k-say":"green","k-help":"slate"};
-  const POOL=["gold","teal","amber","purp","red","slate"];
+  /* One fixed sequence for every case, so the colours mean the same thing on
+     every page and a reader learns the shape once. "What to say" is last in all
+     318 cases and always anchors the run in green. */
+  const SEQ=["amber","gold","red","purp","teal","slate"];
   const blocks=(d.plain||[]);
   const kinds=blocks.map(KINDOF);
-  /* hues already spoken for by blocks whose colour means something */
-  const claimed=new Set(kinds.filter(k=>k!=="k-plain").map(k=>SEMHUE[k]));
-  let prevHue=null;
-  const hues=kinds.map(k=>{
-    let h=SEMHUE[k]||"slate";
-    const free=()=>POOL.find(x=>x!==prevHue&&!claimed.has(x))||POOL.find(x=>x!==prevHue)||h;
-    if(k==="k-plain"){ h=free(); claimed.add(h); }
-    else if(h===prevHue&&k!=="k-say"){ h=free(); }
-    prevHue=h; return h;
-  });
+  let si=0;
+  const hues=blocks.map(b=>b.say?"green":SEQ[si++%SEQ.length]);
   return blocks.map((b,bi)=>{
     const ss=splitSentences(b.d),ps=[];
     for(let i=0;i<ss.length;i+=2)ps.push("<p>"+rt(ss.slice(i,i+2).join(" "))+"</p>");
