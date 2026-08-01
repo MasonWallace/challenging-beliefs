@@ -2,6 +2,7 @@
 const fs = require('fs');
 const cp = require('child_process');
 const P = f => __dirname + '/' + f;
+const gate = require('./gate.js');
 const BASE = 'https://masonwallace.github.io/challenging-beliefs/';
 
 function ogMeta(m) {
@@ -88,6 +89,7 @@ for (const s of SECTIONS) {
     desc: arr.length + ' documented cases — verdicts, sources, and scripted conversations for every one.',
     url: BASE + s.dir, img: s.og.img
   });
+  gate(arr, s.key);
   syntaxCheck(html, s.key);
   fs.writeFileSync(P(s.out), html);
   console.log(s.key.padEnd(8), arr.length, 'cases →', s.out);

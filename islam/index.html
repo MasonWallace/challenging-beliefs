@@ -562,6 +562,30 @@
     .bubble p{font-size:.72rem}
     .bubble .ebthumb{width:40px;height:40px;margin-left:7px}
   }
+
+  /* --- plain-first case view --- */
+  .pblk{margin:0 0 15px}
+  .pblk .plab{font-size:.63rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-bottom:6px;color:var(--acc)}
+  .pblk:nth-child(1) .plab{color:var(--red)}
+  .pblk:nth-child(3) .plab{color:var(--amber)}
+  .pblk:nth-child(4) .plab{color:var(--gold)}
+  .pblk p{margin:0 0 9px;font-size:.97rem;line-height:1.8;color:var(--muted)}
+  .pblk p:last-child{margin:0}
+  .pblk p b{color:var(--ink)}
+  .pblk.say{background:linear-gradient(90deg,color-mix(in srgb,var(--green) 11%,transparent),transparent 72%);
+    border-left:3px solid var(--green);border-radius:0 10px 10px 0;padding:13px 17px;margin-top:18px}
+  .pblk.say .plab{color:var(--green)}
+  .pblk.say p{color:var(--ink);font-family:var(--serif);font-size:1.04rem;line-height:1.6}
+  details.fullcase{margin-top:22px;border-top:1px solid var(--line);padding-top:14px}
+  details.fullcase>summary{cursor:pointer;list-style:none;font-size:.74rem;font-weight:700;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--acc);padding:4px 0}
+  details.fullcase>summary::-webkit-details-marker{display:none}
+  details.fullcase>summary::after{content:" →";transition:margin-left .2s}
+  details.fullcase[open]>summary::after{content:" ↓"}
+  details.fullcase>summary:hover{color:var(--ink)}
+  .quickback{font-size:.74rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--acc);
+    background:none;border:0;cursor:pointer;padding:4px 0;margin-bottom:12px;font-family:inherit}
+  .quickback:hover{color:var(--ink)}
 </style>
 
 </head>
@@ -836,8 +860,8 @@ const PATHS=[{"id":"cornerstone","name":"The cornerstone: the Bible stands","tim
 const TIMELINE=[{"y":"~1000 BC","t":"David writes the Psalms (Zabur)","p":"Psalm 22 describes pierced hands and divided garments a millennium before the cross.","id":"crucifixion-denial-vs-history"},{"y":"c. 125 BC","t":"The Great Isaiah Scroll copied","p":"The complete Isaiah — including chapter 53 — sealed in a Qumran cave 750 years before Muhammad.","id":"manuscripts-predate-muhammad","crit":true},{"y":"AD 30/33","t":"The crucifixion","p":"Attested by every early source, Christian and pagan; called indisputable by skeptical historians.","id":"crucifixion-denial-vs-history"},{"y":"c. 55","t":"Paul records the resurrection creed","p":"1 Corinthians 15:3-8 — datable to within a few years of the events.","id":"crucifixion-denial-vs-history"},{"y":"2nd c.","t":"Infancy Gospel of Thomas circulates","p":"The clay-birds legend — later retold in Quran 3:49 as history.","id":"clay-birds-apocrypha","crit":true},{"y":"4th c.","t":"Codex Sinaiticus and Vaticanus","p":"Complete Bibles, 200+ years before Muhammad, matching today's text.","id":"manuscripts-predate-muhammad","crit":true},{"y":"610","t":"Muhammad's first revelation","p":"Waraqa — Khadija's Christian cousin who 'used to write the Gospel in Arabic' — interprets the experience.","id":"quran-never-quotes-scriptures"},{"y":"614–628","t":"The Byzantine-Persian war","p":"Background of Surah 30's Rome prediction — the one claimed prophecy.","id":"prophet-test-signs"},{"y":"c. 615–632","t":"The Quran affirms the Torah and Gospel","p":"'Ask those who read the Scripture before you' (10:94); 'let the People of the Gospel judge' (5:47).","id":"quran-affirms-torah-gospel","crit":true},{"y":"627","t":"Banu Qurayza","p":"600–900 surrendered men executed; Muhammad endorses the verdict as 'the judgment of Allah.'","id":"banu-qurayza-massacre","crit":true},{"y":"628","t":"Khaybar: the poisoned meat","p":"Administered as a prophethood test; his companion dies of it.","id":"aorta-test"},{"y":"632","t":"Muhammad dies","p":"'I feel as if my aorta is being cut from that poison' (Bukhari 4428) — the punishment 69:46 names for a false prophet.","id":"aorta-test","crit":true},{"y":"~633","t":"Yamama: the Quran nearly lost","p":"Reciters die in battle; Umar fears 'a large part of the Quran may be lost'; Zayd collects it from palm stalks and memory.","id":"compilation-lost-verses","crit":true},{"y":"~650","t":"Uthman standardizes and burns","p":"Muslims 'differing as the Jews and Christians differed'; all variant copies ordered burnt (Bukhari 4987).","id":"uthman-standardization-qiraat","crit":true},{"y":"7th c.","t":"The Sanaa palimpsest","p":"A non-Uthmanic Quran text, erased and overwritten — rediscovered in 1972.","id":"sanaa-palimpsest-qiraat"},{"y":"~750–900","t":"The hadith are compiled","p":"Bukhari and Muslim collect the reports — including Aisha's age, the lost verses, and the deathbed words — 150–250 years after the events.","id":"aisha-age"},{"y":"1064","t":"Ibn Hazm dies","p":"The first major scholar to teach the Bible's TEXT was corrupted — four centuries after Muhammad.","id":"tahrif-doctrine-late-development","crit":true},{"y":"1924","t":"The Cairo edition","p":"The Hafs reading becomes the near-universal printed Quran; Warsh persists in Africa — two texts in print today.","id":"uthman-standardization-qiraat"},{"y":"1947","t":"The Dead Sea Scrolls discovered","p":"The pre-Muhammad Bible surfaces at Qumran — and it is our Bible. The corruption window closes.","id":"manuscripts-predate-muhammad","crit":true}];
 
 /* ---------- state ---------- */
-const KEY_SIMPLE="wbi_simple";
-const store={simple:localStorage.getItem(KEY_SIMPLE)!=="0",
+const KEY_FULL="wbi_full";
+const store={full:localStorage.getItem(KEY_FULL)==="1",
   get read(){try{return new Set(JSON.parse(localStorage.getItem("wbi_read")||"[]"))}catch(e){return new Set()}},
   markRead(id){const r=this.read;r.add(id);localStorage.setItem("wbi_read",JSON.stringify([...r]))},
   get pins(){try{return JSON.parse(localStorage.getItem("wbi_pins")||"[]")}catch(e){return[]}},
@@ -949,13 +973,13 @@ function renderNav(){
   const read=store.read.size;
   $("#sideprog").innerHTML=`
     <div class="setbox">
-      <button id="simplebtn" class="setbtn wide${store.simple?" on":""}" title="Explains every case in plain, high-school-level English above the claim">${store.simple?"◆":"◇"} Simplified <b>${store.simple?"on":"off"}</b></button>
+      <button id="simplebtn" class="setbtn wide${store.full?" on":""}" title="Quick read opens each case in plain English; Full detail opens the sourced version. Both are always one click apart.">${store.full?"◆":"◇"} ${store.full?"Full detail":"Quick read"}</button>
       <div class="setrow">
         <button id="themebtn" class="setbtn">◐ ${document.documentElement.dataset.theme==="light"?"Dark":"Light"}</button>
         <button id="tourbtn" class="setbtn">✦ Tour</button>
       </div>
     </div>`;
-  $("#simplebtn").addEventListener("click",()=>{store.simple=!store.simple;localStorage.setItem(KEY_SIMPLE,store.simple?"1":"0");renderNav();render();});
+  $("#simplebtn").addEventListener("click",()=>{store.full=!store.full;localStorage.setItem(KEY_FULL,store.full?"1":"0");renderNav();render();});
   $("#themebtn").addEventListener("click",()=>{
     const cur=document.documentElement.dataset.theme==="light"?"dark":"light";
     document.documentElement.dataset.theme=cur;
@@ -1043,6 +1067,9 @@ function openCase(id,fromPath){
   render();
   window.scrollTo({top:0});
 }
+function plainHtml(d){
+  return (d.plain||[]).map(b=>`<div class="pblk${b.say?" say":""}"><div class="plab">${esc(b.t)}</div>${paras(b.d,2)}</div>`).join("");
+}
 function renderCase(){
   const d=byId[state.caseId];if(!d){state.view="overview";return renderOverview();}
   const list=filtered();const idx=list.findIndex(x=>x.id===d.id);
@@ -1085,7 +1112,7 @@ function renderCase(){
     <div class="case">
       <div class="meta"><span class="badge v-${d.verdict}">${VLABEL[d.verdict]} ${info(TIPS.verdict[d.verdict])}</span><span class="tag">${CATS[d.category]} ${info(CATDESC[d.category])}</span><span class="tag">seriousness: ${SEVLABEL[d.severity]} ${info(TIPS.impact)}</span>${d.avoid?`<span class="tag" style="border-color:var(--red);color:var(--red)">⚠ popular claim — do not use it</span>`:d.featured?`<span class="tag" style="border-color:var(--gold);color:var(--gold)">★ strongest evidence ${info(TIPS.strongest)}</span>`:isStrong(d)?`<span class="tag" style="border-color:var(--amber);color:var(--amber)">☆ strong evidence</span>`:""}</div>
       <h2>${esc(d.title)}</h2>
-      ${(d.context&&store.simple)?`<div class="bgbox"><div class="bglab">Simplified <span class="bghint">— plain-English background, toggle in the sidebar</span></div>${paras(d.context,2)}</div>`:""}
+      ${(d.plain&&d.plain.length&&!store.full)?`<div class="plainwrap">${plainHtml(d)}<details class="fullcase"><summary>Read the full case — sources, the defense in their own words, and the verdict</summary><div class="fullbody">`:(d.plain&&d.plain.length)?`<button class="quickback" id="toquick">← Show the quick summary</button>`:""}
       <div class="ctop">
         <div class="claimcol"><div class="dlab red" style="margin-top:0">The claim</div><div class="claim">${paras(d.claim)}</div><div id="versebox"></div></div>
         ${passages}
@@ -1111,6 +1138,7 @@ function renderCase(){
         <div class="dlab">Connected cases</div>
         <div class="relrow">${rel.map(id=>`<button data-open="${id}">${esc(byId[id].title)}</button>`).join("")||"—"}</div>
       </div>
+    ${(d.plain&&d.plain.length&&!store.full)?`</div></details></div>`:""}
     </div>`;
     $("#back").addEventListener("click",()=>{state.view=path?"paths":"overview";state.caseId=null;render();});
   if(nextInPath)$("#pathnext").addEventListener("click",()=>openCase(nextInPath));
@@ -1254,6 +1282,7 @@ function renderShare(){
   <button class="start" data-goto-path="cornerstone">Open the cornerstone path →</button></div>`;
   const b=$("#main").querySelector("[data-goto-path]");
   if(b)b.addEventListener("click",()=>{const p=PATHS.find(x=>x.id===b.dataset.gotoPath);state.pathId=p.id;const read=store.read;const next=p.items.find(i=>!read.has(i))||p.items[0];openCase(next,true);});
+  const tq=$("#toquick");if(tq)tq.addEventListener("click",()=>{store.full=false;localStorage.setItem(KEY_FULL,"0");renderNav();render();});
   bindOpens();
 }
 

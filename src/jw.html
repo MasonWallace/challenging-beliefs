@@ -549,6 +549,30 @@
     .bubble p{font-size:.72rem}
     .bubble .ebthumb{width:40px;height:40px;margin-left:7px}
   }
+
+  /* --- plain-first case view --- */
+  .pblk{margin:0 0 15px}
+  .pblk .plab{font-size:.63rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-bottom:6px;color:var(--acc)}
+  .pblk:nth-child(1) .plab{color:var(--red)}
+  .pblk:nth-child(3) .plab{color:var(--amber)}
+  .pblk:nth-child(4) .plab{color:var(--gold)}
+  .pblk p{margin:0 0 9px;font-size:.97rem;line-height:1.8;color:var(--muted)}
+  .pblk p:last-child{margin:0}
+  .pblk p b{color:var(--ink)}
+  .pblk.say{background:linear-gradient(90deg,color-mix(in srgb,var(--green) 11%,transparent),transparent 72%);
+    border-left:3px solid var(--green);border-radius:0 10px 10px 0;padding:13px 17px;margin-top:18px}
+  .pblk.say .plab{color:var(--green)}
+  .pblk.say p{color:var(--ink);font-family:var(--serif);font-size:1.04rem;line-height:1.6}
+  details.fullcase{margin-top:22px;border-top:1px solid var(--line);padding-top:14px}
+  details.fullcase>summary{cursor:pointer;list-style:none;font-size:.74rem;font-weight:700;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--acc);padding:4px 0}
+  details.fullcase>summary::-webkit-details-marker{display:none}
+  details.fullcase>summary::after{content:" →";transition:margin-left .2s}
+  details.fullcase[open]>summary::after{content:" ↓"}
+  details.fullcase>summary:hover{color:var(--ink)}
+  .quickback{font-size:.74rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--acc);
+    background:none;border:0;cursor:pointer;padding:4px 0;margin-bottom:12px;font-family:inherit}
+  .quickback:hover{color:var(--ink)}
 </style>
 
 <div class="app">
@@ -640,8 +664,8 @@ const PATHS=[{"id":"foundation","name":"The foundation: 1914 and the slave","des
 const TIMELINE=[];
 
 /* ---------- state ---------- */
-const KEY_SIMPLE="wbjw_simple";
-const store={simple:localStorage.getItem(KEY_SIMPLE)!=="0",
+const KEY_FULL="wbjw_full";
+const store={full:localStorage.getItem(KEY_FULL)==="1",
   get read(){try{return new Set(JSON.parse(localStorage.getItem("wbjw_read")||"[]"))}catch(e){return new Set()}},
   markRead(id){const r=this.read;r.add(id);localStorage.setItem("wbjw_read",JSON.stringify([...r]))},
   get pins(){try{return JSON.parse(localStorage.getItem("wbjw_pins")||"[]")}catch(e){return[]}},
@@ -748,13 +772,13 @@ function renderNav(){
   const read=store.read.size;
   $("#sideprog").innerHTML=`
     <div class="setbox">
-      <button id="simplebtn" class="setbtn wide${store.simple?" on":""}" title="Explains every case in plain, high-school-level English above the claim">${store.simple?"◆":"◇"} Simplified <b>${store.simple?"on":"off"}</b></button>
+      <button id="simplebtn" class="setbtn wide${store.full?" on":""}" title="Quick read opens each case in plain English; Full detail opens the sourced version. Both are always one click apart.">${store.full?"◆":"◇"} ${store.full?"Full detail":"Quick read"}</button>
       <div class="setrow">
         <button id="themebtn" class="setbtn">◐ ${document.documentElement.dataset.theme==="light"?"Dark":"Light"}</button>
         <button id="tourbtn" class="setbtn">✦ Tour</button>
       </div>
     </div>`;
-  $("#simplebtn").addEventListener("click",()=>{store.simple=!store.simple;localStorage.setItem(KEY_SIMPLE,store.simple?"1":"0");renderNav();render();});
+  $("#simplebtn").addEventListener("click",()=>{store.full=!store.full;localStorage.setItem(KEY_FULL,store.full?"1":"0");renderNav();render();});
   $("#themebtn").addEventListener("click",()=>{
     const cur=document.documentElement.dataset.theme==="light"?"dark":"light";
     document.documentElement.dataset.theme=cur;
@@ -842,6 +866,9 @@ function openCase(id,fromPath){
   render();
   window.scrollTo({top:0});
 }
+function plainHtml(d){
+  return (d.plain||[]).map(b=>`<div class="pblk${b.say?" say":""}"><div class="plab">${esc(b.t)}</div>${paras(b.d,2)}</div>`).join("");
+}
 function renderCase(){
   const d=byId[state.caseId];if(!d){state.view="overview";return renderOverview();}
   const list=filtered();const idx=list.findIndex(x=>x.id===d.id);
@@ -884,7 +911,7 @@ function renderCase(){
     <div class="case">
       <div class="meta"><span class="badge v-${d.verdict}">${VLABEL[d.verdict]} ${info(TIPS.verdict[d.verdict])}</span><span class="tag">${CATS[d.category]} ${info(CATDESC[d.category])}</span><span class="tag">seriousness: ${SEVLABEL[d.severity]} ${info(TIPS.impact)}</span>${d.avoid?`<span class="tag" style="border-color:var(--red);color:var(--red)">⚠ popular claim — do not use it</span>`:d.featured?`<span class="tag" style="border-color:var(--gold);color:var(--gold)">★ strongest evidence ${info(TIPS.strongest)}</span>`:isStrong(d)?`<span class="tag" style="border-color:var(--amber);color:var(--amber)">☆ strong evidence</span>`:""}</div>
       <h2>${esc(d.title)}</h2>
-      ${(d.context&&store.simple)?`<div class="bgbox"><div class="bglab">Simplified <span class="bghint">— plain-English background, toggle in the sidebar</span></div>${paras(d.context,2)}</div>`:""}
+      ${(d.plain&&d.plain.length&&!store.full)?`<div class="plainwrap">${plainHtml(d)}<details class="fullcase"><summary>Read the full case — sources, the defense in their own words, and the verdict</summary><div class="fullbody">`:(d.plain&&d.plain.length)?`<button class="quickback" id="toquick">← Show the quick summary</button>`:""}
       <div class="ctop">
         <div class="claimcol"><div class="dlab red" style="margin-top:0">The claim</div><div class="claim">${paras(d.claim)}</div><div id="versebox"></div></div>
         ${passages}
@@ -910,6 +937,7 @@ function renderCase(){
         <div class="dlab">Connected cases</div>
         <div class="relrow">${rel.map(id=>`<button data-open="${id}">${esc(byId[id].title)}</button>`).join("")||"—"}</div>
       </div>
+    ${(d.plain&&d.plain.length&&!store.full)?`</div></details></div>`:""}
     </div>`;
     $("#back").addEventListener("click",()=>{state.view=path?"paths":"overview";state.caseId=null;render();});
   if(nextInPath)$("#pathnext").addEventListener("click",()=>openCase(nextInPath));

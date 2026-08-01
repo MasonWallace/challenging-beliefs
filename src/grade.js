@@ -3,7 +3,7 @@ const syll=w=>{w=w.toLowerCase().replace(/[^a-z]/g,'');if(w.length<=3)return 1;
  return (w.match(/[aeiouy]{1,2}/g)||['x']).length;};
 module.exports=function grade(t){
   t=String(t).replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();
-  const sents=t.split(/(?<=[.!?])\s+/).filter(x=>x.trim().length>2);
+  const sents=t.split(/(?<=[.!?]["'\u201d\u2019)\]]*)\s+/).filter(x=>x.trim().length>2);
   const S=sents.length||1;
   const words=t.split(/\s+/).filter(Boolean),W=words.length||1;
   const sy=words.reduce((a,w)=>a+syll(w),0), poly=words.filter(w=>syll(w)>=3).length;
