@@ -574,6 +574,14 @@
   .quickback{font-size:.74rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--acc);
     background:none;border:0;cursor:pointer;padding:4px 0;margin-bottom:12px;font-family:inherit}
   .quickback:hover{color:var(--ink)}
+
+  .versebox .vtext .vs{color:var(--dim);transition:color .15s}
+  .versebox .vtext .vs.hl{color:var(--ink)}
+  .versebox .vtext .vs.hl .vnum{color:var(--gold)}
+  .versebox .vtext .vs.hl em{font-style:normal;background:linear-gradient(transparent 62%,color-mix(in srgb,var(--gold) 30%,transparent) 0)}
+  .versebox .vr .vcited{font-weight:400;letter-spacing:0;text-transform:none;color:var(--muted);font-size:.72rem}
+  .versebox.hovering{opacity:.97;border-left-color:var(--acc)}
+  .chip.peek{border-color:var(--acc)}
 </style>
 
 <div class="app">
@@ -1087,8 +1095,14 @@ function openCase(id,fromPath){
   render();
   window.scrollTo({top:0});
 }
+function ROLENOTE(side){return side==="bom"?"<b>Role:</b> this is the Book of Mormon passage the claim examines.":"<b>Role:</b> this is the biblical standard the claim measures against.";}
 function plainHtml(d){
-  return (d.plain||[]).map(b=>`<div class="pblk${b.say?" say":""}"><div class="plab">${esc(b.t)}</div>${paras(b.d,2)}</div>`).join("");
+  const rt=t=>glossify(emphasize(esc(t).replace(/&lt;(\/?)(b|i)&gt;/g,"<$1$2>")));
+  return (d.plain||[]).map(b=>{
+    const ss=splitSentences(b.d),ps=[];
+    for(let i=0;i<ss.length;i+=2)ps.push("<p>"+rt(ss.slice(i,i+2).join(" "))+"</p>");
+    return `<div class="pblk${b.say?" say":""}"><div class="plab">${esc(b.t)}</div>${ps.join("")}</div>`;
+  }).join("");
 }
 function renderCase(){
   const d=byId[state.caseId];if(!d){state.view="overview";return renderOverview();}
@@ -1130,9 +1144,9 @@ function renderCase(){
     <div class="case">
       <div class="meta"><span class="badge v-${d.verdict}">${VLABEL[d.verdict]} ${info(TIPS.verdict[d.verdict])}</span><span class="tag">${CATS[d.category]} ${info(CATDESC[d.category])}</span><span class="tag">seriousness: ${SEVLABEL[d.severity]} ${info(TIPS.impact)}</span>${d.avoid?`<span class="tag" style="border-color:var(--red);color:var(--red)">⚠ popular claim — do not use it</span>`:d.featured?`<span class="tag" style="border-color:var(--gold);color:var(--gold)">★ strongest evidence ${info(TIPS.strongest)}</span>`:isStrong(d)?`<span class="tag" style="border-color:var(--amber);color:var(--amber)">☆ strong evidence</span>`:""}</div>
       <h2>${esc(d.title)}</h2>
-      ${(d.plain&&d.plain.length&&!store.full)?`<div class="plainwrap">${plainHtml(d)}<details class="fullcase"><summary>Read the full case — sources, the defense in their own words, and the verdict</summary><div class="fullbody">`:(d.plain&&d.plain.length)?`<button class="quickback" id="toquick">← Show the quick summary</button>`:""}
+      ${(d.plain&&d.plain.length&&store.full)?`<button class="quickback" id="toquick">← Show the quick summary</button>`:""}
       <div class="ctop">
-        <div class="claimcol"><div class="dlab red" style="margin-top:0">The claim</div><div class="claim">${paras(d.claim)}</div><div id="versebox"></div></div>
+        <div class="claimcol">${(d.plain&&d.plain.length&&!store.full)?plainHtml(d):`<div class="dlab red" style="margin-top:0">The claim</div><div class="claim">${paras(d.claim)}</div>`}<div id="versebox"></div></div>
         ${passages}
       </div>
       ${comp}
@@ -1156,27 +1170,52 @@ function renderCase(){
         <div class="dlab">Connected cases</div>
         <div class="relrow">${rel.map(id=>`<button data-open="${id}">${esc(byId[id].title)}</button>`).join("")||"—"}</div>
       </div>
-    ${(d.plain&&d.plain.length&&!store.full)?`</div></details></div>`:""}
     </div>`;
     $("#back").addEventListener("click",()=>{state.view=path?"paths":"overview";state.caseId=null;render();});
   if(nextInPath)$("#pathnext").addEventListener("click",()=>openCase(nextInPath));
   document.querySelectorAll(".relrow [data-open]").forEach(b=>b.addEventListener("click",()=>openCase(b.dataset.open)));
-  document.querySelectorAll(".chip").forEach(ch=>ch.addEventListener("click",()=>{
-    if(ch.dataset.ext){window.open(ch.dataset.ext,"_blank");return;}
-    const cite=ch.dataset.cite;const v=VERSES[cite];
-    const box=$("#versebox");
-    const already=ch.classList.contains("open");
-    document.querySelectorAll(".chip.open").forEach(x=>x.classList.remove("open"));
-    if(already){box.innerHTML="";return;}
-    ch.classList.add("open");
-    if(!v||!v.verses){box.innerHTML=`<div class="versebox vmiss"><div class="vr"><span>${esc(cite)}</span><button data-close>✕ close</button></div><div class="vwhy">This reference is cited by the claim but isn't in the built-in reader — open it in your own Bible.</div></div>`;const cb=box.querySelector("[data-close]");if(cb)cb.addEventListener("click",()=>{box.innerHTML="";ch.classList.remove("open");});return;}
-    const side=ch.closest("[data-side]")?ch.closest("[data-side]").dataset.side:"";
-    const why=findWhy(d,cite);
-    const whyHtml=why?`<b>Why it's cited:</b> ${esc(why)}`:(side==="bom"?"<b>Role:</b> this is the Book of Mormon passage the claim examines.":"<b>Role:</b> this is the biblical standard the claim measures against.");
-    requestAnimationFrame(()=>box.scrollIntoView({behavior:"smooth",block:"nearest"}));box.innerHTML=`<div class="versebox"><div class="vr"><span>${esc(cite)}</span><button data-close>✕ close</button></div><div class="vtext">${v.verses.map(x=>`<span class="vnum">${x.v}</span>${esc(x.t)} `).join("")}</div><div class="vwhy">${whyHtml}</div></div>`;
-    box.querySelector("[data-close]").addEventListener("click",()=>{box.innerHTML="";document.querySelectorAll(".chip.open").forEach(x=>x.classList.remove("open"));});
-  }));
-  document.querySelectorAll(".cimg-x").forEach(b=>b.addEventListener("click",e=>{e.stopPropagation();showLightbox(b.dataset.full,b.dataset.cap);}));
+  let pinnedCite=null;
+  const clearVerse=()=>{pinnedCite=null;const b=$("#versebox");if(b)b.innerHTML="";
+    document.querySelectorAll(".chip.open,.chip.peek").forEach(x=>x.classList.remove("open","peek"));};
+  const showVerse=(ch,pin)=>{
+    const cite=ch.dataset.cite,v=VERSES[cite],box=$("#versebox");
+    if(!box)return;
+    document.querySelectorAll(".chip.open,.chip.peek").forEach(x=>x.classList.remove("open","peek"));
+    ch.classList.add(pin?"open":"peek");
+    if(pin)pinnedCite=cite;
+    if(!v||!v.verses){
+      box.innerHTML='<div class="versebox vmiss"><div class="vr"><span>'+esc(cite)+'</span><button data-close>✕ close</button></div><div class="vwhy">This reference is cited by the claim but isn\'t in the built-in reader — open it in your own Bible.</div></div>';
+    }else{
+      const side=ch.closest("[data-side]")?ch.closest("[data-side]").dataset.side:"";
+      const why=findWhy(d,cite);
+      const whyHtml=why?"<b>Why it's cited:</b> "+esc(why):ROLENOTE(side);
+      const anyHl=v.verses.some(x=>x.hl);
+      const hasCtx=anyHl&&v.verses.some(x=>!x.hl);
+      const ctx=hasCtx?' <span class="vcited">— '+esc(v.ref)+', with the verses either side</span>':"";
+      const body=v.verses.map(x=>{
+        const lit=(x.hl||!anyHl);
+        const txt=(x.hl&&hasCtx)?"<em>"+esc(x.t)+"</em>":esc(x.t);
+        return '<span class="vs'+(lit?" hl":"")+'"><span class="vnum">'+x.v+'</span>'+txt+' </span>';
+      }).join("");
+      box.innerHTML='<div class="versebox"><div class="vr"><span>'+esc(cite)+ctx+'</span><button data-close>✕ close</button></div><div class="vtext">'+body+'</div><div class="vwhy">'+whyHtml+'</div></div>';
+    }
+    const cb=box.querySelector("[data-close]");if(cb)cb.addEventListener("click",clearVerse);
+    if(pin)requestAnimationFrame(()=>box.scrollIntoView({behavior:"smooth",block:"nearest"}));
+  };
+  const canHover=window.matchMedia("(hover:hover)").matches;
+  document.querySelectorAll(".chip").forEach(ch=>{
+    ch.addEventListener("click",()=>{
+      if(ch.dataset.ext){window.open(ch.dataset.ext,"_blank");return;}
+      if(pinnedCite===ch.dataset.cite){clearVerse();return;}
+      showVerse(ch,true);
+    });
+    if(!ch.dataset.ext&&canHover){
+      ch.addEventListener("mouseenter",()=>{if(!pinnedCite)showVerse(ch,false);});
+      ch.addEventListener("mouseleave",()=>{if(!pinnedCite)clearVerse();});
+    }
+  });
+  
+document.querySelectorAll(".cimg-x").forEach(b=>b.addEventListener("click",e=>{e.stopPropagation();showLightbox(b.dataset.full,b.dataset.cap);}));
   renderNav();renderPreview();
 }
 

@@ -3,6 +3,8 @@ const fs = require('fs');
 const cp = require('child_process');
 const P = f => __dirname + '/' + f;
 const gate = require('./gate.js');
+/* the per-section make scripts write their own verse files; regenerate with context after them */
+require('child_process').execSync('node ' + __dirname + '/extract-context.js', {stdio:'pipe'});
 const BASE = 'https://masonwallace.github.io/challenging-beliefs/';
 
 function ogMeta(m) {
