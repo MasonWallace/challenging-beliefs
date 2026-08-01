@@ -49,7 +49,9 @@ const SETS=[
 for(const [out,load] of SETS){
   const data=load();
   const cites=new Set();
-  data.forEach(d=>['bible','tanakh','nt'].forEach(f=>(d[f]||[]).forEach(c=>cites.add(c))));
+  /* 'bom' belongs here too — Book of Mormon citations that never appear in the prose
+     were otherwise never re-resolved, so they kept their old context-free entries. */
+  data.forEach(d=>['bible','tanakh','nt','bom'].forEach(f=>(d[f]||[]).forEach(c=>cites.add(c))));
   /* also every reference written into the prose, so hovering it in the text works */
   const BOOKS='(?:[1-3]\\s)?(?:Genesis|Exodus|Leviticus|Numbers|Deuteronomy|Joshua|Judges|Ruth|Samuel|Kings|Chronicles|Ezra|Nehemiah|Esther|Job|Psalms?|Proverbs|Ecclesiastes|Song of Solomon|Isaiah|Jeremiah|Lamentations|Ezekiel|Daniel|Hosea|Joel|Amos|Obadiah|Jonah|Micah|Nahum|Habakkuk|Zephaniah|Haggai|Zechariah|Malachi|Matthew|Mark|Luke|John|Acts|Romans|Corinthians|Galatians|Ephesians|Philippians|Colossians|Thessalonians|Timothy|Titus|Philemon|Hebrews|James|Peter|Jude|Revelation)';
   const PROSE=new RegExp('\\b('+BOOKS+'\\s+\\d+:\\d+(?:[\\-\\u2013]\\d+(?::\\d+)?)?)','g');
@@ -67,7 +69,10 @@ for(const [out,load] of SETS){
   for(const [k,v] of Object.entries(prev)) res[k]=v;
   cites.forEach(orig=>{
     const lds=resolveLDS(orig);
-    if(lds){ if(!res[orig]){res[orig]=lds; ok++;} return; }
+    /* The resolver builds the surrounding verses; an older single-verse entry must
+       not win just because it got there first. Only keep the old one if we cannot
+       resolve the reference at all (Quran, hadith, Watchtower). */
+    if(lds){ if(!res[orig]||lds.verses.length>(res[orig].verses||[]).length){res[orig]=lds; ok++; if(lds.verses.length>1)ctx++;} return; }
     const c=orig.replace(/[\u2013\u2014]/g,'-').replace(/\s*\(.*?\)\s*/g,'').trim();
 
     /* cross-chapter: "Isaiah 52:13-53:12" */

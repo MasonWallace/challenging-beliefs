@@ -1,0 +1,123 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>All Claims — five ways to lay it out</title><style>
+:root{--bg:#0f1116;--side:#0b0d11;--panel:#161a21;--panel2:#12151b;--line:#232833;--line2:#2b313d;
+--ink:#e7e9ec;--muted:#98a0ac;--dim:#565e6b;--gold:#82b1d8;--red:#e0736a;--amber:#cf9a45;--green:#7fb08d;--purp:#b394e0;--teal:#6cb6ad;
+--serif:'Iowan Old Style',Palatino,Georgia,serif;--sans:ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6}
+.wrap{max-width:960px;margin:0 auto;padding:38px 22px 90px}
+h1{font-family:var(--serif);font-size:1.9rem;margin:0 0 6px;font-weight:600}
+.sub{color:var(--muted);margin:0 0 34px;max-width:60ch}
+.opt{margin:0 0 46px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--panel2)}
+.oh{padding:16px 20px;background:var(--panel);border-bottom:1px solid var(--line)}
+.ol{font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.ot{font-family:var(--serif);font-size:1.22rem;margin:3px 0 4px}
+.od{color:var(--muted);font-size:.9rem;margin:0;max-width:64ch}
+.ob{padding:18px 20px 22px}
+.row{display:flex;gap:10px;align-items:baseline;padding:8px 0;border-top:1px solid var(--line)}
+.row:first-of-type{border-top:none}
+.rt{flex:1;font-size:.93rem}
+.sev{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);border:1px solid color-mix(in srgb,var(--amber) 45%,transparent);border-radius:20px;padding:1px 7px;flex:none}
+.vb{flex:none;font-size:.6rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;border-radius:20px;padding:2px 9px;min-width:78px;text-align:center}
+.vb.admitted{color:var(--green);background:color-mix(in srgb,var(--green) 15%,transparent)}
+.vb.unrefuted{color:var(--red);background:color-mix(in srgb,var(--red) 15%,transparent)}
+.vb.contested{color:var(--amber);background:color-mix(in srgb,var(--amber) 15%,transparent)}
+.vb.answered{color:var(--muted);background:color-mix(in srgb,var(--muted) 14%,transparent)}
+.ab{color:var(--muted);font-size:.85rem;margin:2px 0 10px;max-width:62ch}
+.more{margin-top:10px;background:none;border:1px solid var(--line2);color:var(--gold);border-radius:8px;padding:5px 12px;font-size:.78rem;cursor:pointer;font-family:inherit}
+.ac{font-size:.72rem;color:var(--dim);font-variant-numeric:tabular-nums}
+details.acc{border:1px solid var(--line);border-radius:10px;margin:0 0 10px;background:var(--panel2)}
+details.acc summary{cursor:pointer;padding:13px 16px;display:flex;justify-content:space-between;align-items:center;list-style:none}
+details.acc summary::-webkit-details-marker{display:none}
+details.acc summary::before{content:'▸ ';color:var(--dim)}
+details.acc[open] summary::before{content:'▾ '}
+.an{font-family:var(--serif);font-size:1.05rem;flex:1;margin-left:6px}
+details.acc>*:not(summary){padding-left:16px;padding-right:16px}
+details.acc>.more{margin-left:16px;margin-bottom:14px}
+.vgroup{border-left:3px solid var(--line2);padding:2px 0 12px 15px;margin:0 0 18px}
+.vgroup.admitted{border-left-color:var(--green)}.vgroup.unrefuted{border-left-color:var(--red)}
+.vgroup.contested{border-left-color:var(--amber)}.vgroup.answered{border-left-color:var(--dim)}
+.vh{display:flex;justify-content:space-between;align-items:baseline}
+.vt{font-family:var(--serif);font-size:1.06rem}
+.hero{border:1px solid var(--line2);border-radius:12px;padding:16px 18px;background:var(--panel);margin-bottom:16px}
+.hl{font-family:var(--serif);font-size:1.1rem;margin-bottom:2px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;margin-top:12px}
+.card{border:1px solid var(--line);border-radius:9px;padding:11px 12px;background:var(--panel2)}
+.card h4{margin:7px 0 0;font-size:.88rem;font-weight:600;line-height:1.4}
+.filtbar{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin:0 0 12px}
+.fl{font-size:.75rem;color:var(--dim);margin-right:4px}
+.fsep{width:1px;height:18px;background:var(--line2);margin:0 4px}
+.chipf{font-size:.76rem;border:1px solid var(--line2);background:var(--panel2);color:var(--muted);border-radius:20px;padding:4px 11px;cursor:pointer;font-family:inherit}
+.chipf.on{border-color:var(--gold);color:var(--gold)}
+.dim{position:relative;opacity:.5}
+.fade{position:absolute;inset:auto 0 0 0;height:60px;background:linear-gradient(transparent,var(--panel2))}
+.two{display:grid;grid-template-columns:minmax(0,190px) minmax(0,1fr);gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.rail{background:var(--side);padding:12px 0;border-right:1px solid var(--line)}
+.rg{font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);padding:12px 14px 5px}
+.ri{display:flex;justify-content:space-between;padding:5px 14px;font-size:.83rem;color:var(--muted);cursor:pointer;text-transform:capitalize}
+.ri span{color:var(--dim);font-size:.72rem}
+.ri.on{background:var(--panel);color:var(--gold);box-shadow:inset 2px 0 0 var(--gold)}
+.pane{padding:14px 16px}
+.ph{font-family:var(--serif);font-size:1.06rem;display:flex;justify-content:space-between;align-items:baseline;text-transform:capitalize}
+.qg{margin:0 0 20px}
+.qh{font-size:.66rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--purp);margin-bottom:9px}
+.qrow{display:flex;gap:11px;align-items:flex-start;padding:9px 0;border-top:1px solid var(--line)}
+.qrow:first-of-type{border-top:none}
+.qq{font-family:var(--serif);font-size:1rem;color:var(--ink)}
+.qs{font-size:.76rem;color:var(--dim);margin-top:2px}
+.note{border-left:3px solid var(--gold);background:var(--panel);padding:12px 16px;border-radius:0 8px 8px 0;margin:0 0 32px;color:var(--muted);font-size:.9rem}
+.note b{color:var(--ink)}
+@media(max-width:640px){.two{grid-template-columns:1fr}.rail{border-right:none;border-bottom:1px solid var(--line)}}
+</style></head><body><div class="wrap">
+<h1>All Claims — five ways to lay it out</h1>
+<p class="sub">The problem: 119 cases in one flat list, sorted by nothing a reader recognises, with 27 sub-categories underneath. Five different answers below, each built with the real Mormonism data. They are genuinely different approaches, not five coats of paint.</p>
+<div class="note"><b>Read them for the idea, not the pixels.</b> Each one is truncated — the real page would show every case. What matters is the first thing a reader sees, and how they decide where to go next.</div>
+<div class="opt"><div class="oh"><div class="ol">Option A</div><div class="ot">Grouped, and folded shut</div><p class="od">Four big groups, everything collapsed until you open one. You see four things, not 119.</p></div><div class="ob">
+  <details class="acc" open><summary><span class="an">The book’s text</span><span class="ac">13</span></summary>
+  <p class="ab">Where the English of the Book of Mormon came from.</p>
+  <div class="row"><span class="vb unrefuted">unanswered</span><span class="rt">Isaiah chapters reproduced verbatim in King James English</span><span class="sev">major</span></div><div class="row"><span class="vb unrefuted">unanswered</span><span class="rt">Book of Mormon Isaiah variants cluster on KJV italicized words</span><span class="sev">major</span></div><div class="row"><span class="vb unrefuted">unanswered</span><span class="rt">KJV mistranslations and translation artifacts reproduced verbatim</span><span class="sev">major</span></div><div class="row"><span class="vb unrefuted">unanswered</span><span class="rt">Isaiah chapters written after Lehi left Jerusalem appear in the Book of Mormon</span><span class="sev">major</span></div><div class="row"><span class="vb contested">arguable</span><span class="rt">Sermon on the Mount in 3 Nephi follows late KJV/Byzantine readings</span><span class="sev">major</span></div><div class="row"><span class="vb unrefuted">unanswered</span><span class="rt">Pervasive New Testament phrasing in allegedly pre-Christian Nephite texts</span><span class="sev">major</span></div>
+  <button class="more">Show all 13 →</button></details>
+  <details class="acc"><summary><span class="an">The doctrine</span><span class="ac">38</span></summary>
+  <p class="ab">What the church teaches, set against the Bible.</p>
+  <div class="row"><span class="vb contested">arguable</span><span class="rt">The 'another gospel' / closed-canon argument</span><span class="sev">major</span></div><div class="row"><span class="vb contested">arguable</span><span class="rt">Salvation by grace 'after all we can do' vs. grace apart from works</span><span class="sev">major</span></div><div class="row"><span class="vb unrefuted">unanswered</span><span class="rt">Dark skin as a divine curse (and the modern text and heading edits)</span><span class="sev">major</span></div><div class="row"><span class="vb contested">arguable</span><span class="rt">The Fall as necessary blessing vs. the Fall as catastrophe</span></div>
+  <button class="more">Show all 38 →</button></details>
+  <details class="acc"><summary><span class="an">The history</span><span class="ac">40</span></summary>
+  <p class="ab">What happened, and what the ground and the documents show.</p>
+  <div class="row"><span class="vb unrefuted">unanswered</span><span class="rt">No archaeological trace of Nephite civilization; no Book of Mormon site ever identified</span><span class="sev">major</span></div><div class="row"><span class="vb unrefuted">unanswered</span><span class="rt">No Hebrew or Egyptian inscriptions — no 'reformed Egyptian' — in pre-Columbian America</span><span class="sev">major</span></div><div class="row"><span class="vb contested">arguable</span><span class="rt">Native American genetics show Asian, not Israelite, ancestry — and the 2006 introduction change</span><span class="sev">major</span></div><div class="row"><span class="vb contested">arguable</span><span class="rt">Population growth from Lehi's party to the reported armies is demographically implausible</span></div>
+  <button class="more">Show all 40 →</button></details>
+  <details class="acc"><summary><span class="an">Life inside the church</span><span class="ac">28</span></summary>
+  <p class="ab">The temple, the rules, and what leaving costs.</p>
+  <div class="row"><span class="vb unrefuted">unanswered</span><span class="rt">Formal resignation is burdensome enough that 150,000+ members have used a pro bono lawyer</span></div><div class="row"><span class="vb admitted">admitted</span><span class="rt">Temple weddings exclude family without recommends — including parents of the couple</span></div><div class="row"><span class="vb admitted">admitted</span><span class="rt">BYU students who formally leave the church lose enrollment eligibility</span><span class="sev">major</span></div><div class="row"><span class="vb contested">arguable</span><span class="rt">Leaving carries documented family and social costs — though the church formally discourages shunning</span></div>
+  <button class="more">Show all 28 →</button></details></div></div><div class="opt"><div class="oh"><div class="ol">Option B</div><div class="ot">Sorted by how useful it is to you</div><p class="od">Not by topic — by whether the argument actually works. The reader wants ammunition, not a filing system.</p></div><div class="ob">
+  <div class="vgroup admitted"><div class="vh"><span class="vt">They admit this themselves</span><span class="ac">28</span></div>
+  <p class="ab">Conceded in the church’s own published material. The strongest ground you have.</p>
+  <div class="row"><span class="vb admitted">admitted</span><span class="rt">Temple weddings exclude family without recommends — including parents of the couple</span></div><div class="row"><span class="vb admitted">admitted</span><span class="rt">BYU students who formally leave the church lose enrollment eligibility</span><span class="sev">major</span></div><div class="row"><span class="vb admitted">admitted</span><span class="rt">2023 SEC settlement: $5M fine for two decades of concealed holdings via shell LLCs</span><span class="sev">major</span></div><div class="row"><span class="vb admitted">admitted</span><span class="rt">The priesthood and temple ban on Black members, 1852–1978</span><span class="sev">major</span></div>
+  <button class="more">Show all 28 →</button></div>
+  <div class="vgroup unrefuted"><div class="vh"><span class="vt">No good answer has been given</span><span class="ac">30</span></div>
+  <p class="ab">Raised for a long time, never answered well. Use with care and without gloating.</p>
+  <div class="row"><span class="vb unrefuted">unanswered</span><span class="rt">Isaiah chapters reproduced verbatim in King James English</span><span class="sev">major</span></div><div class="row"><span class="vb unrefuted">unanswered</span><span class="rt">Book of Mormon Isaiah variants cluster on KJV italicized words</span><span class="sev">major</span></div><div class="row"><span class="vb unrefuted">unanswered</span><span class="rt">KJV mistranslations and translation artifacts reproduced verbatim</span><span class="sev">major</span></div><div class="row"><span class="vb unrefuted">unanswered</span><span class="rt">Isaiah chapters written after Lehi left Jerusalem appear in the Book of Mormon</span><span class="sev">major</span></div>
+  <button class="more">Show all 30 →</button></div>
+  <div class="vgroup contested"><div class="vh"><span class="vt">Genuinely arguable, both ways</span><span class="ac">48</span></div>
+  <p class="ab">Both sides hold something true. Expect a real conversation, not a win.</p>
+  <div class="row"><span class="vb contested">arguable</span><span class="rt">Sermon on the Mount in 3 Nephi follows late KJV/Byzantine readings</span><span class="sev">major</span></div><div class="row"><span class="vb contested">arguable</span><span class="rt">Alma 12–13 structured on the Epistle to the Hebrews</span></div><div class="row"><span class="vb contested">arguable</span><span class="rt">Moroni quotes the disputed 'long ending' of Mark</span></div><div class="row"><span class="vb contested">arguable</span><span class="rt">Old World crops and fabrics: wheat, barley, silk</span></div>
+  <button class="more">Show all 48 →</button></div>
+  <div class="vgroup answered"><div class="vh"><span class="vt">Answered — do not lead with these</span><span class="ac">13</span></div>
+  <p class="ab">The church has a fair reply. Leading with these costs you credibility.</p>
+  <div class="row"><span class="vb answered">answered</span><span class="rt">Translation method: a seer stone in a hat, plates often not present — vs. the narrative taught for 150 years</span></div><div class="row"><span class="vb answered">answered</span><span class="rt">The Kinderhook plates: Joseph Smith and a known 19th-century forgery</span></div><div class="row"><span class="vb answered">answered</span><span class="rt">Christ's Nephite visit vs. Acts 3:21 'heaven must receive him'</span></div><div class="row"><span class="vb answered">answered</span><span class="rt">Huntsman v. LDS Church: the City Creek tithing-fraud suit</span></div>
+  <button class="more">Show all 13 →</button></div></div></div><div class="opt"><div class="oh"><div class="ol">Option C</div><div class="ot">Start here, then filter</div><p class="od">Six cases up front, everything else behind a filter bar. Nobody has to choose from 119 to begin.</p></div><div class="ob"><div class="hero"><div class="hl">If you read six, read these</div>
+  <p class="ab">The six that come up most and hold up best. Everything else is one click away.</p>
+  <div class="cards"><div class="card"><span class="vb unrefuted">unanswered</span><h4>Isaiah chapters reproduced verbatim in King James English</h4></div><div class="card"><span class="vb unrefuted">unanswered</span><h4>Book of Mormon Isaiah variants cluster on KJV italicized words</h4></div><div class="card"><span class="vb unrefuted">unanswered</span><h4>KJV mistranslations and translation artifacts reproduced verbatim</h4></div><div class="card"><span class="vb unrefuted">unanswered</span><h4>Isaiah chapters written after Lehi left Jerusalem appear in the Book of Mormon</h4></div><div class="card"><span class="vb unrefuted">unanswered</span><h4>Pervasive New Testament phrasing in allegedly pre-Christian Nephite texts</h4></div><div class="card"><span class="vb unrefuted">unanswered</span><h4>Horses (and chariots) in pre-Columbian America</h4></div></div></div>
+  <div class="filtbar"><span class="fl">Then narrow it:</span>
+  <button class="chipf on">All 119</button><button class="chipf">The text 13</button><button class="chipf">Doctrine 38</button>
+  <button class="chipf">History 40</button><button class="chipf">Life inside 28</button>
+  <span class="fsep"></span><button class="chipf">They admit it 28</button><button class="chipf">Unanswered 30</button><button class="chipf">⚠ Stop using 9</button></div>
+  <div class="dim"><div class="row"><span class="vb contested">arguable</span><span class="rt">Alma 12–13 structured on the Epistle to the Hebrews</span></div><div class="row"><span class="vb contested">arguable</span><span class="rt">Moroni quotes the disputed 'long ending' of Mark</span></div><div class="row"><span class="vb unrefuted">unanswered</span><span class="rt">Horses (and chariots) in pre-Columbian America</span><span class="sev">major</span></div><div class="row"><span class="vb unrefuted">unanswered</span><span class="rt">Steel and an iron industry in the pre-Columbian New World</span><span class="sev">major</span></div><div class="row"><span class="vb contested">arguable</span><span class="rt">Old World crops and fabrics: wheat, barley, silk</span></div><div class="row"><span class="vb contested">arguable</span><span class="rt">Greek names and Greek-alphabet expressions in a Hebrew-Egyptian colony</span></div><div class="fade"></div></div></div></div><div class="opt"><div class="oh"><div class="ol">Option D</div><div class="ot">Two-pane browser</div><p class="od">Topics on the left, claims on the right. Only ever about ten on screen. Feels like an app, not a list.</p></div><div class="ob"><div class="two">
+  <div class="rail"><div class="rg">The book’s text</div><div class="ri">cultural anachronism<span>5</span></div><div class="ri">nt anachronism<span>4</span></div><div class="ri">kjv dependence<span>3</span></div><div class="ri">deutero isaiah<span>1</span></div><div class="rg">The doctrine</div><div class="ri">doctrinal conflict<span>10</span></div><div class="ri">canon provenance<span>9</span></div><div class="ri">prophecy<span>5</span></div><div class="ri">nature of god<span>5</span></div><div class="rg">The history</div><div class="ri on">polygamy history<span>8</span></div><div class="ri">provenance<span>7</span></div><div class="ri">archaeology<span>5</span></div><div class="ri">translation test<span>5</span></div><div class="rg">Life inside the church</div><div class="ri">institutional<span>11</span></div><div class="ri">exit costs<span>5</span></div><div class="ri">practice temple<span>5</span></div><div class="ri">modern policy<span>4</span></div></div>
+  <div class="pane"><div class="ph">Institutional <span class="ac">11</span></div>
+  <p class="ab">How the church as an institution has behaved — discipline, transparency, money.</p>
+  <div class="row"><span class="vb contested">arguable</span><span class="rt">Information control: the CES Letter phenomenon and the quiet rollout of the Gospel Topics Essays</span></div><div class="row"><span class="vb unrefuted">unanswered</span><span class="rt">The September Six: coordinated 1993 discipline of scholars and feminists</span></div><div class="row"><span class="vb admitted">admitted</span><span class="rt">2023 SEC settlement: $5M fine for two decades of concealed holdings via shell LLCs</span><span class="sev">major</span></div><div class="row"><span class="vb admitted">admitted</span><span class="rt">Tithing enforcement: temple access gated on payment</span></div><div class="row"><span class="vb admitted">admitted</span><span class="rt">The missionary program: unpaid, family-funded, controlled contact</span></div><div class="row"><span class="vb contested">arguable</span><span class="rt">The abuse help line and the Bisbee, Arizona case</span><span class="sev">major</span></div><div class="row"><span class="vb answered">answered</span><span class="rt">Huntsman v. LDS Church: the City Creek tithing-fraud suit</span></div></div></div></div></div><div class="opt"><div class="oh"><div class="ol">Option E</div><div class="ot">By the question you will be asked</div><p class="od">Each claim titled as the question a real person asks, grouped by where it comes up in a conversation.</p></div><div class="ob"><div class="qg"><div class="qh">What they will say first</div>
+  <div class="qrow"><span class="vb unrefuted">unanswered</span><div><div class="qq">“Why does a book from 600 BC quote a 1611 English Bible?”</div><div class="qs">Isaiah chapters reproduced verbatim in King James English</div></div></div><div class="qrow"><span class="vb unrefuted">unanswered</span><div><div class="qq">“Were there horses in ancient America?”</div><div class="qs">Horses (and chariots) in pre-Columbian America</div></div></div><div class="qrow"><span class="vb unrefuted">unanswered</span><div><div class="qq">“Did anyone in ancient America make steel?”</div><div class="qs">Steel and an iron industry in the pre-Columbian New World</div></div></div></div><div class="qg"><div class="qh">Once you are past the surface</div>
+  <div class="qrow"><span class="vb unrefuted">unanswered</span><div><div class="qq">“Why do the changes land on the italic words?”</div><div class="qs">Book of Mormon Isaiah variants cluster on KJV italicized words</div></div></div><div class="qrow"><span class="vb contested">arguable</span><div><div class="qq">“Why does Alma sound like Hebrews?”</div><div class="qs">Alma 12–13 structured on the Epistle to the Hebrews</div></div></div></div><div class="qg"><div class="qh">The ones that cost something</div>
+  <div class="qrow"><span class="vb unrefuted">unanswered</span><div><div class="qq">“Did the church teach that dark skin was a curse?”</div><div class="qs">Dark skin as a divine curse (and the modern text and heading edits)</div></div></div><div class="qrow"><span class="vb contested">arguable</span><div><div class="qq">“Why quote a passage scholars say was added later?”</div><div class="qs">Moroni quotes the disputed ‘long ending’ of Mark</div></div></div></div></div></div>
+</div></body></html>

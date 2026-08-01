@@ -8,6 +8,7 @@
     --amber:#cf9a45; --amber-bg:#332a18; --amber-cell:#54431f; --amber-cell-hi:#7d6224;
     --green:#7fb08d; --green-bg:#1d2c26; --green-cell:#27443a;
     --purp:#b394e0; --purp-bg:#2c2440;
+    --teal:#6cb6ad; --teal-bg:#16302e;
     --serif:'Iowan Old Style','Palatino Linotype',Palatino,'Book Antiqua',Georgia,serif;
     --sans:ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
     --acc:var(--gold);
@@ -21,6 +22,7 @@
     --amber:#8a5f0e; --amber-bg:#f3ecd9; --amber-cell:#e4d1a2; --amber-cell-hi:#c6a75e;
     --green:#3e7455; --green-bg:#e3ede6; --green-cell:#b7d1bf;
     --purp:#6b4fa1; --purp-bg:#ece5f6;
+    --teal:#26706a; --teal-bg:#e0eeec;
   }
   *{box-sizing:border-box}
   @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
@@ -564,10 +566,7 @@
 
   /* --- plain-first case view --- */
   .pblk{margin:0 0 15px}
-  .pblk .plab{font-size:.63rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-bottom:6px;color:var(--acc)}
-  .pblk:nth-child(1) .plab{color:var(--red)}
-  .pblk:nth-child(3) .plab{color:var(--amber)}
-  .pblk:nth-child(4) .plab{color:var(--gold)}
+  .pblk .plab{font-weight:700;text-transform:uppercase}
   .pblk p{margin:0 0 9px;font-size:.97rem;line-height:1.8;color:var(--muted)}
   .pblk p:last-child{margin:0}
   .pblk p b{color:var(--ink)}
@@ -610,11 +609,39 @@
   .versebox .vr{font-size:.66rem}
   #versebox{scroll-margin-top:80px}
 
-  /* --- plain-block headings are labels, not body text --- */
-  .pblk .plab{color:var(--acc) !important}
-  .pblk.say .plab{color:var(--green) !important}
-  .pblk .plab.warn{color:var(--amber) !important}
-  .pblk .plab.strong{color:var(--gold) !important}
+  /* --- plain blocks: one box per move in the argument, each its own colour --- */
+  .pblk{padding:13px 16px 12px;border-radius:10px;border:1px solid var(--line);
+    border-left:3px solid var(--line2);background:var(--panel2)}
+  .pblk .plab{font-size:.86rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+    margin-bottom:8px;line-height:1.35;color:var(--muted)}
+  .pblk p{color:var(--ink)}
+  .pblk p b{color:var(--ink);font-weight:700}
+  .pblk + .pblk{margin-top:12px}
+
+  .pblk.k-claim   {background:color-mix(in srgb,var(--red) 7%,var(--panel2));   border-left-color:var(--red)}
+  .pblk.k-text    {background:color-mix(in srgb,var(--gold) 7%,var(--panel2));  border-left-color:var(--gold)}
+  .pblk.k-def     {background:color-mix(in srgb,var(--purp) 8%,var(--panel2));  border-left-color:var(--purp)}
+  .pblk.k-gap     {background:color-mix(in srgb,var(--amber) 8%,var(--panel2)); border-left-color:var(--amber)}
+  .pblk.k-strength{background:color-mix(in srgb,var(--teal) 8%,var(--panel2));  border-left-color:var(--teal)}
+  .pblk.k-help    {background:var(--panel);                                     border-left-color:var(--muted)}
+  .pblk.k-plain   {background:var(--panel2);                                    border-left-color:var(--line2)}
+
+  .pblk .plab.k-claim{color:var(--red)}
+  .pblk .plab.k-text{color:var(--gold)}
+  .pblk .plab.k-def{color:var(--purp)}
+  .pblk .plab.k-gap{color:var(--amber)}
+  .pblk .plab.k-strength{color:var(--teal)}
+  .pblk .plab.k-help{color:var(--ink)}
+  .pblk .plab.k-plain{color:var(--muted)}
+  .pblk .plab.k-say{color:var(--green)}
+
+  /* unnamed blocks rotate, so two in a row never read as one */
+  .pblk.k-plain.a0{background:color-mix(in srgb,var(--gold) 5%,var(--panel2));  border-left-color:color-mix(in srgb,var(--gold) 65%,var(--line2))}
+  .pblk.k-plain.a1{background:color-mix(in srgb,var(--teal) 5%,var(--panel2));  border-left-color:color-mix(in srgb,var(--teal) 65%,var(--line2))}
+  .pblk.k-plain.a2{background:color-mix(in srgb,var(--amber) 5%,var(--panel2)); border-left-color:color-mix(in srgb,var(--amber) 65%,var(--line2))}
+  .pblk .plab.k-plain.a0{color:var(--gold)}
+  .pblk .plab.k-plain.a1{color:var(--teal)}
+  .pblk .plab.k-plain.a2{color:var(--amber)}
 
   /* --- floating verse card: no layout shift, compact --- */
   .versepop{display:none}
@@ -626,14 +653,6 @@
   .versebox .vtext{font-size:.79rem;line-height:1.55}
   .versebox .vwhy{font-size:.74rem}
 
-  /* --- plain-block headings: coloured and sized, no cascade fights --- */
-  .pblk .plab{font-size:.74rem;letter-spacing:.1em}
-  .pblk .plab.k-say{color:var(--green)}
-  .pblk .plab.k-them{color:var(--red)}
-  .pblk .plab.k-text{color:var(--gold)}
-  .pblk .plab.k-strength{color:var(--amber)}
-  .pblk .plab.k-help{color:var(--acc2)}
-  .pblk .plab.k-plain{color:var(--acc)}
   .pblk.k-big p{font-size:1.02rem}
 
   /* --- defense / verdict / why: give the eye somewhere to land --- */
@@ -646,13 +665,6 @@
   .dsrc a{color:var(--acc);border-bottom:1px dotted color-mix(in srgb,var(--acc) 55%,transparent)}
   .dsrc a:hover{border-bottom-style:solid}
 
-  .pblk .plab{color:var(--gold)}
-  .pblk .plab.k-them{color:var(--red) !important}
-  .pblk .plab.k-text{color:var(--amber) !important}
-  .pblk .plab.k-strength{color:var(--purp) !important}
-  .pblk .plab.k-help{color:var(--gold) !important}
-  .pblk .plab.k-plain{color:var(--muted) !important}
-  .pblk .plab.k-say{color:var(--green) !important}
   .pblk.k-big p{font-size:1.03rem;color:var(--ink);opacity:.93}
   /* --- verdict: colour by how strong it is, not arbitrarily --- */
   .vbox.v-admitted{background:var(--green-bg) !important}
@@ -672,7 +684,6 @@
   .vbox p:first-of-type{color:var(--ink);opacity:.92}
   .defense em,.vbox em,.why em{color:var(--ink);font-style:italic;opacity:.95}
   .dlab.blue{color:var(--gold)}
-  .pblk .plab.k-plain{color:var(--purp) !important}
 
   #versebox .versebox{position:relative}
   #versebox .versebox .vtext{max-height:none}
@@ -1099,13 +1110,22 @@ const DEFLABEL="How Muslims answer this — put at its strongest";
 const VDESC={"admitted":"The facts sit in Islam's own trusted sources. You can make this point from their books alone.","unrefuted":"No good counter-argument has been published by Muslim scholars.","contested":"Muslim scholars have a real answer here. Say so before your friend does.","answered":"The Muslim answer holds up. Do not lead with this one."};
 function plainHtml(d){
   const rt=t=>glossify(emphasize(esc(t).replace(/&lt;(\/?)(b|i)&gt;/g,"<$1$2>")));
+  let alt=0;
   return (d.plain||[]).map(b=>{
     const ss=splitSentences(b.d),ps=[];
     for(let i=0;i<ss.length;i+=2)ps.push("<p>"+rt(ss.slice(i,i+2).join(" "))+"</p>");
     const t=b.t.toLowerCase();
-    const kind=b.say?"k-say":/^(the objection|what (you|your|people|they)|how it usually)/.test(t)?"k-them":/(verse|text|chapter|says|passage|record|promise|covenant does)/.test(t)?"k-text":/^how strong|^the rule|don't|do not use/.test(t)?"k-strength":/^why this|^why it|helps you/.test(t)?"k-help":"k-plain";
+    const kind=b.say?"k-say"
+      :/answer,? at full strength|^their answer|^the .{2,22} answer\b|^how (they|.*s) (answer|explain)|best (defense|answer)|at its strongest|^the (rabbinic|muslim|witness|sceptic|skeptic) (reply|answer)/.test(t)?"k-def"
+      :/^how strong|^the rule\b|^where it lands|^the verdict|don't use|do not use/.test(t)?"k-strength"
+      :/^why this|^why it|helps you|^what it cost|^what to do instead|^what to say instead|^the takeaway|^why that matters/.test(t)?"k-help"
+      :/runs out|problem|^why that is|^where it breaks|^what that misses|^the gap|^why it is wrong|^the trouble|^what it does not/.test(t)?"k-gap"
+      :/verse|text|chapter|\bsays\b|passage|record|scripture|evidence|the numbers|what survives|the hadith|manuscript|papyri|inscription/.test(t)?"k-text"
+      :/^the claim|^what is taught|^what (they|the book|the movement|the church|the camps) |^what happened|^how it (usually|ended|came out)|objection|^what (you|your|people)|describes|^the story|^what is at stake/.test(t)?"k-claim"
+      :"k-plain";
     const big=/(k-text|k-say)/.test(kind)?" k-big":"";
-    return `<div class="pblk${b.say?" say":""}${big}"><div class="plab ${kind}">${esc(b.t)}</div>${ps.join("")}</div>`;
+    const cls=kind==="k-plain"?"k-plain a"+(alt++%3):kind;
+    return `<div class="pblk ${cls}${b.say?" say":""}${big}"><div class="plab ${cls}">${esc(b.t)}</div>${ps.join("")}</div>`;
   }).join("");
 }
 function renderCase(){

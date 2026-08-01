@@ -21,6 +21,7 @@
     --amber:#cf9a45; --amber-bg:#332a18; --amber-cell:#54431f; --amber-cell-hi:#7d6224;
     --green:#7fb08d; --green-bg:#1d2c26; --green-cell:#27443a;
     --purp:#b394e0; --purp-bg:#2c2440;
+    --teal:#6cb6ad; --teal-bg:#16302e;
     --serif:'Iowan Old Style','Palatino Linotype',Palatino,'Book Antiqua',Georgia,serif;
     --sans:ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
     --acc:var(--gold);
@@ -34,6 +35,7 @@
     --amber:#8a5f0e; --amber-bg:#f3ecd9; --amber-cell:#e4d1a2; --amber-cell-hi:#c6a75e;
     --green:#3e7455; --green-bg:#e3ede6; --green-cell:#b7d1bf;
     --purp:#6b4fa1; --purp-bg:#ece5f6;
+    --teal:#26706a; --teal-bg:#e0eeec;
   }
   *{box-sizing:border-box}
   @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
@@ -578,10 +580,7 @@
 
   /* --- plain-first case view --- */
   .pblk{margin:0 0 15px}
-  .pblk .plab{font-size:.63rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-bottom:6px;color:var(--acc)}
-  .pblk:nth-child(1) .plab{color:var(--red)}
-  .pblk:nth-child(3) .plab{color:var(--amber)}
-  .pblk:nth-child(4) .plab{color:var(--gold)}
+  .pblk .plab{font-weight:700;text-transform:uppercase}
   .pblk p{margin:0 0 9px;font-size:.97rem;line-height:1.8;color:var(--muted)}
   .pblk p:last-child{margin:0}
   .pblk p b{color:var(--ink)}
@@ -624,11 +623,39 @@
   .versebox .vr{font-size:.66rem}
   #versebox{scroll-margin-top:80px}
 
-  /* --- plain-block headings are labels, not body text --- */
-  .pblk .plab{color:var(--acc) !important}
-  .pblk.say .plab{color:var(--green) !important}
-  .pblk .plab.warn{color:var(--amber) !important}
-  .pblk .plab.strong{color:var(--gold) !important}
+  /* --- plain blocks: one box per move in the argument, each its own colour --- */
+  .pblk{padding:13px 16px 12px;border-radius:10px;border:1px solid var(--line);
+    border-left:3px solid var(--line2);background:var(--panel2)}
+  .pblk .plab{font-size:.86rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+    margin-bottom:8px;line-height:1.35;color:var(--muted)}
+  .pblk p{color:var(--ink)}
+  .pblk p b{color:var(--ink);font-weight:700}
+  .pblk + .pblk{margin-top:12px}
+
+  .pblk.k-claim   {background:color-mix(in srgb,var(--red) 7%,var(--panel2));   border-left-color:var(--red)}
+  .pblk.k-text    {background:color-mix(in srgb,var(--gold) 7%,var(--panel2));  border-left-color:var(--gold)}
+  .pblk.k-def     {background:color-mix(in srgb,var(--purp) 8%,var(--panel2));  border-left-color:var(--purp)}
+  .pblk.k-gap     {background:color-mix(in srgb,var(--amber) 8%,var(--panel2)); border-left-color:var(--amber)}
+  .pblk.k-strength{background:color-mix(in srgb,var(--teal) 8%,var(--panel2));  border-left-color:var(--teal)}
+  .pblk.k-help    {background:var(--panel);                                     border-left-color:var(--muted)}
+  .pblk.k-plain   {background:var(--panel2);                                    border-left-color:var(--line2)}
+
+  .pblk .plab.k-claim{color:var(--red)}
+  .pblk .plab.k-text{color:var(--gold)}
+  .pblk .plab.k-def{color:var(--purp)}
+  .pblk .plab.k-gap{color:var(--amber)}
+  .pblk .plab.k-strength{color:var(--teal)}
+  .pblk .plab.k-help{color:var(--ink)}
+  .pblk .plab.k-plain{color:var(--muted)}
+  .pblk .plab.k-say{color:var(--green)}
+
+  /* unnamed blocks rotate, so two in a row never read as one */
+  .pblk.k-plain.a0{background:color-mix(in srgb,var(--gold) 5%,var(--panel2));  border-left-color:color-mix(in srgb,var(--gold) 65%,var(--line2))}
+  .pblk.k-plain.a1{background:color-mix(in srgb,var(--teal) 5%,var(--panel2));  border-left-color:color-mix(in srgb,var(--teal) 65%,var(--line2))}
+  .pblk.k-plain.a2{background:color-mix(in srgb,var(--amber) 5%,var(--panel2)); border-left-color:color-mix(in srgb,var(--amber) 65%,var(--line2))}
+  .pblk .plab.k-plain.a0{color:var(--gold)}
+  .pblk .plab.k-plain.a1{color:var(--teal)}
+  .pblk .plab.k-plain.a2{color:var(--amber)}
 
   /* --- floating verse card: no layout shift, compact --- */
   .versepop{display:none}
@@ -640,14 +667,6 @@
   .versebox .vtext{font-size:.79rem;line-height:1.55}
   .versebox .vwhy{font-size:.74rem}
 
-  /* --- plain-block headings: coloured and sized, no cascade fights --- */
-  .pblk .plab{font-size:.74rem;letter-spacing:.1em}
-  .pblk .plab.k-say{color:var(--green)}
-  .pblk .plab.k-them{color:var(--red)}
-  .pblk .plab.k-text{color:var(--gold)}
-  .pblk .plab.k-strength{color:var(--amber)}
-  .pblk .plab.k-help{color:var(--acc2)}
-  .pblk .plab.k-plain{color:var(--acc)}
   .pblk.k-big p{font-size:1.02rem}
 
   /* --- defense / verdict / why: give the eye somewhere to land --- */
@@ -660,13 +679,6 @@
   .dsrc a{color:var(--acc);border-bottom:1px dotted color-mix(in srgb,var(--acc) 55%,transparent)}
   .dsrc a:hover{border-bottom-style:solid}
 
-  .pblk .plab{color:var(--gold)}
-  .pblk .plab.k-them{color:var(--red) !important}
-  .pblk .plab.k-text{color:var(--amber) !important}
-  .pblk .plab.k-strength{color:var(--purp) !important}
-  .pblk .plab.k-help{color:var(--gold) !important}
-  .pblk .plab.k-plain{color:var(--muted) !important}
-  .pblk .plab.k-say{color:var(--green) !important}
   .pblk.k-big p{font-size:1.03rem;color:var(--ink);opacity:.93}
   /* --- verdict: colour by how strong it is, not arbitrarily --- */
   .vbox.v-admitted{background:var(--green-bg) !important}
@@ -686,7 +698,6 @@
   .vbox p:first-of-type{color:var(--ink);opacity:.92}
   .defense em,.vbox em,.why em{color:var(--ink);font-style:italic;opacity:.95}
   .dlab.blue{color:var(--gold)}
-  .pblk .plab.k-plain{color:var(--purp) !important}
 
   #versebox .versebox{position:relative}
   #versebox .versebox .vtext{max-height:none}
@@ -719,6 +730,9 @@
 
 <script>
 const DATA=[
+
+
+
 
 
 {"id":"kjv-isaiah-block-quotation","category":"kjv-dependence","severity":"high","verdict":"unrefuted","title":"Isaiah chapters reproduced verbatim in King James English","claim":"Roughly 21 chapters of Isaiah appear in the Book of Mormon. The wording is overwhelmingly identical to the King James Version of 1611 and 1769. That sits badly with the claim that the text was translated independently from sixth-century BC plates written in 'reformed Egyptian.' Royal Skousen's own critical-text work confirms the quotations match the standard later King James printings — not even the 1611 original. That points to a printed English Bible of Joseph Smith's own day rather than a fresh rendering of a Hebrew source. Where the Book of Mormon does vary from the King James, the variants rarely reflect a superior Hebrew reading.","bom":["1 Nephi 20–21","2 Nephi 7–8","2 Nephi 12–24","2 Nephi 27","Mosiah 14","3 Nephi 22"],"bible":["Isaiah 48–49","Isaiah 50–51","Isaiah 2–14","Isaiah 29","Isaiah 53","Isaiah 54"],"sources":[{"name":"David P. Wright, 'Isaiah in the Book of Mormon: Or Joseph Smith in Isaiah' (American Apocrypha, Signature Books, 2002)","type":"scholarly","url":"https://user.xmission.com/~research/central/isabm2.html"},{"name":"Royal Skousen, The History of the Text of the Book of Mormon, Part 5: The King James Quotations (2019), summarized at BYU Studies","type":"scholarly","url":"https://byustudies.byu.edu/article/royal-skousens-book-of-mormon-critical-text-project"},{"name":"LDS Discussions, 'The King James Bible and the Book of Mormon'","type":"primary","url":"https://www.ldsdiscussions.com/kjv"}],"response":"FAIR and Skousen argue the translation was never a word-for-word rendering of the plates. Where the underlying record paralleled the biblical text, the familiar King James wording was given. That happened either because Joseph consulted a Bible, or — in Skousen's tight-control model — because revelation supplied King James style English. On that view the King James wording is a feature of the translation, not evidence against an ancient source. Skousen further argues that some Book of Mormon Isaiah variants reflect Early Modern English textual streams rather than copying.","responseSource":{"name":"FAIR, 'Isaiah and the Book of Mormon'","url":"https://www.fairlatterdaysaints.org/answers/Isaiah_and_the_Book_of_Mormon"},"rationale":"The core datum is conceded by the leading Latter-day Saint textual scholar. The English text derives from the King James Bible, including its post-1611 printing conventions. Skousen does not dispute that. The apologetic replies reinterpret the dependence rather than rebut it.","plain":[{"t":"What is actually in the book","d":"About 21 chapters of Isaiah sit inside the Book of Mormon. They are in 1 Nephi 20-21, 2 Nephi 7-8, 2 Nephi 12-24, 2 Nephi 27, Mosiah 14 and 3 Nephi 22. The wording is almost identical to the King James Version."},{"t":"Why that is strange","d":"The King James Version is an English translation from 1611. Lehi left Jerusalem around 600 BC. A fresh translation from his brass plates should not match one later English edition word for word."},{"t":"The detail that sharpens it","d":"Royal Skousen is the leading Latter-day Saint scholar of the text. His critical work found the quotations match later King James printings. Not even the 1611 original. And where the Book of Mormon does differ, the changes rarely give a better Hebrew reading."},{"t":"Their answer, at full strength","d":"FAIR and Skousen say the translation was never word for word. Where the plates matched the Bible, the familiar King James wording was supplied. Either Joseph consulted a Bible, or revelation gave him King James style English. Skousen adds that some variants look like older English streams rather than copying."},{"t":"How strong is this argument?","d":"Strong for you. Their own leading textual scholar concedes where the English came from. The answer explains the dependence. It does not deny it."},{"say":true,"t":"What to say","d":"\"Why does it track a later King James printing rather than the Hebrew?\""}],"rewritten":true,"refwhy":{"Isaiah 48–49":"The King James text behind 1 Nephi 20-21. This is the side-by-side that starts the argument.","Isaiah 50–51":"The King James text behind 2 Nephi 7-8.","Isaiah 2–14":"The thirteen chapters copied at 2 Nephi 12-24. Skousen found the wording tracks later King James printings.","Isaiah 29":"The chapter 2 Nephi 27 rewrites. Its sealed-book language becomes a prophecy of the gold plates.","Isaiah 53":"The source for Mosiah 14. Christians read it as the suffering servant, and the wording carries over whole.","Isaiah 54":"The source for 3 Nephi 22 — 'Sing, O barren' and all that follows.","1 Nephi 20–21":"Nephi's Isaiah block. Set it beside Isaiah 48-49 and the King James wording is the same.","2 Nephi 7–8":"Jacob's block. It matches Isaiah 50-51, chapters most scholars date to the exile, long after Lehi left.","2 Nephi 12–24":"The long block: thirteen chapters of Isaiah in a row, in King James English.","2 Nephi 27":"Reworks Isaiah 29 into a prophecy about a sealed book. The clearest case of Isaiah being reshaped.","Mosiah 14":"Abinadi quotes Isaiah 53 whole. His sermon rests on it, so this block is hard to wave off.","3 Nephi 22":"The risen Jesus gives the Nephites Isaiah 54, again in King James wording."}},
@@ -1311,13 +1325,22 @@ const DEFLABEL="How Latter-day Saints answer this — put at its strongest";
 const VDESC={"admitted":"Their own church publications admit these facts. You can make this point from LDS sources alone.","unrefuted":"No good counter-argument has been published by LDS scholars.","contested":"LDS scholars have a real answer here. Say so before your friend does.","answered":"The LDS answer holds up. Do not lead with this one."};
 function plainHtml(d){
   const rt=t=>glossify(emphasize(esc(t).replace(/&lt;(\/?)(b|i)&gt;/g,"<$1$2>")));
+  let alt=0;
   return (d.plain||[]).map(b=>{
     const ss=splitSentences(b.d),ps=[];
     for(let i=0;i<ss.length;i+=2)ps.push("<p>"+rt(ss.slice(i,i+2).join(" "))+"</p>");
     const t=b.t.toLowerCase();
-    const kind=b.say?"k-say":/^(the objection|what (you|your|people|they)|how it usually)/.test(t)?"k-them":/(verse|text|chapter|says|passage|record|promise|covenant does)/.test(t)?"k-text":/^how strong|^the rule|don't|do not use/.test(t)?"k-strength":/^why this|^why it|helps you/.test(t)?"k-help":"k-plain";
+    const kind=b.say?"k-say"
+      :/answer,? at full strength|^their answer|^the .{2,22} answer\b|^how (they|.*s) (answer|explain)|best (defense|answer)|at its strongest|^the (rabbinic|muslim|witness|sceptic|skeptic) (reply|answer)/.test(t)?"k-def"
+      :/^how strong|^the rule\b|^where it lands|^the verdict|don't use|do not use/.test(t)?"k-strength"
+      :/^why this|^why it|helps you|^what it cost|^what to do instead|^what to say instead|^the takeaway|^why that matters/.test(t)?"k-help"
+      :/runs out|problem|^why that is|^where it breaks|^what that misses|^the gap|^why it is wrong|^the trouble|^what it does not/.test(t)?"k-gap"
+      :/verse|text|chapter|\bsays\b|passage|record|scripture|evidence|the numbers|what survives|the hadith|manuscript|papyri|inscription/.test(t)?"k-text"
+      :/^the claim|^what is taught|^what (they|the book|the movement|the church|the camps) |^what happened|^how it (usually|ended|came out)|objection|^what (you|your|people)|describes|^the story|^what is at stake/.test(t)?"k-claim"
+      :"k-plain";
     const big=/(k-text|k-say)/.test(kind)?" k-big":"";
-    return `<div class="pblk${b.say?" say":""}${big}"><div class="plab ${kind}">${esc(b.t)}</div>${ps.join("")}</div>`;
+    const cls=kind==="k-plain"?"k-plain a"+(alt++%3):kind;
+    return `<div class="pblk ${cls}${b.say?" say":""}${big}"><div class="plab ${cls}">${esc(b.t)}</div>${ps.join("")}</div>`;
   }).join("");
 }
 function renderCase(){
