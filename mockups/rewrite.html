@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Source-text fix + Plain English default — mockup</title>
+<style>
+:root{--bg:#0b0d12;--panel:#141821;--panel2:#181d28;--line:#242a36;--line2:#2e3542;--ink:#eceef2;--muted:#949cab;--dim:#5b6472;
+--acc:#82b1d8;--acc2:#b394e0;--gold:#cf9a45;--green:#7fb08d;--red:#e0736a;--amber:#d9a441;
+--serif:'Iowan Old Style','Palatino Linotype',Palatino,Georgia,serif;--sans:ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:#06080c;color:var(--ink);font-family:var(--sans);line-height:1.7}
+.wrap{max-width:1000px;margin:0 auto;padding:40px 22px 100px}
+h1{font-family:var(--serif);font-weight:500;font-size:clamp(1.7rem,3.8vw,2.3rem);margin:0 0 8px;line-height:1.15}
+h2{font-family:var(--serif);font-weight:500;font-size:1.28rem;color:var(--acc);margin:46px 0 10px}
+p,li{color:var(--muted);font-size:.95rem}
+b{color:var(--ink)}
+.lede{font-size:1.03rem;max-width:76ch}
+.eyebrow{font-size:.64rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--dim)}
+
+/* metric strip */
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:20px 0 6px}
+@media (max-width:760px){.metrics{grid-template-columns:1fr 1fr}}
+.m{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.m .k{font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.m .v{font-family:var(--serif);font-size:1.9rem;line-height:1.1;margin:6px 0 2px}
+.m .n{font-size:.76rem;color:var(--muted)}
+.m.bad .v{color:var(--red)}.m.good .v{color:var(--green)}
+
+/* side-by-side */
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+@media (max-width:840px){.ba{grid-template-columns:1fr}}
+.col{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:0;overflow:hidden}
+.col>header{padding:11px 16px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline;gap:10px;background:#11151d}
+.col>header b{font-size:.86rem}
+.col>header span{font-size:.72rem;font-variant-numeric:tabular-nums}
+.col.old>header{border-bottom-color:rgba(224,115,106,.4)} .col.old>header span{color:var(--red)}
+.col.nu>header{border-bottom-color:rgba(127,176,141,.4)} .col.nu>header span{color:var(--green)}
+.col .body{padding:15px 17px;font-size:.88rem;line-height:1.72;color:var(--muted)}
+.col .body p{margin:0 0 11px}.col .body p:last-child{margin:0}
+
+/* the live case demo */
+.demo{border:1px solid var(--line2);border-radius:16px;overflow:hidden;margin-top:16px;background:var(--bg)}
+.chrome{display:flex;align-items:center;gap:12px;padding:10px 16px;background:#11151d;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.chrome .lbl{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-right:auto}
+.seg{display:inline-flex;border:1px solid var(--line2);border-radius:999px;overflow:hidden}
+.seg button{background:none;border:0;color:var(--muted);font-family:inherit;font-size:.75rem;padding:7px 15px;cursor:pointer;transition:.15s}
+.seg button.on{background:rgba(130,177,216,.16);color:var(--acc)}
+.seg button:not(.on):hover{color:var(--ink)}
+.stage{padding:24px 26px 30px}
+@media (max-width:640px){.stage{padding:18px 15px 22px}}
+.tags{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:10px}
+.tag{font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--line2);color:var(--muted);border-radius:999px;padding:3px 10px}
+.tag.v{border-color:var(--amber);color:var(--amber)}
+.stage h3{font-family:var(--serif);font-weight:500;font-size:1.42rem;margin:0 0 16px;line-height:1.2}
+
+.blk{margin:0 0 16px}
+.blk .lab{font-size:.63rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-bottom:6px}
+.blk.a .lab{color:var(--red)} .blk.b .lab{color:var(--acc)} .blk.c .lab{color:var(--amber)}
+.blk.d .lab{color:var(--gold)} .blk.e .lab{color:var(--green)}
+.blk p{margin:0 0 9px;font-size:.95rem;line-height:1.78;color:var(--muted)}
+.blk p:last-child{margin:0}
+.blk.e{background:linear-gradient(90deg,rgba(127,176,141,.09),transparent 70%);border-left:3px solid var(--green);border-radius:0 10px 10px 0;padding:12px 16px}
+.blk.e p{color:var(--ink)}
+
+details.full{margin-top:20px;border-top:1px solid var(--line);padding-top:14px}
+details.full>summary{cursor:pointer;list-style:none;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--acc)}
+details.full>summary::-webkit-details-marker{display:none}
+details.full>summary::after{content:" →";transition:margin-left .2s}
+details.full[open]>summary::after{content:" ↓"}
+details.full>summary:hover{color:var(--ink)}
+.fullbody{margin-top:16px}
+.dlab{font-size:.63rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin:18px 0 6px}
+.dlab.red{color:var(--red)}.dlab.blue{color:var(--acc)}.dlab.amber{color:var(--amber)}
+.fullbody p{font-size:.92rem;line-height:1.76;color:var(--muted);margin:0 0 10px}
+.src{font-size:.76rem;color:var(--dim);margin-top:6px}
+.src a{color:var(--acc)}
+
+.note{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:0 12px 12px 0;padding:15px 20px;margin:18px 0}
+.note p{margin:0 0 9px}.note p:last-child{margin:0}
+table{width:100%;border-collapse:collapse;margin-top:12px;font-size:.86rem}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line)}
+th{font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+td.n{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+.ok{color:var(--green)}.no{color:var(--red)}.mid{color:var(--amber)}
+</style>
+</head>
+<body><div class="wrap">
+
+<span class="eyebrow">Mockup · one case, rewritten</span>
+<h1>Fixing the source text — and leading with Plain English</h1>
+<p class="lede">This is the worst-scoring case on the site: <b>Facsimile 1</b> in the Mormonism section. Nothing below has been softened, cut, or had a source removed. The facts, the citations, the apologists' names and the verdict are all identical. Only the sentences changed.</p>
+
+<h2>What was actually wrong</h2>
+<div class="metrics">
+  <div class="m bad"><div class="k">Case reading grade</div><div class="v">37.1</div><div class="n">avg of claim, defense, verdict</div></div>
+  <div class="m bad"><div class="k">The "best defense" was</div><div class="v">1</div><div class="n">sentence — 154 words long</div></div>
+  <div class="m good"><div class="k">After the rewrite</div><div class="v">9.5</div><div class="n">avg of the same three fields</div></div>
+  <div class="m good"><div class="k">Longest sentence now</div><div class="v">36</div><div class="n">words, down from 154</div></div>
+</div>
+
+<h2>Before and after — the "best defense" field</h2>
+<div class="ba">
+  <div class="col old"><header><b>Now, on the live site</b><span>grade 68.1 · 1 sentence · 154 words</span></header>
+    <div class="body"><p>Gee, Muhlestein, and Pearl of Great Price Central argue: (1) the lacuna means no one knows what the original showed — some apologists contend the papyrus was already damaged in 1835 and that a knife and human head could have stood there, noting this vignette is unusual among lion-couch scenes (the figure on the couch appears alive, clothed, with both hands possibly raised); (2) there is Egyptian evidence for ritual slaying of enemies in temple contexts, so a 'sacrifice' reading is not absurd; (3) on the 'Semitic adaptation' theory, ancient Jews in Egypt demonstrably reused and reinterpreted Egyptian iconography…</p></div></div>
+  <div class="col nu"><header><b>Rewritten</b><span>grade 8.7 · 14 sentences · 166 words</span></header>
+    <div class="body"><p>Egyptologist John Gee, Kerry Muhlestein and Pearl of Great Price Central make four arguments. First, the hole means nobody knows what was there. Some argue the papyrus was already torn in 1835. A knife and a human head could have filled the gap. They also note that this scene is genuinely unusual. The figure on the couch looks clothed and alive, and may have both hands raised.</p>
+    <p>Second, Egyptian temple art does show enemies being ritually killed. So reading a sacrifice here is not absurd on its face. Third, Jews living in Egypt reused Egyptian art and gave it new meaning…</p></div></div>
+</div>
+<div class="note"><p><b>Same four arguments. Same three scholars named. Nothing conceded or dropped.</b> The old version wasn't more rigorous — it was one sentence carrying four numbered arguments, three parenthetical asides and a semicolon chain. That isn't precision, it's a paragraph that never got broken up.</p></div>
+
+<h2>The live version — Plain English leads, full case one click away</h2>
+<p class="lede">This is the flipped default. A reader who knows nothing gets the whole case immediately. A reader who wants sources, apologists and the Egyptology clicks once. No setting has to be discovered for the page to work.</p>
+
+<div class="demo">
+  <div class="chrome">
+    <span class="lbl">Case view</span>
+    <span style="font-size:.72rem;color:var(--dim)">Default:</span>
+    <div class="seg"><button class="on" data-m="plain">Plain English</button><button data-m="full">Full detail</button></div>
+  </div>
+  <div class="stage">
+    <div class="tags"><span class="tag v">Contested</span><span class="tag">Seriousness: moderate</span><span class="tag">The Book of Abraham</span></div>
+    <h3>Facsimile 1: 'Abraham on the altar' — or an ordinary Egyptian funeral scene?</h3>
+
+    <div id="plainv">
+      <div class="blk a"><div class="lab">What Joseph Smith said</div>
+        <p>The Book of Abraham prints three Egyptian drawings with his explanations. In the first one, he said the man lying down is Abraham, tied to an altar. He said the man standing over him is a pagan priest about to kill him.</p></div>
+      <div class="blk b"><div class="lab">What the drawing actually is</div>
+        <p>Egyptologists recognise this scene right away. It is a funeral picture. The dog-headed god Anubis is preparing a body for burial. Hundreds of the same scene survive. This one was made for an Egyptian priest named Hor, about 1,500 years after Abraham lived.</p></div>
+      <div class="blk c"><div class="lab">The catch</div>
+        <p>There is a hole in the papyrus. It sits right where the priest's head and knife are shown in the printed version. So we cannot see the original for those two things. An artist drew them in for the 1842 printing.</p></div>
+      <div class="blk d"><div class="lab">How sure are we?</div>
+        <p>Fairly, but not completely. Scholars point to faint ink marks of a headdress, which fits a dog head, not a bald man. And no other picture like this has a knife in it. But because the hole covers the exact spot, we grade this one contested rather than settled.</p></div>
+      <div class="blk d"><div class="lab">Why it matters</div>
+        <p>The rest of the labels have no hole to hide behind. He called four jars the gods of foreign nations, and a crocodile the god of Pharaoh. Egyptologists say those readings are simply wrong. The church now admits its scholars read these drawings differently than he did.</p></div>
+      <div class="blk e"><div class="lab">What to say</div>
+        <p>"Can we look at what the Egyptologists say about the parts that aren't damaged?"</p></div>
+
+      <details class="full"><summary>Read the full case — sources, the apologists' reply, and the Egyptology</summary>
+        <div class="fullbody">
+          <div class="dlab red">The claim</div>
+          <p>Joseph Smith published Facsimile 1 as a picture of Abraham. He labelled the man on the couch as Abraham "fastened upon an altar," and the standing figure as "the idolatrous priest of Elkenah" about to kill him. Egyptologists identify the same drawing at a glance. It is a lion-couch vignette — a standard funeral scene showing the jackal-headed god Anubis tending the mummy of Osiris.</p>
+          <p>The original survives as Papyrus Joseph Smith I, part of a Book of Breathings made for a Theban priest named Hor around the second century BC, roughly 1,500 years after Abraham lived. There is one complication, and it is the heart of the argument. The papyrus has a hole in it, and the hole sits exactly where the priest's head and knife appear in the 1842 printed version. That printed version was drawn by a woodcut artist, not preserved on the papyrus.</p>
+          <p>Robert Ritner and other Egyptologists point to ink traces of a headdress at the shoulder, which fits a jackal head rather than a bald human one. No other lion-couch scene anywhere shows a knife. Smith's other labels on the same drawing fare worse: he calls the bird the Angel of the Lord, the four canopic jars the idolatrous gods of foreign nations, and the crocodile the idolatrous god of Pharaoh. None of those match any accepted Egyptological reading.</p>
+
+          <div class="dlab blue">The defense, steelmanned</div>
+          <p>Egyptologist John Gee, Kerry Muhlestein and Pearl of Great Price Central make four arguments. First, the hole means nobody knows what was there. Some argue the papyrus was already torn in 1835. A knife and a human head could have filled the gap. They also note that this scene is genuinely unusual. The figure on the couch looks clothed and alive, and may have both hands raised.</p>
+          <p>Second, Egyptian temple art does show enemies being ritually killed. So reading a sacrifice here is not absurd on its face. Third, Jews living in Egypt reused Egyptian art and gave it new meaning. Abraham's name even shows up in later Egyptian magic texts. On that view the drawing could have illustrated an Abraham story whatever it was made for. Fourth, some argue the Book of Abraham was revealed rather than translated. The papyri would then be only a prompt. If that is right, the explanations are inspired commentary, not Egyptology, and judging them as Egyptology misses the point.</p>
+          <p class="src">Source: <a href="https://pearlofgreatpricecentral.org/the-idolatrous-priest/">Pearl of Great Price Central: The Idolatrous Priest (Facsimile 1, Figure 3)</a></p>
+
+          <div class="dlab amber">Verdict — contested</div>
+          <p>Facsimile 1 is different from the other two, and that is why it is graded contested. Here there is a real gap in the evidence. The hole covers exactly the disputed parts. So the argument runs on parallels and faint ink marks rather than on a surviving original.</p>
+          <p>The scholarly reading is still far better supported. There are headdress traces at the shoulder. There are hundreds of parallel funeral scenes. There is not one that shows a knife. The church's own Gospel Topics essay admits that Egyptologists read the facsimiles differently than Joseph Smith did. But the defenders are arguing about what filled the hole, not about the Egyptology itself. And the scene does have odd features. That is enough to keep this figure at contested rather than unrefuted.</p>
+          <p>One thing to add: the other labels have no hole to hide behind. The four jars as foreign gods, the crocodile as Pharaoh's god — those readings have no support at all.</p>
+        </div>
+      </details>
+    </div>
+
+    <div id="fullv" hidden>
+      <div class="dlab red">The claim</div>
+      <p style="color:var(--muted);font-size:.92rem;line-height:1.76">Joseph Smith published Facsimile 1 as a picture of Abraham. He labelled the man on the couch as Abraham "fastened upon an altar," and the standing figure as "the idolatrous priest of Elkenah" about to kill him. Egyptologists identify the same drawing at a glance…</p>
+      <p style="color:var(--dim);font-size:.84rem;margin-top:14px">↑ Full detail selected — the case opens straight into the sourced version, with a <b>"Show plain summary"</b> link at the top instead. Same content, opposite default.</p>
+    </div>
+  </div>
+</div>
+
+<h2>Should the fix run on every page, or only the cases?</h2>
+<p class="lede">I measured all of it. The answer is <b>no — most of the site is already fine.</b> The problem is concentrated almost entirely in the cases.</p>
+<table>
+  <thead><tr><th>Part of the site</th><th class="n">Grade</th><th>Verdict</th></tr></thead>
+  <tbody>
+    <tr><td><b>Case text</b> — claim, defense, verdict</td><td class="n no">15.0–23.7</td><td class="no">Rewrite. This is the whole problem.</td></tr>
+    <tr><td>Sharing Jesus page</td><td class="n no">13.8</td><td class="no">Rewrite — it's the page you most want read.</td></tr>
+    <tr><td>Guided tour steps</td><td class="n no">13.0</td><td class="no">Rewrite — it's the first thing anyone sees.</td></tr>
+    <tr><td>Know them · Word guide · Heart of it</td><td class="n mid">12.8</td><td class="mid">Light pass. Borderline, not broken.</td></tr>
+    <tr><td>Guided paths, Why-it-matters, Conversation tips</td><td class="n mid">11.5–11.8</td><td class="mid">Leave. Fine as they are.</td></tr>
+    <tr><td>Quick answers · Dialogues · Timeline · Verdict notes</td><td class="n ok">9.1–10.7</td><td class="ok">Leave. Already at target.</td></tr>
+  </tbody>
+</table>
+<div class="note"><p><b>One finding worth flagging.</b> Once the source text is written clearly, "Full detail" lands around grade 9–11 on its own — the rewritten defense above scored <b>8.7</b> without trying. So the two levels end up differing mainly in <b>how much you read</b>, not how hard it is: Plain is six short labelled blocks, Full is the sourced argument with the scholars named.</p>
+<p>That's a good outcome, not a problem — but it means the honest label for the toggle is <b>length and depth</b>, not reading ability.</p></div>
+
+</div>
+<script>
+document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.seg button').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');
+  const plain=b.dataset.m==='plain';
+  document.getElementById('plainv').hidden=!plain;
+  document.getElementById('fullv').hidden=plain;
+}));
+</script>
+</body>
+</html>
