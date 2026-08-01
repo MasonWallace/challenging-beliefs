@@ -891,8 +891,14 @@ function glossify(escapedText){
     glossify._map={};GLOSSARY.forEach(g=>{glossify._map[esc(g.t).toLowerCase()]=g;});
   }
   const used=glossify.seen||(glossify.seen=new Set());
+  let inRef=0;
   return escapedText.replace(/(<[^>]*>)|([^<]+)/g,(m,tag,txt)=>{
-    if(tag)return tag;
+    if(tag){
+      if(/^<span class="ref-(lds|bib)"/.test(tag))inRef++;
+      else if(inRef&&tag.indexOf("</span>")===0)inRef--;
+      return tag;
+    }
+    if(inRef)return txt;
     return txt.replace(glossify._re,w=>{
       const g=glossify._map[w.toLowerCase()];
       if(!g||used.has(g.t))return w;
