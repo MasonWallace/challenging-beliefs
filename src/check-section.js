@@ -1,8 +1,8 @@
 /* Self-check for a section's rewrite. Usage: node check-section.js <slug> */
 const fs=require('fs'),grade=require('./grade.js');
 const slug=process.argv[2];
-const QUOTE=/["“‘']([^"”’']{30,})["”’']/g;
-const strip=t=>String(t).replace(QUOTE,' a quoted passage. ').replace(/<[^>]+>/g,' ');
+const S=require('./strip.js');
+const strip=t=>S.measurable(t);
 const P=f=>__dirname+'/'+f;
 const plain=fs.existsSync(P('plain-'+slug+'.json'))?JSON.parse(fs.readFileSync(P('plain-'+slug+'.json'),'utf8')):{};
 const full=fs.existsSync(P('full-'+slug+'.json'))?JSON.parse(fs.readFileSync(P('full-'+slug+'.json'),'utf8')):{};

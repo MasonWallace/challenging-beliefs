@@ -183,6 +183,16 @@
   .pane .scripture{font-family:var(--serif);font-size:1rem;line-height:1.65}
   .cnote{font-size:.8rem;color:var(--muted);margin-top:8px;max-width:80ch}
   .passcols{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  /* a reference with a reason attached needs the full width, so drop to one column */
+  .passcols:has(.rrow){grid-template-columns:1fr;gap:18px}
+  .chips:has(.rrow){display:block}
+  .rrow{display:flex;gap:10px;align-items:baseline;padding:7px 0;border-top:1px solid var(--line)}
+  .rrow:first-child{border-top:none;padding-top:1px}
+  .rrow .chip{flex:0 0 auto}
+  .rwhy{font-size:.83rem;line-height:1.55;color:color-mix(in srgb,var(--ink) 86%,var(--muted))}
+  .rwhy b{color:var(--gold);font-weight:600}
+  .claimside .rrow{flex-direction:column;gap:5px;align-items:flex-start}
+  @media (max-width:620px){.rrow{flex-direction:column;gap:5px;align-items:flex-start}}
   @media (max-width:760px){.passcols{grid-template-columns:1fr}}
   .passcols h6{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin:0 0 8px}
   .passcols .h-bom{color:var(--red)}.passcols .h-bib{color:var(--gold)}
@@ -1110,13 +1120,18 @@ function renderCase(){
       <div class="pane bom"><div class="ref">${esc(d.comparison.left.ref)}</div><div class="scripture">${hl(d.comparison.left.text,d.comparison.hl)}</div></div>
       <div class="pane bible"><div class="ref">${esc(d.comparison.right.ref)}</div><div class="scripture">${hl(d.comparison.right.text,d.comparison.hl)}</div></div>
     </div>${d.comparison.note?`<p class="cnote">${esc(d.comparison.note)}</p>`:""}`:"";
+  const rwhyTxt=t=>esc(t).replace(/&lt;(\/?)(b|i)&gt;/g,"<$1$2>");
   const chipHtml=(arr)=>arr.map(p=>{
-    const v=VERSES[p];
-    return `<button class="chip ${v?"":"ext"}" data-cite="${esc(p)}" ${v?"":`data-ext="${extUrl(p)}"`}>${esc(p)}</button>`;
+    const v=VERSES[p],why=(d.refwhy||{})[p];
+    const btn=`<button class="chip ${v?"":"ext"}" data-cite="${esc(p)}" ${v?"":`data-ext="${extUrl(p)}"`}>${esc(p)}</button>`;
+    if(!d.refwhy)return btn;
+    return `<div class="rrow">${btn}${why?`<span class="rwhy">${rwhyTxt(why)}</span>`:""}</div>`;
   }).join("");
   const hadithChips=(d.hadith||[]).map(h=>{
-    const u=hadithUrl(h);
-    return u?`<a class="chip ext" href="${u}" target="_blank" rel="noopener">${esc(h)}</a>`:`<span class="chip" style="cursor:default">${esc(h)}</span>`;
+    const u=hadithUrl(h),why=(d.refwhy||{})[h];
+    const chip=u?`<a class="chip ext" href="${u}" target="_blank" rel="noopener">${esc(h)}</a>`:`<span class="chip" style="cursor:default">${esc(h)}</span>`;
+    if(!d.refwhy)return chip;
+    return `<div class="rrow">${chip}${why?`<span class="rwhy">${rwhyTxt(why)}</span>`:""}</div>`;
   }).join("");
   const cimg=IMGMAP[d.id]?`<figure class="cimg"><img src="${IMGMAP[d.id].src}" alt="${esc(IMGMAP[d.id].cap)}" loading="lazy"><button class="cimg-x" title="Expand image" data-full="${IMGMAP[d.id].src.replace("width=520","width=1400")}" data-cap="${esc(IMGMAP[d.id].cap)}">⤢</button><figcaption>${esc(IMGMAP[d.id].cap)}</figcaption></figure>`:"";
   const passages=((d.quran||[]).length||(d.hadith||[]).length||(d.bible||[]).length||IMGMAP[d.id])?`
@@ -1320,50 +1335,66 @@ function renderCore(){
 
 /* ---------- sharing the gospel ---------- */
 function renderShare(){
-  $("#main").innerHTML=`
-  <div class="viewhead"><h2>Sharing the gospel with Muslim friends</h2>
-  <p>Not to win arguments — to help real people meet the real Jesus, with gentleness (2 Timothy 2:24–25). Built from the largest study of Muslim conversions ever done and ministries with decades in this work.</p></div>
-  <div class="pb-h">The invitation to work toward</div>
-  <div class="saybox"><span class="who">You, once trust is real</span><p>"Would you read one Gospel — Luke — with me? The Quran itself says to judge by the Injil."</p></div>
-  <p class="pd" style="font-size:.78rem;margin:0 0 4px">Quran 5:47 commands it; 10:94 points doubters to the Scripture-readers. You are asking them to do what their own book says.</p>
+  $("#main").innerHTML=`<div class="viewhead"><h2>Sharing Jesus with a Muslim friend</h2>
+  <p>Not to win an argument. To help a real person meet the real Jesus, with gentleness (2 Timothy 2:24–25). Built from the largest study of Muslim conversions ever done, and from ministries with decades in this work.</p></div><div class="pb-h">The invitation to work toward</div>
+<div class="saybox"><span class="who">You, once trust is real</span><p>"Would you read one Gospel with me? Luke. The Quran itself says to judge by the Injil."</p></div>
+<p class="pd">Quran 5:47 commands it. Quran 10:94 sends doubters to the people who read the Scripture. You are asking your friend to do what their own book says.</p>
 
-  <div class="pb-h">What actually brought ex-Muslims to Christ — the Woodberry findings, ranked</div><div class="pb-grid"><div class="pb"><span class="num">1</span><h4>The lifestyle and love of Christians they knew — the #1 ranked factor</h4><p>Not arguments: love in Christian marriages, love for enemies, honesty, a Christian who stayed. Nabeel Qureshi's four-year debate friendship with David Wood is the canonical case — a friend both unashamedly convinced and unfailingly present. Most Muslims never have a single close Christian friend. Be the first.</p></div><div class="pb"><span class="num">2</span><h4>Reading the actual Bible — especially the Sermon on the Mount</h4><p>They're taught it's corrupted; reading it is the shock. Mosab Hassan Yousef (son of a Hamas founder): "When I read 'love your enemies and pray for those who persecute you,' I was thunderstruck… this was the message I had been searching for all my life."</p></div><div class="pb"><span class="num">3</span><h4>The character of Jesus against what they find in their own sources</h4><p>Mark Gabriel had the entire Quran memorized and taught at Al-Azhar; his doubts began from inside the texts. The side-by-side study of Jesus and Muhammad is what moved him.</p></div><div class="pb"><span class="num">4</span><h4>Dreams of Jesus — handle factually</h4><p>Surveys consistently find ~25–33% of Muslim-background believers report a dream of Jesus before conversion. The pattern: the dream opens the door; a Bible or a Christian walks through it. Worth asking a Muslim friend, gently: "Have you ever had a dream about Jesus?" Many have, and have told no one.</p></div><div class="pb"><span class="num">5</span><h4>Assurance against the scales</h4><p>The discovery that a person can KNOW they are forgiven (1 John 5:13) is consistently named as decisive by converts exhausted from earning.</p></div></div>
+<div class="pb-h">What brought ex-Muslims to Christ: the Woodberry findings, ranked</div>
+<div class="pb-grid">
+<div class="pb"><span class="num">1</span><h4>The lifestyle and love of the Christians they knew</h4><p>The top-ranked factor, ahead of every argument. Love inside Christian marriages. Love for enemies. Plain honesty. A Christian who stayed. Nabeel Qureshi and David Wood argued for four years and stayed friends the whole way through: a friend both openly convinced and always there. Most Muslims never have one close Christian friend. Be the first.</p></div>
+<div class="pb"><span class="num">2</span><h4>Reading the Bible, especially the Sermon on the Mount</h4><p>They are taught it is corrupt, so reading it is the shock. Mosab Hassan Yousef, son of a Hamas founder, put it this way: "When I read love your enemies and pray for those who persecute you, I was thunderstruck. This was the message I had been searching for all my life."</p></div>
+<div class="pb"><span class="num">3</span><h4>The character of Jesus, next to their own sources</h4><p>Mark Gabriel had the whole Quran memorized and taught at Al-Azhar. His doubts began inside the texts, not outside them. What moved him was studying Jesus and Muhammad side by side.</p></div>
+<div class="pb"><span class="num">4</span><h4>Dreams of Jesus, handled factually</h4><p>Surveys keep finding that 25 to 33 percent of Muslim-background believers report a dream of Jesus before they converted. The pattern is steady. The dream opens the door, and a Bible or a Christian walks through it. Ask gently: "Have you ever had a dream about Jesus?" Many have, and have told nobody.</p></div>
+<div class="pb"><span class="num">5</span><h4>Assurance, against the scales</h4><p>Converts worn out by earning name this as the thing that decided it. A person can know they are forgiven (1 John 5:13). The scales never offer that.</p></div>
+</div>
 
-  <div class="pb-h">The method</div><div class="pb-grid"><div class="pb do"><h4>Honor governs everything</h4><p>Never mock Muhammad or the Quran to a Muslim's face — an insult to the Prophet attacks their family, identity, and community; it triggers the honor-defense reflex and ends the conversation permanently. Honest questions about Muhammad are permitted; contempt never is.</p></div><div class="pb do"><h4>Hospitality is the master key</h4><p>Eating together is the trust currency of Muslim culture. Accept iftar invitations; host them (halal-conscious — no pork or alcohol); reciprocate at Christmas and Easter. Most real evangelism of Muslims happens over meals in homes, not in debates.</p></div><div class="pb dont"><h4>Use the Quran as a door, never an authority</h4><p>"Your own book says striking things about Isa — have you seen them?" is a legitimate opener. Then get to the Bible fast and stay there.</p></div><div class="pb do"><h4>Learn their vocabulary</h4><p>Isa al-Masih, Injil, Tawrat, Zabur — using the terms signals respect. But define words like 'sin,' 'salvation,' and 'Son of God' before arguing about them.</p></div><div class="pb do"><h4>Tell the gospel in honor-shame language too</h4><p>Adam's sin brought shame, hiding, exile — and Jesus bore our shame publicly, 'despising the shame' (Hebrews 12:2), so God could cover us, cleanse us, and seat us with honor as His children (Luke 15:22 — robe, ring, feast). This frame lands where courtroom language doesn't.</p></div><div class="pb do"><h4>Public polemics and personal witness are different tools</h4><p>Debate videos work for doubters watching anonymously at 2 a.m.; they are not a script for your neighbor's face. What dislodges certainty rarely, by itself, produces disciples — relationships do.</p></div><div class="pb do"><h4>Expect years, and pray</h4><p>Qureshi: four years. Abdu Murray: nine years from persuasion to profession — because the cost is so high. This is farming, not harvesting.</p></div></div>
+<div class="pb-h">The method</div>
+<div class="pb-grid">
+<div class="pb dont"><h4>Never mock Muhammad or the Quran</h4><p>Honor and shame are the frame here, not guilt. An insult to the Prophet attacks their family, their identity and their community. It triggers the honor-defense reflex and ends the conversation for good. In some settings it can put them in danger. Honest questions about Muhammad are fair. Contempt never is.</p></div>
+<div class="pb do"><h4>Hospitality is the master key</h4><p>Eating together is the trust currency of Muslim culture. Accept invitations to iftar. Host them back, with no pork and no alcohol. Return the welcome at Christmas and Easter. Most real work with Muslims happens over meals in homes, not in debates.</p></div>
+<div class="pb dont"><h4>Use the Quran as a door, never as an authority</h4><p>"Your own book says striking things about Isa. Have you seen them?" is a fair opener. Then get to the Bible quickly and stay there.</p></div>
+<div class="pb do"><h4>Learn their vocabulary</h4><p>Isa al-Masih, Injil, Tawrat, Zabur. Using the words signals respect. But define sin, salvation and Son of God before you argue about them.</p></div>
+<div class="pb do"><h4>Tell the gospel in honor and shame</h4><p>The sin of Adam brought shame, hiding and exile. Jesus bore our shame in public, <i>despising the shame</i> (Hebrews 12:2), so God could cover us, clean us and seat us as his children with honor. Luke 15:22 has the robe, the ring and the feast. This frame lands where courtroom language does not.</p></div>
+<div class="pb do"><h4>Debate and friendship are different tools</h4><p>Debate videos reach doubters watching alone at two in the morning. They are not a script for the face of your neighbor. What breaks certainty rarely makes disciples on its own. Relationships do.</p></div>
+<div class="pb dont"><h4>Never use the weak arguments</h4><p>This site marks the popular claims that are false or overclaimed. Repeating one hands the other side an easy win and discredits every true argument you made.</p></div>
+<div class="pb do"><h4>Expect years, and pray</h4><p>Qureshi took four years. Abdu Murray took nine, from being persuaded to saying so out loud, because the cost is so high. This is farming, not harvesting.</p></div>
+</div>
 
-  ${DATA.some(d=>d.avoid)?`<div class="pb-h" style="margin-top:30px">Arguments that will embarrass you — do not use these</div><p class="pd" style="font-size:.8rem;margin:0 0 10px">Popular claims that are false or overclaimed. Each links to the correction — repeating them hands the other side an easy win and discredits your true arguments.</p><div class="relrow">${DATA.filter(d=>d.avoid).map(d=>`<button data-open="${d.id}">⚠ ${esc(d.title)}</button>`).join("")}</div>`:""}<div class="pb-h" style="margin-top:34px">How it actually goes — the deeper craft</div>
-  <p class="sh-open">Of ~750 former Muslims surveyed, the #1 reason they followed Jesus was <span class="hl">the lifestyle and love of the Christians they knew</span> — not arguments.</p>
-  <p class="sh-att">— Woodberry, Shubin &amp; Marks, "Why Muslims Follow Jesus" (Fuller Seminary study, Christianity Today, 2007)</p>
-  <div class="sa"><h4 class="sat">The seven objections you WILL hear — and the answers</h4>
-  <ol style="font-size:.88rem;color:var(--muted);line-height:1.7;margin:6px 0 0;padding-left:20px">
-    <li><b style="color:var(--ink)">"The Bible is corrupted."</b> The flagship — everything rests on it. Two-part answer: the Quran's own testimony (10:94; 5:47; 5:68; 6:115) endorses the Bible of Muhammad's day, and the manuscripts (Dead Sea Scrolls; Sinaiticus) prove that Bible is ours. Ask: "Corrupted before Muhammad — then why does the Quran endorse it? Or after — then why do pre-Islamic manuscripts match ours?"</li>
-    <li><b style="color:var(--ink)">"Jesus never said 'I am God.'"</b> Show he claimed what only God can: forgiving sins in his own person (Mark 2:5–7), the Daniel 7 claim at his trial that got him condemned for blasphemy (Mark 14:61–64), accepting Thomas's worship (John 20:28), 'before Abraham was, I AM' (John 8:58). Ask: "Why was he executed for blasphemy?"</li>
-    <li><b style="color:var(--ink)">"The Trinity is three gods."</b> Clarify first: what the Quran attacks (Allah, Jesus, and Mary — 5:116) is tritheism, which Christians also condemn. One God (Deuteronomy 6:4), three persons: one 'what,' three 'whos.' And the Quran itself calls Jesus God's Word and a Spirit from Him (4:171) — were God's Word and Spirit ever separate from God?</li>
-    <li><b style="color:var(--ink)">"Paul invented Christianity."</b> The resurrection creed Paul RECEIVED (1 Corinthians 15:3–8) dates to within a few years of the cross; Peter, James, and John endorsed his gospel (Galatians 2:9). If Paul hijacked it, why did the eyewitnesses die for the same message?</li>
-    <li><b style="color:var(--ink)">"Muhammad is the Paraclete of John 14."</b> Read the passage together: the Comforter is 'the SPIRIT of truth,' whom 'the world cannot see,' who would be IN the disciples then living (14:17), sent in Jesus's name (14:26). Muhammad was a visible man born 500 years later.</li>
-    <li><b style="color:var(--ink)">"The Bible names Muhammad — Song of Songs 5:16."</b> The Hebrew word machmad ('lovely/desirable') appears ~13 times in the Old Testament — including of things plundered and destroyed. In context it's a bride praising her husband's kisses. Sound-alike is not identity.</li>
-    <li><b style="color:var(--ink)">"The Gospel of Barnabas is the true gospel."</b> A demonstrated 14th–16th-century forgery — medieval Jubilee reference, wine casks, Dante quotations — and it contradicts the QURAN (it denies Jesus is the Messiah). Most Muslim scholars concede its inauthenticity.</li>
-  </ol></div>
+<div class="pb-h">How it actually goes</div>
+<p class="sh-open">Of about 750 former Muslims surveyed, the top reason they followed Jesus was the lifestyle and love of the Christians they knew. Not arguments.</p>
+<p class="sh-att">— Woodberry, Shubin and Marks, <i>Why Muslims Follow Jesus</i> (Fuller Seminary study, Christianity Today, 2007).</p>
 
-  <div class="sa"><h4 class="sat">Count the cost — higher than you think</h4>
-  <p style="font-size:.88rem;line-height:1.7">Apostasy from Islam is criminal in ~17 countries and capital in roughly a dozen; in the West the costs are disownment, expulsion, broken engagements, and in extreme cases violence. So: <b>never out a Muslim seeker</b> — not to their family, not on social media, not in a group prayer text. Let the seeker control who knows. Don't run conversion tests with pork or alcohol — eating bacon proves nothing about faith in Christ (Romans 14). Respect gender lines: men witness to men, women to women. Time baptism wisely — it is the public act that triggers consequences. And when someone does come to Christ, <b>the church must become their family in practical fact</b> — meals, holidays, housing help — or they will drift back not from doubt but from loneliness. Say early and often: <i>"I know what this could cost you. I'm not going anywhere either way."</i></p></div>
+<div class="sa"><h4 class="sat">The seven objections you will hear</h4>
+<ol class="sh-list">
+<li><b>The Bible is corrupted.</b> The flagship, and everything rests on it. The answer has two halves. The Quran endorses the Bible of the day of Muhammad (10:94; 5:47; 5:68; 6:115). The manuscripts prove that Bible is ours: the Dead Sea Scrolls, and Sinaiticus. Ask: "Corrupted before Muhammad? Then why does the Quran endorse it? Corrupted after? Then why do the pre-Islamic manuscripts match ours?"</li>
+<li><b>Jesus never said he was God.</b> Show what he did claim. He forgave sins in his own person (Mark 2:5–7). At his trial he made the Daniel 7 claim that got him condemned for blasphemy (Mark 14:61–64). He accepted the worship of Thomas (John 20:28). He said <i>before Abraham was, I AM</i> (John 8:58). Ask why he was executed for blasphemy.</li>
+<li><b>The Trinity is three gods.</b> Clear the ground first. What the Quran attacks is Allah, Jesus and Mary (5:116). That is tritheism, and Christians condemn it too. One God (Deuteronomy 6:4), three persons: one what, three whos. The Quran itself calls Jesus the Word of God and a Spirit from him (4:171). Were the Word and the Spirit of God ever separate from God?</li>
+<li><b>Paul invented Christianity.</b> The resurrection creed Paul received (1 Corinthians 15:3–8) dates to within a few years of the cross. Peter, James and John endorsed his gospel (Galatians 2:9). If Paul hijacked it, why did the eyewitnesses die for the same message?</li>
+<li><b>Muhammad is the Paraclete of John 14.</b> Read the passage together. The Comforter is the Spirit of truth, whom the world cannot see, who would be in the disciples then living (14:17), sent in the name of Jesus (14:26). Muhammad was a visible man born five hundred years later.</li>
+<li><b>The Bible names Muhammad in Song of Songs 5:16.</b> The Hebrew word machmad means lovely, or desirable. It appears about thirteen times in the Old Testament, including of things plundered and destroyed. In context a bride is praising the kisses of her husband. A sound-alike is not a name.</li>
+<li><b>The Gospel of Barnabas is the true gospel.</b> It is a demonstrated forgery from the fourteenth to the sixteenth century: a medieval Jubilee reference, wine casks, quotations from Dante. It also contradicts the Quran, because it denies that Jesus is the Messiah. Most Muslim scholars concede that it is not authentic.</li>
+</ol></div>
 
-  <div class="sa"><h4 class="sat">Seven gospel bridges (in their vocabulary)</h4>
-  <ol style="font-size:.88rem;color:var(--muted);line-height:1.7;margin:6px 0 0;padding-left:20px">
-    <li><b style="color:var(--ink)">Isa's resume → the Word made flesh.</b> Word of Allah, Spirit from Him, Messiah, virgin-born, sinless, alive, returning (3:45–49; 4:171) — "Whose resume is that? Why not read everything this one said?" → John 1:1–14.</li>
-    <li><b style="color:var(--ink)">Eid al-Adha → the Lamb of God.</b> "We ransomed him with a GREAT sacrifice" (37:107). Ask: "What was the ram pointing to? Why a ransom at all?" → Genesis 22:8; John 1:29; Mark 10:45.</li>
-    <li><b style="color:var(--ink)">The scales → assurance.</b> 23:102–103 vs. 1 John 5:13. "Are you sure your good outweighs your bad? Would you want to be sure?"</li>
-    <li><b style="color:var(--ink)">The 99 names → the missing name: Father.</b> Master–slave vs. Abba. → Luke 15 (the father RUNS — an honor-shattering act); Romans 8:15.</li>
-    <li><b style="color:var(--ink)">The Zabur → Psalm 22.</b> The Quran affirms the Psalms (4:163). Read Psalm 22 — pierced hands, divided garments, a thousand years early — then Matthew 27. The crucifixion the Quran denies in one late verse is detailed in a book it endorses.</li>
-    <li><b style="color:var(--ink)">Shame → honor.</b> Jesus bore shame publicly to cover ours and seat us with honor (Hebrews 12:2; 1 Peter 2:6 — "whoever believes in him will not be put to shame").</li>
-    <li><b style="color:var(--ink)">10:94 → permission to read.</b> The Quran itself tells doubters to consult the Book's readers. Offer to read Luke together — genealogy, reverence, structure — one chapter at a time. Nearly every conversion testimony runs through an open Bible.</li>
-  </ol></div>
+<div class="sa"><h4 class="sat">Count the cost, and never out a seeker</h4>
+<p class="pd">Leaving Islam is a crime in about seventeen countries and carries the death penalty in roughly a dozen. In the West the cost is disownment, expulsion, broken engagements, and in extreme cases violence. A convert may lose their family entirely. So never out a Muslim seeker. Not to their family, not on social media, not in a group prayer text. Let them control who knows. Do not run tests with pork or alcohol, because eating bacon proves nothing about faith in Christ (Romans 14). Respect gender lines: men witness to men, women to women. Time baptism wisely. It is the public act that triggers the consequences. And when someone does come to Christ, the church has to become their family in practice, with meals, holidays and help finding a home. Otherwise they drift back, not from doubt but from loneliness. Say it early and often: "I know what this could cost you. I am not going anywhere either way."</p></div>
 
-  <div class="sa"><h4 class="sat">Start here</h4>
-  <p class="pd">The <b>cornerstone path</b> walks the argument everything else depends on; every case page ends with a suggested question and a scripted back-and-forth ("How the conversation usually goes") so you're ready for the counter-moves.</p>
-  <button class="start" data-goto-path="cornerstone">Open the cornerstone path →</button></div>`;
+<div class="sa"><h4 class="sat">Seven bridges, in words they already use</h4>
+<ol class="sh-list">
+<li><b>The resume of Isa, to the Word made flesh.</b> Word of Allah, Spirit from him, Messiah, born of a virgin, sinless, alive, returning (3:45–49; 4:171). Ask whose resume that is, and why not read everything this one said. Then John 1:1–14.</li>
+<li><b>Eid al-Adha, to the Lamb of God.</b> "We ransomed him with a great sacrifice" (37:107). Ask what the ram was pointing to, and why a ransom at all. Then Genesis 22:8, John 1:29 and Mark 10:45.</li>
+<li><b>The scales, to assurance.</b> Quran 23:102–103 next to 1 John 5:13. Ask: "Are you sure your good outweighs your bad? Would you want to be sure?"</li>
+<li><b>The ninety-nine names, to the one that is missing.</b> The missing name is Father. Master and slave, or Abba. In Luke 15 the father runs, which costs him honor to do. Then Romans 8:15.</li>
+<li><b>The Zabur, to Psalm 22.</b> The Quran affirms the Psalms (4:163). Read Psalm 22: pierced hands, divided garments, a thousand years early. Then read Matthew 27. The crucifixion the Quran denies in one late verse is described in a book it endorses.</li>
+<li><b>Shame, to honor.</b> Jesus bore shame in public to cover ours and to seat us with honor (Hebrews 12:2). In 1 Peter 2:6, whoever believes in him will not be put to shame.</li>
+<li><b>Quran 10:94, to permission to read.</b> Their own book tells doubters to consult the people who read the Book. Offer to read Luke together, one chapter at a time. Nearly every conversion story runs through an open Bible.</li>
+</ol></div>
+
+<div class="sa"><h4 class="sat">Start here</h4>
+<p class="pd">The <b>cornerstone path</b> walks the argument every other conversation depends on. Every case page ends with a suggested question and a scripted back-and-forth, so you are ready for the counter-moves.</p>
+<button class="start" data-goto-path="cornerstone">Open the cornerstone path →</button></div>${DATA.some(d=>d.avoid)?`<div class="pb-h" style="margin-top:30px">Arguments that will embarrass you — do not use these</div><p class="pd" style="font-size:.8rem;margin:0 0 10px">Popular claims that are false or overclaimed. Each links to the correction — repeating them hands the other side an easy win and discredits your true arguments.</p><div class="relrow">${DATA.filter(d=>d.avoid).map(d=>`<button data-open="${d.id}">⚠ ${esc(d.title)}</button>`).join("")}</div>`:""}`;
   const b=$("#main").querySelector("[data-goto-path]");
-  if(b)b.addEventListener("click",()=>{const p=PATHS.find(x=>x.id===b.dataset.gotoPath);state.pathId=p.id;const read=store.read;const next=p.items.find(i=>!read.has(i))||p.items[0];openCase(next,true);});
+  if(b)b.addEventListener("click",()=>{const p=PATHS.find(x=>x.id===b.dataset.gotoPath);if(!p)return;state.pathId=p.id;const read=store.read;const next=p.items.find(i=>!read.has(i))||p.items[0];openCase(next,true);});
   bindOpens();
 }
 

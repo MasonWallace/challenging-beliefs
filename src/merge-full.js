@@ -1,11 +1,13 @@
 /* Splice rewritten defense + verdict into a section and mark it as rewritten,
    so the readability gate starts checking it. */
 const fs=require('fs'),P=f=>__dirname+'/'+f,grade=require('./grade.js');
-const QUOTE=/["\u201c\u2018']([^"\u201d\u2019']{30,})["\u201d\u2019']/g;
-const strip=t=>String(t).replace(QUOTE,' a quoted passage. ');
+const S=require('./strip.js');
+const strip=t=>S.measurable(t);
 const T=[['mormon','index.html'],['islam','islam-data.json'],['jw','jw-data.json'],
          ['bhi','bhi-data.json'],['messiah','messiah-data.json'],['god','god-data.json']];
+const ONLY=process.argv.slice(2);
 for(const [slug,file] of T){
+  if(ONLY.length&&!ONLY.includes(slug))continue;
   const ff=P('full-'+slug+'.json'); if(!fs.existsSync(ff))continue;
   const full=JSON.parse(fs.readFileSync(ff,'utf8'));
   const d=slug==='mormon'

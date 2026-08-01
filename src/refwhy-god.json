@@ -1,0 +1,216 @@
+{
+  "existence-kalam-contingency": {
+    "why": {
+      "Genesis 1:1": "'In the beginning' — the biblical claim that the universe had a start. The Kalam argues for the same start.",
+      "Romans 1:20": "Paul's warrant for arguing from the world to God at all. It is why a case like this exists.",
+      "Hebrews 11:3": "Says what is seen was not made from what is visible. The nearest biblical echo of a cause outside matter."
+    },
+    "drop": ["John 1:3"]
+  },
+  "existence-fine-tuning": {
+    "why": {
+      "Psalm 19:1": "'The heavens declare the glory of God.' The oldest form of the argument from the sky.",
+      "Isaiah 45:18": "God formed the earth 'not to be empty' but to be lived in. A claim that the setup is aimed at life.",
+      "Romans 1:20": "Paul's licence for reasoning from what is made. The verse standing behind all these arguments."
+    }
+  },
+  "existence-moral-argument": {
+    "why": {
+      "Romans 2:14-15": "Quoted in the case. People without the law 'do by nature what the law requires'. It blocks the slur.",
+      "Micah 6:8": "'Do justice, love mercy.' A moral demand stated as something already known, not argued for.",
+      "Psalm 97:2": "Justice is 'the foundation of his throne' — the claim that the Good is God's own nature, not his decree."
+    }
+  },
+  "existence-argument-from-reason": {
+    "why": {
+      "Genesis 1:27": "People made in God's image. The claim that mind sits at the base of things, not at the end of a chain.",
+      "John 1:1-4": "Reason itself, the Word, is placed at the start of everything. The passage this argument echoes.",
+      "Proverbs 20:12": "'The hearing ear and the seeing eye' — God made them both. Cited for senses built to know."
+    }
+  },
+  "resurrection-minimal-facts": {
+    "why": {
+      "1 Corinthians 15:3-8": "Paul's list of appearances. It is the earliest written source for the facts this case is built on.",
+      "Mark 16:1-8": "Cuts both ways. The women do find the tomb, but the earliest text ends with no appearance at all.",
+      "Acts 2:22-32": "Peter preaching the resurrection in Jerusalem itself. It is where the early-preaching fact comes from.",
+      "Galatians 1:18-19": "Paul meets Peter and James three years on. The link to both conversions, in Paul's own hand."
+    }
+  },
+  "resurrection-early-creed": {
+    "why": {
+      "1 Corinthians 15:3-8": "The creed itself. Paul says he 'received' and 'delivered' it, which marks it as older than his letter.",
+      "Galatians 1:18-19": "Paul's own dating. He meets Peter and James in Jerusalem three years after he changed sides.",
+      "Luke 24:34": "'The Lord has risen and appeared to Simon' — a second, separate trace of the same early formula."
+    }
+  },
+  "resurrection-hallucination-hypotheses": {
+    "why": {
+      "1 Corinthians 15:6-8": "The group appearances, including 'more than five hundred at once'. A hallucination is private by nature.",
+      "John 7:5": "'Not even his brothers were believing in him.' It sets up how odd James's later role is.",
+      "Acts 9:1-9": "Cuts both ways. Paul was hunting Christians, not grieving. But the account reads as light and a voice.",
+      "Mark 3:21": "His family thought he had lost his mind. The other half of the case that James was no follower."
+    }
+  },
+  "manuscripts-nt-text": {
+    "why": {
+      "Luke 1:1-4": "Luke says he checked with eyewitnesses and wrote an orderly account. That is the claim being tested.",
+      "2 Peter 3:15-16": "Calls Paul's letters 'scriptures' already. A sign they were copied and shared very early."
+    }
+  },
+  "manuscripts-dead-sea-scrolls": {
+    "why": {
+      "Isaiah 40:8": "'The word of our God endures forever.' The scrolls put that claim to a thousand-year test.",
+      "Jeremiah 36:1-4": "Jeremiah dictating to Baruch, who writes it on a scroll. A picture of how these texts were made."
+    }
+  },
+  "manuscripts-canon-formation": {
+    "why": {
+      "2 Peter 3:15-16": "Already calls Paul's letters 'scriptures'. A collection existed long before any council met.",
+      "Luke 1:1-4": "Luke names his method: eyewitnesses, careful checking, an orderly account. One of the later tests.",
+      "Colossians 4:16": "Paul tells one church to swap letters with another. That swapping is how a collection begins."
+    }
+  },
+  "archaeology-ot-corroboration": {
+    "why": {
+      "2 Kings 19:32-36": "The siege that ends without the city falling. Sennacherib's own prism claims no capture either.",
+      "2 Kings 20:20": "The one-line note about Hezekiah's waterworks. The tunnel is still there to walk through.",
+      "Ezra 1:1-4": "Cyrus sending exiles home to rebuild. The Cyrus Cylinder sets out that same Persian policy.",
+      "2 Samuel 7:16": "The promise of a lasting house for David. The Tel Dan stone names that house on an enemy's monument."
+    }
+  },
+  "archaeology-nt-corroboration": {
+    "why": {
+      "John 5:2": "The pool with five colonnades. Long called a mistake, until diggers found exactly that layout.",
+      "John 9:7": "The Pool of Siloam. It was uncovered in 2004, during a sewer repair.",
+      "Matthew 26:57": "Names Caiaphas as high priest. A bone-box found in 1990 reads 'Joseph son of Caiaphas'.",
+      "Luke 3:1": "Luke's dated list of rulers, Pilate among them. The Caesarea stone gives Pilate his right title."
+    }
+  },
+  "archaeology-quirinius-census": {
+    "why": {
+      "Luke 2:1-7": "The verse with the problem. It dates the birth to a census 'when Quirinius was governor of Syria'.",
+      "Matthew 2:1": "Puts the birth under Herod the Great, who died in 4 BC. The other half of the collision.",
+      "Acts 5:37": "Luke himself mentions the census and the revolt that followed. He knows the AD 6 event."
+    }
+  },
+  "prophecy-tyre-babylon": {
+    "why": {
+      "Ezekiel 26:3-14": "The oracle against Tyre. Many nations, broken walls, rubble scraped into the sea, a bare rock.",
+      "Ezekiel 29:17-20": "The self-correction. Nebuchadnezzar 'got no wages' from Tyre. The case says lead with this one.",
+      "Isaiah 13:19-22": "The doom on Babylon. It did come, but over centuries. Do not compress the timeline.",
+      "Jeremiah 51:37": "Babylon to become heaps and a waste. The same picture, and the same caution applies."
+    }
+  },
+  "prophecy-daniel-dating": {
+    "why": {
+      "Daniel 7:13-14": "The 'son of man' figure. Older than Jesus on either date, and the point the case says to use.",
+      "Daniel 9:24-27": "The seventy-weeks timetable. It is also older than Jesus, on either date.",
+      "Daniel 11:31-35": "Cuts against you. This is the chapter whose precision, then failure, is the dating fingerprint.",
+      "Daniel 5:29-30": "Belshazzar ruling in Babylon. The book knows a fact that later Greek writers lost."
+    }
+  },
+  "prophecy-isaiah53-psalm22": {
+    "why": {
+      "Isaiah 52:13-53:12": "The servant passage. The Great Isaiah Scroll carries all of it, dated to about 125 BC.",
+      "Psalm 22:1-18": "The lament with the mockery, the divided garments and the lots. Verse 16 is textually disputed.",
+      "Luke 24:25-27": "Jesus reading the whole of Scripture as about himself. The root of the Christian reading.",
+      "Acts 8:32-35": "The Ethiopian reads Isaiah 53 and asks who it means. The earliest recorded use of the passage."
+    }
+  },
+  "objection-problem-of-evil": {
+    "why": {
+      "Job 38:1-7": "God's answer to Job is a presence, not an explanation. The case says that is the biblical reply.",
+      "Romans 8:18-25": "Creation groaning, with a glory still to come. The Christian frame for pain that is not yet explained.",
+      "John 11:35": "'Jesus wept' at a grave he was about to open. A response, not an argument.",
+      "Revelation 21:4": "'He will wipe every tear.' A promise that it ends. The sceptic notes that is not the same as a reason."
+    }
+  },
+  "objection-divine-hiddenness": {
+    "why": {
+      "Isaiah 45:15": "'Truly, you are a God who hides himself.' Scripture grants the very thing the objection names.",
+      "Jeremiah 29:13": "'You will find me when you seek me with all your heart.' The promise the honest seeker says failed.",
+      "Psalm 13:1-2": "'How long will you hide your face from me?' The Bible's own lament at this silence.",
+      "Matthew 11:25-27": "Things hidden from the wise and shown to children. Cited for a God who is not evenly obvious."
+    }
+  },
+  "objection-canaanite-conquest": {
+    "why": {
+      "Deuteronomy 20:16-18": "Cited by the objection, not against it. As written, it commands total killing. The hardest text here.",
+      "Genesis 15:16": "'The sin of the Amorites is not yet complete.' Cited for a long delay before judgement.",
+      "Exodus 23:29-30": "'Little by little I will drive them out.' The Bible's own softer verb, on a slow timescale.",
+      "Judges 1:27-33": "Peoples said to be wiped out are still there, in numbers. Evidence the earlier wording is overstated."
+    }
+  },
+  "objection-who-made-god": {
+    "why": {
+      "Psalm 90:2": "'From everlasting to everlasting you are God.' God does not begin, which is what the question assumes.",
+      "Exodus 3:14": "'I AM' — God named as sheer being. The old basis for calling him necessary rather than caused.",
+      "John 8:58": "'Before Abraham was, I am.' The same claim, and now on the lips of Jesus."
+    },
+    "drop": ["Revelation 1:8"]
+  },
+  "objection-science-genesis": {
+    "why": {
+      "Genesis 1:1-2:3": "The creation account itself. Note that days one to three come before the sun is made.",
+      "Psalm 104": "A second creation poem, plainly poetry. Scripture tells this story in more than one way.",
+      "Job 38-39": "God's tour of the natural world, in verse. Nobody has ever read it as a mechanism.",
+      "2 Peter 3:8": "'A day is with the Lord as a thousand years.' Used for day-age readings, though its subject is patience."
+    }
+  },
+  "objection-religion-wars": {
+    "why": {
+      "Jeremiah 17:9": "'The heart is treacherous.' Quoted in the case as the doctrine the war figures fit.",
+      "James 4:1-2": "'What causes wars among you? Your cravings.' The Bible names appetite, not creed, as the driver.",
+      "Matthew 26:52": "'All who take the sword will perish by it.' Jesus disarming one of his own men.",
+      "Romans 3:10-18": "'None is righteous, no, not one.' The claim that the problem is human, not tribal."
+    }
+  },
+  "dontuse-banana-design": {
+    "why": {
+      "Psalm 19:1-4": "The wonder itself is biblical. But this is testimony, not an argument you can win with.",
+      "Romans 1:20": "Paul's claim that God is perceived through what he made. It backs fine-tuning, not the banana."
+    }
+  },
+  "dontuse-anti-evolution-science": {
+    "why": {
+      "Proverbs 18:17": "The first to plead seems right until another examines him. Both claims fail that examining.",
+      "1 Thessalonians 5:21": "'Test all things.' The rule that should have caught these two before anyone repeated them."
+    }
+  },
+  "dontuse-darwin-recanted": {
+    "why": {
+      "Exodus 20:16": "'Do not bear false witness.' Quoted in the case. There is no exemption for apologetics.",
+      "Ephesians 4:25": "'Put away falsehood; speak the truth.' The same command, aimed at the church itself."
+    }
+  },
+  "dontuse-pascals-wager-opener": {
+    "why": {
+      "Deuteronomy 6:5": "'Love the LORD your God with all your heart.' The call a fire-insurance bet cannot produce.",
+      "Jeremiah 29:13": "'Seek me with all your heart.' Seeking, not betting. That is Pascal's real prescription.",
+      "Hebrews 11:6": "Says God rewards those who seek him, but also that one must first believe he is. Awkward for a bet."
+    }
+  },
+  "dontuse-atheist-mind-reading": {
+    "why": {
+      "Romans 2:14-15": "Serves the sceptic here. People without the law 'do by nature what the law requires'.",
+      "1 Peter 3:15-16": "Answer 'with mildness and deep respect'. The standard all three of these lines break.",
+      "Proverbs 18:13": "Answering before you have heard the matter is folly. That is what mind-reading a person is."
+    },
+    "drop": ["Colossians 4:6"]
+  },
+  "resurrection-willing-to-die": {
+    "why": {
+      "Acts 12:1-2": "The one apostle whose death the New Testament records. Herod had James put to the sword.",
+      "1 Corinthians 15:14-19": "Paul says that if Christ was not raised, their preaching is empty and they are false witnesses.",
+      "2 Corinthians 11:23-28": "Paul's own list of what the claim cost him: beatings, prison, shipwreck. First-hand, not legend.",
+      "Acts 26:9-11": "Paul describing how hard he once hunted Christians. It is why his change of side counts."
+    }
+  },
+  "dontuse-all-twelve-martyred": {
+    "why": {
+      "Acts 12:1-2": "The only apostolic death in the New Testament. One, not twelve. That is the whole correction.",
+      "1 Thessalonians 5:21": "'Test all things.' A rule that would have stopped this claim before it spread.",
+      "Proverbs 12:22": "'Lying lips are detestable to the LORD.' Why an overclaim is not a small thing."
+    }
+  }
+}

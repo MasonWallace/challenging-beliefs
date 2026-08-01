@@ -3,14 +3,9 @@
 const grade = require('./grade.js');
 /* A 40-word sentence from the King James Bible is not our prose being unclear.
    Measure the writing, not the quotations — but count how much we lean on them. */
-const QUOTE = /["\u201c\u2018']([^"\u201d\u2019']{30,})["\u201d\u2019']/g;
-function stripQuotes(t){ return String(t).replace(QUOTE, ' a quoted passage. '); }
-function quoteShare(t){
-  const total = String(t).split(/\s+/).length || 1;
-  let q = 0, m; const re = new RegExp(QUOTE.source, 'g');
-  while ((m = re.exec(String(t)))) q += m[1].split(/\s+/).length;
-  return q / total;
-}
+const S = require('./strip.js');
+const stripQuotes = t => S.measurable(t);
+const quoteShare = t => S.quoteShare(S.stripTags(t));
 const LIMITS = { plain: { g: 7.9, avg: 14, max: 25 }, full: { g: 10.9, avg: 20, max: 35 } };
 module.exports = function gate(arr, label) {
   const rows = { plain: [], full: [] };

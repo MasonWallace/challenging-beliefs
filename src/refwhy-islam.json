@@ -1,0 +1,842 @@
+{
+  "quran-affirms-torah-gospel": {
+    "why": {
+      "Isaiah 40:8": "The Bible's own form of the claim in Quran 6:115. God's word 'shall stand for ever'.",
+      "Quran 3:3": "Says the Quran confirms what came before it. This is the first step of the case.",
+      "Quran 5:43": "Asks why Jews come to Muhammad while they have the Torah. Note the present tense.",
+      "Quran 5:46-47": "Tells the People of the Gospel to judge by what is in it. A live book, not a lost one.",
+      "Quran 5:68": "Says Jews and Christians stand on nothing until they uphold the Torah and the Gospel.",
+      "Quran 10:94": "Tells Muhammad to ask those who read the earlier Scripture. It makes them the check on him.",
+      "Quran 6:115": "Says no one can change His words. Hard to square with a Bible that was rewritten.",
+      "Quran 18:27": "Says the same again. Cited with 6:115 as the pair that closes off the change."
+    },
+    "drop": ["Matthew 24:35", "Quran 15:9"]
+  },
+  "tahrif-doctrine-late-development": {
+    "why": {
+      "Quran 2:75": "A party 'hear the words of Allah and then distort it'. The first verse the reply leans on.",
+      "Quran 2:79": "The best verse for the text claim. People 'write the Book with their own hands'.",
+      "Quran 3:78": "Describes a party who twist the Book with their tongues. That is speech, not a rewrite.",
+      "Quran 4:46": "Jews who 'change words from their places'. Early scholars read this as twisted meaning.",
+      "Quran 5:13": "The same charge again. These five verses are the whole base of the change doctrine.",
+      "Sahih al-Bukhari 7363": "Cuts against you. In Bukhari, Islam's soundest collection, Ibn Abbas says they changed and altered their Book."
+    }
+  },
+  "manuscripts-predate-muhammad": {
+    "why": {
+      "Isaiah 53:5-6": "Found whole in the Great Isaiah Scroll, copied about 125 BC. The proof this text is old.",
+      "Quran 5:48": "Says the Quran confirms the Scripture before it and watches over it. It assumes that book exists.",
+      "Quran 10:94": "The 'ask those who read the Scripture' verse. It only works if their copies were sound."
+    },
+    "drop": ["1 Peter 1:24-25"]
+  },
+  "crucifixion-denial-vs-history": {
+    "why": {
+      "1 Corinthians 15:3-8": "Holds a creed dated within a few years of the death. This is the earliest evidence here.",
+      "Mark 15:24-39": "Mark's account of the death. It ends with the soldier at the cross.",
+      "Luke 23:33-46": "Luke's account, with the words spoken from the cross. The second of four reports.",
+      "John 19:16-30": "John's account, closing with 'It is finished'. The fourth witness to one death.",
+      "Quran 4:157": "The denial itself. 'They did not kill him, nor did they crucify him.' All of this answers that.",
+      "Quran 4:158": "Says Allah raised him up. This is what the Quran puts in place of the death."
+    }
+  },
+  "quran-jesus-resume": {
+    "why": {
+      "Luke 1:34-35": "The Gospel's virgin birth. Here the two books agree, which is why the case can start.",
+      "John 11:43-44": "Jesus raises Lazarus. The Gospel form of the raising Quran 3:49 grants him.",
+      "Hebrews 4:15": "Says Jesus was without sin. It is the Christian match for the Quran's 'pure boy'.",
+      "Acts 1:9-11": "He is taken up and promised back. Set this beside Quran 4:158 and the hadith on his return.",
+      "Quran 3:45": "Calls him 'the Messiah, Jesus son of Mary', held high in this world and the next.",
+      "Quran 3:47": "The virgin birth. Mary asks how she can have a son when no man has touched her.",
+      "Quran 3:49": "The miracles. He heals the blind and raises the dead, each time by Allah's leave.",
+      "Quran 5:110": "The same miracle list, told again later. A second witness inside the Quran.",
+      "Quran 19:19": "The angel promises 'a pure boy'. This is the line read as sinlessness.",
+      "Quran 4:158": "Says Allah raised him to Himself. The Quran records no death for Jesus.",
+      "Quran 47:19": "Tells Muhammad to ask forgiveness for his sin. This is half of the comparison.",
+      "Quran 48:2": "The second verse on forgiving Muhammad's sin. The pair is why the case says twice.",
+      "Quran 3:59": "Cuts against you. It is the Muslim reply's key verse: Jesus is like Adam, made from dust.",
+      "Sahih al-Bukhari 3448": "In Bukhari, the soundest Sunni collection. Jesus returns at the end of the age."
+    }
+  },
+  "gospel-judgment-test": {
+    "why": {
+      "John 20:28-31": "Thomas says 'My Lord and my God'. This is a verdict the test would return.",
+      "Mark 14:61-64": "Jesus answers the high priest and is condemned for it. The claim in his own mouth.",
+      "1 Corinthians 15:3-4": "The death and rising, in one short early creed. A second verdict the test returns.",
+      "John 3:16": "Names Jesus as God's only Son. The third thing judging by the Gospel yields.",
+      "Quran 10:94": "'Ask those who have been reading the Scripture before you.' The verse that sets the test.",
+      "Quran 5:47": "Tells the People of the Gospel to judge by it. Refusing is called disobedience.",
+      "Quran 5:46": "The verse just before. It says the Gospel was given with guidance and light."
+    },
+    "drop": ["Quran 29:46"]
+  },
+  "uthman-burning-companion-codices": {
+    "why": {
+      "Quran 15:9": "The preservation promise Muslims cite. Allah sent the Reminder and will guard it.",
+      "Sahih al-Bukhari 4987": "The burning order itself, in Bukhari. All other Quranic material was to be burnt.",
+      "Sahih al-Bukhari 4992": "In Bukhari. Men argue over how to recite, in the Prophet's own lifetime. He allows both, under the seven modes.",
+      "Sahih al-Bukhari 4977": "Preserves the row over Ibn Masud's copy. Evidence the companions' texts differed."
+    },
+    "drop": ["Sahih al-Bukhari 5000"]
+  },
+  "sanaa-palimpsest-qiraat": {
+    "why": {
+      "Quran 15:9": "The verse the Muslim reply rests on. Allah sent the Reminder and will guard it.",
+      "Quran 3:146": "The clearest reading that changes sense. Either 'fought' or 'was killed', by one dot.",
+      "Quran 2:132": "A known place where the Hafs and Warsh printings use a different form of the verb.",
+      "Quran 19:19": "Another split reading. The angel says either 'that I may give' or 'that He may give'.",
+      "Sahih al-Bukhari 4992": "The seven modes hadith, in Bukhari. It is Islam's own answer for why readings differ."
+    }
+  },
+  "trinity-father-jesus-mary": {
+    "why": {
+      "Matthew 28:19": "Names Father, Son and Holy Spirit. Mary is not one of the three, and never was.",
+      "2 Corinthians 13:14": "A second three-fold line: Christ, God, and the Holy Spirit. Again no Mary.",
+      "John 1:1-3": "The Word was God, and all was made by him. Useful for saying what we do hold.",
+      "Quran 5:116": "The verse this case turns on. 'Take me and my mother as two gods besides Allah.'",
+      "Quran 5:75": "Says the Messiah and his mother both ate food. It pairs the same two figures again.",
+      "Quran 4:171": "The other Trinity verse. It says 'do not say Three' but never names the three."
+    }
+  },
+  "trinity-third-of-three": {
+    "why": {
+      "Deuteronomy 6:4": "'The LORD our God is one LORD.' Christians hold this too, so three gods is not our claim.",
+      "Mark 12:29": "Jesus quotes that same line as the first commandment. Use it when a Muslim assumes you deny it.",
+      "1 Corinthians 8:6": "Paul says one God and one Lord in one breath, with Jesus inside the sentence.",
+      "Matthew 28:19": "The three names in one baptism formula. This is the belief Quran 5:73 does not describe.",
+      "Quran 5:73": "Condemns those who say Allah is 'the third of three'. The whole case is about this line.",
+      "Quran 4:171": "'Do not say Three.' The other half of the Quran's rejection."
+    }
+  },
+  "begets-consort-carnal-sonship": {
+    "why": {
+      "John 1:14": "'The only begotten of the Father', said of the Word made flesh. No mother is in view.",
+      "John 1:18": "Calls him the only Son, who is at the Father's side. The sonship actually being denied.",
+      "Hebrews 1:3": "Describes the Son as the shining of God's glory and the stamp of His being.",
+      "Psalm 2:7": "'Thou art my Son; this day have I begotten thee.' The root of the begotten language.",
+      "Colossians 1:15-17": "Says all things were made by him and he is before all things. Not a later product.",
+      "Quran 112:1-4": "The short surah Muslims recite most. God 'neither begets nor is born'.",
+      "Quran 6:101": "Asks how He can have a son with no consort. That is the one argument this case targets.",
+      "Quran 19:88-92": "Says it does not befit the Most Merciful to take a son. The heavens almost split at it.",
+      "Quran 2:116": "'They say Allah has taken a son.' The same charge, made again at Medina.",
+      "Quran 53:19-21": "Names al-Lat, al-Uzza and Manat. The Muslim reply says these idols are the real target.",
+      "Sahih al-Bukhari 4974": "Bukhari's section on Surah 112. It is the sound-collection backing for how Muslims read it."
+    }
+  },
+  "god-is-love-monad": {
+    "why": {
+      "1 John 4:8-10": "'God is love.' The whole case rests on this, and on the Son being sent to show it.",
+      "John 17:24": "Jesus speaks of the Father loving him 'before the foundation of the world'. Love before creation.",
+      "Matthew 6:9": "'Our Father.' The name Jesus teaches, and the one not found among the 99 names.",
+      "Romans 5:8": "Says God showed love while we were still sinners. Love that waits on nothing we do.",
+      "Quran 11:90": "One of two places God is called al-Wadud, the Loving. The Muslim reply starts here.",
+      "Quran 85:14": "The other al-Wadud verse. Two is the entire count, which is the point being made.",
+      "Quran 3:31-32": "'Allah loves those who...' Love tied to following the Messenger. The pattern is conditional.",
+      "Quran 2:190": "Ends by saying Allah loves not those who go too far. The same pattern, stated the other way.",
+      "Quran 5:18": "Rebukes Jews and Christians for calling themselves children of Allah. It shuts the door on Father.",
+      "Sahih Muslim 2751a": "From Sahih Muslim, the other top collection. God's mercy runs ahead of His wrath."
+    },
+    "drop": ["1 John 4:16"]
+  },
+  "best-of-deceivers": {
+    "why": {
+      "Titus 1:2": "Says God 'cannot lie'. This is the contrast the case draws.",
+      "Numbers 23:19": "'God is not a man, that he should lie.' The older half of the same point.",
+      "Hebrews 6:18": "Calls it impossible for God to lie. The case names all three of these together.",
+      "Quran 3:54": "Where Allah is called khayru al-makirin. It sits in the passage about the plot on Jesus.",
+      "Quran 8:30": "The second place the phrase is used, about the plot on Muhammad.",
+      "Quran 7:99": "Warns that no one is safe from Allah's makr. The same word, aimed at people.",
+      "Quran 4:157": "The 'made to appear so to them' verse. This case only bites when joined to it.",
+      "Quran 10:21": "Cuts against you. The reply uses it: Allah's scheme answers the scheming of people."
+    },
+    "drop": ["John 14:6"]
+  },
+  "word-and-spirit-titles": {
+    "why": {
+      "John 1:1-3": "The Word who was with God and was God. This is the language Quran 4:171 borrows.",
+      "John 1:14": "'The Word was made flesh.' What John means by the title the Quran also gives Jesus.",
+      "Hebrews 4:15": "Says he was tempted yet did not sin. Read it beside the hadith on Satan and the newborn.",
+      "Luke 1:35": "The Spirit comes on Mary and the child is called holy. The Gospel form of 'a Spirit from Him'.",
+      "Quran 4:171": "Holds both titles: His Word cast to Mary, and a Spirit from Him. The heart of this case.",
+      "Quran 3:45-49": "Adds the Messiah title and the miracles. More of the profile being collected here.",
+      "Quran 19:19": "'A pure boy.' The sinlessness that belongs in the same picture.",
+      "Quran 21:91": "Says God breathed into Mary of His Spirit. The second Spirit verse about Jesus.",
+      "Quran 3:55": "Says Allah will take Jesus and raise him, and set his followers above those who reject him.",
+      "Quran 43:61": "Calls him knowledge of the Hour. He is a sign that the last day is near.",
+      "Sahih al-Bukhari 3435": "A sound Bukhari hadith. It repeats the Word and Spirit titles inside a creed a Muslim holds.",
+      "Sahih al-Bukhari 3286": "In Bukhari: Satan touches every newborn but Mary and her son. Muslims accept it as sound."
+    }
+  },
+  "clay-birds-apocrypha": {
+    "why": {
+      "John 2:11": "Calls the wine at Cana the first of his signs. So the Gospels have no childhood miracle.",
+      "Luke 2:52": "Nearly all the Gospels say of his boyhood. He grew in wisdom and in stature.",
+      "John 20:30-31": "Says many signs were not written down. The Muslim reply opens here, so know it first.",
+      "Quran 3:46": "The cradle speech. He speaks to people while still an infant.",
+      "Quran 3:49": "The clay birds, given life by Allah's leave. This is the case's main example.",
+      "Quran 5:110": "Tells the clay bird story a second time, later in the Quran.",
+      "Quran 19:29-33": "The full cradle scene, where the infant calls himself a servant of Allah.",
+      "Quran 25:4-5": "The Quran's own record of the charge: he heard 'tales of the ancients'. Quoted in the case."
+    }
+  },
+  "son-of-god-divine-claims": {
+    "why": {
+      "Psalm 2:7": "'Thou art my Son', said to a king. Both sides use it. It shows the title is royal, not physical.",
+      "John 5:18": "Gives John's own reason they wanted him dead. He was 'making himself equal with God'.",
+      "John 8:58-59": "'Before Abraham was, I am.' They pick up stones at once. The reaction is the evidence.",
+      "John 10:30-33": "'I and my Father are one.' They charge him with making himself God. The same pattern.",
+      "Mark 14:61-64": "The trial. He takes the title and uses the words of Daniel 7. It is judged worth death.",
+      "John 20:28-29": "Thomas says 'My Lord and my God'. Jesus blesses him. No correction is offered.",
+      "Philippians 2:6-11": "An early hymn Paul quotes. He was in the form of God, and took a servant's place.",
+      "Daniel 7:13-14": "The son of man comes with clouds and is given rule over all. The words used at the trial.",
+      "Quran 9:30": "Says Christians call the Messiah the son of Allah. The charge, in the Quran's own words.",
+      "Quran 5:17": "Says those who call the Messiah God have rejected faith. One verse the case answers.",
+      "Quran 5:72": "The same charge, with the warning of the Fire. It shows how much rests on the point.",
+      "Quran 19:88-92": "Says the Most Merciful takes no son, and the claim nearly tears the heavens.",
+      "Quran 4:171": "Sets the ceiling: the Messiah is only a messenger, and do not say Three.",
+      "Sahih al-Bukhari 3445": "In Bukhari: do not praise me as the Christians praised the son of Mary. Muhammad calls himself a slave."
+    }
+  },
+  "quran-never-quotes-scriptures": {
+    "why": {
+      "Psalm 37:29": "The one place the Quran comes close to quoting the Bible. Quran 21:105 matches this line.",
+      "Matthew 5:17": "Jesus names the law and the prophets and says he came to fulfil them. Direct engagement.",
+      "Luke 24:44": "Jesus points to Moses, the prophets and the psalms about himself. Again, he uses the text.",
+      "Quran 3:3": "Says the Quran confirms the Torah and Gospel. This is the claim being tested.",
+      "Quran 5:48": "A second confirming verse. It calls the Quran a watcher over the books before it.",
+      "Quran 21:105": "'My righteous servants shall inherit the earth', said to be in the Zabur. The one near-quotation.",
+      "Quran 25:4-5": "Records the charge made against Muhammad: old tales, dictated to him morning and evening.",
+      "Quran 19:28": "Calls Mary 'sister of Aaron'. Offered as a sign the stories came by ear, not from a text.",
+      "Quran 5:31": "The raven that teaches Cain to bury his brother. That comes from later Jewish tales, not Genesis.",
+      "Quran 7:157": "Says the Prophet is written with them in the Torah and Gospel. No one has found that line.",
+      "Sahih al-Bukhari 3": "In Bukhari. Waraqa was the Christian cousin of Khadija. He 'used to write the Gospel in Arabic'."
+    },
+    "drop": ["2 Timothy 3:16", "Sahih al-Bukhari 7361"]
+  },
+  "injil-problem": {
+    "why": {
+      "Mark 1:1": "'The beginning of the gospel of Jesus Christ.' Gospel is a message about him, not a book given to him.",
+      "Luke 1:1-4": "Luke says he checked with eyewitnesses and set it in order. That is a report, not a dictation.",
+      "Romans 1:1-4": "Paul spells out the gospel as the news about God's Son. The word meant that from the start.",
+      "1 Corinthians 15:1-8": "Gives the gospel as a short list of events. Again a message, not a revealed book.",
+      "Galatians 1:8-9": "Warns against any other gospel, even from an angel. There was one, and it was guarded.",
+      "Quran 5:46-48": "Says Allah gave Jesus the Injil, with guidance and light. This is the book being looked for.",
+      "Quran 5:66": "Says that if they kept the Torah and Gospel they would be fed. It assumes both are in hand.",
+      "Quran 5:68": "Says they stand on nothing until they uphold both books. The same problem of tense.",
+      "Quran 7:157": "Says the Prophet is written with them in the Torah and the Gospel.",
+      "Quran 10:94": "Sends the doubter to those who read the earlier Scripture. It assumes a book they can read.",
+      "Quran 57:27": "Says We gave Jesus the Gospel, and put mercy in the hearts of those who followed him.",
+      "Quran 3:3": "Names the Torah and Gospel as sent down before. This is where the question starts."
+    }
+  },
+  "sun-muddy-spring": {
+    "why": {
+      "Quran 18:86": "The verse itself. He finds the sun setting in a muddy spring.",
+      "Quran 18:90": "The matching rising-place, where the sun comes up on people with no cover. The mirror is the point.",
+      "Quran 36:38-40": "Cuts against you. It says the sun runs to a resting place and each body swims on its course.",
+      "Sunan Abi Dawud 4002": "Not from Bukhari or Muslim. Albani called the chain sound. Some say the 'spring' words are the narrator's."
+    }
+  },
+  "reproductive-science-galen": {
+    "why": {
+      "Quran 86:5-7": "The gushing fluid 'from between the backbone and the ribs'. The first of the two passages.",
+      "Quran 23:12-14": "The stage list: drop, clinging thing, lump, then bones, then flesh on the bones.",
+      "Quran 22:5": "Repeats the same stages in another surah. It shows the order is fixed, not a passing image.",
+      "Quran 75:37-39": "A shorter account of how a human is made. The third telling of the same sequence.",
+      "Sahih Muslim 2645": "From Sahih Muslim, held to be sound. It adds hadith detail on the stages of the unborn child."
+    }
+  },
+  "mary-sister-of-aaron": {
+    "why": {
+      "Exodus 15:20": "Names Miriam the prophetess, sister of Aaron. That is the phrase the Quran gives Mary.",
+      "Numbers 26:59": "Names Amram's three children: Aaron, Moses and Miriam. All the family links in one verse.",
+      "1 Chronicles 6:3": "Lists the same three as children of Amram. A second witness to the same family.",
+      "Quran 19:28": "Calls Mary 'sister of Aaron'. This is the verse the case is about.",
+      "Quran 66:12": "Calls Mary the daughter of Imran. Imran is the Arabic form of Amram.",
+      "Quran 3:35-36": "Tells of Imran's wife giving birth to Mary in one flowing story. The third link in the chain.",
+      "Sahih Muslim 2135": "Both sides use it. In Sahih Muslim the Christians of Najran raise this, and Muhammad answers."
+    }
+  },
+  "samaritan-anachronism": {
+    "why": {
+      "Exodus 32:1-6": "Names Aaron as the man who made the calf. The Quran moves that blame to someone else.",
+      "2 Kings 17:24-41": "Records the resettling of Samaria after 722 BC. That is where Samaritans come from.",
+      "Quran 20:85-97": "The Quran's account, in which al-Samiri makes the calf. The case turns on this passage."
+    }
+  },
+  "dhul-qarnayn-alexander": {
+    "why": {
+      "Ezekiel 38:1-6": "Where Gog and Magog come from. Listed so you can see the figures before the legend used them.",
+      "Quran 18:83-102": "The whole story: the two journeys, the wall of iron, and Gog and Magog shut in.",
+      "Quran 21:96": "Says Gog and Magog will be let loose at the end. It ties the wall to the last day."
+    }
+  },
+  "cosmology-stars-missiles": {
+    "why": {
+      "Quran 67:3-5": "The core text. Seven heavens, lamps in the lowest, and those lamps made 'missiles against the devils'.",
+      "Quran 37:6-10": "The same picture again. The near heaven is adorned, and listeners are chased by a piercing flame.",
+      "Quran 72:8-9": "The jinn's own account. They used to sit and listen, and now find flames waiting.",
+      "Quran 15:16-18": "A third telling. Whoever steals a hearing is followed by a flame you can see.",
+      "Quran 13:2": "Says the heavens were raised without pillars you can see. Part of the sky-as-structure picture.",
+      "Quran 34:9": "Says He could drop the sky on them in pieces. A sky that can fall is a solid thing.",
+      "Sahih Muslim 2229": "From Sahih Muslim, held to be sound. The hadith side of the same picture: jinn who listen in from above."
+    }
+  },
+  "abrogation-satanic-verses": {
+    "why": {
+      "Deuteronomy 18:20-22": "The Bible's own test for a prophet. What he says in God's name has to come true.",
+      "Malachi 3:6": "'I am the LORD, I change not.' This is the contrast the case draws with cancelled verses.",
+      "Quran 2:106": "Says that when a verse is set aside, a better one comes. Abrogation, in the Quran's own words.",
+      "Quran 16:101": "Says the same, and records the reply he got: 'you are but a forger'.",
+      "Quran 22:52": "Says Satan threw something into the recitation of every prophet. Early scholars tied it to this event.",
+      "Quran 53:19-23": "The passage on al-Lat, al-Uzza and Manat. The disputed words are said to have fallen here.",
+      "Quran 17:73-75": "Says they nearly lured him away from what was revealed. Read with 22:52 as the same episode.",
+      "Sahih al-Bukhari 4862": "In Bukhari: the pagans bowed down with the Muslims when Surah 53 was recited. Ask why they would."
+    }
+  },
+  "compilation-lost-verses": {
+    "why": {
+      "Quran 15:9": "The promise being tested. Allah sent down the reminder, and will guard it.",
+      "Quran 2:106": "Both sides use it. It speaks of verses caused to be forgotten, which is the Muslim answer here.",
+      "Quran 87:6-7": "Cuts against you. It says he will not forget, save what Allah wills — so loss can be intended.",
+      "Sahih al-Bukhari 4986": "The gathering story in Bukhari. From palm stalks, stones, and the hearts of men, after Yamama.",
+      "Sahih Muslim 1452a": "In Sahih Muslim. Aisha says the five sucklings words were still recited when the Prophet died.",
+      "Sahih al-Bukhari 6829": "In Bukhari. Umar says the stoning verse was revealed and recited. It is in no Quran today.",
+      "Sunan Ibn Majah 1944": "The weakest link here. Ibn Majah is a lesser collection, and the sheep detail rides on a weak chain.",
+      "Sahih Muslim 1050": "In Sahih Muslim. Abu Musa says they used to recite a surah like Bara'ah, and he has forgotten it."
+    }
+  },
+  "uthman-standardization-qiraat": {
+    "why": {
+      "Quran 15:9": "The preservation promise. This case sets it beside what Islam's own books record.",
+      "Quran 2:238": "The prayer verse that Aisha and Hafsa are reported to have recited with extra words.",
+      "Quran 3:146": "Where Hafs and Warsh part on meaning. One reads 'fought', the other 'was killed'.",
+      "Sahih al-Bukhari 4987": "The burning order, in Bukhari. Hudhayfa feared a split 'as Jews and Christians differed'.",
+      "Sahih Muslim 629": "In Sahih Muslim. Aisha's wording of 2:238 adds 'and the asr prayer'.",
+      "Sahih al-Bukhari 5005": "In Bukhari. The same longer wording again, from Hafsa. Two wives of the Prophet, in sound books."
+    }
+  },
+  "aisha-age": {
+    "why": {
+      "Quran 33:21": "Calls Muhammad an excellent pattern. That is why this is about a model, not only a past event.",
+      "Quran 65:4": "Sets a waiting time for wives 'who have not yet menstruated'. Classical tafsir applied it here.",
+      "Sahih al-Bukhari 5134": "Aisha's own words in Bukhari. Married at six, and the marriage consummated at nine.",
+      "Sahih al-Bukhari 3894": "The same report in Bukhari by another chain. Being told more than once is the point.",
+      "Sahih Muslim 1422": "The same account in Sahih Muslim. The two soundest Sunni books agree, so nobody disputes it.",
+      "Sahih al-Bukhari 6130": "In Bukhari. She was playing with dolls at his house. The detail that fixes how young she was."
+    }
+  },
+  "women-and-captives": {
+    "why": {
+      "Ephesians 5:25-29": "Tells husbands to love their wives as Christ loved the church. The contrast being offered.",
+      "1 Peter 3:7": "Tells a husband to honour his wife, or his prayers are hindered. Not a rule about striking.",
+      "Quran 4:34": "The three steps for a wife feared to rebel, ending in striking. This case's main text.",
+      "Quran 4:24": "Permits relations with married women taken captive. The second text of this case.",
+      "Quran 23:5-6": "Names 'what their right hands possess' beside wives as lawful. The base for concubinage.",
+      "Quran 33:50": "Lists whom the Prophet may marry, captives among them. The same category, applied to him.",
+      "Sunan Abi Dawud 2146": "Not Bukhari or Muslim, but widely used. It traces the shift from 'do not beat' to leave, then regret.",
+      "Sahih Muslim 1438": "In Sahih Muslim. Men ask about withdrawal with newly taken women. The act itself is not questioned.",
+      "Sunan Abi Dawud 2155": "From Abu Dawud, outside the two Sahih books. It gives the waiting rule Muslims cite on captives."
+    },
+    "drop": ["Colossians 3:19"]
+  },
+  "zaynab-hastening-revelation": {
+    "why": {
+      "Deuteronomy 18:20-22": "Warns about a prophet who speaks a word God has not commanded. The rule being applied.",
+      "Jeremiah 23:16-32": "God's charge against prophets who speak 'a vision of their own heart'. The nearest parallel.",
+      "Quran 33:37": "The Zaynab verse. It says Allah married her to him, and that he had feared people's talk.",
+      "Quran 33:4-5": "Ends the legal force of adoption. The Muslim reply says this reform is why the marriage happened.",
+      "Quran 33:50-53": "The privileges: more wives, freedom over their turns, and no remarriage of his widows.",
+      "Quran 66:1-5": "Another revelation settling a quarrel in his household. It is why critics speak of a pattern.",
+      "Sahih al-Bukhari 4788": "Aisha's line, in Bukhari: 'your Lord hastens in fulfilling your wishes'. The sharpest quote here.",
+      "Sahih al-Bukhari 7420": "The same remark, kept a second time in Bukhari. Islam's own books did not cut it out.",
+      "Sahih Muslim 1428": "In Sahih Muslim: the account of the wedding feast for Zaynab. The event in the second sound book."
+    }
+  },
+  "prophet-test-signs": {
+    "why": {
+      "Deuteronomy 18:21-22": "The test: if what he says does not happen, God did not speak it. The measure used here.",
+      "Isaiah 41:21-23": "God dares the idols to say what will happen. Prediction offered as the proof.",
+      "John 10:37-38": "Jesus tells them to judge him by his works. That is the signs half of the test.",
+      "Quran 30:2-4": "The Rome passage. It is the one predictive claim, and the whole argument turns on it.",
+      "Quran 29:50-51": "'Signs are only with Allah, and I am only a clear warner.' The Quran's own stance.",
+      "Quran 13:7": "They ask for a sign, and he is told again that he is only a warner.",
+      "Quran 17:90-93": "A list of signs demanded and refused. It ends by calling him only a man and a messenger.",
+      "Quran 6:37": "Another demand for a sign. The answer is that Allah is able, not that a sign is given.",
+      "Sahih al-Bukhari 3636": "In Bukhari: the moon is split. One of the later sign reports the Quran itself does not press.",
+      "Sahih al-Bukhari 4981": "Cuts against you. In Bukhari he says what he was given is the revelation. That is the Muslim answer.",
+      "Jami at-Tirmidhi 3194": "From Tirmidhi, below Bukhari in rank. It records Abu Bakr's wager on the Rome verse."
+    }
+  },
+  "aorta-test": {
+    "why": {
+      "Deuteronomy 18:20": "Says a prophet who speaks in God's name without warrant shall die. The frame for this case.",
+      "Quran 69:44-47": "The verse itself. Had he invented sayings, 'We would have cut from him the aorta'.",
+      "Sahih al-Bukhari 4428": "The deathbed report in Bukhari. He feels as if his aorta is being cut, from the Khaybar poison.",
+      "Sahih al-Bukhari 2617": "In Bukhari: a Jewish woman brings the poisoned sheep. The event behind the deathbed words.",
+      "Sahih Muslim 2190": "The same poisoning in Sahih Muslim. Both of the soundest books carry it, so the facts hold.",
+      "Sunan Abi Dawud 4512": "From Abu Dawud, below Bukhari and Muslim in rank. It carries a further report of the poisoning."
+    }
+  },
+  "salvation-scales": {
+    "why": {
+      "Romans 5:8": "God shows love while we are still sinners. The clearest contrast with love that waits on deeds.",
+      "Ephesians 2:8-9": "By grace through faith, not of works. The whole difference, in one sentence.",
+      "1 John 5:13": "'That ye may know that ye have eternal life.' Assurance offered as knowledge, not hope.",
+      "John 5:24": "Says the one who believes is 'passed from death unto life'. Already, before any weighing.",
+      "Isaiah 53:5-6": "The one who carries the sin of others. Islam has no place for a substitute, which is the deeper gap.",
+      "Luke 18:9-14": "The tax man goes home right with God. The man counting his deeds does not. A parable about scales.",
+      "Hebrews 10:14": "'By one offering he hath perfected for ever them that are sanctified.' Finished, not weighed.",
+      "Quran 23:102-103": "The scales. Heavy scales succeed, light scales are lost. The picture the case rests on.",
+      "Quran 101:6-9": "The same weighing at the last day, in one of the short surahs.",
+      "Quran 7:8-9": "The weighing again. Three passages, so this is the frame and not a stray image.",
+      "Quran 19:71": "Says every one of you will come to it. Often raised when assurance is discussed.",
+      "Quran 3:32": "'Allah loves not the disbelievers.' Love stated with a condition on it.",
+      "Quran 46:9": "'I know not what will be done with me or with you.' Said in the Quran, by the Prophet.",
+      "Sahih al-Bukhari 7018": "In Bukhari: though he is Allah's Messenger, he does not know what will happen to him.",
+      "Sahih Muslim 2816": "Cuts against you. In Sahih Muslim, no one enters Paradise by deeds, not even him, without mercy.",
+      "Sahih Muslim 2643": "From Sahih Muslim, on what is written before birth. Cited because it makes assurance harder still."
+    }
+  },
+  "taqiyya-deception": {
+    "why": {
+      "Titus 1:2": "God 'cannot lie'. The fixed point the Christian side starts from.",
+      "Matthew 10:28": "Fear not those who kill the body. Why a Christian is not told to hide his faith under threat.",
+      "Revelation 2:10": "'Be thou faithful unto death.' The martyr's calling, set beside permitted concealment.",
+      "Ephesians 4:25": "'Speak every man truth with his neighbour.' The everyday rule, not only the martyr's one.",
+      "Quran 16:106": "Excuses one forced to deny the faith while his heart is at rest. The real base of the doctrine.",
+      "Quran 3:28": "Allows guarding yourself among hostile unbelievers. The word here, tuqah, is the root of taqiyya.",
+      "Sahih Muslim 2605": "In Sahih Muslim: the three cases where lying is allowed. War, peace-making, and spouses.",
+      "Sahih al-Bukhari 3030": "'War is deceit', in Bukhari. Often stretched far past what it says, which is battle craft.",
+      "Jami at-Tirmidhi 1939": "From Tirmidhi, below Bukhari in rank. It carries the same three-case list, which is why both appear."
+    }
+  },
+  "sharia-apostasy-jizya": {
+    "why": {
+      "John 12:47": "Jesus says he does not judge the one who rejects his words. No penalty in this life.",
+      "John 18:36": "'My kingdom is not of this world', so his servants do not fight. The reason there is no sword.",
+      "Matthew 13:29-30": "Wheat and weeds grow together till harvest. The sorting is left to God, not to a state.",
+      "Matthew 26:52": "'Put up again thy sword.' Said at the one moment force was to hand.",
+      "2 Timothy 2:24-26": "Tells God's servant to be gentle and patient with opponents, hoping they turn.",
+      "Quran 9:29": "The jizya verse. It commands fighting until the tax is paid, and the dhimmi system rests on it.",
+      "Quran 5:38": "Sets cutting off the hand for theft. One of the hudud penalties named in this case.",
+      "Quran 9:5": "The sword verse. Included because it is read as the high point of coercion.",
+      "Sahih al-Bukhari 6922": "'Whoever changes his religion, kill him.' In Bukhari. The apostasy ruling rests on this.",
+      "Sahih al-Bukhari 6878": "In Bukhari: apostasy is one of three grounds on which a Muslim's blood becomes lawful.",
+      "Sahih Muslim 1690": "In Sahih Muslim: the stoning penalty carried out. Stoning is not in the Quran, so it rests here."
+    }
+  },
+  "allah-moon-god": {
+    "why": {
+      "Acts 17:23-28": "Paul starts from a pagan altar to an unknown God. The model this case asks you to follow.",
+      "Quran 29:61-63": "Says that if you ask who made the sun and moon serve you, they answer: Allah. He is not one of them.",
+      "Quran 41:37": "'Do not prostrate to the sun or the moon.' The Quran forbids the very thing the claim alleges."
+    }
+  },
+  "quran-late-composition": {
+    "why": {
+      "Quran 15:9": "The Quran's own preservation claim. It marks what this case grants: an early text, not a guarded one."
+    }
+  },
+  "spread-only-by-sword": {
+    "why": {
+      "Matthew 26:52": "'Put up again thy sword.' The contrast that makes the slogan tempting in the first place.",
+      "Quran 2:256": "'No compulsion in religion.' Jurists used it against forced conversion, which is why the slogan fails.",
+      "Quran 9:29": "The jizya verse. This is the narrower point that survives: a tax paid 'while they are humbled'."
+    }
+  },
+  "inheritance-math-awl": {
+    "why": {
+      "Psalm 19:7": "'The law of the LORD is perfect.' The standard being applied to a law that needed a patch.",
+      "Quran 4:11": "Sets the shares for children and parents. It calls them an obligation from Allah.",
+      "Quran 4:12": "Sets the shares for spouses and for brothers and sisters. The other half of the sum.",
+      "Quran 4:176": "The last verse of the surah, on a man who leaves no child. It adds the sisters' share.",
+      "Quran 6:114": "Says the Book is set out in detail. That claim is what the awl patch sits against."
+    },
+    "drop": ["1 Corinthians 14:33"]
+  },
+  "banu-qurayza-massacre": {
+    "why": {
+      "Matthew 7:15-20": "'By their fruits ye shall know them.' The test this case applies, and it is quoted in the text.",
+      "Matthew 5:44": "'Love your enemies.' Set against what was done to an enemy who had already surrendered.",
+      "Romans 12:19-21": "Tells Christians to leave revenge to God and to overcome evil with good.",
+      "Quran 33:26-27": "The Quran's own account. Some were killed, some taken captive, and their land passed on.",
+      "Quran 33:21": "Calls him an excellent pattern. That is what turns this event into a question.",
+      "Sahih al-Bukhari 3043": "In Bukhari: Sa'd's ruling, and Muhammad calling it 'the judgment of Allah'. The core source.",
+      "Sahih al-Bukhari 4028": "A second account of the same siege in Bukhari. The event itself is not in doubt.",
+      "Sunan Abi Dawud 4404": "From Abu Dawud. A survivor says the boys were checked for hair to decide who would die."
+    }
+  },
+  "muhammad-in-the-bible": {
+    "why": {
+      "Deuteronomy 18:15-18": "The main proof-text. It promises a prophet 'from among your brothers', meaning Israelites.",
+      "Acts 3:22-26": "Peter quotes that promise and applies it to Jesus. The New Testament's own reading of it.",
+      "John 14:16-17": "The Paraclete is 'the Spirit of truth', whom the world cannot see and who will be in them.",
+      "John 16:7-14": "More on the Paraclete. He comes when Jesus goes, and takes what is Christ's to show them.",
+      "Song of Solomon 5:16": "The verse with machamaddim in it. The word is common Hebrew for 'altogether lovely'. It is not a name.",
+      "Quran 7:157": "Says he is written with them in the Torah and Gospel. It assumes those books can be read.",
+      "Quran 61:6": "Says Jesus foretold a messenger named Ahmad. The second claim being tested here."
+    }
+  },
+  "ishmael-covenant-kaaba": {
+    "why": {
+      "Genesis 17:18-21": "Abraham asks for Ishmael. God blesses Ishmael, but sets the lasting covenant with Isaac.",
+      "Genesis 21:12": "'In Isaac shall thy seed be called.' This is the line the Islamic account has to move.",
+      "Genesis 22:2": "'Thy son, thine only son Isaac', at Moriah. The verse both sides argue over.",
+      "Genesis 25:18": "Places Ishmael's line from Havilah to Shur, over against Egypt. That is not the Hijaz.",
+      "Quran 2:125-127": "Abraham and Ishmael raise the foundations of the House. The heart of the Islamic account.",
+      "Quran 3:96-97": "Names Bakkah as the first house set up for mankind. Muslims read Bakkah as Mecca.",
+      "Quran 37:100-107": "The near-sacrifice. The son is never named, which is why al-Tabari argued for Isaac.",
+      "Sahih al-Bukhari 3364": "In Bukhari: the long account of Hagar and Ishmael at Mecca. Islam's source for the link."
+    }
+  },
+  "quran-borrowed-legends": {
+    "why": {
+      "Genesis 4:8-16": "The Cain and Abel account. No raven, and no line about all mankind. Those come later.",
+      "Genesis 11:31": "Says Abraham came from Ur of the Chaldees. Ur is a place; the fire story grew out of that word.",
+      "Genesis 15:7": "God says he brought Abraham out of Ur. The second verse behind the rabbis' play on words.",
+      "Quran 5:27-32": "The Cain and Abel passage, with the raven and the line about killing all mankind.",
+      "Quran 18:9-26": "The People of the Cave. This is the Seven Sleepers legend, told as history.",
+      "Quran 21:68-69": "Abraham thrown into the fire, and the fire made cool. The third of the three stories."
+    }
+  },
+  "houris-material-paradise": {
+    "why": {
+      "Matthew 22:30": "'In the resurrection they neither marry nor are given in marriage.' The sharpest contrast here.",
+      "Revelation 21:3-4": "God dwells with his people and wipes away every tear. The centre of the Christian hope.",
+      "Revelation 22:3-5": "'They shall see his face.' The reward stated as God himself, not as things given.",
+      "Psalm 16:11": "'In thy presence is fulness of joy.' The same hope, said long before.",
+      "Quran 55:56-74": "The maidens 'whom no man or jinn has touched'. The main paradise passage in this case.",
+      "Quran 56:22-38": "Wide-eyed companions. Virgins made of equal age. This is for the companions of the right hand.",
+      "Quran 78:31-34": "Kawa'ib atraban, rendered full-breasted maidens of equal age, with a full cup.",
+      "Quran 44:51-54": "Gardens, silk, and marriage to wide-eyed maidens. A fourth passage with the same picture.",
+      "Jami at-Tirmidhi 1663": "The seventy-two wives report. Tirmidhi ranks below Bukhari, but he graded this one hasan sahih.",
+      "Sahih al-Bukhari 3243": "In Bukhari: wives whose marrow shows through the flesh, in a pearl tent sixty miles wide."
+    }
+  },
+  "women-testimony-inheritance": {
+    "why": {
+      "Genesis 1:27": "Male and female are both made in God's image. The starting point of the contrast.",
+      "Luke 24:9-11": "Women are first to report the rising, though such witness carried no legal weight then.",
+      "Galatians 3:28": "'There is neither male nor female' in Christ. Said of standing before God.",
+      "Proverbs 31:10-31": "Shows a woman buying a field and trading. Useful against the claim that women handled no business.",
+      "Quran 2:282": "The witness rule: two women for one man, 'so that if one errs, the other can remind her'.",
+      "Quran 4:11": "Gives a daughter half a son's share. The inheritance half of this case.",
+      "Quran 4:34": "Calls men the maintainers of women. The Muslim reply builds its answer on this.",
+      "Sahih al-Bukhari 2658": "The reason, in Bukhari. Her witness is half 'because of the deficiency of a woman's mind'.",
+      "Sahih al-Bukhari 304": "In Bukhari. Women are called lacking in mind and faith. They are also called most of the people of the Fire."
+    }
+  },
+  "fatiha-daily-prayer-jews-christians": {
+    "why": {
+      "Matthew 5:44": "'Love your enemies and pray for them.' The posture set against a line said every day.",
+      "Romans 10:1": "Paul prays that they may be saved. Said of the people he most disagreed with.",
+      "Quran 1:7": "The closing line of the prayer said seventeen times a day. This case is entirely about it.",
+      "Jami at-Tirmidhi 2954": "From Tirmidhi, graded hasan. Here Muhammad names the two groups as Jews and Christians."
+    }
+  },
+  "hadith-chain-of-custody": {
+    "why": {
+      "Luke 1:1-4": "Luke names eyewitnesses and earlier accounts, within a lifetime. One end of the comparison.",
+      "1 Corinthians 15:3-8": "A creed handed on within a few years, naming witnesses still alive to ask.",
+      "2 Peter 1:16": "'We have not followed cunningly devised fables.' A claim to have been there.",
+      "Quran 16:44": "Says the Reminder was sent down so he could make it clear. That is why his words had to be kept.",
+      "Quran 33:21": "Calls him the pattern to follow. It is why hadith reliability carries so much weight for Islam.",
+      "Sahih al-Bukhari 1": "The first hadith in Bukhari: deeds are judged by intentions. It points at the collection itself.",
+      "Sahih Muslim 1": "The opening of the other great collection. Both are named because this case is about them."
+    }
+  },
+  "mariya-hafsa-surah-66": {
+    "why": {
+      "Numbers 30:2": "Says a man who swears must not break his word. The rule an annulled oath is read against.",
+      "Matthew 5:33-37": "'Let your yea be yea.' Jesus on oaths, and why this is about more than one household.",
+      "Quran 66:1-5": "The whole passage. The rebuke, the oath dissolved, and the warning that wives can be replaced.",
+      "Sunan an-Nasa'i 3959": "From Nasa'i, not one of the two Sahih books. Al-Albani graded it sahih. It gives the Mariya occasion.",
+      "Sahih al-Bukhari 4912": "In Bukhari: the honey account. Most scholars prefer this, so do not overclaim the other."
+    },
+    "drop": ["James 5:12"]
+  },
+  "safiyya-khaybar-marriage": {
+    "why": {
+      "Matthew 7:15-20": "'By their fruits ye shall know them.' The test this whole part of the site applies.",
+      "2 Samuel 11:26-27; 12:9": "David takes a dead man's wife and God condemns him for it. The Bible judges its own king.",
+      "1 Thessalonians 4:3-5": "Tells Christians to keep from lust and to hold their own bodies in honour.",
+      "Quran 33:50": "Makes captives lawful to the Prophet. The rule the whole episode rests on.",
+      "Sahih al-Bukhari 371": "In Bukhari: the marriage consummated on the journey home. The key report in this case.",
+      "Sahih al-Bukhari 4200": "In Bukhari: Safiyya first given to Dihya, then given to Muhammad. The captive half of it."
+    }
+  },
+  "mutah-temporary-marriage": {
+    "why": {
+      "Malachi 2:14-15": "Calls marriage a covenant with God as witness. The standard a fixed-term deal is measured by.",
+      "Matthew 19:4-6": "'What God hath joined together, let not man put asunder.' Marriage as lasting by design.",
+      "Quran 4:24": "The verse Shia Islam builds mut'ah on: give them their due for what you have enjoyed.",
+      "Sahih Muslim 1404": "In Sahih Muslim: men on campaign allowed to marry for a set time, even for a garment.",
+      "Sahih Muslim 1405": "In Sahih Muslim: Jabir says it went on into Abu Bakr's reign, until Umar banned it.",
+      "Sahih Muslim 1406": "Cuts against you. In Sahih Muslim it is forbidden 'until the Day of Resurrection'.",
+      "Sahih al-Bukhari 5115": "In Bukhari: the ban again. Both sound books record it, so be fair to Sunnis here."
+    },
+    "drop": ["Hebrews 13:4"]
+  },
+  "kaaba-black-stone-pagan-rites": {
+    "why": {
+      "John 4:21-24": "Jesus says the place stops mattering. Worship in spirit and truth. The contrast with a fixed rite.",
+      "Acts 17:24-25": "God does not live in temples made with hands. The second half of that contrast.",
+      "Isaiah 44:9-20": "The mockery of idol-making. Use it with care: this case says Muslims do not worship the stone.",
+      "Quran 2:125": "Makes the House a place of return and names the station of Abraham. The Muslim origin story.",
+      "Quran 2:158": "Allows the run between Safa and Marwa again. That it had to assumes the older pagan tie.",
+      "Quran 3:96-97": "Names Bakkah as the first house set up, and makes the pilgrimage a duty.",
+      "Quran 22:26-29": "Gives the site to Abraham and orders the circling of the ancient House.",
+      "Sahih al-Bukhari 1597": "Umar in Bukhari: 'I know that you are a stone'. Muslims cite it to show the kiss is not worship.",
+      "Sahih al-Bukhari 4287": "In Bukhari: the 360 idols cleared out in 630. The shrine's pagan use, from Islam's own record.",
+      "Jami at-Tirmidhi 877": "From Tirmidhi, below Bukhari in rank. It has the stone coming from paradise and speaking at judgment."
+    }
+  },
+  "sword-verses-final-command": {
+    "why": {
+      "Matthew 26:52": "'Put up again thy sword', said when force was in reach. One of Jesus's last commands.",
+      "Matthew 28:18-20": "The last command: go and teach. This is the other path the case asks you to compare.",
+      "2 Corinthians 10:3-4": "Says our weapons are not carnal. How the early church read its own mission.",
+      "Quran 9:5": "The sword verse. Kill the idolaters after the sacred months. Late, which is why it counts.",
+      "Quran 9:29": "Fight the People of the Book until they pay the jizya. The part the context answer cannot dissolve.",
+      "Quran 2:256": "'No compulsion in religion.' Medinan, but earlier, which is why the order decides the reading.",
+      "Quran 8:39": "Fight until there is no strife and religion is all for Allah. The same theme in another surah.",
+      "Sahih al-Bukhari 25": "In Bukhari: 'I have been ordered to fight the people until they say' the confession. His own summary."
+    }
+  },
+  "muhammad-bewitched": {
+    "why": {
+      "Numbers 23:23": "'There is no enchantment against Jacob.' The rule this report is measured against.",
+      "Deuteronomy 18:21-22": "The prophet test again. It assumes the channel itself can be trusted.",
+      "1 John 5:18": "Says the wicked one does not touch the one born of God. The third piece of the contrast.",
+      "Quran 25:8": "The Quran hotly denies he is 'a bewitched man'. That denial is the internal tension.",
+      "Quran 17:47": "The same charge raised and rejected. Two verses, so it is not a passing remark.",
+      "Quran 113:1-5": "Surah al-Falaq, seeking refuge from those who blow on knots. Muslims tie it to the cure.",
+      "Sahih al-Bukhari 3268": "Aisha's report in Bukhari. He imagined he had done a thing he had not done. The core text.",
+      "Sahih Muslim 2189": "The same account in Sahih Muslim. It is as well attested as hadith get, which is the point."
+    }
+  },
+  "sins-cast-on-jews-christians": {
+    "why": {
+      "1 Peter 2:24": "'He himself bore our sins in his body on the tree.' The mirror image this case is built on.",
+      "John 1:29": "'The Lamb of God, which taketh away the sin of the world.' Substitution offered, not imposed.",
+      "Isaiah 53:5-6": "'The LORD hath laid on him the iniquity of us all.' The oldest form of the same idea.",
+      "2 Corinthians 5:21": "Says the sinless one was made sin for us. The exchange, stated most sharply.",
+      "Quran 53:38": "'No bearer of burdens bears the burden of another.' The verse the Muslim reply must square this with.",
+      "Quran 6:164": "The same rule again. It cuts both ways: Islam does reject transferred guilt, in the Quran.",
+      "Sahih Muslim 2767a": "In Sahih Muslim: a Jew or a Christian given to each Muslim as 'your rescue from Hell-Fire'.",
+      "Sahih Muslim 2767b": "In Sahih Muslim: no Muslim dies but another is put in his place. The sharper wording of the two."
+    }
+  },
+  "uzair-son-of-god": {
+    "why": {
+      "Deuteronomy 6:4": "The Shema. It is Judaism's core confession, and the reported belief would destroy it.",
+      "Ezra 7:6-10": "Who Ezra was: a scribe skilled in the law of Moses. Nothing in the account hints at more.",
+      "Nehemiah 8:1-8": "Ezra reading the law aloud to the people. The Bible's picture of him is a teacher.",
+      "Quran 9:30": "The verse itself: 'The Jews say Ezra is the son of Allah'. The case is this one line."
+    }
+  },
+  "allah-name-polemic": {
+    "why": {
+      "Genesis 1:1": "In every Arabic Bible this verse opens 'In the beginning Allah created'. That settles the word.",
+      "Mark 15:34": "Jesus cries 'Eloi, Eloi' from the cross. That is Aramaic for God, from the same root.",
+      "Acts 17:23-31": "Paul uses a pagan altar's own wording as a bridge. The method this case recommends.",
+      "Quran 29:46": "'Our God and your God is one.' Muslims press this once you grant the shared word.",
+      "Quran 112:1-4": "The real dispute, and not the word: a God who neither begets nor is born. Argue there."
+    }
+  },
+  "first-revelation-terror": {
+    "why": {
+      "Isaiah 6:1-8": "A call scene where God names himself, so the prophet knows who is speaking.",
+      "Jeremiah 1:4-10": "'The word of the LORD came unto me.' The source is stated, not worked out afterwards.",
+      "Luke 1:13": "The angel's first word to Zacharias is 'Fear not'. That is how these scenes open.",
+      "Luke 1:26-38": "Gabriel names himself to Mary and says who sent him. That is what the cave account lacks.",
+      "Galatians 1:8": "Warns that even an angel from heaven might preach another gospel. Why the question matters.",
+      "Quran 96:1-5": "The first words revealed: Read, in the name of your Lord. The cave passage itself.",
+      "Quran 74:1-2": "'O you who are wrapped up', told to rise and warn. Read as coming after the terror.",
+      "Quran 73:1": "The other 'wrapped in garments' opening. Both belong to the same early period.",
+      "Sahih al-Bukhari 3": "Aisha's long account in Bukhari. The squeezing, 'Cover me', and Waraqah settling what it was.",
+      "Sahih al-Bukhari 6982": "The same narration again in Bukhari. It also holds the weak line about the mountain tops.",
+      "Sahih Muslim 160": "The account is in Sahih Muslim too. So the terror and the doubt are in both sound books."
+    }
+  },
+  "quran-262-vs-385": {
+    "why": {
+      "John 14:6": "'No man cometh unto the Father, but by me.' One claim, held steadily. That is the contrast.",
+      "Acts 4:12": "'No other name under heaven' by which we must be saved. The same claim, said by Peter.",
+      "Hebrews 13:8": "Jesus Christ the same yesterday, today and for ever. Cited because this case is about a shifting rule.",
+      "James 1:17": "God has no 'variableness, neither shadow of turning'. Quoted in the case for the same reason.",
+      "Quran 2:62": "The open promise to Jews, Christians and Sabians. This is the verse a Muslim friend may quote you.",
+      "Quran 5:69": "The same promise, almost word for word. The repeat is why it is hard to set aside.",
+      "Quran 3:19": "Says the religion with Allah is Islam. The narrowing half of the pair.",
+      "Quran 3:85": "'Whoever desires other than Islam' will not have it accepted. The verse said to cancel 2:62.",
+      "Sahih Muslim 153": "In Sahih Muslim: a Jew or Christian who hears of him and dies without believing is of the Fire."
+    }
+  },
+  "slavery-never-abolished": {
+    "why": {
+      "Exodus 21:2": "Release in the seventh year. One of the release rules built into the law of Moses.",
+      "Exodus 21:16": "Death for stealing a man. It outlaws the slave trade at its source.",
+      "Deuteronomy 23:15-16": "A slave who runs is to be sheltered, not sent back. The sharpest break with the ancient world.",
+      "Philemon 1:15-16": "Paul asks for Onesimus back 'no longer as a slave but as a beloved brother'. Quoted in the case.",
+      "Galatians 3:28": "'Neither bond nor free' in Christ. The line the abolitionists came back to again and again.",
+      "Quran 4:24": "Makes captive women lawful to their captors. The base of concubinage in the law.",
+      "Quran 33:50": "Applies the same rule inside the Prophet's own household.",
+      "Quran 24:33": "The mukataba paper, by which a slave could buy his freedom. The Muslim reply's best verse.",
+      "Quran 16:71": "Speaks of masters and those their right hands possess. It regulates the system rather than ending it.",
+      "Sahih Muslim 1602": "In Sahih Muslim: he buys a slave for two black slaves. Owning and trading, in a sound book.",
+      "Sahih al-Bukhari 2541": "In Bukhari: captives taken from Banu Mustaliq. It shows where slaves came from.",
+      "Sahih al-Bukhari 2517": "Cuts the other way, and the case says so. In Bukhari, freeing a slave is highly praised."
+    }
+  },
+  "fgm-classical-fiqh": {
+    "why": {
+      "Genesis 1:27": "Male and female made in God's image. The ground the Christian objection stands on.",
+      "1 Corinthians 7:3-5": "Paul gives husband and wife an equal claim on each other. Set against a cut made for a husband.",
+      "Sunan Abi Dawud 5271": "The whole textual basis. Abu Dawud himself called it weak and mursal; al-Albani later graded it sound.",
+      "Sahih Muslim 349": "In Sahih Muslim: the bath is due 'when the two circumcised parts meet'. Cited as proof the practice existed."
+    }
+  },
+  "quran-grammar-irregularities": {
+    "why": {
+      "Luke 1:1-4": "Luke says he looked into it and wrote. We claim God-breathed meaning through human writers.",
+      "2 Peter 1:21": "Says men spoke as they were moved by the Holy Ghost. The same claim, from the other side.",
+      "2 Timothy 3:16": "'All scripture is given by inspiration of God.' What is claimed, and what is not claimed.",
+      "Quran 4:162": "Has al-muqimina in one case while the words around it stand in another. The first example.",
+      "Quran 5:69": "Has al-sabi'una in a form inna should not allow. Compare 2:62, where the rule is kept.",
+      "Quran 20:63": "Reads inna hadhani, where the rule calls for hadhayni. The most discussed of the four.",
+      "Quran 2:177": "The praise form again, with al-sabirina. The fourth item on the list.",
+      "Quran 2:23": "The challenge: produce a surah like it. The claim these forms are measured against.",
+      "Quran 12:2": "Calls the Quran clear Arabic. The other half of the claim being tested."
+    }
+  },
+  "quran-65-4-child-iddah": {
+    "why": {
+      "Quran 65:4": "The verse itself. It sets a waiting period for wives 'who have not yet menstruated'.",
+      "Quran 33:49": "Says there is no waiting period if the marriage was not consummated. That closes the logic.",
+      "Sahih al-Bukhari 5134 (cross-reference: consummation at nine)": "The Aisha report, here only as a cross-reference. This case holds without it, since the law is in the text."
+    }
+  },
+  "four-witnesses-rape-standard": {
+    "why": {
+      "Deuteronomy 22:25-27": "Declares the victim innocent: 'to the young woman you shall do nothing'. Quoted in the case.",
+      "Quran 24:4": "The four-witness rule, with eighty lashes for an accuser who cannot meet it.",
+      "Quran 24:13": "Applies the same four-witness test again, in the passage about the slander of Aisha.",
+      "Quran 24:2": "Sets the hundred lashes for zina. That is the penalty the proof rule attaches to."
+    }
+  },
+  "iblis-angel-or-jinn": {
+    "why": {
+      "Quran 2:34": "'They prostrated, except Iblis.' That sentence counts him among the angels.",
+      "Quran 7:11-12": "The same scene, plus his reason. He was made from fire, and Adam from clay.",
+      "Quran 15:30-31": "The same exception again. The repeating makes the grammar hard to wave away.",
+      "Quran 18:50": "'He was of the jinn, so he rebelled.' The verse that pulls the other way.",
+      "Quran 66:6": "Says the angels do not disobey Allah. That is what makes the angel reading costly.",
+      "Quran 38:73-74": "The fifth telling of the same exception. Same wording, same problem.",
+      "Sahih Muslim 2996 (angels created from light, jinn from smokeless fire)": "In Sahih Muslim: angels from light, jinn from fire. It sharpens the question of which one Iblis was."
+    }
+  },
+  "creation-six-or-eight-days": {
+    "why": {
+      "Genesis 1:1-31": "The six-day account. Christians read the days in more than one way, but the count is plain.",
+      "Exodus 20:11": "'In six days the LORD made heaven and earth.' The Bible's total, stated once and left alone.",
+      "Quran 41:9-12": "The itemised list. Two days, then four, then two. This is the arithmetic in question.",
+      "Quran 7:54": "One of the four verses that give the total as six days.",
+      "Quran 10:3": "A second six-day verse. Both are here so you can see the total is not a one-off.",
+      "Quran 79:27-30": "Builds the heaven first, then spreads the earth 'after that'. The second tension in the case."
+    }
+  },
+  "qadar-created-for-hell": {
+    "why": {
+      "Ezekiel 18:23": "Asks whether God has any pleasure in the death of the wicked. The answer given is no.",
+      "Ezekiel 33:11": "'I have no pleasure in the death of the wicked.' Quoted in the case as the contrast.",
+      "1 Timothy 2:3-4": "Says God would have all men saved. The New Testament half of the same point.",
+      "2 Peter 3:9": "Says he is not willing that any should perish. A second witness to that desire.",
+      "Deuteronomy 30:19": "'Choose life.' A real command implies a real choice. Quoted in the case.",
+      "Quran 7:178-179": "'We have created for Hell many of the jinn and mankind', and none can guide whom He leaves astray.",
+      "Quran 9:51": "Says nothing befalls us but what Allah has decreed. The decree stated broadly.",
+      "Quran 32:13": "Says He could have guided every soul, and that He will fill Hell. Both sides quote this one.",
+      "Quran 76:30": "'You do not will unless Allah wills.' The will itself is placed under the decree.",
+      "Quran 14:4": "Says He leaves astray whom He wills, and guides whom He wills.",
+      "Quran 81:29": "The same line as 76:30, in a short late surah. The repeating is the point.",
+      "Sahih al-Bukhari 6594": "In Bukhari: an angel writes the deeds, and whether he is doomed or blessed, before birth.",
+      "Sahih al-Bukhari 6596": "In Bukhari, under the heading 'the pen has dried'. The decree is treated as already closed."
+    }
+  },
+  "triple-talaq-halala": {
+    "why": {
+      "Matthew 19:8-9": "Jesus says divorce was allowed for hardness of heart. No ritual is set as the price of return.",
+      "Malachi 2:16": "God says he hates putting away. The older statement of the same view of marriage.",
+      "Quran 2:229-230": "The divorce rule. After the third time, she is not lawful to him again 'until she has married another husband'.",
+      "Sahih al-Bukhari 5260": "In Bukhari: 'not until he tastes your sweetness'. That puts the rule in his own mouth.",
+      "Sahih al-Bukhari 5261": "A second telling of the same case in Bukhari. It is why the ruling is not disputed."
+    }
+  },
+  "surah-9-missing-basmala": {
+    "why": {
+      "Quran 9:1": "The opening of the one surah with no basmala. Its war footing is part of the Muslim answer.",
+      "Jami at-Tirmidhi 3086": "From Tirmidhi, not one of the two Sahih books, and its grade is disputed. It holds Uthman's own account."
+    }
+  },
+  "haman-in-pharaohs-egypt": {
+    "why": {
+      "Esther 3:1": "Where Haman actually appears. The Persian court, about a thousand years after Moses.",
+      "Genesis 11:3-4": "Babel, with baked bricks and a tower to heaven. The other half of the blend.",
+      "Quran 28:6": "Names Haman beside Pharaoh in Egypt. That placing is what the case is about.",
+      "Quran 28:38": "Pharaoh tells Haman to fire bricks and build a tower, to look upon the God of Moses.",
+      "Quran 40:36-37": "The same order to build a tower, told again. Repeating it rules out a slip.",
+      "Quran 29:39": "Lists Pharaoh, Haman and Korah together, which fixes Haman in the time of Moses."
+    }
+  },
+  "prophetic-medicine-science-test": {
+    "why": {
+      "Sahih al-Bukhari 3320": "In Bukhari: dip the fly in, since one wing carries disease and the other the cure.",
+      "Sahih al-Bukhari 233": "In Bukhari: the men of Ukl are told to drink camel milk and camel urine as medicine.",
+      "Sahih al-Bukhari 5686": "The same prescription again, in Bukhari's chapters on medicine. Not a stray report.",
+      "Sahih al-Bukhari 5688": "In Bukhari: black seed is 'a healing for every disease except death'."
+    }
+  },
+  "adam-sixty-cubits": {
+    "why": {
+      "Sahih al-Bukhari 3326": "The report itself. Adam sixty cubits tall, and people shrinking ever since.",
+      "Sahih al-Bukhari 6227": "The same report again in Bukhari. Its standing is not in doubt, which is the whole point.",
+      "Sahih Muslim 2841": "The same in Sahih Muslim. Both of the soundest collections carry it."
+    }
+  },
+  "aisha-was-19-revisionism": {
+    "why": {
+      "Sahih al-Bukhari 5134": "The report this claim tries to unseat. It is Aisha's own account, in Bukhari.",
+      "Sahih Muslim 1422": "The same account in Sahih Muslim, by other chains. That is why blaming one narrator fails."
+    }
+  },
+  "avoid-muhammad-never-existed": {
+    "why": {}
+  },
+  "avoid-petra-qibla": {
+    "why": {
+      "Quran 2:144": "The verse that turns the prayer direction to the Sacred Mosque. The text the claim disputes."
+    }
+  },
+  "avoid-black-stone-worship-slogan": {
+    "why": {
+      "Sahih al-Bukhari 1597": "Umar's words in Bukhari: 'I know that you are a stone'. It is why the slogan fails at once."
+    }
+  },
+  "avoid-26-different-qurans": {
+    "why": {}
+  },
+  "avoid-taqiyya-overclaim": {
+    "why": {
+      "Quran 16:106": "Excuses one forced to deny the faith. That is leave under threat, not an order to lie.",
+      "Quran 3:28": "Allows care 'unless you fear them'. The fear clause is what the whole rule rests on.",
+      "Sahih al-Bukhari 3030": "'War is deceit', in Bukhari. The narrow, real thing: battle craft, not daily speech."
+    }
+  },
+  "avoid-72-virgins-in-quran": {
+    "why": {
+      "Quran 56:22-24": "The houris in the Quran, with no number given. That absence is the whole point here.",
+      "Quran 44:54": "A second houri verse, again with no count. Check it before repeating the slogan.",
+      "Jami at-Tirmidhi 1663": "Where the number is. Tirmidhi, graded sahih or hasan, and the word is 'wives', not 'virgins'."
+    }
+  }
+}
