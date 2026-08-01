@@ -109,6 +109,7 @@ module.exports = function buildSection(cfg) {
   s = must(s, 'Steelman rules: every claim carries the best published Muslim defense; weak criticisms are marked answered; facts conceded in sahih Islamic sources are marked admitted.',
     cfg.methodFoot, 'method foot');
   s = must(s, '"<b>Role:</b> this is the Quran passage the claim examines."', J(cfg.roleNote || '<b>Role:</b> this is the passage the claim rests on.'), 'role note');
+  if (cfg.defLabel) s = must(s, 'const DEFLABEL="How Muslims answer this — put at its strongest";', 'const DEFLABEL=' + J(cfg.defLabel) + ';', 'defense label');
   s = must(s, '<h2>The record, in four acts</h2>', '<h2>${"The record, in "+["no","one","two","three","four","five","six"][Math.min(6,TLACTS.length)]+" act"+(TLACTS.length===1?"":"s")}</h2>', 'timeline head');
   s = must(s, 'What was claimed on the left; what the manuscripts and canon show on the right.', cfg.timelineIntro || 'What was claimed on the left; what the record shows on the right.', 'timeline intro');
   s = must(s, "Street da'wah follows a trained sequence — common ground, undermine the Bible, present the Quran, invite the shahada. Here is each stage, the one question to ask right then, and the cases behind it. Knowing the script lets you stay warm and unhurried.",

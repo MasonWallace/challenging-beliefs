@@ -581,6 +581,13 @@
   .versebox .vr .vcited{font-weight:400;letter-spacing:0;text-transform:none;color:var(--muted);font-size:.72rem}
   .versebox.hovering{opacity:.97;border-left-color:var(--acc)}
   .chip.peek{border-color:var(--acc)}
+
+  .ref-bib,.ref-lds{cursor:default}
+  .ref-bib.live,.ref-lds.live{cursor:pointer;border-bottom:1px dashed color-mix(in srgb,var(--gold) 55%,transparent)}
+  .ref-bib.live:hover,.ref-lds.live:hover,.ref-bib.live.peek,.ref-bib.live.open{border-bottom-style:solid;background:color-mix(in srgb,var(--gold) 14%,transparent);border-radius:3px}
+  .vmeaning{display:block;font-size:.82rem;line-height:1.6;color:var(--muted);margin:8px 0 0}
+  .vbox .vmeaning{margin-top:6px}
+  .verdictline{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
 </style>
 
 <div class="app">
@@ -822,7 +829,7 @@ function renderOverview(){
   const anyF=state.verdict||state.severity||state.q||state.section!=="all";
   const visible=new Set(items.map(d=>d.id));
   const read=store.read;
-  const VDESC={"admitted":"Jewish sources themselves concede the core fact — the strongest kind of argument here","unrefuted":"No adequate counter-missionary reply exists","contested":"Genuinely open — serious people argue it both ways","answered":"A popular Christian argument that fails — retire it"};
+  
   const counts={};DATA.forEach(d=>counts[d.verdict]=(counts[d.verdict]||0)+1);
   const col=v=>{
     const cls=v==="admitted"?"ad":v==="unrefuted"?"un":v==="contested"?"co":"an";
@@ -880,6 +887,8 @@ function openCase(id,fromPath){
   window.scrollTo({top:0});
 }
 function ROLENOTE(side){return side==="quran"?"<b>Role:</b> this is the passage the argument rests on.":"<b>Role:</b> this is the biblical standard the claim measures against.";}
+const DEFLABEL="The strongest Jewish reply — the counter-missionary answer";
+const VDESC={"admitted":"Jewish sources agree on the basic fact. You can make this point from their own books.","unrefuted":"Nobody has given a good answer to this one.","contested":"Serious people argue it both ways. Say so out loud.","answered":"This is a Christian argument that does not hold up. Drop it."};
 function plainHtml(d){
   const rt=t=>glossify(emphasize(esc(t).replace(/&lt;(\/?)(b|i)&gt;/g,"<$1$2>")));
   return (d.plain||[]).map(b=>{
@@ -942,10 +951,10 @@ function renderCase(){
         <button class="tab2" data-pane="pane-src">📚 Sources & connections</button>
       </div>
       <div class="tabpane2 on" id="pane-case">
-        <div class="dlab blue" style="margin-top:0">The best defense, steelmanned</div>
+        <div class="dlab blue" style="margin-top:0">${DEFLABEL}</div>
         <div class="defense">${formatDefense(d.response)}${d.responseSource?`<div class="dsrc">Source: ${d.responseSource.url?`<a href="${esc(d.responseSource.url)}" target="_blank" rel="noopener">${esc(d.responseSource.name)}</a>`:esc(d.responseSource.name)}</div>`:""}</div>
         <div class="pair2">
-          <div><div class="dlab">The verdict</div><div class="vbox v-${d.verdict}"><b class="vb">${VLABEL[d.verdict]}</b><span>${paras(d.rationale)}</span></div></div>
+          <div><div class="dlab">The verdict</div><div class="vbox v-${d.verdict}"><div class="verdictline"><b class="vb">${VLABEL[d.verdict]}</b><span class="vmeaning">${esc(VDESC[d.verdict]||"")}</span></div><span>${paras(d.rationale)}</span></div></div>
           <div><div class="dlab">Why this matters</div><div class="why">${paras(WHYMAP[d.category]||"")}<p class="wtail">${esc(WHYTAIL[d.verdict])}</p></div></div>
         </div>
       </div>
@@ -988,6 +997,13 @@ function renderCase(){
     const cb=box.querySelector("[data-close]");if(cb)cb.addEventListener("click",clearVerse);
     if(pin)requestAnimationFrame(()=>box.scrollIntoView({behavior:"smooth",block:"nearest"}));
   };
+  /* LIVEREFS: any reference printed inside prose that we can actually open */
+  document.querySelectorAll("#main .ref-bib, #main .ref-lds").forEach(r=>{
+    const key=r.textContent.replace(/\s+/g," ").trim();
+    const hit=VERSES[key]?key:Object.keys(VERSES).find(k=>k.replace(/[\u2013\u2014]/g,"-")===key.replace(/[\u2013\u2014]/g,"-"));
+    if(!hit)return;
+    r.classList.add("live","chip");r.dataset.cite=hit;
+  });
   const canHover=window.matchMedia("(hover:hover)").matches;
   document.querySelectorAll(".chip").forEach(ch=>{
     ch.addEventListener("click",()=>{

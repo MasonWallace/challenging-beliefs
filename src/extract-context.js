@@ -17,6 +17,13 @@ for(const [out,load] of SETS){
   const data=load();
   const cites=new Set();
   data.forEach(d=>['bible','tanakh','nt'].forEach(f=>(d[f]||[]).forEach(c=>cites.add(c))));
+  /* also every reference written into the prose, so hovering it in the text works */
+  const BOOKS='(?:[1-3]\\s)?(?:Genesis|Exodus|Leviticus|Numbers|Deuteronomy|Joshua|Judges|Ruth|Samuel|Kings|Chronicles|Ezra|Nehemiah|Esther|Job|Psalms?|Proverbs|Ecclesiastes|Song of Solomon|Isaiah|Jeremiah|Lamentations|Ezekiel|Daniel|Hosea|Joel|Amos|Obadiah|Jonah|Micah|Nahum|Habakkuk|Zephaniah|Haggai|Zechariah|Malachi|Matthew|Mark|Luke|John|Acts|Romans|Corinthians|Galatians|Ephesians|Philippians|Colossians|Thessalonians|Timothy|Titus|Philemon|Hebrews|James|Peter|Jude|Revelation)';
+  const PROSE=new RegExp('\\b('+BOOKS+'\\s+\\d+:\\d+(?:[\\-\\u2013]\\d+(?::\\d+)?)?)','g');
+  data.forEach(d=>{
+    const txt=[d.claim,d.response,d.rationale,d.talk,...(d.plain||[]).map(b=>b.d)].filter(Boolean).join(' ').replace(/<[^>]+>/g,' ');
+    let m; while((m=PROSE.exec(txt))) cites.add(m[1].trim());
+  });
   const prev=fs.existsSync(P(out))?JSON.parse(fs.readFileSync(P(out),'utf8')):{};
   /* keep non-Bible entries (Book of Mormon, D&C, Quran) that other extractors produced */
   const res={}; let ok=0,ctx=0;
