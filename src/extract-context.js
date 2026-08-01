@@ -23,6 +23,8 @@ for(const [out,load] of SETS){
   data.forEach(d=>{
     const txt=[d.claim,d.response,d.rationale,d.talk,...(d.plain||[]).map(b=>b.d)].filter(Boolean).join(' ').replace(/<[^>]+>/g,' ');
     let m; while((m=PROSE.exec(txt))) cites.add(m[1].trim());
+    const PROSE2=new RegExp('\\b('+BOOKS+'\\s+\\d+)(?![:\\d])','g');
+    while((m=PROSE2.exec(txt))) cites.add(m[1].trim());
   });
   const prev=fs.existsSync(P(out))?JSON.parse(fs.readFileSync(P(out),'utf8')):{};
   /* keep non-Bible entries (Book of Mormon, D&C, Quran) that other extractors produced */
@@ -45,6 +47,16 @@ for(const [out,load] of SETS){
       }
       if(!verses.length||verses.length>60)return;
       res[orig]={ref:label,cited:c,verses}; ok++; return;
+    }
+
+    /* chapter-only: "Isaiah 53", "Romans 11" — show the chapter, nothing highlighted */
+    const chOnly=c.match(/^([1-3]?\s?[A-Za-z ]+?)\s+(\d+)$/);
+    if(chOnly){
+      const bk=books[chOnly[1].trim().toLowerCase()]; if(!bk)return;
+      const ch=bk.chapters[parseInt(chOnly[2],10)-1]; if(!ch)return;
+      if(ch.verses.length>60)return;
+      res[orig]={ref:bk.book+' '+ch.chapter,cited:'',verses:ch.verses.map((v,i)=>({v:i+1,t:v.text}))};
+      ok++; return;
     }
 
     const mm=c.match(/^([1-3]?\s?[A-Za-z ]+?)\s+(\d+):([\d,\-\s]+)$/); if(!mm)return;

@@ -608,7 +608,7 @@
   .pblk .plab.strong{color:var(--gold) !important}
 
   /* --- floating verse card: no layout shift, compact --- */
-  .versepop{position:fixed;z-index:120;display:none;max-width:560px}
+  .versepop{display:none}
   .versepop.on{display:block;animation:vpop .12s ease-out}
   @keyframes vpop{from{opacity:0;transform:translateY(-3px)}to{opacity:1;transform:none}}
   .versepop .versebox{margin:0;max-height:168px;overflow-y:auto;box-shadow:0 18px 44px rgba(0,0,0,.55);
@@ -645,6 +645,25 @@
   .pblk .plab.k-plain{color:var(--muted) !important}
   .pblk .plab.k-say{color:var(--green) !important}
   .pblk.k-big p{font-size:1.03rem;color:var(--ink);opacity:.93}
+  /* --- verdict: colour by how strong it is, not arbitrarily --- */
+  .vbox.v-admitted{background:var(--green-bg) !important}
+  .vbox.v-unrefuted{background:var(--purp-bg) !important}
+  .vbox.v-contested{background:var(--amber-bg) !important}
+  .vbox.v-answered{background:var(--red-bg) !important}
+  .vbox.v-admitted b.vb{color:var(--green) !important}
+  .vbox.v-unrefuted b.vb{color:var(--purp) !important}
+  .vbox.v-contested b.vb{color:var(--amber) !important}
+  .vbox.v-answered b.vb{color:var(--red) !important}
+  .verdictline{display:block;margin-bottom:10px}
+  .vbox b.vb{display:inline;margin:0;padding:0;font-size:.72rem;letter-spacing:.14em}
+  .vbox .vmeaning{display:block;margin:5px 0 0;font-size:.86rem;color:var(--ink);opacity:.88}
+  /* --- more contrast in the long prose --- */
+  .defense p,.vbox p,.why p{color:var(--muted);font-size:.94rem;line-height:1.78}
+  .defense p:first-of-type{font-size:1.04rem;color:var(--ink);opacity:.95}
+  .vbox p:first-of-type{color:var(--ink);opacity:.92}
+  .defense em,.vbox em,.why em{color:var(--ink);font-style:italic;opacity:.95}
+  .dlab.blue{color:var(--gold)}
+  .pblk .plab.k-plain{color:var(--purp) !important}
 </style>
 
 <div class="app">
@@ -1242,70 +1261,66 @@ function renderCase(){
     $("#back").addEventListener("click",()=>{state.view=path?"paths":"overview";state.caseId=null;render();});
   if(nextInPath)$("#pathnext").addEventListener("click",()=>openCase(nextInPath));
   document.querySelectorAll(".relrow [data-open]").forEach(b=>b.addEventListener("click",()=>openCase(b.dataset.open)));
-  let pinnedCite=null,hoverTimer=null,scrolling=null;
-  const pop=(()=>{let el=document.getElementById("versepop");
-    if(!el){el=document.createElement("div");el.id="versepop";el.className="versepop";document.body.appendChild(el);}
-    return el;})();
-  const hidePop=()=>{pop.classList.remove("on");};
-  const clearVerse=()=>{pinnedCite=null;const b=$("#versebox");if(b)b.innerHTML="";hidePop();
+  let pinnedCite=null,hoverTimer=null,scrolling=false,scrollT=null;
+  const vbox=()=>$("#versebox");
+  const clearVerse=()=>{pinnedCite=null;const b=vbox();if(b)b.innerHTML="";
     document.querySelectorAll(".chip.open,.chip.peek").forEach(x=>x.classList.remove("open","peek"));};
-  const buildHtml=(cite,v,side,closeBtn)=>{
+  const sideOf=ch=>ch.closest("[data-side]")?ch.closest("[data-side]").dataset.side:"";
+  const buildHtml=(cite,v,side)=>{
     if(!v||!v.verses)
-      return '<div class="versebox vmiss"><div class="vr"><span>'+esc(cite)+'</span>'+(closeBtn?'<button data-close>✕ close</button>':'')+'</div><div class="vwhy">This reference is cited by the claim but isn\'t in the built-in reader — open it in your own Bible.</div></div>';
+      return '<div class="versebox vmiss"><div class="vr"><span>'+esc(cite)+'</span><button data-close>✕ close</button></div><div class="vwhy">This reference is cited by the claim but isn\'t in the built-in reader — open it in your own Bible.</div></div>';
     const why=findWhy(d,cite);
     const whyHtml=why?"<b>Why it's cited:</b> "+esc(why):ROLENOTE(side);
     const anyHl=v.verses.some(x=>x.hl);
     const hasCtx=anyHl&&v.verses.some(x=>!x.hl);
-    const ctx=hasCtx?' <span class="vcited">— '+esc(v.ref)+', with the verses either side</span>':"";
+    const ctx=hasCtx?' <span class="vcited">— '+esc(v.ref)+', with the verses either side</span>'
+      :(!anyHl?' <span class="vcited">— '+esc(v.ref)+'</span>':'');
     const body=v.verses.map(x=>{
       const lit=(x.hl||!anyHl);
       const txt=(x.hl&&hasCtx)?"<em>"+esc(x.t)+"</em>":esc(x.t);
       return '<span class="vs'+(lit?" hl":"")+'"><span class="vnum">'+x.v+'</span>'+txt+' </span>';
     }).join("");
-    return '<div class="versebox"><div class="vr"><span>'+esc(cite)+ctx+'</span>'+(closeBtn?'<button data-close>✕ close</button>':'')+'</div><div class="vtext">'+body+'</div><div class="vwhy">'+whyHtml+'</div></div>';
+    return '<div class="versebox"><div class="vr"><span>'+esc(cite)+ctx+'</span><button data-close>✕ close</button></div><div class="vtext">'+body+'</div><div class="vwhy">'+whyHtml+'</div></div>';
   };
-  const sideOf=ch=>ch.closest("[data-side]")?ch.closest("[data-side]").dataset.side:"";
-  /* hover = floating card, so nothing on the page moves */
-  const peek=ch=>{
+  /* The box opens in place, beside what you pointed at. The old glitch came from it
+     opening while the page was scrolling, so the page kept resizing under the cursor.
+     Fix: a hover delay, and nothing opens while a scroll is in progress. */
+  const openVerse=(ch,pin)=>{
+    const box=vbox(); if(!box)return;
     const cite=ch.dataset.cite;
-    pop.innerHTML=buildHtml(cite,VERSES[cite],sideOf(ch),false);
-    pop.classList.add("on");
-    const r=ch.getBoundingClientRect();
-    const w=Math.min(560,window.innerWidth-24);
-    pop.style.width=w+"px";
-    let left=Math.min(Math.max(12,r.left),window.innerWidth-w-12);
-    pop.style.left=left+"px";
-    const h=pop.offsetHeight;
-    pop.style.top=(r.bottom+8+h>window.innerHeight-8?Math.max(8,r.top-h-8):r.bottom+8)+"px";
-    document.querySelectorAll(".chip.peek").forEach(x=>x.classList.remove("peek"));
-    ch.classList.add("peek");
-  };
-  /* click = pinned in the reading column, beside what you clicked */
-  const pinVerse=ch=>{
-    hidePop();
-    const cite=ch.dataset.cite,box=$("#versebox");
-    if(!box)return;
-    const host=ch.closest(".pblk")||ch.closest(".claim")||null;
-    if(host&&host.parentNode)host.parentNode.insertBefore(box,host.nextSibling);
+    const host=ch.closest(".pblk")||ch.closest(".claim")||ch.closest(".defense")||null;
+    if(host&&host.parentNode&&box.parentNode!==host.parentNode||host&&box.previousElementSibling!==host){
+      if(host&&host.parentNode)host.parentNode.insertBefore(box,host.nextSibling);
+    }
     document.querySelectorAll(".chip.open,.chip.peek").forEach(x=>x.classList.remove("open","peek"));
-    ch.classList.add("open");pinnedCite=cite;
-    box.innerHTML=buildHtml(cite,VERSES[cite],sideOf(ch),true);
+    ch.classList.add(pin?"open":"peek");
+    if(pin)pinnedCite=cite;
+    box.innerHTML=buildHtml(cite,VERSES[cite],sideOf(ch));
     const cb=box.querySelector("[data-close]");if(cb)cb.addEventListener("click",clearVerse);
   };
-  window.addEventListener("scroll",()=>{clearTimeout(scrolling);hidePop();
-    scrolling=setTimeout(()=>{scrolling=null;},180);},{passive:true});
+  window.addEventListener("scroll",()=>{scrolling=true;clearTimeout(scrollT);clearTimeout(hoverTimer);
+    scrollT=setTimeout(()=>{scrolling=false;},220);},{passive:true});
+  /* LIVEREFS: references printed inside prose become openable, like the chips */
+  document.querySelectorAll("#main .ref-bib, #main .ref-lds").forEach(r=>{
+    const key=r.textContent.replace(/\s+/g," ").trim().replace(/[.,;:]$/,"");
+    const hit=VERSES[key]?key:Object.keys(VERSES).find(k=>k.replace(/[\u2013\u2014]/g,"-")===key.replace(/[\u2013\u2014]/g,"-"));
+    if(!hit)return;
+    r.classList.add("live","chip");r.dataset.cite=hit;
+  });
   const canHover=window.matchMedia("(hover:hover)").matches;
   document.querySelectorAll(".chip").forEach(ch=>{
     ch.addEventListener("click",()=>{
       if(ch.dataset.ext){window.open(ch.dataset.ext,"_blank");return;}
       if(pinnedCite===ch.dataset.cite){clearVerse();return;}
-      pinVerse(ch);
+      openVerse(ch,true);
     });
     if(!ch.dataset.ext&&canHover){
       ch.addEventListener("mouseenter",()=>{clearTimeout(hoverTimer);
-        hoverTimer=setTimeout(()=>{if(!scrolling)peek(ch);},260);});
+        if(pinnedCite||scrolling)return;
+        hoverTimer=setTimeout(()=>{if(!scrolling&&!pinnedCite)openVerse(ch,false);},240);});
       ch.addEventListener("mouseleave",()=>{clearTimeout(hoverTimer);
-        hoverTimer=setTimeout(()=>{hidePop();ch.classList.remove("peek");},120);});
+        if(pinnedCite)return;
+        hoverTimer=setTimeout(()=>{if(!pinnedCite)clearVerse();},160);});
     }
   });
   

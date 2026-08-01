@@ -238,7 +238,7 @@ build({
   methodFoot: "Method: every case carries the strongest published counter-missionary reply; arguments that fail are marked don't use; the strongest cases are the ones made from Jewish sources alone.",
   roleNote: "<b>Role:</b> this is the passage the argument rests on.",
   VLABEL: { admitted: "Conceded", unrefuted: "Strong", contested: "Contested", answered: "Don't use" },
-  VDESC: {"admitted": "Jewish sources themselves grant the basic fact. You can make this point straight out of their own books.", "unrefuted": "Strong for the Christian side — no Jewish counter-missionary answer deals with it properly.", "contested": "Genuinely open. Serious people on both sides argue it, so say so before your friend does.", "answered": "Weak for the Christian side. This argument does not hold up — drop it."},
+  VDESC: {"admitted": "Jewish sources grant the basic fact themselves. You can make this point from their own books.", "unrefuted": "No Jewish counter-missionary answer deals with this properly.", "contested": "Serious people on both sides argue this. Say so before your friend does.", "answered": "This Christian argument does not hold up. Drop it."},
   oldBrand: 'ISLAM · VS. THE BIBLE', newBrand: "THE MESSIAH CASE · FROM THE TANAKH",
   keyPrefix: 'wbm_',
   textSwaps: [
