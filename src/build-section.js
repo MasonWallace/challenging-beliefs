@@ -53,9 +53,8 @@ module.exports = function buildSection(cfg) {
   const consts = {
     SECTIONS: cfg.SECTIONS, CATS: cfg.CATS, SECMAP: cfg.SECMAP, CATDESC: cfg.CATDESC,
     WHYMAP: cfg.WHYMAP, GLOSSARY: cfg.GLOSSARY, PATHS: cfg.PATHS, TLACTS: cfg.TLACTS,
-    IMGMAP: cfg.IMGMAP || {}, PATHIMG: cfg.PATHIMG || {}, ACTIMG: {}, RELATED: cfg.RELATED,
+    IMGMAP: cfg.IMGMAP || {}, PATHIMG: cfg.PATHIMG || {}, RELATED: cfg.RELATED,
     TALK: cfg.TALK || {}, WHYTAIL: cfg.WHYTAIL, TIPS: cfg.TIPS, TOURSTEPS: cfg.TOURSTEPS,
-    TIMELINE: [], WHYVERSE: {},
     PROOFS: comp.proofs.map(p => ({ v: p.v, they: p.they, you: p.you, refs: Array.isArray(p.refs) ? p.refs.join(' · ') : p.refs })),
     THEYSAY: comp.theysay, LESSONS: comp.lessons.map(l => ({ ...l, what: Array.isArray(l.what) ? l.what : [l.what] })),
     KNOW: comp.know, DIALOG: comp.dialogs

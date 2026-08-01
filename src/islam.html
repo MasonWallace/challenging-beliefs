@@ -695,7 +695,9 @@
 const DATA=[
 /*__DATA__*/
 ];
-const VERSES=/*__VERSES__*/;
+let VERSES={};
+const versesReady=fetch("/*__VERSEFILE__*/").then(r=>r.json()).then(v=>{VERSES=v;return v;})
+  .catch(()=>{console.warn("verse data unavailable");return {};});
 
 const SECTIONS={bible:"The Bible Stands",jesus:"Jesus & the Cross",quran:"The Quran",muhammad:"Muhammad & Practice",doctrine:"God & Salvation"};
 const SEVLABEL={high:"major",medium:"moderate",low:"minor"};
@@ -868,7 +870,7 @@ const GLOSSARY=[{"t":"a chiasm","d":"A mirror-image literary structure (A-B-C-B-
 
 const PATHS=[{"id":"cornerstone","name":"The cornerstone: the Bible stands","time":"≈ 20 min","desc":"The argument every other conversation depends on: the Quran affirms the Bible of Muhammad's day, the manuscripts prove that Bible is ours, and the corruption claim dies on either horn of the dilemma.","items":["quran-affirms-torah-gospel","tahrif-doctrine-late-development","manuscripts-predate-muhammad","gospel-judgment-test","injil-problem"]},{"id":"strongest","name":"The five strongest cases","time":"≈ 25 min","desc":"The claims with the most decisive evidence and the least answer — start here if you read nothing else.","items":["quran-affirms-torah-gospel","crucifixion-denial-vs-history","injil-problem","clay-birds-apocrypha","quran-never-quotes-scriptures"]},{"id":"gospel","name":"For gospel conversations","time":"≈ 30 min","desc":"The cases that lead most naturally to the gospel itself — the scales against grace, the Quran's own exalted Jesus, and the sacrifice at the heart of Eid.","items":["salvation-scales","quran-jesus-resume","word-and-spirit-titles","crucifixion-denial-vs-history","god-is-love-monad"]},{"id":"fair","name":"What critics get wrong","time":"≈ 20 min","desc":"Where popular polemics overreach — the moon-god myth, the late-Quran theory, spread-by-the-sword, taqiyya stereotypes, and more. Knowing these keeps your strong arguments credible.","items":["sun-muddy-spring","taqiyya-deception","prophet-test-signs","sanaa-palimpsest-qiraat","samaritan-anachronism","allah-moon-god","quran-late-composition","spread-only-by-sword"]}];
 
-const TIMELINE=[{"y":"~1000 BC","t":"David writes the Psalms (Zabur)","p":"Psalm 22 describes pierced hands and divided garments a millennium before the cross.","id":"crucifixion-denial-vs-history"},{"y":"c. 125 BC","t":"The Great Isaiah Scroll copied","p":"The complete Isaiah — including chapter 53 — sealed in a Qumran cave 750 years before Muhammad.","id":"manuscripts-predate-muhammad","crit":true},{"y":"AD 30/33","t":"The crucifixion","p":"Attested by every early source, Christian and pagan; called indisputable by skeptical historians.","id":"crucifixion-denial-vs-history"},{"y":"c. 55","t":"Paul records the resurrection creed","p":"1 Corinthians 15:3-8 — datable to within a few years of the events.","id":"crucifixion-denial-vs-history"},{"y":"2nd c.","t":"Infancy Gospel of Thomas circulates","p":"The clay-birds legend — later retold in Quran 3:49 as history.","id":"clay-birds-apocrypha","crit":true},{"y":"4th c.","t":"Codex Sinaiticus and Vaticanus","p":"Complete Bibles, 200+ years before Muhammad, matching today's text.","id":"manuscripts-predate-muhammad","crit":true},{"y":"610","t":"Muhammad's first revelation","p":"Waraqa — Khadija's Christian cousin who 'used to write the Gospel in Arabic' — interprets the experience.","id":"quran-never-quotes-scriptures"},{"y":"614–628","t":"The Byzantine-Persian war","p":"Background of Surah 30's Rome prediction — the one claimed prophecy.","id":"prophet-test-signs"},{"y":"c. 615–632","t":"The Quran affirms the Torah and Gospel","p":"'Ask those who read the Scripture before you' (10:94); 'let the People of the Gospel judge' (5:47).","id":"quran-affirms-torah-gospel","crit":true},{"y":"627","t":"Banu Qurayza","p":"600–900 surrendered men executed; Muhammad endorses the verdict as 'the judgment of Allah.'","id":"banu-qurayza-massacre","crit":true},{"y":"628","t":"Khaybar: the poisoned meat","p":"Administered as a prophethood test; his companion dies of it.","id":"aorta-test"},{"y":"632","t":"Muhammad dies","p":"'I feel as if my aorta is being cut from that poison' (Bukhari 4428) — the punishment 69:46 names for a false prophet.","id":"aorta-test","crit":true},{"y":"~633","t":"Yamama: the Quran nearly lost","p":"Reciters die in battle; Umar fears 'a large part of the Quran may be lost'; Zayd collects it from palm stalks and memory.","id":"compilation-lost-verses","crit":true},{"y":"~650","t":"Uthman standardizes and burns","p":"Muslims 'differing as the Jews and Christians differed'; all variant copies ordered burnt (Bukhari 4987).","id":"uthman-standardization-qiraat","crit":true},{"y":"7th c.","t":"The Sanaa palimpsest","p":"A non-Uthmanic Quran text, erased and overwritten — rediscovered in 1972.","id":"sanaa-palimpsest-qiraat"},{"y":"~750–900","t":"The hadith are compiled","p":"Bukhari and Muslim collect the reports — including Aisha's age, the lost verses, and the deathbed words — 150–250 years after the events.","id":"aisha-age"},{"y":"1064","t":"Ibn Hazm dies","p":"The first major scholar to teach the Bible's TEXT was corrupted — four centuries after Muhammad.","id":"tahrif-doctrine-late-development","crit":true},{"y":"1924","t":"The Cairo edition","p":"The Hafs reading becomes the near-universal printed Quran; Warsh persists in Africa — two texts in print today.","id":"uthman-standardization-qiraat"},{"y":"1947","t":"The Dead Sea Scrolls discovered","p":"The pre-Muhammad Bible surfaces at Qumran — and it is our Bible. The corruption window closes.","id":"manuscripts-predate-muhammad","crit":true}];
+
 
 /* ---------- state ---------- */
 const KEY_FULL="wbi_full";
@@ -1084,7 +1086,7 @@ function openCase(id,fromPath){
 }
 function ROLENOTE(side){return side==="quran"?"<b>Role:</b> this is the Quran passage the claim examines.":"<b>Role:</b> this is the biblical standard the claim measures against.";}
 const DEFLABEL="How Muslims answer this — put at its strongest";
-const VDESC={"admitted":"Strong for you — the facts sit in Islam's own sources. You can make the point from their books alone.","unrefuted":"Strong for you — no adequate answer has been published, or the best answers concede the point.","contested":"Genuinely arguable. A real rebuttal exists, and you should say so before your friend does.","answered":"Weak for you — the defense holds. Do not lead with this one."};
+const VDESC={"admitted":"The facts sit in Islam's own trusted sources. You can make this point from their books alone.","unrefuted":"No good counter-argument has been published by Muslim scholars.","contested":"Muslim scholars have a real answer here. Say so before your friend does.","answered":"The Muslim answer holds up. Do not lead with this one."};
 function plainHtml(d){
   const rt=t=>glossify(emphasize(esc(t).replace(/&lt;(\/?)(b|i)&gt;/g,"<$1$2>")));
   return (d.plain||[]).map(b=>{
@@ -1168,6 +1170,7 @@ function renderCase(){
     $("#back").addEventListener("click",()=>{state.view=path?"paths":"overview";state.caseId=null;render();});
   if(nextInPath)$("#pathnext").addEventListener("click",()=>openCase(nextInPath));
   document.querySelectorAll(".relrow [data-open]").forEach(b=>b.addEventListener("click",()=>openCase(b.dataset.open)));
+  versesReady.then(()=>{
   let pinnedCite=null,hoverTimer=null,scrolling=false,scrollT=null;
   const vbox=()=>$("#versebox");
   const clearVerse=()=>{pinnedCite=null;const b=vbox();if(b)b.innerHTML="";
@@ -1236,7 +1239,8 @@ function renderCase(){
     }
   });
   
-document.querySelectorAll(".cimg-x").forEach(b=>b.addEventListener("click",e=>{e.stopPropagation();showLightbox(b.dataset.full,b.dataset.cap);}));
+});
+  document.querySelectorAll(".cimg-x").forEach(b=>b.addEventListener("click",e=>{e.stopPropagation();showLightbox(b.dataset.full,b.dataset.cap);}));
   renderNav();renderPreview();
 }
 
@@ -1410,24 +1414,7 @@ const LESSONS=[
 {n:"Stage 5",t:"“The Quran is perfectly preserved”",what:["'Not one letter has changed' — contrasted with the Bible's manuscript variants.","Uthman's standardization, the burned codices, and today's variant Hafs/Warsh printings are never mentioned."],ask:"“If preservation proves divine origin, what do we do with Bukhari 4987 — Uthman burning every rival copy — and the fact that Qurans printed today in Medina and Morocco differ in words?”",ids:["uthman-standardization-qiraat","compilation-lost-verses","sanaa-palimpsest-qiraat"]},
 {n:"Stage 6",t:"“Take your shahada” — and your counter-invitation",what:["The close: declare the shahada, often same-day, sometimes on camera.","Your close is better news: not a works-scale you'll never balance, but a finished atonement and assurance Muhammad himself never claimed (Bukhari 7018: 'I do not know what will happen to me')."],ask:"“Muhammad told his own daughter he couldn't avail her against Allah, and said he didn't know his own fate. Jesus said 'him that cometh to me I will in no wise cast out.' Which founder can actually promise you anything?”",ids:["salvation-scales","sins-cast-on-jews-christians","quran-jesus-resume"]}
 ];
-const WHYVERSE={
-"Isaiah 53:5-6":"'Wounded for our transgressions' — the crucifixion and atonement, written seven centuries early, preserved in the Great Isaiah Scroll before Christ and therefore before any possible 'corruption.'",
-"Matthew 26:52":"'Put up again thy sword' — the founders' final commands run in opposite directions, and this is Jesus's. Pairs with Surah 9 for the sharpest contrast on this site.",
-"1 Corinthians 15:3-8":"The creed critical scholars date within ~5 years of the cross: died for sins, buried, raised, seen. The earliest Christian document is already the whole gospel.",
-"John 1:1-3":"'The Word was God... all things were made through him' — the divine Word (kalimatullah, a title the Quran itself gives Jesus) who cannot be a creature.",
-"John 1:14":"'The Word was made flesh' — the incarnation in six words: not God begetting carnally, but the eternal Word entering His world.",
-"Deuteronomy 6:4":"The Shema — your genuine common ground with every Muslim. Start here, agree sincerely, then define what 'one' means.",
-"Deuteronomy 18:20-22":"God's own prophet test: speak presumptuously or fail, and you were not sent. Apply it evenly to every claimant — that's the point.",
-"Matthew 7:15-20":"'By their fruits ye shall know them' — the character test for any prophet, applied to documented actions, not caricatures.",
-"Mark 14:61-64":"'Art thou the Christ, the Son of the Blessed? I am' — the claim, at trial, under oath, with the death sentence to prove they understood him.",
-"Psalm 2:7":"'Thou art my Son' — divine sonship in Israel's own scriptures, a thousand years before the Quran said God has no son.",
-"Titus 1:2":"'God, that cannot lie' — against khayru al-makirin, 'the best of deceivers' (3:54). Two different characters; only one can be the true God.",
-"Hebrews 4:15":"A high priest 'in all points tempted like as we are, yet without sin' — the sympathy of God that a master-slave theology cannot offer.",
-"Romans 5:8":"'While we were yet sinners, Christ died for us' — love before repentance, the exact reverse of earning mercy by the scale.",
-"Luke 1:1-4":"Luke's eyewitness preface — 'having had perfect understanding of all things from the very first' — history-writing, not legend, within living memory.",
-"Matthew 5:44":"'Love your enemies, pray for them' — your posture verse. The Woodberry study found the lifestyle of Christians is the #1 reason Muslims come to Christ.",
-"Matthew 28:19":"'Make disciples of all nations, baptizing them in the name of the Father, and of the Son, and of the Holy Ghost' — one name, three persons, from Jesus's own mouth."
-};
+
 function bindOpens(){document.querySelectorAll("#main [data-open]").forEach(b=>b.addEventListener("click",()=>openCase(b.dataset.open)));}
 function renderTheySay(){
   $("#main").innerHTML=`<div class="viewhead"><h2>They just said…</h2>
@@ -1461,7 +1448,7 @@ function renderKnow(){
   document.querySelectorAll("#main [data-open]").forEach(b=>b.addEventListener("click",()=>openCase(b.dataset.open)));
 }
 
-const ACTIMG={"I":{"src":"https://commons.wikimedia.org/wiki/Special:FilePath/The%20Great%20Isaiah%20Scroll%20MS%20A%20(1QIsa)%20-%20Google%20Art%20Project.jpg?width=1000","cap":"Act I: the record before — the Great Isaiah Scroll, c. 125 BC"},"II":{"src":"https://commons.wikimedia.org/wiki/Special:FilePath/Jabal%20al-Nour%20And%20cave%20Hira.jpg?width=1000","cap":"Act II: Jabal al-Nour and the cave of Hira, where the revelations began"},"III":{"src":"https://commons.wikimedia.org/wiki/Special:FilePath/Samarkand%20Kufic%20Quran%2C%201905%20(2022-07-05)%2003.jpg?width=1000","cap":"Act III: the preservation era — the Samarkand Kufic Quran"},"IV":{"src":"https://commons.wikimedia.org/wiki/Special:FilePath/Supplicating%20Pilgrim%20at%20Masjid%20Al%20Haram.%20Mecca%2C%20Saudi%20Arabia.jpg?width=1000","cap":"Act IV: modern reckonings — Masjid al-Haram, Mecca"}};
+
 const PATHIMG={"cornerstone":"https://commons.wikimedia.org/wiki/Special:FilePath/Codex%20Sinaiticus%2C%20GA%2001.jpg?width=800","strongest":"https://commons.wikimedia.org/wiki/Special:FilePath/Samarkand%20Kufic%20Quran%2C%201905%20(2022-07-05)%2003.jpg?width=800","gospel":"https://commons.wikimedia.org/wiki/Special:FilePath/Cristo%20crucificado.jpg?width=800","fair":"https://commons.wikimedia.org/wiki/Special:FilePath/Supplicating%20Pilgrim%20at%20Masjid%20Al%20Haram.%20Mecca%2C%20Saudi%20Arabia.jpg?width=800"};
 document.addEventListener("click",e=>{const im=e.target.closest(".kimg img,.ktop,.corestrip img,.actimg img");if(im)showLightbox(im.dataset.full||im.src,im.dataset.cap||"");});
 /* ---------- router ---------- */
@@ -1515,7 +1502,7 @@ document.addEventListener("keydown",e=>{
 
 
 const TOURKEY="wbi_tour";
-const TOURSTEPS=[{"icon":"⚖","title":"Welcome to the examination","body":"<b>__N__ documented claims</b> about Islam, each weighed against the Bible — with Quran verses, Hadith, and Bible passages cited on every case. Every claim carries the <b>strongest Muslim defense</b> and an honest verdict; popular polemics that don't survive scrutiny are excluded."},{"icon":"🏷","title":"Four verdicts, one glance","body":"Every claim lands in one of four columns:<div class=\"vrow2\"><div><span class=\"badge v-admitted\">Admitted</span><span>their own sources concede the facts</span></div><div><span class=\"badge v-unrefuted\">Unrefuted</span><span>no adequate answer exists</span></div><div><span class=\"badge v-contested\">Contested</span><span>a real debate — both sides shown</span></div><div><span class=\"badge v-answered\">Answered</span><span>the defense wins, and we say so</span></div></div><p style='margin:10px 0 0'>For Islam, <b>Admitted</b> means the facts sit in Sahih al-Bukhari, Sahih Muslim, or mainstream tafsir — sources every observant Muslim accepts.</p>"},{"icon":"💬","title":"Every case scripts the conversation","body":"Each case ends with <b>“How the conversation usually goes”</b> — a back-and-forth: <i>they may say → you respond → they may counter → you respond</i>. You'll never be caught without the next move. Quran references expand in place; hadith link straight to sunnah.com so your friend can verify instantly."},{"icon":"🧭","title":"The sidebar is your map","body":"Start with <b>The heart of it</b> — the cornerstone dilemma every other conversation depends on. Then <b>Sharing the gospel</b> (honor-shame method, the 7 objections you'll hear, security cautions), <b>Guided paths</b>, <b>Timeline</b>, and <b>Terms explained</b> (tahrif, isnad, taqiyya…)."},{"icon":"🚀","title":"Where to start","body":"Take the <b>cornerstone path</b>: the Quran affirms the Bible of Muhammad's day — and the manuscripts prove that Bible is ours. Master that one argument and every other door opens. Replay this tour anytime from the sidebar.","cta":"Take me to the heart of it"}];
+const TOURSTEPS=[{"icon":"⚖","title":"What this is","body":"<b>__N__ documented claims</b> about Islam, each weighed against the Bible. Nearly all of it is argued from Islam's own trusted books — Sahih al-Bukhari, Sahih Muslim, and the classical commentaries. Not from ours. That is the whole method."},{"icon":"📖","title":"Every case opens in plain English","body":"Short blocks. One idea per sentence. What Islam teaches, what the sources say, the strongest Muslim answer, how strong the case is, and one line to say out loud. The full sourced version sits underneath on the same page."},{"icon":"🏷","title":"Four verdicts, one glance","body":"Every claim lands in one of four columns:<div class=\"vrow2\"><div><span class=\"badge v-admitted\">Admitted</span><span>the facts sit in Islam's own sources</span></div><div><span class=\"badge v-unrefuted\">Unrefuted</span><span>no good Muslim answer has been published</span></div><div><span class=\"badge v-contested\">Contested</span><span>they have a real answer — say so</span></div><div><span class=\"badge v-answered\">Answered</span><span>their answer wins, and we say so</span></div></div>"},{"icon":"🤝","title":"Honour runs this conversation","body":"Never mock Muhammad or the Quran to a Muslim's face. It is heard as an attack on their family and it ends everything, permanently. Honest questions are always fine. Contempt never is. Six cases here exist only to tell Christians which arguments to drop."},{"icon":"🚀","title":"Where to start","body":"Read <b>The heart of it</b>. Islam's whole case against Christianity rests on one claim, and that claim runs into the Quran itself. Master that and every other door opens. Replay this tour any time from the sidebar.","cta":"Take me to the heart of it"}];
 function startTour(){
   const old=document.querySelector(".tourwrap");if(old)old.remove();
   let ti=0;

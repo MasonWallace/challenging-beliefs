@@ -71,8 +71,10 @@ const SECTIONS = [
   }
 ];
 
+const ONLY = process.argv.slice(2).filter(a => !a.startsWith('-'));
 const counts = {};
 for (const s of SECTIONS) {
+  if (ONLY.length && !ONLY.includes(s.key)) continue;
   let arr, dataStr;
   if (s.dataFrom === 'inline') {
     dataStr = fs.readFileSync(P(s.out), 'utf8').match(/const DATA=\[([\s\S]*?)\n\];/)[1];
@@ -84,7 +86,7 @@ for (const s of SECTIONS) {
   counts[s.key] = arr.length;
   let html = fs.readFileSync(P(s.shell), 'utf8')
     .replace('/*__DATA__*/', () => dataStr)
-    .replace('/*__VERSES__*/', () => fs.readFileSync(P(s.verses), 'utf8'))
+    .replace('/*__VERSEFILE__*/', () => s.verses)
     .replace(/__N__/g, arr.length);
   html = wrap(html, {
     title: s.og.title,
@@ -94,6 +96,9 @@ for (const s of SECTIONS) {
   gate(arr, s.key);
   syntaxCheck(html, s.key);
   fs.writeFileSync(P(s.out), html);
+  /* the page fetches this alongside itself */
+  const verseOut = P('deploy-' + s.verses);
+  fs.writeFileSync(verseOut, fs.readFileSync(P(s.verses), 'utf8'));
   console.log(s.key.padEnd(8), arr.length, 'cases →', s.out);
 }
 

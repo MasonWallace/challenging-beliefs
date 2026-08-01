@@ -696,7 +696,9 @@
 const DATA=[
 /*__DATA__*/
 ];
-const VERSES=/*__VERSES__*/;
+let VERSES={};
+const versesReady=fetch("/*__VERSEFILE__*/").then(r=>r.json()).then(v=>{VERSES=v;return v;})
+  .catch(()=>{console.warn("verse data unavailable");return {};});
 
 const SECTIONS={text:"The Text",doctrine:"The Doctrine",history:"The History",peculiar:"Strange to Outsiders"};
 const SEVLABEL={high:"major",medium:"moderate",low:"minor"};
@@ -947,42 +949,7 @@ const PATHS=[
 {id:"theology",name:"A different God, Jesus, and gospel",time:"≈ 35 min",desc:"The core theology, in order: who they say God is, who they say Jesus is, and what that does to the gospel. The most important path on this site.",items:["god-exalted-man-flesh-and-bone","trinity-vs-godhead","jesus-firstborn-spirit-attained-godhood","jesus-lucifer-spirit-brothers","different-jesus-hinckley-1998","exaltation-eternal-progression","heavenly-mother-doctrine","grace-after-all-we-can-do"]},
 {id:"history-hard",name:"The hardest history",time:"≈ 40 min",desc:"Joseph Smith's polygamy in his own church's words, the Expositor and Carthage, and Mountain Meadows. Heavy — read with the goal of understanding, not ammunition.",items:["js-polygamy-wives-count-ages","js-polyandry","dc132-emma-destroyed","js-polygamy-denials","nauvoo-expositor-carthage","mountain-meadows-massacre","oath-of-vengeance"]}];
 
-const TIMELINE=[
-{y:"1820",t:"The First Vision (as dated in the 1838 account)",p:"Later accounts differ on Smith's age, who appeared, and the revival that prompted it.",id:"first-vision-multiple-accounts"},
-{y:"1823",t:"The angel and the plates",p:"Moroni per later accounts — 'Nephi' in the 1842 published history.",id:"angel-nephi-moroni-name-change"},
-{y:"1824–25",t:"The documented Palmyra revival",p:"The large revival in the church records falls after the vision narrative places it.",id:"first-vision-revival-dating",crit:true},
-{y:"1826",t:"Bainbridge court examination",p:"Smith examined over 'glass-looking' — treasure-seeking with the same stone later used for translation.",id:"translation-seer-stone"},
-{y:"1828",t:"The 116 pages are lost",p:"The replacement comes from a second, pre-existing record covering the same period.",id:"lost-116-pages"},
-{y:"1829",t:"The Book of Mormon dictated",p:"Seer stone in a hat, plates often covered or absent — per the church's 2013 essay.",id:"translation-seer-stone"},
-{y:"1830",t:"The Book of Mormon published",p:"Strict monotheism, no plurality of gods, no exaltation — 1820s Protestant theology throughout.",id:"trinitarian-monotheism-1830"},
-{y:"1830–33",t:"The Joseph Smith Translation",p:"Genesis 50 gains a prophecy of a seer named Joseph, son of Joseph. No manuscript contains it.",id:"jst-genesis-50-choice-seer",crit:true},
-{y:"1832",t:"The Independence temple prophecy",p:"'This generation shall not all pass away until an house shall be built.' It never was.",id:"joseph-smith-failed-prophecies",crit:true},
-{y:"1833",t:"The Word of Wisdom",p:"Given 'not by commandment or constraint' — a worthiness requirement by 1921.",id:"word-of-wisdom-dietary-law"},
-{y:"1835",t:"The Egyptian papyri purchased",p:"Declared 'the writings of Abraham while he was in Egypt.'",id:"book-of-abraham-papyri"},
-{y:"1837",t:"The 'Son of' edits",p:"Four verses in 1 Nephi revised to soften the identification of Jesus as God the Father.",id:"1837-son-of-edits",crit:true},
-{y:"1838",t:"The witnesses depart",p:"All Three Witnesses out of the church by 1838. None ever recant.",id:"witnesses-character-and-vision"},
-{y:"1838",t:"Missouri: the Danites",p:"A secret band expels dissenters; the war ends in expulsion and Haun's Mill.",id:"danites-1838"},
-{y:"1842",t:"Freemasonry and the endowment",p:"Smith made a Master Mason March 15–16; the endowment introduced May 4, with tokens, signs, and penalties.",id:"endowment-masonic-origins",crit:true},
-{y:"1843",t:"The Kinderhook plates",p:"A planted forgery; Smith's comparative identification was wrong but no translation followed.",id:"kinderhook-plates"},
-{y:"1843",t:"D&C 132 dictated",p:"Celestial marriage canonized — with Emma threatened by name: 'she shall be destroyed.'",id:"dc132-emma-destroyed",crit:true},
-{y:"1844",t:"The King Follett discourse",p:"'I will refute that idea' — Smith overturns the theology of his own 1829 text.",id:"unchangeable-god-vs-king-follett",crit:true},
-{y:"1844",t:"'I can only find one' — then the Expositor, then Carthage",p:"Smith publicly denies polygamy in May with 30+ wives; orders the press destroyed in June; killed June 27.",id:"nauvoo-expositor-carthage",crit:true},
-{y:"1852",t:"Polygamy public",p:"D&C 132 canonized doctrine the Book of Mormon calls abominable.",id:"jacob-polygamy-vs-dc132"},
-{y:"1852",t:"The priesthood ban begins",p:"Brigham Young announces the restriction on Black members. It stands 126 years.",id:"priesthood-temple-ban-1852-1978",crit:true},
-{y:"1856–57",t:"The Reformation and blood atonement",p:"Young preaches sins beyond Christ's blood, requiring the sinner's own.",id:"blood-atonement",crit:true},
-{y:"1857",t:"Mountain Meadows",p:"About 120 murdered by militia under local church leadership. The church's own history confirms it.",id:"mountain-meadows-massacre",crit:true},
-{y:"1927",t:"The oath of vengeance removed",p:"After the Smoot hearings exposed it, the vengeance prayer quietly leaves the endowment.",id:"oath-of-vengeance"},
-{y:"1966",t:"The papyri resurface",p:"Identified as standard funerary texts. The one testable translation fails the test.",id:"book-of-abraham-papyri",crit:true},
-{y:"1978",t:"Official Declaration 2",p:"The priesthood ban ends by revelation; the 2013 essay later disavows every justification once taught.",id:"priesthood-temple-ban-1852-1978"},
-{y:"1980–81",t:"Kinderhook tested; church publishes the result",p:"19th-century forgery confirmed in the church's own magazine.",id:"kinderhook-plates"},
-{y:"1981",t:"'White' becomes 'pure'",p:"2 Nephi 30:6 edited; racial chapter headings follow in 2010.",id:"dark-skin-curse",crit:true},
-{y:"1990",t:"Penalty oaths removed from the endowment",p:"The throat-and-bowel penalty mimes and five points of fellowship quietly dropped.",id:"endowment-masonic-origins",crit:true},
-{y:"1993",t:"The September Six",p:"Coordinated discipline of scholars and feminists chills Mormon studies.",id:"september-six"},
-{y:"2002–03",t:"The DNA publications",p:"Murphy and Southerton publish; discipline follows.",id:"dna-native-american-origins"},
-{y:"2006",t:"'Principal ancestors' becomes 'among the ancestors'",p:"The Book of Mormon's printed introduction quietly edited.",id:"dna-native-american-origins",crit:true},
-{y:"2013–15",t:"The Gospel Topics Essays",p:"The church concedes the stone, the accounts, the papyri — in essays rolled out quietly.",id:"ces-letter-gospel-topics-visibility"},
-{y:"2019",t:"Civil-wedding penalty removed",p:"The one-year wait after a civil ceremony ends, citing excluded families.",id:"temple-wedding-family-exclusion"},
-{y:"2023",t:"The SEC settlement",p:"$5M for two decades of concealed holdings behind shell LLCs.",id:"sec-ensign-peak-settlement"}];
+
 
 /* ---------- state ---------- */
 const KEY_FULL="wbi_full";
@@ -1196,7 +1163,7 @@ function openCase(id,fromPath){
 }
 function ROLENOTE(side){return side==="bom"?"<b>Role:</b> this is the Book of Mormon passage the claim examines.":"<b>Role:</b> this is the biblical standard the claim measures against.";}
 const DEFLABEL="How Latter-day Saints answer this — put at its strongest";
-const VDESC={"admitted":"Strong for you — the church's own publications concede these facts. You can make the point from their sources alone.","unrefuted":"Strong for you — no adequate answer has been published, or the best answers concede the point.","contested":"Genuinely arguable. A real rebuttal exists, and you should say so before your friend does.","answered":"Weak for you — the defense holds. Do not lead with this one."};
+const VDESC={"admitted":"Their own church publications admit these facts. You can make this point from LDS sources alone.","unrefuted":"No good counter-argument has been published by LDS scholars.","contested":"LDS scholars have a real answer here. Say so before your friend does.","answered":"The LDS answer holds up. Do not lead with this one."};
 function plainHtml(d){
   const rt=t=>glossify(emphasize(esc(t).replace(/&lt;(\/?)(b|i)&gt;/g,"<$1$2>")));
   return (d.plain||[]).map(b=>{
@@ -1278,6 +1245,7 @@ function renderCase(){
     $("#back").addEventListener("click",()=>{state.view=path?"paths":"overview";state.caseId=null;render();});
   if(nextInPath)$("#pathnext").addEventListener("click",()=>openCase(nextInPath));
   document.querySelectorAll(".relrow [data-open]").forEach(b=>b.addEventListener("click",()=>openCase(b.dataset.open)));
+  versesReady.then(()=>{
   let pinnedCite=null,hoverTimer=null,scrolling=false,scrollT=null;
   const vbox=()=>$("#versebox");
   const clearVerse=()=>{pinnedCite=null;const b=vbox();if(b)b.innerHTML="";
@@ -1346,7 +1314,8 @@ function renderCase(){
     }
   });
   
-document.querySelectorAll(".cimg-x").forEach(b=>b.addEventListener("click",e=>{e.stopPropagation();showLightbox(b.dataset.full,b.dataset.cap);}));
+});
+  document.querySelectorAll(".cimg-x").forEach(b=>b.addEventListener("click",e=>{e.stopPropagation();showLightbox(b.dataset.full,b.dataset.cap);}));
   renderNav();renderPreview();
 }
 
@@ -1580,24 +1549,7 @@ const LESSONS=[
 {n:"Lesson 4",t:"The Commandments",what:["The Word of Wisdom (no coffee, tea, alcohol, tobacco) as a covenant marker.","Tithing: 10% of income; both are required for temple recommends.","Law of chastity, Sabbath observance, sustaining church leaders."],ask:"“Colossians 2:16 says let no one judge you in questions of food and drink — when did a health guideline become a gate between a family and their own daughter's wedding?”",ids:["word-of-wisdom-dietary-law","tithing-enforcement","temple-wedding-family-exclusion"]},
 {n:"Lesson 5",t:"Laws and Ordinances",what:["The priesthood: restored through John the Baptist and Peter, James, and John; required for valid ordinances.","Temple work: endowment, sealings, and baptism for the dead on behalf of your ancestors.","Callings, missionary work, enduring in the church."],ask:"“No record describes those angelic ordinations until five years after the church was founded, and the revelations were expanded after the fact — can we look at the Book of Commandments and D&C 27 side by side on the Joseph Smith Papers site?”",ids:["priesthood-restoration-late-account","book-of-commandments-revisions","endowment-masonic-origins"]}
 ];
-const WHYVERSE={
-"Deuteronomy 18:21-22":"The prophet test, from God himself: one failed prophecy disqualifies. Carries more cases on this site than any other passage.",
-"Isaiah 43:10":"'Before me there was no God formed, neither shall there be after me' — six words that end eternal progression, exaltation, and a God who was once a man.",
-"Proverbs 12:22":"'Lying lips are abomination to the LORD' — the honesty test for the polygamy denials, the post-Manifesto years, and every 'faith-promoting' embellishment.",
-"1 Thessalonians 5:21":"'Prove all things; hold fast that which is good' — your permission slip for this entire site. Testing claims is obedience, not faithlessness.",
-"Psalm 90:2":"'From everlasting to everlasting, thou art God' — no career before deity, no exaltation track record. Pairs with Moroni 8:18 from their own book.",
-"Numbers 23:19":"'God is not a man' — the plainest sentence in Scripture against the exalted-man doctrine, and it's in the books they accept.",
-"Deuteronomy 4:2":"'Ye shall not add unto the word' — the canon question in one verse, for D&C 132, the Book of Abraham, and every revision after.",
-"Deuteronomy 6:4":"The Shema — 'the LORD our God is one LORD.' The monotheism every Israelite prophet died defending, against a plurality of gods.",
-"Isaiah 44:6-8":"'Beside me there is no God... I know not any' — God himself denies knowledge of other gods. Read slowly with a Latter-day Saint friend.",
-"Isaiah 45:5":"'There is none beside me' — Isaiah 43–46 says it a dozen ways; count them together out loud.",
-"Ephesians 4:25":"'Putting away lying, speak every man truth' — the standard for institutions as well as men.",
-"Galatians 1:6-9":"'Though we, or an angel from heaven, preach any other gospel... let him be accursed' — written as if Paul had met Moroni.",
-"Isaiah 53":"The suffering servant, complete in the Great Isaiah Scroll a century before Christ — proof the text was preserved, and the gospel in one chapter.",
-"Matthew 5:44":"'Love your enemies' — the posture verse. You will never argue anyone into the kingdom whom you haven't loved first.",
-"1 Timothy 3:2":"'The husband of one wife' — the New Testament's marriage standard for leaders, three words long.",
-"Acts 17:11":"The Bereans were called noble for checking the apostle Paul against Scripture daily — the biblical alternative to praying for a feeling."
-};
+
 function bindOpens(){document.querySelectorAll("#main [data-open]").forEach(b=>b.addEventListener("click",()=>openCase(b.dataset.open)));}
 function renderTheySay(){
   $("#main").innerHTML=`<div class="viewhead"><h2>They just said…</h2>
@@ -1631,7 +1583,7 @@ function renderKnow(){
   document.querySelectorAll("#main [data-open]").forEach(b=>b.addEventListener("click",()=>openCase(b.dataset.open)));
 }
 
-const ACTIMG={"I":{"src":"https://commons.wikimedia.org/wiki/Special:FilePath/The%20%22Sacred%20Grove%22.jpg?width=1000","cap":"Act I begins in the Sacred Grove near Palmyra"},"II":{"src":"https://commons.wikimedia.org/wiki/Special:FilePath/Mormon%20Pioneer%20handcart%20statue.jpg?width=1000","cap":"Act II: the pioneer exodus and the hardening in Utah"},"III":{"src":"https://commons.wikimedia.org/wiki/Special:FilePath/Salt%20Lake%20Temple%20UT2.jpg?width=1000","cap":"Act III: the modern reckonings"}};
+
 const PATHIMG={"strong":"https://commons.wikimedia.org/wiki/Special:FilePath/Joseph%20Smith%20Papyrus%20I.jpg?width=800","fair":"https://commons.wikimedia.org/wiki/Special:FilePath/Christus%20statue%20temple%20square%20salt%20lake%20city.jpg?width=800","prov":"https://commons.wikimedia.org/wiki/Special:FilePath/Book%20of%20Mormon%201830%20edition%20reprint.jpg?width=800","practice":"https://commons.wikimedia.org/wiki/Special:FilePath/Salt%20Lake%20Temple%20UT2.jpg?width=800","gospel":"https://commons.wikimedia.org/wiki/Special:FilePath/Cristo%20crucificado.jpg?width=800","theology":"https://commons.wikimedia.org/wiki/Special:FilePath/The%20Great%20Isaiah%20Scroll%20MS%20A%20(1QIsa)%20-%20Google%20Art%20Project.jpg?width=800","history-hard":"https://commons.wikimedia.org/wiki/Special:FilePath/G.%20W.%20Fasel%20-%20Charles%20G.%20Crehen%20-%20Nagel%20%26%20Weingaertner%20-%20Martyrdom%20of%20Joseph%20and%20Hiram%20Smith%20in%20Carthage%20jail%2C%20June%2027th%2C%201844.jpg?width=800"};
 document.addEventListener("click",e=>{const im=e.target.closest(".kimg img,.ktop,.corestrip img,.actimg img");if(im)showLightbox(im.dataset.full||im.src,im.dataset.cap||"");});
 /* ---------- router ---------- */
@@ -1685,7 +1637,7 @@ document.addEventListener("keydown",e=>{
 
 
 const TOURKEY="wb_tour";
-const TOURSTEPS=[{"icon":"⚖","title":"Welcome to the examination","body":"<b>__N__ documented claims</b> about Mormonism, each weighed against the Bible. Every claim shows its sources, the church's <b>strongest defense</b>, and an honest verdict — nothing is cherry-picked, and weak criticisms are called weak."},{"icon":"🏷","title":"Four verdicts, one glance","body":"Every claim lands in one of four columns:<div class=\"vrow2\"><div><span class=\"badge v-admitted\">Admitted</span><span>their own sources concede the facts</span></div><div><span class=\"badge v-unrefuted\">Unrefuted</span><span>no adequate answer exists</span></div><div><span class=\"badge v-contested\">Contested</span><span>a real debate — both sides shown</span></div><div><span class=\"badge v-answered\">Answered</span><span>the defense wins, and we say so</span></div></div>"},{"icon":"📂","title":"Open any case","body":"Click a claim title and you get the full case file: <b>the claim</b> → <b>the verses behind it</b> (click any reference to read it in place) → <b>the best defense, steelmanned</b> → <b>the verdict</b> → <b>why it matters</b> → and <b>how to bring it up in conversation</b>."},{"icon":"🧭","title":"The sidebar is your map","body":"Sections sort the claims by kind. Below them: <b>The heart of it</b> (the three foundational issues), <b>Sharing the gospel</b> (the full how-to guide), <b>Guided paths</b>, <b>Timeline</b>, and <b>Terms explained</b>. Use ← → arrow keys to move between cases; hover any ⓘ for a plain-English explainer."},{"icon":"🚀","title":"Where to start","body":"New to all this? Read <b>The heart of it</b> first — a different God, a different Jesus, a different gospel — then take the guided path <i>The five strongest cases</i>. You can replay this tour anytime from the sidebar.","cta":"Take me to the heart of it"}];
+const TOURSTEPS=[{"icon":"⚖","title":"What this is","body":"<b>__N__ documented claims</b> about the Latter-day Saint church, each weighed against the Bible. Every case gives the strongest LDS answer first, then an honest verdict. Popular Christian arguments that fail are marked <b>do not use</b> — there are nine of them here."},{"icon":"📖","title":"Every case opens in plain English","body":"Short blocks. One idea per sentence. What they teach, what the text says, their best answer, how strong it is, and one line to actually say out loud. The sourced version — scholars named, citations in full — sits underneath on the same page. Nothing is hidden."},{"icon":"🏷","title":"Four verdicts, one glance","body":"Every claim lands in one of four columns:<div class=\"vrow2\"><div><span class=\"badge v-admitted\">Admitted</span><span>the church's own publications concede it</span></div><div><span class=\"badge v-unrefuted\">Unrefuted</span><span>no good LDS answer has been published</span></div><div><span class=\"badge v-contested\">Contested</span><span>they have a real answer — say so</span></div><div><span class=\"badge v-answered\">Answered</span><span>their answer wins, and we say so</span></div></div>"},{"icon":"💬","title":"You are given the words","body":"Each case ends with a line you can say. Each one also has a <b>Conversation</b> tab with a real back-and-forth: they say this, you say that, they push back, you answer. Bible and Book of Mormon references open where you point at them, with the verses either side."},{"icon":"🚀","title":"Where to start","body":"Read <b>The heart of it</b> first. It is one page, and it holds the three differences everything else hangs from. Then <b>Sharing Jesus</b>, which is about the person rather than the argument. Replay this tour any time from the sidebar.","cta":"Take me to the heart of it"}];
 function startTour(){
   const old=document.querySelector(".tourwrap");if(old)old.remove();
   let ti=0;
