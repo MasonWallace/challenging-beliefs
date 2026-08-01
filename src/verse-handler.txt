@@ -25,15 +25,20 @@ let pinnedCite=null,hoverTimer=null,scrolling=false,scrollT=null;
   const openVerse=(ch,pin)=>{
     const box=vbox(); if(!box)return;
     const cite=ch.dataset.cite;
-    const host=ch.closest(".pblk")||ch.closest(".claim")||ch.closest(".defense")||null;
-    if(host&&host.parentNode&&box.parentNode!==host.parentNode||host&&box.previousElementSibling!==host){
-      if(host&&host.parentNode)host.parentNode.insertBefore(box,host.nextSibling);
-    }
+    const host=ch.closest(".pblk, .claim, .defense, .talk, .vbox, .why, .saybox, li, p")
+      ||ch.closest(".chips") && ch.closest(".claimside");
+    if(host&&host.parentNode&&box.previousElementSibling!==host)host.parentNode.insertBefore(box,host.nextSibling);
     document.querySelectorAll(".chip.open,.chip.peek").forEach(x=>x.classList.remove("open","peek"));
     ch.classList.add(pin?"open":"peek");
     if(pin)pinnedCite=cite;
     box.innerHTML=buildHtml(cite,VERSES[cite],sideOf(ch));
     const cb=box.querySelector("[data-close]");if(cb)cb.addEventListener("click",clearVerse);
+    /* the cited verse can sit below three verses of context — bring it into view */
+    const inner=box.querySelector(".versebox"),hl=box.querySelector(".vs.hl");
+    if(inner&&hl){
+      const want=hl.offsetTop-inner.offsetTop-Math.max(0,(inner.clientHeight-hl.offsetHeight)/2);
+      inner.scrollTop=Math.max(0,want);
+    }
   };
   window.addEventListener("scroll",()=>{scrolling=true;clearTimeout(scrollT);clearTimeout(hoverTimer);
     scrollT=setTimeout(()=>{scrolling=false;},220);},{passive:true});

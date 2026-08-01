@@ -664,6 +664,19 @@
   .defense em,.vbox em,.why em{color:var(--ink);font-style:italic;opacity:.95}
   .dlab.blue{color:var(--gold)}
   .pblk .plab.k-plain{color:var(--purp) !important}
+
+  #versebox .versebox{position:relative}
+  #versebox .versebox .vtext{max-height:none}
+
+  details.claimfull{margin:14px 0 0;border-top:1px solid var(--line);padding-top:10px}
+  details.claimfull>summary{cursor:pointer;list-style:none;font-size:.68rem;font-weight:700;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding:2px 0}
+  details.claimfull>summary::-webkit-details-marker{display:none}
+  details.claimfull>summary::after{content:" →"}
+  details.claimfull[open]>summary::after{content:" ↓"}
+  details.claimfull>summary:hover{color:var(--ink)}
+  details.claimfull .claim{margin-top:10px}
+  details.claimfull .claim p{font-size:.9rem;color:var(--muted);line-height:1.75}
 </style>
 
 <div class="app">
@@ -1083,13 +1096,11 @@ function renderNav(){
   const read=store.read.size;
   $("#sideprog").innerHTML=`
     <div class="setbox">
-      <button id="simplebtn" class="setbtn wide${store.full?" on":""}" title="Quick read opens each case in plain English; Full detail opens the sourced version. Both are always one click apart.">${store.full?"◆":"◇"} ${store.full?"Full detail":"Quick read"}</button>
       <div class="setrow">
         <button id="themebtn" class="setbtn">◐ ${document.documentElement.dataset.theme==="light"?"Dark":"Light"}</button>
         <button id="tourbtn" class="setbtn">✦ Tour</button>
       </div>
     </div>`;
-  $("#simplebtn").addEventListener("click",()=>{store.full=!store.full;localStorage.setItem(KEY_FULL,store.full?"1":"0");renderNav();render();});
   $("#themebtn").addEventListener("click",()=>{
     const cur=document.documentElement.dataset.theme==="light"?"dark":"light";
     document.documentElement.dataset.theme=cur;
@@ -1231,9 +1242,9 @@ function renderCase(){
     <div class="case">
       <div class="meta"><span class="badge v-${d.verdict}">${VLABEL[d.verdict]} ${info(TIPS.verdict[d.verdict])}</span><span class="tag">${CATS[d.category]} ${info(CATDESC[d.category])}</span><span class="tag">seriousness: ${SEVLABEL[d.severity]} ${info(TIPS.impact)}</span>${d.avoid?`<span class="tag" style="border-color:var(--red);color:var(--red)">⚠ popular claim — do not use it</span>`:d.featured?`<span class="tag" style="border-color:var(--gold);color:var(--gold)">★ strongest evidence ${info(TIPS.strongest)}</span>`:isStrong(d)?`<span class="tag" style="border-color:var(--amber);color:var(--amber)">☆ strong evidence</span>`:""}</div>
       <h2>${esc(d.title)}</h2>
-      ${(d.plain&&d.plain.length&&store.full)?`<button class="quickback" id="toquick">← Show the quick summary</button>`:""}
+      
       <div class="ctop">
-        <div class="claimcol">${(d.plain&&d.plain.length&&!store.full)?plainHtml(d):`<div class="dlab red" style="margin-top:0">The claim</div><div class="claim">${paras(d.claim)}</div>`}<div id="versebox"></div></div>
+        <div class="claimcol">${(d.plain&&d.plain.length)?`${plainHtml(d)}<details class="claimfull"><summary>The claim, stated in full</summary><div class="claim">${paras(d.claim)}</div></details>`:`<div class="dlab red" style="margin-top:0">The claim</div><div class="claim">${paras(d.claim)}</div>`}<div id="versebox"></div></div>
         ${passages}
       </div>
       ${comp}
@@ -1288,15 +1299,20 @@ function renderCase(){
   const openVerse=(ch,pin)=>{
     const box=vbox(); if(!box)return;
     const cite=ch.dataset.cite;
-    const host=ch.closest(".pblk")||ch.closest(".claim")||ch.closest(".defense")||null;
-    if(host&&host.parentNode&&box.parentNode!==host.parentNode||host&&box.previousElementSibling!==host){
-      if(host&&host.parentNode)host.parentNode.insertBefore(box,host.nextSibling);
-    }
+    const host=ch.closest(".pblk, .claim, .defense, .talk, .vbox, .why, .saybox, li, p")
+      ||ch.closest(".chips") && ch.closest(".claimside");
+    if(host&&host.parentNode&&box.previousElementSibling!==host)host.parentNode.insertBefore(box,host.nextSibling);
     document.querySelectorAll(".chip.open,.chip.peek").forEach(x=>x.classList.remove("open","peek"));
     ch.classList.add(pin?"open":"peek");
     if(pin)pinnedCite=cite;
     box.innerHTML=buildHtml(cite,VERSES[cite],sideOf(ch));
     const cb=box.querySelector("[data-close]");if(cb)cb.addEventListener("click",clearVerse);
+    /* the cited verse can sit below three verses of context — bring it into view */
+    const inner=box.querySelector(".versebox"),hl=box.querySelector(".vs.hl");
+    if(inner&&hl){
+      const want=hl.offsetTop-inner.offsetTop-Math.max(0,(inner.clientHeight-hl.offsetHeight)/2);
+      inner.scrollTop=Math.max(0,want);
+    }
   };
   window.addEventListener("scroll",()=>{scrolling=true;clearTimeout(scrollT);clearTimeout(hoverTimer);
     scrollT=setTimeout(()=>{scrolling=false;},220);},{passive:true});
@@ -1506,7 +1522,6 @@ function renderShare(){
   <button class="start" data-goto-path="gospel">Open the gospel-conversations path →</button></div>`;
   const b=$("#main").querySelector("[data-goto-path]");
   if(b)b.addEventListener("click",()=>{state.view="paths";state.caseId=null;render();});
-  const tq=$("#toquick");if(tq)tq.addEventListener("click",()=>{store.full=false;localStorage.setItem(KEY_FULL,"0");renderNav();render();});
   bindOpens();
 }
 
