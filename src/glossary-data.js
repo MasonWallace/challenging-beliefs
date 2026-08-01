@@ -144,6 +144,11 @@ const BHI = [
 
 /* ---- The Messiah Case ---- */
 const MESSIAH = [
+  { t: "brit chadashah", d: "Hebrew for <i>new covenant</i> — <i>brit</i> is covenant, <i>chadashah</i> is new. It is the exact phrase Jeremiah uses in Jeremiah 31:31, which is the whole point: the words are Hebrew and Jewish, not a Christian translation choice." },
+  { t: "counter-missionary", d: "The organised Jewish response to Christian outreach — teachers and groups whose work is specifically answering Christian claims about the Hebrew Bible. Tovia Singer and Jews for Judaism are the best known. Expect a prepared answer, not an improvised one." },
+  { t: "Rashi", d: "Rabbi Shlomo Yitzchaki (1040–1105), a French rabbi and the most influential Jewish Bible commentator ever. He read Isaiah 53 as the nation of Israel, and that reading became standard after him — it was not standard before." },
+  { t: "Nahal Hever", d: "A ravine near the Dead Sea where scroll fragments were found in the 1950s. One of them carries the reading 'they pierced' at Psalm 22:16, about a thousand years older than the standard Hebrew text." },
+  { t: "Septuagint", d: "The Greek translation of the Hebrew Bible, made by Jewish scholars starting around 250 BC — often shortened to LXX. It matters constantly here because it is pre-Christian: when it renders a verse a certain way, no Christian could have influenced it." },
   { t: "the Sanhedrin", d: "The Jewish high court of the Second Temple period, and also the name of a Talmudic tractate. When a case cites 'Sanhedrin 98a,' it is citing the tractate, not the court." },
   { t: "Shiloh", d: "The mysterious word in Genesis 49:10 — 'the sceptre shall not depart from Judah… until Shiloh come.' Ancient Jewish sources including the Targum read it messianically; its exact meaning is genuinely disputed, and that dispute is worth conceding." },
   { t: "Sukkah 52a", d: "The Talmudic passage that introduces two Messiahs — Messiah ben Joseph, who is killed, and Messiah ben David, who reigns. It exists because the Hebrew Scriptures genuinely present two portraits, which is the whole hinge of this section." },

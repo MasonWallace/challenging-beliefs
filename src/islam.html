@@ -588,6 +588,21 @@
   .vmeaning{display:block;font-size:.82rem;line-height:1.6;color:var(--muted);margin:8px 0 0}
   .vbox .vmeaning{margin-top:6px}
   .verdictline{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+
+  /* --- verse panel: compact, and it appears beside what you hovered --- */
+  .claimcol .versebox,.pblk + .versebox{margin:10px 0 14px;max-height:210px;overflow-y:auto;scrollbar-width:thin}
+  .versebox .vtext{font-size:.86rem;line-height:1.62;max-width:none}
+  .versebox .vs{color:var(--dim)}
+  .versebox .vs.hl{color:var(--ink)}
+  .versebox .vwhy{font-size:.76rem;margin-top:8px;padding-top:7px}
+  .versebox .vr{font-size:.66rem}
+  #versebox{scroll-margin-top:80px}
+
+  /* --- plain-block headings are labels, not body text --- */
+  .pblk .plab{color:var(--acc) !important}
+  .pblk.say .plab{color:var(--green) !important}
+  .pblk .plab.warn{color:var(--amber) !important}
+  .pblk .plab.strong{color:var(--gold) !important}
 </style>
 
 <div class="app">
@@ -998,7 +1013,8 @@ function plainHtml(d){
   return (d.plain||[]).map(b=>{
     const ss=splitSentences(b.d),ps=[];
     for(let i=0;i<ss.length;i+=2)ps.push("<p>"+rt(ss.slice(i,i+2).join(" "))+"</p>");
-    return `<div class="pblk${b.say?" say":""}"><div class="plab">${esc(b.t)}</div>${ps.join("")}</div>`;
+    const tone=/^how strong/i.test(b.t)?" strong":/(don't|do not|avoid|the rule|embarrass)/i.test(b.t)?" warn":"";
+    return `<div class="pblk${b.say?" say":""}"><div class="plab${tone}">${esc(b.t)}</div>${ps.join("")}</div>`;
   }).join("");
 }
 function renderCase(){
@@ -1079,6 +1095,10 @@ function renderCase(){
   const showVerse=(ch,pin)=>{
     const cite=ch.dataset.cite,v=VERSES[cite],box=$("#versebox");
     if(!box)return;
+    /* put the passage beside the thing that was hovered, not at the foot of the column */
+    const host=ch.closest(".pblk")||ch.closest(".claim")||null;
+    if(host&&host.parentNode)host.parentNode.insertBefore(box,host.nextSibling);
+    else{const cc=document.querySelector("#main .claimcol");if(cc)cc.appendChild(box);}
     document.querySelectorAll(".chip.open,.chip.peek").forEach(x=>x.classList.remove("open","peek"));
     ch.classList.add(pin?"open":"peek");
     if(pin)pinnedCite=cite;

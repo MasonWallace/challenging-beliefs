@@ -28,13 +28,13 @@ const CATDESC = {
   "nt-jewishness": "The New Testament as a first-century Jewish library, and the frame that forbids contempt: Romans 11."
 };
 const WHYMAP = {
-  "suffering-servant": "This is the chapter the conversation is usually about. Getting it right — including what the rabbis themselves wrote about it — is the difference between a real conversation and a shouting match.",
-  "messianic-prophecy": "Any one of these can be argued about. The cumulative case is what asks to be explained: a specific portrait, written centuries early, in texts your friend already holds as Scripture.",
-  "daniel-timeline": "Every other prophecy can be placed anywhere in history. This one cannot — it has a terminus, and the Temple it names is gone.",
-  "temple-atonement": "The Torah itself grounds atonement in blood on an altar. There has been no altar for nineteen centuries; something has to answer that.",
-  "new-covenant": "The idea that a new covenant is a Christian invention is answered by a Jewish prophet, in the Jewish Scriptures, addressed to Israel by name.",
-  "rabbinic-objections": "These are serious arguments made by serious people. Answering the strongest form of them is the only kind of answering that counts — and dropping the bad Christian arguments is part of the same discipline.",
-  "nt-jewishness": "The single biggest obstacle is not an argument but a history: 'Christian' has meant something terrible to Jewish families. Romans 11 is the frame that forbids what was done."
+ "suffering-servant": "Isaiah 53 is the chapter this conversation usually lands on. Getting it right — including what Jewish sources themselves said about it before the argument started — is what separates a real conversation from a shouting match. **Therefore:** make the argument out of their library, not yours, and it cannot be waved away as a Christian reading.",
+ "messianic-prophecy": "Any single prophecy can be argued about. What asks to be explained is the whole picture together: a specific portrait, written centuries early, in books your friend already accepts as Scripture. **Therefore:** take one text at a time and let them add up, rather than firing twelve at once.",
+ "daniel-timeline": "Every other prophecy can be slid around in history. This one cannot — it has an order of events, and the last one already happened in AD 70. **Therefore:** this is the one place where you can point at a date instead of arguing about a word.",
+ "temple-atonement": "The law of Moses grounds forgiveness in blood on an altar. That altar has been gone for nineteen centuries. **Therefore:** the question is not whether Judaism has an answer — it does — but whether the Torah itself authorises that answer.",
+ "new-covenant": "If your friend believes Christians invented a second covenant to justify a new religion, nothing else you say will get a hearing. Jeremiah closes that door from inside the Hebrew Bible. **Therefore:** the disagreement is no longer whether a new covenant was promised — only who brought it.",
+ "rabbinic-objections": "These are serious arguments made by prepared people, and answering the weak version of them convinces nobody. **Therefore:** learn their strongest form, drop the Christian arguments that fail, and you will be one of the very few Christians worth talking to.",
+ "nt-jewishness": "The biggest obstacle here is not an argument. It is a history — what the word Christian has meant to Jewish families for a thousand years. **Therefore:** name that history yourself, unprompted, before you open a single verse. Nothing lands until you do."
 };
 const GLOSSARY = [
   { t: "Tanakh", d: "The Hebrew Bible, from the initials T-N-K: Torah (law), Nevi'im (prophets), Ketuvim (writings). The same books as the Christian Old Testament, in a different order — never call it 'the Old Testament' in conversation." },
@@ -238,7 +238,7 @@ build({
   methodFoot: "Method: every case carries the strongest published counter-missionary reply; arguments that fail are marked don't use; the strongest cases are the ones made from Jewish sources alone.",
   roleNote: "<b>Role:</b> this is the passage the argument rests on.",
   VLABEL: { admitted: "Conceded", unrefuted: "Strong", contested: "Contested", answered: "Don't use" },
-  VDESC: {"admitted": "Jewish sources agree on the basic fact. You can make this point from their own books.", "unrefuted": "Nobody has given a good answer to this one.", "contested": "Serious people argue it both ways. Say so out loud.", "answered": "This is a Christian argument that does not hold up. Drop it."},
+  VDESC: {"admitted": "Jewish sources themselves grant the basic fact. You can make this point straight out of their own books.", "unrefuted": "Strong for the Christian side — no Jewish counter-missionary answer deals with it properly.", "contested": "Genuinely open. Serious people on both sides argue it, so say so before your friend does.", "answered": "Weak for the Christian side. This argument does not hold up — drop it."},
   oldBrand: 'ISLAM · VS. THE BIBLE', newBrand: "THE MESSIAH CASE · FROM THE TANAKH",
   keyPrefix: 'wbm_',
   textSwaps: [

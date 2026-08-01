@@ -1,4 +1,6 @@
 const fs=require('fs'),P=f=>__dirname+'/'+f, grade=require('./grade.js');
+const QUOTE=/["\u201c\u2018']([^"\u201d\u2019']{30,})["\u201d\u2019']/g;
+const strip=t=>String(t).replace(QUOTE,' a quoted passage. ');
 const T=[['mormon','index.html'],['islam','islam-data.json'],['jw','jw-data.json'],
          ['bhi','bhi-data.json'],['messiah','messiah-data.json'],['god','god-data.json']];
 for(const [slug,file] of T){
@@ -11,7 +13,7 @@ for(const [slug,file] of T){
   for(const x of d){
     if(!plain[x.id])continue;
     x.plain=plain[x.id]; delete x.context; hit++;
-    const r=grade(x.plain.map(b=>b.d).join(' '));
+    const r=grade(strip(x.plain.map(b=>b.d).join(' ')));
     if(r.grade>7.9||r.wps>14||r.longest>25) over.push([x.id,r.grade,r.wps,r.longest]);
   }
   const missing=Object.keys(plain).filter(k=>!d.some(x=>x.id===k));
