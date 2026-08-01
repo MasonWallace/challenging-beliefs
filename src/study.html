@@ -10,6 +10,8 @@
     --purp:#b394e0; --purp-bg:#2c2440;
     --serif:'Iowan Old Style','Palatino Linotype',Palatino,'Book Antiqua',Georgia,serif;
     --sans:ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    --acc:var(--gold);
+    --acc2:var(--purp);
     --mono:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
   }
   :root[data-theme="light"]{
@@ -604,6 +606,45 @@
   .pblk.say .plab{color:var(--green) !important}
   .pblk .plab.warn{color:var(--amber) !important}
   .pblk .plab.strong{color:var(--gold) !important}
+
+  /* --- floating verse card: no layout shift, compact --- */
+  .versepop{position:fixed;z-index:120;display:none;max-width:560px}
+  .versepop.on{display:block;animation:vpop .12s ease-out}
+  @keyframes vpop{from{opacity:0;transform:translateY(-3px)}to{opacity:1;transform:none}}
+  .versepop .versebox{margin:0;max-height:168px;overflow-y:auto;box-shadow:0 18px 44px rgba(0,0,0,.55);
+    background:var(--side,var(--panel2));border:1px solid var(--line2)}
+  .claimcol .versebox,.pblk + .versebox,#versebox .versebox{max-height:168px;overflow-y:auto;margin:10px 0 14px}
+  .versebox .vtext{font-size:.79rem;line-height:1.55}
+  .versebox .vwhy{font-size:.74rem}
+
+  /* --- plain-block headings: coloured and sized, no cascade fights --- */
+  .pblk .plab{font-size:.74rem;letter-spacing:.1em}
+  .pblk .plab.k-say{color:var(--green)}
+  .pblk .plab.k-them{color:var(--red)}
+  .pblk .plab.k-text{color:var(--gold)}
+  .pblk .plab.k-strength{color:var(--amber)}
+  .pblk .plab.k-help{color:var(--acc2)}
+  .pblk .plab.k-plain{color:var(--acc)}
+  .pblk.k-big p{font-size:1.02rem}
+
+  /* --- defense / verdict / why: give the eye somewhere to land --- */
+  .defense p,.vbox p,.why p{color:var(--muted)}
+  .defense b,.vbox b,.why b,.claim b,.pblk p b{color:var(--ink);font-weight:600}
+  .defense i,.defense em,.vbox i,.why i,.claim i,.pblk p i{color:var(--ink);opacity:.9;font-style:italic}
+  .defense p:first-of-type{font-size:1.02rem;color:var(--ink);opacity:.94}
+  .vbox .vb{font-size:1.02rem}
+  .why .wtail{color:var(--gold);opacity:.9}
+  .dsrc a{color:var(--acc);border-bottom:1px dotted color-mix(in srgb,var(--acc) 55%,transparent)}
+  .dsrc a:hover{border-bottom-style:solid}
+
+  .pblk .plab{color:var(--gold)}
+  .pblk .plab.k-them{color:var(--red) !important}
+  .pblk .plab.k-text{color:var(--amber) !important}
+  .pblk .plab.k-strength{color:var(--purp) !important}
+  .pblk .plab.k-help{color:var(--gold) !important}
+  .pblk .plab.k-plain{color:var(--muted) !important}
+  .pblk .plab.k-say{color:var(--green) !important}
+  .pblk.k-big p{font-size:1.03rem;color:var(--ink);opacity:.93}
 </style>
 
 <div class="app">
@@ -721,7 +762,7 @@ function emphasize(t){
   t=t.replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').replace(/==(.+?)==/g,'<mark>$1</mark>');
   return t;
 }
-function rich(raw){return glossify(emphasize(esc(raw)));}
+function rich(raw){return glossify(emphasize(esc(raw).replace(/&lt;(\/?)(b|i|em|strong)&gt;/g,"<$1$2>")));}
 function paras(raw,per){
   per=per||2;
   const s=splitSentences(raw),ps=[];
@@ -1125,8 +1166,10 @@ function plainHtml(d){
   return (d.plain||[]).map(b=>{
     const ss=splitSentences(b.d),ps=[];
     for(let i=0;i<ss.length;i+=2)ps.push("<p>"+rt(ss.slice(i,i+2).join(" "))+"</p>");
-    const tone=/^how strong/i.test(b.t)?" strong":/(don't|do not|avoid|the rule|embarrass)/i.test(b.t)?" warn":"";
-    return `<div class="pblk${b.say?" say":""}"><div class="plab${tone}">${esc(b.t)}</div>${ps.join("")}</div>`;
+    const t=b.t.toLowerCase();
+    const kind=b.say?"k-say":/^(the objection|what (you|your|people|they)|how it usually)/.test(t)?"k-them":/(verse|text|chapter|says|passage|record|promise|covenant does)/.test(t)?"k-text":/^how strong|^the rule|don't|do not use/.test(t)?"k-strength":/^why this|^why it|helps you/.test(t)?"k-help":"k-plain";
+    const big=/(k-text|k-say)/.test(kind)?" k-big":"";
+    return `<div class="pblk${b.say?" say":""}${big}"><div class="plab ${kind}">${esc(b.t)}</div>${ps.join("")}</div>`;
   }).join("");
 }
 function renderCase(){
@@ -1199,55 +1242,70 @@ function renderCase(){
     $("#back").addEventListener("click",()=>{state.view=path?"paths":"overview";state.caseId=null;render();});
   if(nextInPath)$("#pathnext").addEventListener("click",()=>openCase(nextInPath));
   document.querySelectorAll(".relrow [data-open]").forEach(b=>b.addEventListener("click",()=>openCase(b.dataset.open)));
-  let pinnedCite=null;
-  const clearVerse=()=>{pinnedCite=null;const b=$("#versebox");if(b)b.innerHTML="";
+  let pinnedCite=null,hoverTimer=null,scrolling=null;
+  const pop=(()=>{let el=document.getElementById("versepop");
+    if(!el){el=document.createElement("div");el.id="versepop";el.className="versepop";document.body.appendChild(el);}
+    return el;})();
+  const hidePop=()=>{pop.classList.remove("on");};
+  const clearVerse=()=>{pinnedCite=null;const b=$("#versebox");if(b)b.innerHTML="";hidePop();
     document.querySelectorAll(".chip.open,.chip.peek").forEach(x=>x.classList.remove("open","peek"));};
-  const showVerse=(ch,pin)=>{
-    const cite=ch.dataset.cite,v=VERSES[cite],box=$("#versebox");
+  const buildHtml=(cite,v,side,closeBtn)=>{
+    if(!v||!v.verses)
+      return '<div class="versebox vmiss"><div class="vr"><span>'+esc(cite)+'</span>'+(closeBtn?'<button data-close>✕ close</button>':'')+'</div><div class="vwhy">This reference is cited by the claim but isn\'t in the built-in reader — open it in your own Bible.</div></div>';
+    const why=findWhy(d,cite);
+    const whyHtml=why?"<b>Why it's cited:</b> "+esc(why):ROLENOTE(side);
+    const anyHl=v.verses.some(x=>x.hl);
+    const hasCtx=anyHl&&v.verses.some(x=>!x.hl);
+    const ctx=hasCtx?' <span class="vcited">— '+esc(v.ref)+', with the verses either side</span>':"";
+    const body=v.verses.map(x=>{
+      const lit=(x.hl||!anyHl);
+      const txt=(x.hl&&hasCtx)?"<em>"+esc(x.t)+"</em>":esc(x.t);
+      return '<span class="vs'+(lit?" hl":"")+'"><span class="vnum">'+x.v+'</span>'+txt+' </span>';
+    }).join("");
+    return '<div class="versebox"><div class="vr"><span>'+esc(cite)+ctx+'</span>'+(closeBtn?'<button data-close>✕ close</button>':'')+'</div><div class="vtext">'+body+'</div><div class="vwhy">'+whyHtml+'</div></div>';
+  };
+  const sideOf=ch=>ch.closest("[data-side]")?ch.closest("[data-side]").dataset.side:"";
+  /* hover = floating card, so nothing on the page moves */
+  const peek=ch=>{
+    const cite=ch.dataset.cite;
+    pop.innerHTML=buildHtml(cite,VERSES[cite],sideOf(ch),false);
+    pop.classList.add("on");
+    const r=ch.getBoundingClientRect();
+    const w=Math.min(560,window.innerWidth-24);
+    pop.style.width=w+"px";
+    let left=Math.min(Math.max(12,r.left),window.innerWidth-w-12);
+    pop.style.left=left+"px";
+    const h=pop.offsetHeight;
+    pop.style.top=(r.bottom+8+h>window.innerHeight-8?Math.max(8,r.top-h-8):r.bottom+8)+"px";
+    document.querySelectorAll(".chip.peek").forEach(x=>x.classList.remove("peek"));
+    ch.classList.add("peek");
+  };
+  /* click = pinned in the reading column, beside what you clicked */
+  const pinVerse=ch=>{
+    hidePop();
+    const cite=ch.dataset.cite,box=$("#versebox");
     if(!box)return;
-    /* put the passage beside the thing that was hovered, not at the foot of the column */
     const host=ch.closest(".pblk")||ch.closest(".claim")||null;
     if(host&&host.parentNode)host.parentNode.insertBefore(box,host.nextSibling);
-    else{const cc=document.querySelector("#main .claimcol");if(cc)cc.appendChild(box);}
     document.querySelectorAll(".chip.open,.chip.peek").forEach(x=>x.classList.remove("open","peek"));
-    ch.classList.add(pin?"open":"peek");
-    if(pin)pinnedCite=cite;
-    if(!v||!v.verses){
-      box.innerHTML='<div class="versebox vmiss"><div class="vr"><span>'+esc(cite)+'</span><button data-close>✕ close</button></div><div class="vwhy">This reference is cited by the claim but isn\'t in the built-in reader — open it in your own Bible.</div></div>';
-    }else{
-      const side=ch.closest("[data-side]")?ch.closest("[data-side]").dataset.side:"";
-      const why=findWhy(d,cite);
-      const whyHtml=why?"<b>Why it's cited:</b> "+esc(why):ROLENOTE(side);
-      const anyHl=v.verses.some(x=>x.hl);
-      const hasCtx=anyHl&&v.verses.some(x=>!x.hl);
-      const ctx=hasCtx?' <span class="vcited">— '+esc(v.ref)+', with the verses either side</span>':"";
-      const body=v.verses.map(x=>{
-        const lit=(x.hl||!anyHl);
-        const txt=(x.hl&&hasCtx)?"<em>"+esc(x.t)+"</em>":esc(x.t);
-        return '<span class="vs'+(lit?" hl":"")+'"><span class="vnum">'+x.v+'</span>'+txt+' </span>';
-      }).join("");
-      box.innerHTML='<div class="versebox"><div class="vr"><span>'+esc(cite)+ctx+'</span><button data-close>✕ close</button></div><div class="vtext">'+body+'</div><div class="vwhy">'+whyHtml+'</div></div>';
-    }
+    ch.classList.add("open");pinnedCite=cite;
+    box.innerHTML=buildHtml(cite,VERSES[cite],sideOf(ch),true);
     const cb=box.querySelector("[data-close]");if(cb)cb.addEventListener("click",clearVerse);
-    if(pin)requestAnimationFrame(()=>box.scrollIntoView({behavior:"smooth",block:"nearest"}));
   };
-  /* LIVEREFS: any reference printed inside prose that we can actually open */
-  document.querySelectorAll("#main .ref-bib, #main .ref-lds").forEach(r=>{
-    const key=r.textContent.replace(/\s+/g," ").trim();
-    const hit=VERSES[key]?key:Object.keys(VERSES).find(k=>k.replace(/[\u2013\u2014]/g,"-")===key.replace(/[\u2013\u2014]/g,"-"));
-    if(!hit)return;
-    r.classList.add("live","chip");r.dataset.cite=hit;
-  });
+  window.addEventListener("scroll",()=>{clearTimeout(scrolling);hidePop();
+    scrolling=setTimeout(()=>{scrolling=null;},180);},{passive:true});
   const canHover=window.matchMedia("(hover:hover)").matches;
   document.querySelectorAll(".chip").forEach(ch=>{
     ch.addEventListener("click",()=>{
       if(ch.dataset.ext){window.open(ch.dataset.ext,"_blank");return;}
       if(pinnedCite===ch.dataset.cite){clearVerse();return;}
-      showVerse(ch,true);
+      pinVerse(ch);
     });
     if(!ch.dataset.ext&&canHover){
-      ch.addEventListener("mouseenter",()=>{if(!pinnedCite)showVerse(ch,false);});
-      ch.addEventListener("mouseleave",()=>{if(!pinnedCite)clearVerse();});
+      ch.addEventListener("mouseenter",()=>{clearTimeout(hoverTimer);
+        hoverTimer=setTimeout(()=>{if(!scrolling)peek(ch);},260);});
+      ch.addEventListener("mouseleave",()=>{clearTimeout(hoverTimer);
+        hoverTimer=setTimeout(()=>{hidePop();ch.classList.remove("peek");},120);});
     }
   });
   
