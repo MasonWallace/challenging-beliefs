@@ -235,12 +235,7 @@ build({
   roleNote: "<b>Role:</b> this is the Watchtower teaching the claim examines.",
   refRegex: "(?:The Watchtower[,]?\\\\s(?:[A-Z][a-z]+\\\\s\\\\d{1,2},\\\\s)?\\\\d{4}|Awake![,]?\\\\s(?:[A-Z][a-z]+\\\\s\\\\d{1,2},\\\\s)?\\\\d{4}|w\\\\d{2}\\\\s\\\\d{1,2}/\\\\d{1,2}|Insight on the Scriptures|Proclaimers|Kingdom Interlinear|New World Translation|NWT)",
   VLABEL: { admitted: "Admitted", unrefuted: "Unrefuted", contested: "Contested", answered: "Answered" },
-  VDESC: {
-    admitted: "The Watchtower's own publications concede these facts — cite them from their sources alone",
-    unrefuted: "No adequate answer exists — or the best answers concede the point",
-    contested: "A serious rebuttal exists; both sides are shown",
-    answered: "The defense holds — included so nothing here is cherry-picked"
-  },
+  VDESC: {"admitted": "Strong for you — the Watchtower's own publications concede these facts. You can make the point from their library alone.", "unrefuted": "Strong for you — no adequate answer has been published, or the best answers concede the point.", "contested": "Genuinely arguable. A real rebuttal exists, and you should say so before your friend does.", "answered": "Weak for you — the defense holds. Do not lead with this one."},
   oldBrand: 'ISLAM · VS. THE BIBLE', newBrand: "JEHOVAH'S WITNESSES · VS. THE BIBLE",
   keyPrefix: 'wbjw_',
   textSwaps: [

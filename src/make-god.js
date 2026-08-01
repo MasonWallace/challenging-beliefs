@@ -236,12 +236,7 @@ build({
   methodFoot: "Method: every case carries the strongest naturalistic reply; a third are marked contested on purpose; popular Christian arguments that fail are marked don't use.",
   roleNote: "<b>Role:</b> this is the passage the argument refers to.",
   VLABEL: { admitted: "Conceded", unrefuted: "Strong", contested: "Contested", answered: "Don't use" },
-  VDESC: {
-    admitted: "Skeptical scholars grant the core fact — argue it from their sources, not yours",
-    unrefuted: "No adequate naturalistic answer exists",
-    contested: "Genuinely open — serious philosophers argue it both ways",
-    answered: "A popular Christian argument that fails — retire it"
-  },
+  VDESC: {"admitted": "Strong for you — skeptical scholars grant the core fact. Argue it from their sources, not yours.", "unrefuted": "Strong for you — no adequate naturalistic answer exists.", "contested": "Genuinely arguable. Serious philosophers argue it both ways, so say so.", "answered": "Weak for you — this Christian argument does not hold up. Drop it."},
   oldBrand: 'ISLAM · VS. THE BIBLE', newBrand: "THE CASE FOR GOD · FOR SKEPTICS",
   keyPrefix: 'wbg_',
   textSwaps: [

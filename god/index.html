@@ -1018,7 +1018,7 @@ function openCase(id,fromPath){
 }
 function ROLENOTE(side){return side==="quran"?"<b>Role:</b> this is the passage the argument refers to.":"<b>Role:</b> this is the biblical standard the claim measures against.";}
 const DEFLABEL="The strongest reply from the other side — put at its best";
-const VDESC={"admitted":"Skeptical scholars grant the core fact — argue it from their sources, not yours","unrefuted":"No adequate naturalistic answer exists","contested":"Genuinely open — serious philosophers argue it both ways","answered":"A popular Christian argument that fails — retire it"};
+const VDESC={"admitted":"Strong for you — skeptical scholars grant the core fact. Argue it from their sources, not yours.","unrefuted":"Strong for you — no adequate naturalistic answer exists.","contested":"Genuinely arguable. Serious philosophers argue it both ways, so say so.","answered":"Weak for you — this Christian argument does not hold up. Drop it."};
 function plainHtml(d){
   const rt=t=>glossify(emphasize(esc(t).replace(/&lt;(\/?)(b|i)&gt;/g,"<$1$2>")));
   return (d.plain||[]).map(b=>{

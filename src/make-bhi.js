@@ -226,12 +226,7 @@ build({
   methodFoot: "Steelman rules: every claim carries the strongest published camp defense; where the camps are right the case says so; popular Christian responses that fail are marked do not use.",
   roleNote: "<b>Role:</b> this is the passage the claim is built on.",
   VLABEL: { admitted: "Admitted", unrefuted: "Unanswered", contested: "Contested", answered: "Answered" },
-  VDESC: {
-    admitted: "The movement's own teachers state these facts openly — cite them from camp sources alone",
-    unrefuted: "The objection is not engaged in camp materials — ask it, then wait",
-    contested: "A serious rebuttal exists, and both sides hold something true",
-    answered: "The text settles it — but the concession has to come first"
-  },
+  VDESC: {"admitted": "Strong for you — the camps state these facts themselves. You can make the point from their own sources.", "unrefuted": "Strong for you — the objection is never engaged in camp materials. Ask it, then wait.", "contested": "Genuinely arguable. Both sides hold something true here, and you should say so.", "answered": "The text settles it — but the concession has to come first, or nothing will be heard."},
   oldBrand: 'ISLAM · VS. THE BIBLE', newBrand: "HEBREW ISRAELITES · VS. THE BIBLE",
   keyPrefix: 'wbb_',
   textSwaps: [

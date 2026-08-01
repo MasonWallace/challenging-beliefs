@@ -1176,7 +1176,7 @@ function openCase(id,fromPath){
 }
 function ROLENOTE(side){return side==="quran"?"<b>Role:</b> this is the Quran passage the claim examines.":"<b>Role:</b> this is the biblical standard the claim measures against.";}
 const DEFLABEL="How Muslims answer this — put at its strongest";
-const VDESC={admitted:"The church's own publications concede these facts — cite them from their sources alone",unrefuted:"No adequate answer exists — or the best answers concede the point",contested:"A serious rebuttal exists; both sides shown",answered:"The defense holds — included so nothing is cherry-picked"};
+const VDESC={"admitted":"Strong for you — the facts sit in Islam's own sources. You can make the point from their books alone.","unrefuted":"Strong for you — no adequate answer has been published, or the best answers concede the point.","contested":"Genuinely arguable. A real rebuttal exists, and you should say so before your friend does.","answered":"Weak for you — the defense holds. Do not lead with this one."};
 function plainHtml(d){
   const rt=t=>glossify(emphasize(esc(t).replace(/&lt;(\/?)(b|i)&gt;/g,"<$1$2>")));
   return (d.plain||[]).map(b=>{
