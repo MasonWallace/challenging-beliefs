@@ -1,297 +1,544 @@
 {
-  "resurrection-hallucination-hypotheses": [
-    {
-      "file": "Supper at Emmaus-Caravaggio (1601).jpg",
-      "cap": "Caravaggio's Supper at Emmaus, 1601, one of the appearance accounts these theories try to explain",
-      "credit": "National Gallery, London",
-      "license": "Public domain",
-      "where": "list"
-    },
-    {
-      "file": "Doubting Thomas (The Incredulity of St. Thomas) by Adriaen van der Werff.jpg",
-      "cap": "Van der Werff's Incredulity of Saint Thomas; the Gospels present a group encounter, not a private vision",
-      "credit": "Wikimedia Commons",
-      "license": "Public domain",
-      "where": "defense"
-    }
-  ],
-  "objection-divine-hiddenness": [
-    {
-      "file": "Wilsford, St Mary's church interior (29935080764).jpg",
-      "cap": "The interior of St Mary's, Wilsford; a representative image of the silence these seekers describe",
-      "credit": "geograph.org.uk",
-      "license": "CC BY 2.0",
-      "where": "list"
-    },
-    {
-      "file": "Gerrit van Honthorst - Christ in the Garden of Gethsemane (The Agony in the Garden).jpg",
-      "cap": "Honthorst's Agony in the Garden; the Gospels themselves record prayer that met no answer",
-      "credit": "Wikimedia Commons",
-      "license": "Public domain",
-      "where": "claim"
-    }
-  ],
-  "dontuse-atheist-mind-reading": [
-    {
-      "file": "Bertrand Russell photo.jpg",
-      "cap": "Bertrand Russell, who said he would tell God there was not enough evidence",
-      "credit": "Wikimedia Commons",
-      "license": "Public domain",
-      "where": "list"
-    }
-  ],
-  "existence-kalam-contingency": [
-    {
-      "file": "Al-Ghazali.png",
-      "cap": "The cover of a 1909 English edition of Al-Ghazali's Confessions; the kalam argument bears his tradition's name",
-      "credit": "Wikimedia Commons",
-      "license": "Public domain",
-      "where": "claim"
-    },
-    {
-      "file": "CMB Timeline300 no WMAP.jpg",
-      "cap": "A standard diagram of cosmic history from the earliest moment to the present day",
-      "credit": "NASA",
-      "license": "Public domain",
-      "where": "defense"
-    }
-  ],
-  "existence-fine-tuning": [
-    {
-      "file": "Institute of Astronomy, statue of Sir Fred Hoyle (crop).jpg",
-      "cap": "The statue of Fred Hoyle at Cambridge; his carbon resonance work gave the best-known fine-tuning example",
-      "credit": "Wikimedia Commons",
-      "license": "CC BY 4.0",
-      "where": "claim"
-    },
-    {
-      "file": "CMB World Map plain map no annotations.jpg",
-      "cap": "The cosmic microwave background mapped across the whole sky, the oldest light we can measure",
-      "credit": "NASA / WMAP",
-      "license": "CC BY 4.0",
-      "where": "defense"
-    }
-  ],
-  "existence-moral-argument": [
-    {
-      "file": "Eleanor Roosevelt UDHR.jpg",
-      "cap": "Eleanor Roosevelt holding a poster of the Universal Declaration of Human Rights, 1949",
-      "credit": "Franklin D. Roosevelt Library",
-      "license": "CC BY 2.0",
-      "where": "defense"
-    }
-  ],
-  "existence-argument-from-reason": [
-    {
-      "file": "Purkinje cell by Cajal.png",
-      "cap": "Cajal's drawing of a Purkinje cell; the argument asks whether such matter can track truth",
-      "credit": "Wikimedia Commons",
-      "license": "Public domain",
-      "where": "claim"
-    }
-  ],
-  "resurrection-minimal-facts": [
-    {
-      "file": "Nazareth Inscription.jpg",
-      "cap": "The Nazareth Inscription, a Greek edict against disturbing tombs, found in the eastern Roman world",
-      "credit": "Wikimedia Commons",
-      "license": "Public domain",
-      "where": "claim"
-    },
-    {
-      "file": "Aedicule which supposedly encloses the tomb of Jesus - Church of the Holy Sepulchre (10350934835).jpg",
-      "cap": "The aedicule in the Church of the Holy Sepulchre, the older of the two proposed tomb sites",
-      "credit": "Wikimedia Commons",
-      "license": "CC BY 2.0",
-      "where": "defense"
-    }
-  ],
-  "resurrection-early-creed": [
-    {
-      "file": "Codex Sinaiticus, GA 01.jpg",
-      "cap": "Codex Sinaiticus, the fourth-century Greek Bible that contains the Corinthian letter carrying this creed",
-      "credit": "Wikimedia Commons",
-      "license": "CC BY-SA 4.0",
-      "where": "defense"
-    }
-  ],
-  "manuscripts-nt-text": [
-    {
-      "file": "Dublin, Chester Beatty Ms Papyrus 45 BP I ff.13-14 Luke 11.50-12.12; 12.18-37; 12.42-13.1; 13.jpg",
-      "cap": "Papyrus 45, about AD 250, one of the earliest surviving copies of the four Gospels",
-      "credit": "Chester Beatty Library",
-      "license": "Public domain",
-      "where": "defense"
-    }
-  ],
-  "manuscripts-canon-formation": [
-    {
-      "file": "First Council of Nicaea Michael Damaskinos.png",
-      "cap": "Damaskinos's icon of the Council of Nicaea, 325, the meeting the Da Vinci story misdescribes",
-      "credit": "Wikimedia Commons",
-      "license": "Public domain",
-      "where": "claim"
-    }
-  ],
-  "archaeology-nt-corroboration": [
-    {
-      "file": "Delphes Gallion.jpg",
-      "cap": "A fragment of the Gallio inscription at Delphi, which dates the proconsul of Acts 18",
-      "credit": "Wikimedia Commons",
-      "license": "CC BY-SA 4.0",
-      "where": "claim"
-    },
-    {
-      "file": "Erastus stone at Theater of Corinth.jpg",
-      "cap": "The Erastus pavement at Corinth, naming a city official Paul greets at the end of Romans",
-      "credit": "Wikimedia Commons",
-      "license": "CC BY-SA 4.0",
-      "where": "defense"
-    }
-  ],
-  "archaeology-quirinius-census": [
-    {
-      "file": "Dublin, Chester Beatty Library Ms BP XVII (Papyrus 97) recto (left) - verso (right) Luke 14, 7-10; 12-14.jpg",
-      "cap": "Papyrus 97, a Greek fragment of Luke 14, from the Gospel whose census notice is under discussion",
-      "credit": "Chester Beatty Library",
-      "license": "Public domain",
-      "where": "defense"
-    }
-  ],
-  "prophecy-daniel-dating": [
-    {
-      "file": "Dead Sea Scroll cave 4Q (53229744480).jpg",
-      "cap": "Qumran Cave 4, the cave that yielded fragments of eight separate copies of the book of Daniel",
-      "credit": "Wikimedia Commons",
-      "license": "Public domain dedication (CC0)",
-      "where": "defense"
-    }
-  ],
-  "prophecy-isaiah53-psalm22": [
-    {
-      "file": "Shrine of the Book 2.jpg",
-      "cap": "The Shrine of the Book in Jerusalem, purpose-built to hold the Great Isaiah Scroll",
-      "credit": "Wikimedia Commons",
-      "license": "CC BY-SA 3.0",
-      "where": "defense"
-    }
-  ],
-  "objection-problem-of-evil": [
-    {
-      "file": "Earthquake at Lisbon.jpg",
-      "cap": "An 1883 depiction of the Lisbon earthquake of 1755, the disaster that reshaped this debate",
-      "credit": "Wikimedia Commons",
-      "license": "CC BY-SA 4.0",
-      "where": "claim"
-    }
-  ],
-  "objection-canaanite-conquest": [
-    {
-      "file": "Ancient Jericho excavation. The city wall showing Mt. Temptation LOC matpc.04114.jpg",
-      "cap": "The excavated wall at ancient Jericho, photographed in the 1930s, with the Mount of Temptation behind",
-      "credit": "Library of Congress",
-      "license": "Public domain",
-      "where": "claim"
-    },
-    {
-      "file": "Zone M4 de Tel Hazor.jpg",
-      "cap": "Excavations at Tel Hazor, the one Canaanite city Joshua 11 says was actually burned",
-      "credit": "Wikimedia Commons",
-      "license": "Public domain dedication (CC0)",
-      "where": "defense"
-    }
-  ],
-  "objection-who-made-god": [
-    {
-      "file": "Azimuthal Equidistant N90.jpg",
-      "cap": "A map centred on the North Pole; asking what lies north of it is the parallel offered",
-      "credit": "Wikimedia Commons",
-      "license": "CC BY-SA 3.0",
-      "where": "defense"
-    }
-  ],
-  "objection-science-genesis": [
-    {
-      "file": "Justus Sustermans - Portrait of Galileo Galilei (Uffizi).jpg",
-      "cap": "Sustermans's portrait of Galileo, the case usually cited when science and Scripture are set against each other",
-      "credit": "Uffizi / Wikimedia Commons",
-      "license": "Public domain",
-      "where": "claim"
-    },
-    {
-      "file": "Illuminated Manuscript, Bible (part), Creation of the world, and Eve, Walters Manuscript W.805, fol. 6v.jpg",
-      "cap": "An illuminated Genesis of 1507, setting the creation account inside a cosmographic scheme",
-      "credit": "Walters Art Museum",
-      "license": "Public domain dedication (CC0)",
-      "where": "defense"
-    }
-  ],
-  "objection-religion-wars": [
-    {
-      "file": "The Ratification of the Treaty of Munster, Gerard Ter Borch (1648).jpg",
-      "cap": "A version after Ter Borch of the Ratification of the Peace of Münster, 1648, ending the war",
-      "credit": "National Gallery, London",
-      "license": "Public domain",
-      "where": "defense"
-    }
-  ],
-  "dontuse-anti-evolution-science": [
-    {
-      "file": "Tiktaalik fossil.JPG",
-      "cap": "A diagram of the Tiktaalik roseae remains found in 2004, in rocks of the predicted age",
-      "credit": "Wikimedia Commons",
-      "license": "Public domain",
-      "where": "claim"
-    },
-    {
-      "file": "Wadi Al-Hitan (Whale Valley).jpg",
-      "cap": "Wadi al-Hitan in Egypt, where whale skeletons with hind limbs lie in the desert",
-      "credit": "Wikimedia Commons",
-      "license": "CC BY-SA 4.0",
-      "where": "defense"
-    }
-  ],
-  "dontuse-darwin-recanted": [
-    {
-      "file": "Charles Darwin's grave at Westminster Abbey.jpg",
-      "cap": "Darwin's grave slab in Westminster Abbey; he died in 1882, and the story appeared in 1915",
-      "credit": "Wikimedia Commons",
-      "license": "CC BY-SA 3.0",
-      "where": "verdict"
-    }
-  ],
-  "dontuse-pascals-wager-opener": [
-    {
-      "file": "Pascal Mémorial ed Concorcet (FR-631136102 Ep 0176).jpg",
-      "cap": "Pascal's Mémorial in the Condorcet edition, the record of the night that converted him",
-      "credit": "Wikimedia Commons",
-      "license": "CC BY-SA 4.0",
-      "where": "claim"
-    }
-  ],
-  "resurrection-willing-to-die": [
-    {
-      "file": "Jean-Léon Gérôme - The Christian Martyrs' Last Prayer - Walters 37113.jpg",
-      "cap": "Gérôme's Christian Martyrs' Last Prayer, a nineteenth-century imagining of execution in the Roman arena",
-      "credit": "Walters Art Museum",
-      "license": "Public domain",
-      "where": "claim"
-    },
-    {
-      "file": "Rancho Santa Fe street view 2013.jpg",
-      "cap": "Rancho Santa Fe, California, where Heaven's Gate members died in 1997; a representative street view",
-      "credit": "Wikimedia Commons",
-      "license": "CC BY-SA 3.0",
-      "where": "defense"
-    }
-  ],
-  "dontuse-all-twelve-martyred": [
-    {
-      "file": "Legenda aurea ca 1485-1490 (3463574) (cropped).jpg",
-      "cap": "A late fifteenth-century Golden Legend, the kind of source these apostolic martyrdom stories come from",
-      "credit": "Wikimedia Commons",
-      "license": "Public domain",
-      "where": "claim"
-    }
-  ]
+ "resurrection-hallucination-hypotheses": [
+  {
+   "file": "Supper at Emmaus-Caravaggio (1601).jpg",
+   "cap": "Caravaggio's Supper at Emmaus, 1601, one of the appearance accounts these theories try to explain",
+   "credit": "National Gallery, London",
+   "license": "Public domain",
+   "where": "list"
+  },
+  {
+   "file": "Doubting Thomas (The Incredulity of St. Thomas) by Adriaen van der Werff.jpg",
+   "cap": "Van der Werff's Incredulity of Saint Thomas; the Gospels present a group encounter, not a private vision",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
+  },
+  {
+   "file": "The Incredulity of Saint Thomas by Caravaggio.jpg",
+   "cap": "Caravaggio's Doubting Thomas; the Gospels present the appearances as bodily encounters rather than private visions",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Children of Fátima portrait (Attributed to Joshua Benoliel) – Ilustração Portuguesa, 1917.jpg",
+   "cap": "The three Fátima children in 1917; skeptics cite shared religious experiences like theirs as parallels",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
+  }
+ ],
+ "objection-divine-hiddenness": [
+  {
+   "file": "Wilsford, St Mary's church interior (29935080764).jpg",
+   "cap": "The interior of St Mary's, Wilsford; a representative image of the silence these seekers describe",
+   "credit": "geograph.org.uk",
+   "license": "CC BY 2.0",
+   "where": "list"
+  },
+  {
+   "file": "Gerrit van Honthorst - Christ in the Garden of Gethsemane (The Agony in the Garden).jpg",
+   "cap": "Honthorst's Agony in the Garden; the Gospels themselves record prayer that met no answer",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Pensées, Pascal, Manuscrit autographe, entre 1656 et 1662, BnF, Manuscrits - Exposition Blaise Pascal à la Bibliothèque nationale de France (6).jpg",
+   "cap": "Pascal's autograph Pensées manuscript, where he wrote of enough light and enough obscurity",
+   "credit": "Bibliothèque nationale de France via Wikimedia Commons",
+   "license": "CC BY-SA 2.0",
+   "where": "claim"
+  },
+  {
+   "file": "El Greco 019.jpg",
+   "cap": "El Greco's Agony in the Garden, a painting of the prayer 'let this cup pass'",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
+  }
+ ],
+ "dontuse-atheist-mind-reading": [
+  {
+   "file": "Bertrand Russell photo.jpg",
+   "cap": "Bertrand Russell, who said he would tell God there was not enough evidence",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "list"
+  },
+  {
+   "file": "Cambridge, University Library Ms Add. 7211 - P. Oxy. 1355 (Papyrus 27) recto Romans 8, 12-27.jpg",
+   "cap": "Papyrus 27, a third-century fragment of Romans, among the letter's earliest surviving witnesses",
+   "credit": "Cambridge University Library via Wikimedia Commons",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Young woman praying in church (1854), by Jules Breton.jpg",
+   "cap": "A representative image, not a specific deconvert: Jules Breton's 1854 painting of a woman praying",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
+  }
+ ],
+ "existence-kalam-contingency": [
+  {
+   "file": "Al-Ghazali.png",
+   "cap": "The cover of a 1909 English edition of Al-Ghazali's Confessions; the kalam argument bears his tradition's name",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "CMB Timeline300 no WMAP.jpg",
+   "cap": "A standard diagram of cosmic history from the earliest moment to the present day",
+   "credit": "NASA",
+   "license": "Public domain",
+   "where": "defense"
+  },
+  {
+   "file": "Lemaitre.jpg",
+   "cap": "Georges Lemaître, the Belgian priest and physicist who first proposed an expanding universe with a beginning",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Cosmic Microwave Background (CMB).jpeg",
+   "cap": "The cosmic microwave background, the leftover radiation taken as evidence of a hot, dense early universe",
+   "credit": "Wikimedia Commons",
+   "license": "CC BY 4.0",
+   "where": "defense"
+  }
+ ],
+ "existence-fine-tuning": [
+  {
+   "file": "Institute of Astronomy, statue of Sir Fred Hoyle (crop).jpg",
+   "cap": "The statue of Fred Hoyle at Cambridge; his carbon resonance work gave the best-known fine-tuning example",
+   "credit": "Wikimedia Commons",
+   "license": "CC BY 4.0",
+   "where": "claim"
+  },
+  {
+   "file": "CMB World Map plain map no annotations.jpg",
+   "cap": "The cosmic microwave background mapped across the whole sky, the oldest light we can measure",
+   "credit": "NASA / WMAP",
+   "license": "CC BY 4.0",
+   "where": "defense"
+  },
+  {
+   "file": "Pillars of Creation (NIRCam Image).jpg",
+   "cap": "Star-forming pillars in the Eagle Nebula, imaged in infrared by the James Webb Space Telescope",
+   "credit": "NASA/ESA/CSA via Wikimedia Commons",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "The Hubble eXtreme Deep Field.jpg",
+   "cap": "The Hubble eXtreme Deep Field, a decade of exposures on one small patch of sky",
+   "credit": "NASA/ESA via Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
+  }
+ ],
+ "existence-moral-argument": [
+  {
+   "file": "Eleanor Roosevelt UDHR.jpg",
+   "cap": "Eleanor Roosevelt holding a poster of the Universal Declaration of Human Rights, 1949",
+   "credit": "Franklin D. Roosevelt Library",
+   "license": "CC BY 2.0",
+   "where": "defense"
+  },
+  {
+   "file": "Eleanor Roosevelt and United Nations Universal Declaration of Human Rights in Spanish 09-2456M original.jpg",
+   "cap": "Eleanor Roosevelt holding a Spanish text of the Universal Declaration of Human Rights, 1949",
+   "credit": "FDR Library via Wikimedia Commons",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Allan Ramsay - David Hume, 1711 - 1776. Historian and philosopher - Google Art Project.jpg",
+   "cap": "Allan Ramsay's portrait of David Hume, who argued that no 'ought' follows from an 'is'",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
+  }
+ ],
+ "existence-argument-from-reason": [
+  {
+   "file": "Purkinje cell by Cajal.png",
+   "cap": "Cajal's drawing of a Purkinje cell; the argument asks whether such matter can track truth",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Cajal cortex drawings.png",
+   "cap": "Ramón y Cajal's drawings of the human cortex, the physical machinery in which reasoning happens",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "claim"
+  }
+ ],
+ "resurrection-minimal-facts": [
+  {
+   "file": "Nazareth Inscription.jpg",
+   "cap": "The Nazareth Inscription, a Greek edict against disturbing tombs, found in the eastern Roman world",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Aedicule which supposedly encloses the tomb of Jesus - Church of the Holy Sepulchre (10350934835).jpg",
+   "cap": "The aedicule in the Church of the Holy Sepulchre, the older of the two proposed tomb sites",
+   "credit": "Wikimedia Commons",
+   "license": "CC BY 2.0",
+   "where": "defense"
+  },
+  {
+   "file": "Rolling Stone, Tomb of Kings, Jerusalem LOC 24189799550.jpg",
+   "cap": "A rolling-stone tomb in Jerusalem photographed about 1915; not Jesus's tomb, but the same type",
+   "credit": "Library of Congress via Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
+  }
+ ],
+ "resurrection-early-creed": [
+  {
+   "file": "Codex Sinaiticus, GA 01.jpg",
+   "cap": "Codex Sinaiticus, the fourth-century Greek Bible that contains the Corinthian letter carrying this creed",
+   "credit": "Wikimedia Commons",
+   "license": "CC BY-SA 4.0",
+   "where": "defense"
+  },
+  {
+   "file": "Temple of Apollo, Corinth, 203011.jpg",
+   "cap": "The temple of Apollo at ancient Corinth, the city to which Paul addressed this letter",
+   "credit": "Wikimedia Commons",
+   "license": "CC BY-SA 4.0",
+   "where": "claim"
+  },
+  {
+   "file": "Probably Valentin de Boulogne - Saint Paul Writing His Epistles - Google Art Project.jpg",
+   "cap": "A seventeenth-century painting of Paul at work on his letters, by Valentin de Boulogne",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
+  }
+ ],
+ "manuscripts-nt-text": [
+  {
+   "file": "Dublin, Chester Beatty Ms Papyrus 45 BP I ff.13-14 Luke 11.50-12.12; 12.18-37; 12.42-13.1; 13.jpg",
+   "cap": "Papyrus 45, about AD 250, one of the earliest surviving copies of the four Gospels",
+   "credit": "Chester Beatty Library",
+   "license": "Public domain",
+   "where": "defense"
+  }
+ ],
+ "manuscripts-canon-formation": [
+  {
+   "file": "First Council of Nicaea Michael Damaskinos.png",
+   "cap": "Damaskinos's icon of the Council of Nicaea, 325, the meeting the Da Vinci story misdescribes",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "claim"
+  }
+ ],
+ "archaeology-nt-corroboration": [
+  {
+   "file": "Delphes Gallion.jpg",
+   "cap": "A fragment of the Gallio inscription at Delphi, which dates the proconsul of Acts 18",
+   "credit": "Wikimedia Commons",
+   "license": "CC BY-SA 4.0",
+   "where": "claim"
+  },
+  {
+   "file": "Erastus stone at Theater of Corinth.jpg",
+   "cap": "The Erastus pavement at Corinth, naming a city official Paul greets at the end of Romans",
+   "credit": "Wikimedia Commons",
+   "license": "CC BY-SA 4.0",
+   "where": "defense"
+  }
+ ],
+ "archaeology-quirinius-census": [
+  {
+   "file": "Dublin, Chester Beatty Library Ms BP XVII (Papyrus 97) recto (left) - verso (right) Luke 14, 7-10; 12-14.jpg",
+   "cap": "Papyrus 97, a Greek fragment of Luke 14, from the Gospel whose census notice is under discussion",
+   "credit": "Chester Beatty Library",
+   "license": "Public domain",
+   "where": "defense"
+  },
+  {
+   "file": "Res Gestae.jpg",
+   "cap": "Part of the Res Gestae of Augustus at Ankara, the emperor's own record of his reign",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Herodium from above.jpg",
+   "cap": "Herodium near Bethlehem, the fortress-palace where Herod the Great was buried after dying in 4 BC",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
+  }
+ ],
+ "prophecy-daniel-dating": [
+  {
+   "file": "Dead Sea Scroll cave 4Q (53229744480).jpg",
+   "cap": "Qumran Cave 4, the cave that yielded fragments of eight separate copies of the book of Daniel",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain dedication (CC0)",
+   "where": "defense"
+  },
+  {
+   "file": "Antiochus IV- Pollution of the Temple.jpg",
+   "cap": "A medieval illumination of Antiochus IV defiling the Jerusalem temple, the crisis Daniel 11 describes",
+   "credit": "Morgan Library via Wikimedia Commons",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Stattler, Wojciech Korneli - The Maccabees (1842) (4k).jpg",
+   "cap": "Stattler's 1842 painting of the Maccabean revolt, the setting critics assign to Daniel's final form",
+   "credit": "National Museum Kraków via Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
+  }
+ ],
+ "prophecy-isaiah53-psalm22": [
+  {
+   "file": "Shrine of the Book 2.jpg",
+   "cap": "The Shrine of the Book in Jerusalem, purpose-built to hold the Great Isaiah Scroll",
+   "credit": "Wikimedia Commons",
+   "license": "CC BY-SA 3.0",
+   "where": "defense"
+  },
+  {
+   "file": "Great Isaiah Scroll.jpg",
+   "cap": "The Great Isaiah Scroll unrolled: the whole book, copied at Qumran about 125 BC",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Shrine of the Book, Jerusalem.jpg",
+   "cap": "The Shrine of the Book in Jerusalem, the museum wing built to house the scroll",
+   "credit": "Wikimedia Commons",
+   "license": "CC BY-SA 3.0",
+   "where": "defense"
+  }
+ ],
+ "objection-problem-of-evil": [
+  {
+   "file": "Earthquake at Lisbon.jpg",
+   "cap": "An 1883 depiction of the Lisbon earthquake of 1755, the disaster that reshaped this debate",
+   "credit": "Wikimedia Commons",
+   "license": "CC BY-SA 4.0",
+   "where": "claim"
+  },
+  {
+   "file": "Epicurus bust.jpg",
+   "cap": "A Roman marble bust of Epicurus, whose name is attached to the ancient form of this dilemma",
+   "credit": "British Museum via Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
+  }
+ ],
+ "objection-canaanite-conquest": [
+  {
+   "file": "Ancient Jericho excavation. The city wall showing Mt. Temptation LOC matpc.04114.jpg",
+   "cap": "The excavated wall at ancient Jericho, photographed in the 1930s, with the Mount of Temptation behind",
+   "credit": "Library of Congress",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Zone M4 de Tel Hazor.jpg",
+   "cap": "Excavations at Tel Hazor, the one Canaanite city Joshua 11 says was actually burned",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain dedication (CC0)",
+   "where": "defense"
+  },
+  {
+   "file": "Jericho BW 1.jpg",
+   "cap": "The excavation mound of Tell es-Sultan at Jericho, dug repeatedly since the nineteenth century",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
+  }
+ ],
+ "objection-who-made-god": [
+  {
+   "file": "Azimuthal Equidistant N90.jpg",
+   "cap": "A map centred on the North Pole; asking what lies north of it is the parallel offered",
+   "credit": "Wikimedia Commons",
+   "license": "CC BY-SA 3.0",
+   "where": "defense"
+  },
+  {
+   "file": "Christoph Bernhard Francke - Bildnis des Philosophen Leibniz (ca. 1695).jpg",
+   "cap": "Christoph Bernhard Francke's portrait of Leibniz, who framed contingency as the principle of sufficient reason",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Bertrand Russell photo.jpg",
+   "cap": "Bertrand Russell in 1936; he credited reading Mill with the 'who made God?' objection",
+   "credit": "Bassano via Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
+  }
+ ],
+ "objection-science-genesis": [
+  {
+   "file": "Justus Sustermans - Portrait of Galileo Galilei (Uffizi).jpg",
+   "cap": "Sustermans's portrait of Galileo, the case usually cited when science and Scripture are set against each other",
+   "credit": "Uffizi / Wikimedia Commons",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Illuminated Manuscript, Bible (part), Creation of the world, and Eve, Walters Manuscript W.805, fol. 6v.jpg",
+   "cap": "An illuminated Genesis of 1507, setting the creation account inside a cosmographic scheme",
+   "credit": "Walters Art Museum",
+   "license": "Public domain dedication (CC0)",
+   "where": "defense"
+  },
+  {
+   "file": "Lemaitre.jpg",
+   "cap": "Georges Lemaître, the Catholic priest whose 1927 paper proposed what became the Big Bang model",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
+  }
+ ],
+ "objection-religion-wars": [
+  {
+   "file": "The Ratification of the Treaty of Munster, Gerard Ter Borch (1648).jpg",
+   "cap": "A version after Ter Borch of the Ratification of the Peace of Münster, 1648, ending the war",
+   "credit": "National Gallery, London",
+   "license": "Public domain",
+   "where": "defense"
+  },
+  {
+   "file": "Cathedral of Christ the Saviour (destruction, 1931).jpg",
+   "cap": "Moscow's Cathedral of Christ the Saviour dynamited in 1931 by the officially atheist Soviet state",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
+  }
+ ],
+ "dontuse-anti-evolution-science": [
+  {
+   "file": "Tiktaalik fossil.JPG",
+   "cap": "A diagram of the Tiktaalik roseae remains found in 2004, in rocks of the predicted age",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Wadi Al-Hitan (Whale Valley).jpg",
+   "cap": "Wadi al-Hitan in Egypt, where whale skeletons with hind limbs lie in the desert",
+   "credit": "Wikimedia Commons",
+   "license": "CC BY-SA 4.0",
+   "where": "defense"
+  }
+ ],
+ "dontuse-darwin-recanted": [
+  {
+   "file": "Charles Darwin's grave at Westminster Abbey.jpg",
+   "cap": "Darwin's grave slab in Westminster Abbey; he died in 1882, and the story appeared in 1915",
+   "credit": "Wikimedia Commons",
+   "license": "CC BY-SA 3.0",
+   "where": "verdict"
+  }
+ ],
+ "dontuse-pascals-wager-opener": [
+  {
+   "file": "Pascal Mémorial ed Concorcet (FR-631136102 Ep 0176).jpg",
+   "cap": "Pascal's Mémorial in the Condorcet edition, the record of the night that converted him",
+   "credit": "Wikimedia Commons",
+   "license": "CC BY-SA 4.0",
+   "where": "claim"
+  },
+  {
+   "file": "Pensées, Pascal, Manuscrit autographe, entre 1656 et 1662, BnF, Manuscrits - Exposition Blaise Pascal à la Bibliothèque nationale de France (6).jpg",
+   "cap": "Pascal's autograph manuscript of the Pensées, the unfinished notes in which the wager appears",
+   "credit": "Bibliothèque nationale de France via Wikimedia Commons",
+   "license": "CC BY-SA 2.0",
+   "where": "claim"
+  },
+  {
+   "file": "Statue de Blaise Pascal par Jules Cavelier, Paris août 2014 001.jpg",
+   "cap": "Cavelier's statue of Pascal beneath the Tour Saint-Jacques, where he tested barometric pressure",
+   "credit": "Wikimedia Commons",
+   "license": "CC BY-SA 2.0",
+   "where": "defense"
+  }
+ ],
+ "resurrection-willing-to-die": [
+  {
+   "file": "Jean-Léon Gérôme - The Christian Martyrs' Last Prayer - Walters 37113.jpg",
+   "cap": "Gérôme's Christian Martyrs' Last Prayer, a nineteenth-century imagining of execution in the Roman arena",
+   "credit": "Walters Art Museum",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Rancho Santa Fe street view 2013.jpg",
+   "cap": "Rancho Santa Fe, California, where Heaven's Gate members died in 1997; a representative street view",
+   "credit": "Wikimedia Commons",
+   "license": "CC BY-SA 3.0",
+   "where": "defense"
+  },
+  {
+   "file": "Jonestown pavilion.jpg",
+   "cap": "The pavilion at Jonestown, Guyana, photographed after the 1978 deaths of over nine hundred people",
+   "credit": "FBI via Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
+  }
+ ],
+ "dontuse-all-twelve-martyred": [
+  {
+   "file": "Legenda aurea ca 1485-1490 (3463574) (cropped).jpg",
+   "cap": "A late fifteenth-century Golden Legend, the kind of source these apostolic martyrdom stories come from",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Crucifixion of Saint Peter-Caravaggio (c.1600).jpg",
+   "cap": "Caravaggio's Crucifixion of Saint Peter, a scene from later tradition rather than any New Testament text",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Flavius Josephus edition of 1552.jpg",
+   "cap": "A 1552 edition of Josephus, whose Antiquities records the stoning of James, the brother of Jesus",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
+  },
+  {
+   "file": "Legend of Saint Thecla.XVI.jpg",
+   "cap": "A sixteenth-century Czech manuscript of the life and miracles of Saint Thecla, an apocryphal legend",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "verdict"
+  }
+ ],
+ "dontuse-banana-design": [
+  {
+   "file": "Banana Processing.jpg",
+   "cap": "Workers cleaning Cavendish bananas at an Ecuadorian plantation, the cultivated fruit Comfort's argument described",
+   "credit": "Wikimedia Commons",
+   "license": "CC BY-SA 2.0",
+   "where": "defense"
+  }
+ ]
 }
