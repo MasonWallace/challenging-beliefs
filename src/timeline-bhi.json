@@ -1,0 +1,15 @@
+{
+  "acts": [
+    { "i": 0, "name": "Where it actually began", "desc": "Three churches founded between 1896 and 1919 — none of them a street camp" },
+    { "i": 1, "name": "The movement splits", "desc": "A farming village in Israel and a Harlem camp go in opposite directions" },
+    { "i": 2, "name": "The clips and the label", "desc": "Street confrontations go viral, a hate-group listing lands, and the movement argues with itself" }
+  ],
+  "turningPoints": {
+    "1896": "A formerly enslaved Union veteran founded the first documented body; it still exists today",
+    "1966–69": "A whole community moved to Israel and built a peaceable village that still stands",
+    "1969–80s": "One Harlem address produced the chart, the Edomite doctrine, and every confrontational camp since",
+    "2000": "A dated prophecy failed publicly, and the movement's own record shows the rebrand that followed",
+    "2016": "A hate-group listing of specific camps fixed how outsiders now see the whole movement"
+  },
+  "demote": []
+}

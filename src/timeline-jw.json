@@ -1,0 +1,16 @@
+{
+  "acts": [
+    { "i": 0, "name": "The first predictions", "desc": "Charles Russell's magazine set dates for the end, and the dates came and went" },
+    { "i": 1, "name": "New leaders, new rules", "desc": "More dates, a ban on blood transfusions, and the organization's own Bible" },
+    { "i": 2, "name": "What came out later", "desc": "Redefinitions, the UN membership, and what a royal commission found in their files" }
+  ],
+  "turningPoints": {
+    "1914": "Armageddon was due and war came instead; the date was kept and its meaning rewritten",
+    "1945": "Blood transfusions were forbidden, a rule the movement had not held for its first 65 years",
+    "1954–64": "Worship of Jesus, taught since 1898 and written into the charter, was declared unscriptural",
+    "1975": "Members sold homes for a date the organization later admitted its own publications had built",
+    "2012": "Eight men reinterpreted the verse that grants their authority to mean the eight of them",
+    "2015–16": "An Australian inquiry found 1,006 alleged abusers in their files and not one reported"
+  },
+  "demote": ["1889", "1920–25", "1981", "1992–2001", "1995 → 2010"]
+}

@@ -1,0 +1,16 @@
+{
+  "acts": [
+    { "i": 0, "name": "How it started", "desc": "The visions, the gold plates, and the claims the church was built on" },
+    { "i": 1, "name": "What happened out west", "desc": "Polygamy in the open, a priesthood ban, and the killings at Mountain Meadows" },
+    { "i": 2, "name": "What came out later", "desc": "The papyri, the quiet edits, and the money — found, admitted, or ruled on" }
+  ],
+  "turningPoints": {
+    "1830–33": "Joseph Smith wrote a prophecy naming himself into Genesis; no ancient manuscript contains those verses",
+    "1832": "A temple was promised at Independence within that generation; the generation passed and none was built",
+    "1843": "Plural marriage was written into scripture, with Emma named and threatened in the revelation itself",
+    "1890–1904": "Polygamy was publicly ended while roughly 250 new plural marriages were quietly authorized anyway",
+    "1966": "The lost papyri turned up; the only translation anyone could check did not match",
+    "2023": "Federal regulators found $32 billion hidden behind thirteen shell companies, and the church settled"
+  },
+  "demote": ["1824–25", "1837", "1842", "1844", "1852", "1856–57", "1857", "1985", "1981", "1990", "2006"]
+}
