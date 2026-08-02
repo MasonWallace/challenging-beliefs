@@ -13,6 +13,20 @@
    "credit": "Wikimedia Commons",
    "license": "Public domain",
    "where": "defense"
+  },
+  {
+   "file": "Hebrew Sefer Torah Scroll side view.JPG",
+   "cap": "A Torah scroll open for reading — the book Quran 5:43 says the Jews already had",
+   "credit": "Wikimedia Commons",
+   "license": "CC BY-SA 3.0",
+   "where": "claim"
+  },
+  {
+   "file": "Page from a Manuscript of the Qur'an (7-38-54) LACMA M.2002.1.385.jpg",
+   "cap": "An eighth- or ninth-century Hijazi Qur'an leaf from Arabia, ink on parchment",
+   "credit": "LACMA",
+   "license": "Public domain",
+   "where": "verdict"
   }
  ],
  "tahrif-doctrine-late-development": [
@@ -29,6 +43,20 @@
    "credit": "Wikimedia Commons",
    "license": "Public domain",
    "where": "defense"
+  },
+  {
+   "file": "Statue of Abén Házam (Ibn Hazm) in Córdoba, 2021.jpg",
+   "cap": "The statue of Ibn Hazm in Cordoba; his eleventh-century polemic pressed the textual-corruption charge",
+   "credit": "Wikimedia Commons",
+   "license": "CC BY-SA 4.0",
+   "where": "claim"
+  },
+  {
+   "file": "Codex Alexandrinus 013a Mc 6,27-54.JPG",
+   "cap": "A leaf of Codex Alexandrinus at Mark 6, a fifth-century Greek Bible",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "verdict"
   }
  ],
  "manuscripts-predate-muhammad": [
@@ -45,6 +73,13 @@
    "credit": "Wikimedia Commons",
    "license": "Public domain",
    "where": "verdict"
+  },
+  {
+   "file": "Qumran, Dead Sea, Palestine 42.jpg",
+   "cap": "The cliffs at Qumran by the Dead Sea, where the scrolls were found",
+   "credit": "Wikimedia Commons",
+   "license": "CC BY-SA 4.0",
+   "where": "verdict"
   }
  ],
  "crucifixion-denial-vs-history": [
@@ -58,6 +93,20 @@
   {
    "file": "P46.jpg",
    "cap": "Papyrus 46, about AD 200, the oldest substantial copy of Paul's letters, including 1 Corinthians",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "verdict"
+  },
+  {
+   "file": "MII (cropped)-Tacitus-chrestianos.png",
+   "cap": "Codex Mediceus at Annals 15:44, where Tacitus reports Christ's execution under Pontius Pilate",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
+  },
+  {
+   "file": "Flavius Josephus edition of 1552.jpg",
+   "cap": "The title page of a 1552 edition of Josephus, another first-century witness",
    "credit": "Wikimedia Commons",
    "license": "Public domain",
    "where": "verdict"
@@ -77,6 +126,20 @@
    "credit": "Wikimedia Commons",
    "license": "Public domain",
    "where": "defense"
+  },
+  {
+   "file": "Maryam (Mary) at the palm tree with baby `Isa (Jesus) (CBL Per 231.227).jpg",
+   "cap": "Maryam at the palm tree with the infant Isa, a Persian Qisas al-anbiya miniature",
+   "credit": "Chester Beatty Library",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Chronology of Ancient Nations - Annunciation.jpg",
+   "cap": "The Annunciation as painted in al-Biruni's Chronology of Ancient Nations, an Islamic manuscript",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
   }
  ],
  "gospel-judgment-test": [
@@ -93,6 +156,27 @@
    "credit": "Wikimedia Commons",
    "license": "Public domain",
    "where": "defense"
+  },
+  {
+   "file": "Qur'an folio (BnF, Arabe 334, f. 125r).jpg",
+   "cap": "A ninth- or tenth-century Kufic Qur'an folio from Ifriqiya, Bibliotheque nationale de France",
+   "credit": "Bibliothèque nationale de France",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Codex Vaticanus Matthew 1,22-2,18.jpg",
+   "cap": "Codex Vaticanus at Matthew 1-2, one of the Gospel texts Christians were told to judge by",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
+  },
+  {
+   "file": "Byzantine Gospel Book (Minuscule 106) (CBL W 135, f.10r).jpg",
+   "cap": "A Byzantine Gospel book of the eleventh or twelfth century, Chester Beatty Library",
+   "credit": "Chester Beatty Library",
+   "license": "Public domain",
+   "where": "verdict"
   }
  ],
  "uthman-burning-companion-codices": [
@@ -109,6 +193,20 @@
    "credit": "Wikimedia Commons",
    "license": "Public domain",
    "where": "verdict"
+  },
+  {
+   "file": "Samarkand Kufic Quran, 1905 (2022-07-05) 01.jpg",
+   "cap": "The Samarkand Kufic Qur'an, traditionally linked to Uthman's recension, photographed in 1905",
+   "credit": "Wikimedia Commons",
+   "license": "CC BY-SA 4.0",
+   "where": "claim"
+  },
+  {
+   "file": "Section of the Sahih of al-Bukhari LACMA M.73.5.600.jpg",
+   "cap": "A fourteenth-century section of Sahih al-Bukhari, the collection that reports the burning order",
+   "credit": "LACMA",
+   "license": "Public domain",
+   "where": "defense"
   }
  ],
  "sanaa-palimpsest-qiraat": [
@@ -125,6 +223,20 @@
    "credit": "Wikimedia Commons",
    "license": "Public domain",
    "where": "verdict"
+  },
+  {
+   "file": "Old City, Sana'a, Yemen (15335600470).jpg",
+   "cap": "The old city of Sana'a, Yemen, where the palimpsest was found in 1972",
+   "credit": "Wikimedia Commons",
+   "license": "CC BY-SA 2.0",
+   "where": "claim"
+  },
+  {
+   "file": "Abbasid Koran folio from Egypt.jpg",
+   "cap": "An early Abbasid Kufic Qur'an folio from Egypt, written without vowel or dot markings",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
   }
  ],
  "trinity-father-jesus-mary": [
@@ -140,6 +252,13 @@
    "cap": "A later engraving of the Council of Chalcedon, 451, which defined Christ's natures and named no fourth person",
    "credit": "Wikimedia Commons",
    "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Council of Ephesus - Abbey Library of St. Gallen.jpg",
+   "cap": "The Council of Ephesus of 431 in a Saint Gall manuscript, which named Mary Theotokos",
+   "credit": "Abbey Library of St. Gallen",
+   "license": "CC BY-SA 4.0",
    "where": "claim"
   }
  ],
@@ -157,6 +276,20 @@
    "credit": "Wikimedia Commons",
    "license": "Public domain",
    "where": "claim"
+  },
+  {
+   "file": "Maghribi script sura 5.jpg",
+   "cap": "A Maghribi-script Qur'an leaf at Surah 5, the chapter containing the third-of-three verse",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "PetrusPictaviensis CottonFaustinaBVII-folio42v ScutumFidei early13thc.jpg",
+   "cap": "The Shield of the Trinity in an early thirteenth-century English manuscript by Peter of Poitiers",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
   }
  ],
  "begets-consort-carnal-sonship": [
@@ -173,6 +306,20 @@
    "credit": "Wikimedia Commons",
    "license": "Public domain",
    "where": "claim"
+  },
+  {
+   "file": "Surah Ikhlas.jpg",
+   "cap": "Surah al-Ikhlas in Nastaliq calligraphy — 'He neither begets nor is born'",
+   "credit": "Wikimedia Commons",
+   "license": "CC BY-SA 3.0",
+   "where": "claim"
+  },
+  {
+   "file": "Nicene Creed in cyrillic writing.jpg",
+   "cap": "The Nicene Creed written in Cyrillic; its word for the Son is begotten, not made",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
   }
  ],
  "god-is-love-monad": [
@@ -188,6 +335,20 @@
    "cap": "The name Allah in Arabic calligraphy; Father is not among the ninety-nine names of Islamic tradition",
    "credit": "Wikimedia Commons",
    "license": "CC BY-SA 4.0",
+   "where": "defense"
+  },
+  {
+   "file": "Jama masjid names of allah.JPG",
+   "cap": "The ninety-nine names of Allah inscribed at the Jama Masjid in Delhi",
+   "credit": "Wikimedia Commons",
+   "license": "CC BY-SA 3.0",
+   "where": "claim"
+  },
+  {
+   "file": "Codex Alexandrinus 084b.jpg",
+   "cap": "A leaf of Codex Alexandrinus, a fifth-century Greek Bible containing the letters of John",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
    "where": "defense"
   }
  ],
@@ -205,6 +366,20 @@
    "credit": "Wikimedia Commons",
    "license": "Public domain",
    "where": "claim"
+  },
+  {
+   "file": "Arabic-English Lexicon.png",
+   "cap": "The title page of Edward Lane's Arabic-English Lexicon, one of the dictionaries cited",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Qur'an folio with heading for the chapter 35 (Fatir) (BnF, Arabe 333, f. 156v).jpg",
+   "cap": "A ninth- or tenth-century Kufic Qur'an folio, Bibliotheque nationale de France, Arabe 333",
+   "credit": "Bibliothèque nationale de France",
+   "license": "Public domain",
+   "where": "defense"
   }
  ],
  "word-and-spirit-titles": [
@@ -221,12 +396,33 @@
    "credit": "Wikimedia Commons",
    "license": "CC BY-SA 4.0",
    "where": "defense"
+  },
+  {
+   "file": "Opening pages from the Qur'an copied by Shaykh Hamdallah (AKM 00262).jpg",
+   "cap": "An Ottoman Qur'an copied by Shaykh Hamdullah — the book that calls Jesus Word and Spirit",
+   "credit": "Aga Khan Museum",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Papyrus66.jpg",
+   "cap": "Papyrus 66, an early copy of John's Gospel, whose opening calls Christ the Word",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
   }
  ],
  "clay-birds-apocrypha": [
   {
    "file": "Pirke De-Rabbi Eliezer (Sabbioneta edition, title page).jpg",
    "cap": "Pirke de-Rabbi Eliezer in its 1554 printing, one of the legend collections circulating before Islam",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
+  },
+  {
+   "file": "Codex Alexandrinus f41v - Luke.jpg",
+   "cap": "Codex Alexandrinus at Luke; no canonical gospel records the clay birds miracle",
    "credit": "Wikimedia Commons",
    "license": "Public domain",
    "where": "defense"
@@ -246,6 +442,20 @@
    "credit": "Wikimedia Commons",
    "license": "Public domain",
    "where": "defense"
+  },
+  {
+   "file": "Papyrus 66 (GA).jpg",
+   "cap": "Papyrus 66, one of the earliest substantial copies of the Gospel of John",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Parchment manuscript Book of Gospels. 12th cent.jpg",
+   "cap": "A twelfth-century parchment Book of Gospels, the text carrying the claims that drew stoning",
+   "credit": "Wikimedia Commons",
+   "license": "CC BY-SA 4.0",
+   "where": "defense"
   }
  ],
  "quran-never-quotes-scriptures": [
@@ -260,6 +470,20 @@
    "file": "Targum.jpg",
    "cap": "An Aramaic Targum, the paraphrase tradition through which biblical stories reached late-antique Arabia",
    "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
+  },
+  {
+   "file": "Tehilim scroll.png",
+   "cap": "The Psalms Scroll from Qumran Cave 11 — the Zabur behind the Qur'an's single near-quotation",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Double-page from the juz' 9 of the Sultan Barquq's Qur'an (BL Or 848 f. 2v-3r).jpg",
+   "cap": "A Mamluk Qur'an of Sultan Barquq at Surah 7, ink and gold on paper",
+   "credit": "British Library",
    "license": "Public domain",
    "where": "defense"
   }
@@ -278,6 +502,20 @@
    "credit": "Wikimedia Commons",
    "license": "Public domain",
    "where": "verdict"
+  },
+  {
+   "file": "ArabicDiatessaron.jpg",
+   "cap": "The opening pages of the Arabic Diatessaron, a gospel harmony known in Arabic translation",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Peshitta464 (The S.S. Teacher's Edition-The Holy Bible - Plate XIII).jpg",
+   "cap": "The Syriac Peshitta gospels, circulating across the Near East long before Muhammad",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
   }
  ],
  "sun-muddy-spring": [
@@ -301,6 +539,13 @@
    "credit": "Wikimedia Commons",
    "license": "Public domain",
    "where": "defense"
+  },
+  {
+   "file": "Al-idrisi world map.jpg",
+   "cap": "Al-Idrisi's world map of 1154, made for Roger of Sicily by a Muslim geographer",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
   }
  ],
  "reproductive-science-galen": [
@@ -316,6 +561,20 @@
    "cap": "A seventeenth-century Persian anatomical drawing, showing how long Galenic anatomy remained standard in Islamic medicine",
    "credit": "Wikimedia Commons",
    "license": "Public domain",
+   "where": "defense"
+  },
+  {
+   "file": "'Muscles Man', Pseudo-Galen, Anathomia; WMS 290 Wellcome L0034577.jpg",
+   "cap": "The muscle man of a Pseudo-Galen anatomy, the tradition that shaped medieval physiology",
+   "credit": "Wellcome Collection",
+   "license": "CC BY 4.0",
+   "where": "claim"
+  },
+  {
+   "file": "Human embryo - 6 weeks.jpg",
+   "cap": "A human embryo at six weeks; bone and muscle form together, not in sequence",
+   "credit": "Wikimedia Commons",
+   "license": "CC BY-SA 2.5",
    "where": "defense"
   }
  ],
@@ -333,6 +592,20 @@
    "credit": "Wikimedia Commons",
    "license": "Public domain",
    "where": "defense"
+  },
+  {
+   "file": "African - Illuminated Incipit with Headpiece for Chapter 19 - Walters W5681B - Full Page.jpg",
+   "cap": "An illuminated heading for Surah 19, Maryam, in a Maghribi-script Qur'an",
+   "credit": "Walters Art Museum",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "El sumo sacerdote Aarón (Museo del Prado).jpg",
+   "cap": "Aaron in high-priestly dress, a painting in the Museo del Prado, Madrid",
+   "credit": "Museo del Prado",
+   "license": "Public domain",
+   "where": "defense"
   }
  ],
  "samaritan-anachronism": [
@@ -342,6 +615,20 @@
    "credit": "Wikimedia Commons",
    "license": "Public domain",
    "where": "claim"
+  },
+  {
+   "file": "Nicolas Poussin - The Adoration of the Golden Calf - WGA18293.jpg",
+   "cap": "Poussin's Adoration of the Golden Calf, 1633 — Exodus 32 credits the calf to Aaron",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
+  },
+  {
+   "file": "Sargon II, Iraq Museum.jpg",
+   "cap": "Sargon II in his chariot, a relief from Khorsabad; his conquest resettled Samaria after 722 BC",
+   "credit": "Wikimedia Commons",
+   "license": "CC BY-SA 4.0",
+   "where": "verdict"
   }
  ],
  "dhul-qarnayn-alexander": [
@@ -358,6 +645,20 @@
    "credit": "Wikimedia Commons",
    "license": "CC BY 2.0",
    "where": "defense"
+  },
+  {
+   "file": "Alexander (Iskandar) building the brazen wall against the people of Gog and Magog. Painted on paper.jpg",
+   "cap": "Iskandar building a brazen wall against Gog and Magog, a Persian manuscript painting",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
+  },
+  {
+   "file": "Iskandar (Alexander) and the Talking Tree, Folio from a Great Mongol Shahnameh.jpg",
+   "cap": "Iskandar and the Talking Tree from the Great Mongol Shahnameh, the Persian Alexander cycle",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "verdict"
   }
  ],
  "cosmology-stars-missiles": [
@@ -371,6 +672,20 @@
   {
    "file": "Représentation ottomane sphère armilaire - XVIe.jpg",
    "cap": "An Ottoman armillary sphere drawing, the layered heavens as Islamic astronomy pictured them",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
+  },
+  {
+   "file": "018 Human looking at the stars during Perseids with the Milky Way in the background Photo by Giles Laurent.jpg",
+   "cap": "Perseid meteors over the Milky Way; what the Qur'an calls missiles thrown at devils",
+   "credit": "Giles Laurent",
+   "license": "CC BY-SA 4.0",
+   "where": "claim"
+  },
+  {
+   "file": "FlammarionWoodcut.jpg",
+   "cap": "The Flammarion woodcut, an 1888 image of a solid sky pierced by a traveller",
    "credit": "Wikimedia Commons",
    "license": "Public domain",
    "where": "defense"
@@ -390,6 +705,20 @@
    "credit": "Wikimedia Commons",
    "license": "Public domain",
    "where": "defense"
+  },
+  {
+   "file": "Palmyra Temple of Allat 0068.jpg",
+   "cap": "The temple of Allat at Palmyra; al-Lat is one goddess named in the reports",
+   "credit": "Wikimedia Commons",
+   "license": "CC BY-SA 4.0",
+   "where": "claim"
+  },
+  {
+   "file": "The Kaaba during Hajj - edited.jpg",
+   "cap": "The Kaaba during the hajj, the sanctuary at the centre of the Meccan dispute",
+   "credit": "Wikimedia Commons",
+   "license": "CC BY-SA 4.0",
+   "where": "defense"
   }
  ],
  "compilation-lost-verses": [
@@ -406,6 +735,27 @@
    "credit": "Wikimedia Commons",
    "license": "Public domain",
    "where": "defense"
+  },
+  {
+   "file": "Palm-leaf Manuscripts - Flickr - sajinrajknilambur.jpg",
+   "cap": "Palm-leaf manuscripts from South Asia — a comparable writing surface, not the Arabian originals",
+   "credit": "Wikimedia Commons",
+   "license": "CC BY 2.0",
+   "where": "claim"
+  },
+  {
+   "file": "Mohammad adil-Riddah wars.PNG",
+   "cap": "A map of the Ridda wars, which included Yamama and its heavy reciter casualties",
+   "credit": "Wikimedia Commons",
+   "license": "CC BY-SA 3.0",
+   "where": "defense"
+  },
+  {
+   "file": "Birmingham Quran manuscript folio 1 verso.jpg",
+   "cap": "A folio of the Birmingham Qur'an, parchment radiocarbon-dated to the seventh century",
+   "credit": "University of Birmingham",
+   "license": "Public domain",
+   "where": "verdict"
   }
  ],
  "uthman-standardization-qiraat": [
@@ -421,6 +771,20 @@
    "cap": "The Samarkand Kufic Qur'an, the codex Muslim tradition associates with Uthman's standardisation",
    "credit": "Wikimedia Commons",
    "license": "CC BY-SA 4.0",
+   "where": "defense"
+  },
+  {
+   "file": "Samarkand Kufic Quran, 1905 (2022-07-05) 02.jpg",
+   "cap": "The Samarkand Kufic Qur'an, a large early codex now in Tashkent, photographed 1905",
+   "credit": "Wikimedia Commons",
+   "license": "CC BY-SA 4.0",
+   "where": "claim"
+  },
+  {
+   "file": "Maghribi script.jpg",
+   "cap": "A Maghribi-script Qur'an fragment at Surah 5, from the region where Warsh prevailed",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
    "where": "defense"
   }
  ],
@@ -445,6 +809,20 @@
    "credit": "Wikimedia Commons",
    "license": "CC BY-SA 4.0",
    "where": "defense"
+  },
+  {
+   "file": "Terracotta doll Louvre Cp4654.jpg",
+   "cap": "An ancient terracotta doll in the Louvre — a comparable toy, not one of Aisha's",
+   "credit": "Louvre",
+   "license": "CC BY 3.0",
+   "where": "claim"
+  },
+  {
+   "file": "Al-jami al-sahih 14th century Marinid Morocco manuscript.png",
+   "cap": "A fourteenth-century Moroccan manuscript of Sahih al-Bukhari, the other collection carrying the report",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
   }
  ],
  "women-and-captives": [
@@ -468,6 +846,20 @@
    "credit": "Wikimedia Commons",
    "license": "Public domain",
    "where": "defense"
+  },
+  {
+   "file": "Sunan Abi Dawud Imam Khairul Annas.JPG",
+   "cap": "Printed volumes of Sunan Abi Dawud, which records the reports about striking wives",
+   "credit": "Wikimedia Commons",
+   "license": "CC BY-SA 3.0",
+   "where": "claim"
+  },
+  {
+   "file": "Maurycy Gottlieb - Cairo Slave Market 1877.jpg",
+   "cap": "Gottlieb's Cairo Slave Market, 1877 — a European painting, not a documentary record",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
   }
  ],
  "zaynab-hastening-revelation": [
@@ -482,6 +874,20 @@
    "file": "Shamsa. Page from the Qur'an (CBL Is 1470, f.1a, detail).jpg",
    "cap": "An illuminated Qur'an page detail, from the manuscript tradition that carries Surah al-Ahzab",
    "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
+  },
+  {
+   "file": "Siyer-i Nebi 123b.jpg",
+   "cap": "An Ottoman Siyer-i Nebi miniature of the veiled Prophet — not the Zaynab episode",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Section of the Sahih of al-Bukhari LACMA M.73.5.600.jpg",
+   "cap": "A fourteenth-century Sahih al-Bukhari section; Aisha's remark is preserved in this collection",
+   "credit": "LACMA",
    "license": "Public domain",
    "where": "defense"
   }
@@ -500,6 +906,20 @@
    "credit": "Wikimedia Commons",
    "license": "CC BY-SA 4.0",
    "where": "defense"
+  },
+  {
+   "file": "4Q41 1.png",
+   "cap": "The All Souls Deuteronomy from Qumran, first century BC — the book setting the prophet test",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Moses with the Tablets of the Law by Moritz Daniel Oppenheim, 1818.jpg",
+   "cap": "Moses with the tablets of the law, painted by Moritz Oppenheim in 1818",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
   }
  ],
  "aorta-test": [
@@ -516,6 +936,20 @@
    "credit": "Wikimedia Commons",
    "license": "CC BY 4.0",
    "where": "defense"
+  },
+  {
+   "file": "The heart and aorta. Wellcome M0014151.jpg",
+   "cap": "An anatomical plate of the heart and aorta from the Wellcome Collection",
+   "credit": "Wellcome Collection",
+   "license": "CC BY 4.0",
+   "where": "claim"
+  },
+  {
+   "file": "Khaybar - view over the fortress.jpg",
+   "cap": "The ruins of the fortress at Khaybar, the oasis where the poisoned meal was served",
+   "credit": "Wikimedia Commons",
+   "license": "CC BY-SA 4.0",
+   "where": "defense"
   }
  ],
  "salvation-scales": [
@@ -531,6 +965,20 @@
    "cap": "Worshippers at prayer in Srinagar; the deeds being weighed are the ordinary acts of observance",
    "credit": "Wikimedia Commons",
    "license": "CC BY 2.0",
+   "where": "defense"
+  },
+  {
+   "file": "Byzantine - Steelyard - Walters 54197.jpg",
+   "cap": "A Byzantine steelyard balance — a period weighing instrument, standing in for the scales described",
+   "credit": "Walters Art Museum",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Masjid al-Haram 2022 (47380).jpg",
+   "cap": "Pilgrims filling the Masjid al-Haram in Mecca during the hajj",
+   "credit": "Wikimedia Commons",
+   "license": "CC BY-SA 3.0",
    "where": "defense"
   }
  ],
@@ -555,6 +1003,20 @@
    "credit": "Wikimedia Commons",
    "license": "Public domain",
    "where": "defense"
+  },
+  {
+   "file": "Sayyidah Ruqayya Mosque interior.jpg",
+   "cap": "The Sayyidah Ruqayya shrine in Damascus; taqiyya developed mainly in Shia law under persecution",
+   "credit": "Wikimedia Commons",
+   "license": "CC BY 2.0",
+   "where": "claim"
+  },
+  {
+   "file": "Section of the Sahih of al-Bukhari LACMA M.73.5.600.jpg",
+   "cap": "A fourteenth-century section of Sahih al-Bukhari, which records that war is deceit",
+   "credit": "LACMA",
+   "license": "Public domain",
+   "where": "defense"
   }
  ],
  "sharia-apostasy-jizya": [
@@ -570,6 +1032,20 @@
    "cap": "The title page of al-Shafi'i's Kitab al-Umm, a foundational law book of one of the four schools",
    "credit": "Wikimedia Commons",
    "license": "CC BY-SA 4.0",
+   "where": "defense"
+  },
+  {
+   "file": "Illuminated Firman (Royal Decree) with Ornamental Tugra of Sultan Selim III LACMA M.85.237.55.jpg",
+   "cap": "An illuminated Ottoman firman bearing the tughra of Sultan Selim III, a decree of law",
+   "credit": "LACMA",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Gold dinar of Abd al-Malik 697-98.png",
+   "cap": "A gold dinar of Abd al-Malik, 697 — the coinage of the early Islamic state",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
    "where": "defense"
   }
  ],
@@ -587,6 +1063,27 @@
    "credit": "Wikimedia Commons",
    "license": "CC BY 2.0",
    "where": "claim"
+  },
+  {
+   "file": "Islamic-Symbol.png",
+   "cap": "The crescent and star, adopted as an Islamic emblem long after Muhammad",
+   "credit": "Wikimedia Commons",
+   "license": "CC BY-SA 4.0",
+   "where": "claim"
+  },
+  {
+   "file": "Trilingual Inscription at Zebed - arabic text - after Combe 1931.jpg",
+   "cap": "The Arabic text of the Zabad inscription, a pre-Islamic Christian dedication invoking Allah",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
+  },
+  {
+   "file": "Madaan-saleh.jpg",
+   "cap": "Nabataean rock-cut tombs at Mada'in Salih in north-west Arabia",
+   "credit": "Wikimedia Commons",
+   "license": "CC BY-SA 4.0",
+   "where": "verdict"
   }
  ],
  "quran-late-composition": [
@@ -626,6 +1123,20 @@
    "credit": "Wikimedia Commons",
    "license": "Public domain",
    "where": "verdict"
+  },
+  {
+   "file": "Masjid Agung Demak.jpg",
+   "cap": "The Great Mosque of Demak in Java, a centre of Islam's spread through trade",
+   "credit": "Wikimedia Commons",
+   "license": "CC BY-SA 4.0",
+   "where": "claim"
+  },
+  {
+   "file": "Jalan menuju makam Sunan Kudus Di Masjid Al - Aqsha Menara Kudus.jpg",
+   "cap": "The path to the tomb of Sunan Kudus, one of the Javanese saints credited with conversion",
+   "credit": "Wikimedia Commons",
+   "license": "CC BY-SA 4.0",
+   "where": "defense"
   }
  ],
  "inheritance-math-awl": [
@@ -649,6 +1160,20 @@
    "credit": "Wikimedia Commons",
    "license": "Public domain",
    "where": "defense"
+  },
+  {
+   "file": "Qur'anic Manuscript - Maghribi script.jpg",
+   "cap": "A thirteenth-century Qur'an in Maghribi script at Surah 4, which fixes the inheritance fractions",
+   "credit": "Chester Beatty Library",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Explanations of Problems in Arithmetic with Examples WDL464.jpg",
+   "cap": "A page from an Islamic arithmetic treatise, World Digital Library",
+   "credit": "World Digital Library",
+   "license": "Public domain",
+   "where": "defense"
   }
  ],
  "banu-qurayza-massacre": [
@@ -665,6 +1190,20 @@
    "credit": "Wikimedia Commons",
    "license": "CC BY-SA 3.0",
    "where": "defense"
+  },
+  {
+   "file": "Banu Qurayza.png",
+   "cap": "The execution of the Banu Qurayza, a detail from a nineteenth-century Persian miniature painting",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Depiction of the Prophet's Mosque in Medina (CBL Ar 4223, f. 4a).jpg",
+   "cap": "A 1638 depiction of Medina's Prophet's Mosque, a representative image, not the market where executions happened",
+   "credit": "Chester Beatty Library",
+   "license": "Public domain",
+   "where": "defense"
   }
  ],
  "muhammad-in-the-bible": [
@@ -678,6 +1217,20 @@
   {
    "file": "Codex Sinaiticus Matthew 5,22-6,4.JPG",
    "cap": "Codex Sinaiticus; the Greek gospels contain no name resembling Ahmad, in any manuscript",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
+  },
+  {
+   "file": "4Q41 1.png",
+   "cap": "The All Souls Deuteronomy, a first-century BC Dead Sea Scroll of the Deuteronomy text",
+   "credit": "Israel Antiquities Authority, photograph by Shai Halevi",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Papyrus66.jpg",
+   "cap": "Papyrus 66, a third-century Greek copy of John, the gospel carrying the Paraclete promise",
    "credit": "Wikimedia Commons",
    "license": "Public domain",
    "where": "defense"
@@ -697,6 +1250,20 @@
    "credit": "Wikimedia Commons",
    "license": "Public domain",
    "where": "defense"
+  },
+  {
+   "file": "Kaaba (1910)-2.jpg",
+   "cap": "The Kaaba photographed about 1910, the shrine the Quran credits to Abraham and Ishmael",
+   "credit": "G. Eric and Edith Matson",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Aleppo Codex Genesis.jpg",
+   "cap": "A page of the Aleppo Codex containing Genesis 26 and 27, where the covenant runs through Isaac",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
   }
  ],
  "quran-borrowed-legends": [
@@ -712,6 +1279,20 @@
    "cap": "A printed Talmud page; the rabbinic corpus is where several Qur'anic narratives find their nearest parallels",
    "credit": "Wikimedia Commons",
    "license": "Public domain",
+   "where": "defense"
+  },
+  {
+   "file": "Abd al-Aziz and Aqa Mirek (attr.),The Seven Sleepers of Ephesus Discovered by Alexander the Great, Folio from a Falnama (Book of Omens) 1550s Qazvin, Metmuseum.jpg",
+   "cap": "The Seven Sleepers of Ephesus in a 1550s Persian Falnama, a Christian legend retold in Surah 18",
+   "credit": "Abd al-Aziz and Aqa Mirek",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Seven sleepers ephesos.jpg",
+   "cap": "Wall painting in the cave at Ephesus venerated as the tomb of the Seven Sleepers",
+   "credit": "Miryam I",
+   "license": "CC BY-SA 3.0",
    "where": "defense"
   }
  ],
@@ -736,6 +1317,20 @@
    "credit": "Wikimedia Commons",
    "license": "Public domain",
    "where": "defense"
+  },
+  {
+   "file": "The Prophet Muhammad and Gabriel.jpg",
+   "cap": "Muhammad and Gabriel with houris in a paradise pavilion, a fourteenth-century Persian painting",
+   "credit": "Ahmad Musa",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Idris sees Paradise and Hell, Istanbul, Turkey, Topkapi Sarayi Müzesi, B. 249, fol. 16b.jpg",
+   "cap": "The prophet Idris shown both paradise and hell in an Ottoman manuscript painting",
+   "credit": "Topkapi Palace Museum",
+   "license": "Public domain",
+   "where": "verdict"
   }
  ],
  "women-testimony-inheritance": [
@@ -759,6 +1354,20 @@
    "credit": "Wikimedia Commons",
    "license": "CC BY 4.0",
    "where": "defense"
+  },
+  {
+   "file": "Khalili Collection Islamic Art mss 0311 fol 190b-191a.jpg",
+   "cap": "A section of al-Bukhari's Sahih, the collection carrying the deficiency-of-mind hadith",
+   "credit": "Khalili Collections",
+   "license": "CC BY-SA 3.0 igo",
+   "where": "claim"
+  },
+  {
+   "file": "Women doing Eid Prayers, Jakarta, Wanita di Indonesia p75 (Ministry of Information).jpg",
+   "cap": "Women at Eid prayers in Jakarta, from a mid-century Indonesian government publication",
+   "credit": "Indonesian Ministry of Information",
+   "license": "Public domain",
+   "where": "defense"
   }
  ],
  "fatiha-daily-prayer-jews-christians": [
@@ -773,6 +1382,20 @@
    "file": "Hadith Al-Nabawi.jpg",
    "cap": "An Arabic hadith manuscript copied at Mecca in 1329; the identification comes from a narration in Tirmidhi",
    "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
+  },
+  {
+   "file": "Worshippers at the Prophet's Mosque in Medina (2022).jpg",
+   "cap": "Worshippers at the Prophet's Mosque in Medina, where the Fatiha is recited in every prayer",
+   "credit": "Wikimedia Commons",
+   "license": "CC BY-SA 4.0",
+   "where": "claim"
+  },
+  {
+   "file": "سنن الترمذي.jpg",
+   "cap": "The first printed edition of Sunan al-Tirmidhi, which carries Muhammad's identification of the two groups",
+   "credit": "Mustafa al-Babi al-Halabi Press",
    "license": "Public domain",
    "where": "defense"
   }
@@ -791,6 +1414,27 @@
    "credit": "Wikimedia Commons",
    "license": "Public domain",
    "where": "defense"
+  },
+  {
+   "file": "Mahmud bedreddin el-ayni, umdetu'l-kari fi sherhi sahih-i buhari (commentario al sahih al-bukhari di kutub al-sittah), calligrafo omer bin abdullah, 1472 (877 egira).jpg",
+   "cap": "A 1472 copy of al-Ayni's commentary on al-Bukhari, dated and signed by its calligrapher",
+   "credit": "Francesco Bini",
+   "license": "CC BY-SA 4.0",
+   "where": "claim"
+  },
+  {
+   "file": "Section of the Sahih of al-Bukhari LACMA M.73.5.600.jpg",
+   "cap": "A fourteenth or fifteenth-century section of al-Bukhari's Sahih, ink and gold on paper",
+   "credit": "Los Angeles County Museum of Art",
+   "license": "Public domain",
+   "where": "defense"
+  },
+  {
+   "file": "Hadith Books.jpg",
+   "cap": "Bound modern Arabic volumes of the Sunni hadith collections left after the sifting",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "verdict"
   }
  ],
  "mariya-hafsa-surah-66": [
@@ -814,6 +1458,20 @@
    "credit": "Wikimedia Commons",
    "license": "Public domain",
    "where": "defense"
+  },
+  {
+   "file": "New York Public Library, Spencer Collection Turk. MS. 3 Siyar-i Nabî fol. 115r Khawlah bint Hakim asks Muhammad to marry Aisha.jpg",
+   "cap": "Khawlah bint Hakim proposing Aisha's marriage to Muhammad, a representative Ottoman scene, not Surah 66",
+   "credit": "New York Public Library, Spencer Collection",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Al-jami al-sahih 14th century Marinid Morocco manuscript.png",
+   "cap": "A fourteenth-century Moroccan manuscript of al-Bukhari's Sahih, among the collections preserving these reports",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
   }
  ],
  "safiyya-khaybar-marriage": [
@@ -828,6 +1486,20 @@
    "file": "Muwatta (Malik ibn Anas) 1326 Salé Morocco Marinid manuscript.png",
    "cap": "Malik's Muwatta in a 1326 Moroccan copy, among the earliest law books treating captives and marriage",
    "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
+  },
+  {
+   "file": "Khaybar - view over the fortress.jpg",
+   "cap": "The Khaybar oasis seen from above the fortress, the settlement taken in 628",
+   "credit": "Hardscarf",
+   "license": "CC BY-SA 4.0",
+   "where": "claim"
+  },
+  {
+   "file": "Hazrat Ali slays Marhab.JPG",
+   "cap": "Ali killing Marhab at Khaybar, from a later Persian illustration of the battle",
+   "credit": "Major Sykes",
    "license": "Public domain",
    "where": "defense"
   }
@@ -853,6 +1525,20 @@
    "credit": "Wikimedia Commons",
    "license": "CC BY 4.0",
    "where": "defense"
+  },
+  {
+   "file": "An illuminated marriage contract of Malik Jahan Khanum, grand-daughter of Fath Ali Shah to Mirza Muhammad Hassan, Persia, Qajar, dated 1833-4.jpg",
+   "cap": "An illuminated Qajar Persian marriage contract of 1833, a representative example, not a temporary marriage",
+   "credit": "Sotheby's",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Santuario de Fátima bint Musa, Qom, Irán, 2016-09-19, DD 14.jpg",
+   "cap": "The shrine at Qom, centre of the Twelver Shia jurisprudence that still permits mut'ah",
+   "credit": "Diego Delso",
+   "license": "CC BY-SA 4.0",
+   "where": "defense"
   }
  ],
  "kaaba-black-stone-pagan-rites": [
@@ -869,6 +1555,20 @@
    "credit": "Wikimedia Commons",
    "license": "Public domain",
    "where": "defense"
+  },
+  {
+   "file": "Pergamon-Museum - Dedan Statue.jpg",
+   "cap": "A colossal pre-Islamic Arabian statue from Al-'Ula, fourth or third century BC, in Berlin",
+   "credit": "Wolfgang Sauber",
+   "license": "CC BY-SA 3.0",
+   "where": "claim"
+  },
+  {
+   "file": "Sa'y between Safa and Marwa 01.jpg",
+   "cap": "Pilgrims performing the sa'y between Safa and Marwa during the hajj",
+   "credit": "Mohammad Hossein Velayati",
+   "license": "CC BY 4.0",
+   "where": "defense"
   }
  ],
  "sword-verses-final-command": [
@@ -883,6 +1583,20 @@
    "file": "Damascus, Syria, The Umayyad Mosque, The Courtyard, Islamic Art.jpg",
    "cap": "The Umayyad Mosque at Damascus, seat of the caliphate that read Surah 9 as a standing command",
    "credit": "Wikimedia Commons",
+   "license": "CC BY 4.0",
+   "where": "defense"
+  },
+  {
+   "file": "Siyer-i Nebi 298a.jpg",
+   "cap": "Muhammad and his companions advancing on Mecca, an Ottoman Siyer-i Nebi miniature",
+   "credit": "Topkapi Palace Museum",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Map of Rashidun Caliphate Conquests (632–656 CE).png",
+   "cap": "A map of the Rashidun conquests, 632 to 656, the decades after Surah 9",
+   "credit": "Khalifa suleiman",
    "license": "CC BY 4.0",
    "where": "defense"
   }
@@ -908,6 +1622,20 @@
    "credit": "Wikimedia Commons",
    "license": "Public domain",
    "where": "defense"
+  },
+  {
+   "file": "The Sirr al-Maktum The Hidden Secret , Mughal manuscript held in the Raza Library, Rampur, thirteenth-century Arabic text on astral magic by the Persian scholar Fakhr al-Din al-Razi, written for an unnamed king.jpg",
+   "cap": "The Sirr al-Maktum, a Mughal copy of al-Razi's thirteenth-century Arabic treatise on astral magic",
+   "credit": "SpeakingArch",
+   "license": "CC BY-SA 4.0",
+   "where": "claim"
+  },
+  {
+   "file": "Section of the Sahih of al-Bukhari LACMA M.73.5.600.jpg",
+   "cap": "A medieval section of al-Bukhari's Sahih, the collection reporting the sorcery incident",
+   "credit": "Los Angeles County Museum of Art",
+   "license": "Public domain",
+   "where": "defense"
   }
  ],
  "sins-cast-on-jews-christians": [
@@ -924,6 +1652,20 @@
    "credit": "Wikimedia Commons",
    "license": "Public domain",
    "where": "defense"
+  },
+  {
+   "file": "Maalik opens the gates of hell.jpg",
+   "cap": "Muhammad asking the angel Malik to open the gates of hell, a Persian miniature",
+   "credit": "The David Collection, Copenhagen",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Gustave Doré - Crucifixion of Jesus.jpg",
+   "cap": "Gustave Doré's 1866 wood engraving of the crucifixion of Jesus",
+   "credit": "Gustave Doré",
+   "license": "Public domain",
+   "where": "verdict"
   }
  ],
  "uzair-son-of-god": [
@@ -940,6 +1682,20 @@
    "credit": "Wikimedia Commons",
    "license": "Public domain",
    "where": "defense"
+  },
+  {
+   "file": "Cassiodorus manuscript.png",
+   "cap": "Ezra restoring the scriptures, an eighth-century illumination from the Codex Amiatinus",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "MS Kaufmann A 50.jpg",
+   "cap": "MS Kaufmann A 50, the most important surviving manuscript of the Jewish Mishnah",
+   "credit": "Hungarian Academy of Sciences",
+   "license": "Public domain",
+   "where": "verdict"
   }
  ],
  "allah-name-polemic": [
@@ -963,6 +1719,13 @@
    "credit": "Wikimedia Commons",
    "license": "Public domain",
    "where": "defense"
+  },
+  {
+   "file": "بسم الله الرحمن الرحيم.png",
+   "cap": "The basmala, 'in the name of Allah', written out in thuluth script",
+   "credit": "Wikimedia Commons",
+   "license": "CC BY-SA 4.0",
+   "where": "defense"
   }
  ],
  "first-revelation-terror": [
@@ -979,6 +1742,20 @@
    "credit": "Wikimedia Commons",
    "license": "Public domain",
    "where": "defense"
+  },
+  {
+   "file": "Rashid al-Din Tabib - Jami al-Tawarikh, f.45v detail - c. 1306-15.png",
+   "cap": "Muhammad receiving his first revelation from Gabriel, from Rashid al-Din's Jami al-Tawarikh, about 1315",
+   "credit": "Rashid-al-Din Hamadani",
+   "license": "Public domain",
+   "where": "defense"
+  },
+  {
+   "file": "Siyer-i Nebi 158b.jpg",
+   "cap": "Muhammad on Mount Hira, his face left blank, in an Ottoman Siyer-i Nebi miniature",
+   "credit": "Nakkaş Osman",
+   "license": "Public domain",
+   "where": "verdict"
   }
  ],
  "quran-262-vs-385": [
@@ -1000,6 +1777,20 @@
    "file": "Courtyard of Al-Azhar Mosque.jpg",
    "cap": "Al-Azhar's courtyard in Cairo, where the abrogation reading of 2:62 is still taught",
    "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
+  },
+  {
+   "file": "Quran page - Al-Baqara Sura - Egyptian National Library.jpg",
+   "cap": "A page of Surah al-Baqara, the chapter whose verse 62 promises reward to Jews and Christians",
+   "credit": "Egyptian National Library",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Coran AR324b - f3.jpg",
+   "cap": "A Kufic Quran leaf carrying Al Imran verses 139 to 141, from the Gallica collection",
+   "credit": "Bibliothèque nationale de France",
    "license": "Public domain",
    "where": "defense"
   }
@@ -1025,6 +1816,13 @@
    "credit": "Wikimedia Commons",
    "license": "Public domain",
    "where": "defense"
+  },
+  {
+   "file": "15-Nouakchott-eH-R0058185.jpg",
+   "cap": "Central Nouakchott, capital of Mauritania, which abolished slavery only in 1981",
+   "credit": "Laminesall96",
+   "license": "CC BY-SA 4.0",
+   "where": "verdict"
   }
  ],
  "fgm-classical-fiqh": [
@@ -1048,6 +1846,20 @@
    "credit": "Wikimedia Commons",
    "license": "Public domain",
    "where": "defense"
+  },
+  {
+   "file": "Mahmud bedreddin el-ayni, umdetu'l-kari fi sherhi sahih-i buhari (commentario al sahih al-bukhari di kutub al-sittah), calligrafo omer bin abdullah, 1472 (877 egira).jpg",
+   "cap": "A 1472 Ottoman manuscript commentary on al-Bukhari, representative of the classical legal literature",
+   "credit": "Francesco Bini",
+   "license": "CC BY-SA 4.0",
+   "where": "claim"
+  },
+  {
+   "file": "Cairo - Islamic district - Al Azhar Mosque and University.JPG",
+   "cap": "Al-Azhar Mosque and University in Islamic Cairo, seat of Sunni Islam's leading legal authority",
+   "credit": "Daniel Mayer",
+   "license": "CC BY-SA 4.0",
+   "where": "defense"
   }
  ],
  "quran-grammar-irregularities": [
@@ -1061,6 +1873,20 @@
   {
    "file": "Topkapi mushaf Arab ornament.jpg",
    "cap": "An ornamented Qur'an in the Topkapi collection; later copies added the vowel and case marking",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
+  },
+  {
+   "file": "رق قرآني قديم بالخط الكوفي غير المنقوط، مكتبة الجامع الكبير بصنعاء Ancient Quranic parchment in unvocalized Kufic script, Grand Mosque Library in Sana'a.jpg",
+   "cap": "An ancient unvocalized Kufic Quran parchment from the Great Mosque of Sana'a, without case marks",
+   "credit": "Ayah Alakwaa",
+   "license": "CC BY-SA 4.0",
+   "where": "claim"
+  },
+  {
+   "file": "Abbasid Koran folio from Egypt.jpg",
+   "cap": "An Abbasid Quran folio from Egypt, written in Kufic script",
    "credit": "Wikimedia Commons",
    "license": "Public domain",
    "where": "defense"
@@ -1087,6 +1913,20 @@
    "credit": "Wikimedia Commons",
    "license": "CC BY 4.0",
    "where": "defense"
+  },
+  {
+   "file": "Folio from a Qur'an Manuscript (IA mma folio from a quran manuscript 448281).jpg",
+   "cap": "A Quran folio written in eastern Kufic script, from the Metropolitan Museum collection",
+   "credit": "Metropolitan Museum of Art",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Sultan Mehmed I in discussion with a religious scholar (Ulama). Page 263. Tadj al-Tawarikh (The Crown of the Chronicles), 1616, Ottoman (Musée Jacquemart-André, Ms 13141).jpg",
+   "cap": "An Ottoman sultan in discussion with a religious scholar, a 1616 miniature of scholarly authority",
+   "credit": "Musée Jacquemart-André",
+   "license": "Public domain",
+   "where": "defense"
   }
  ],
  "four-witnesses-rape-standard": [
@@ -1110,6 +1950,20 @@
    "credit": "Wikimedia Commons",
    "license": "CC BY 4.0",
    "where": "defense"
+  },
+  {
+   "file": "Kufi script (New Syle 1) - Qur'anic verses.jpg",
+   "cap": "A Kufic Quran leaf carrying Surah al-Nur, the chapter setting the four-witness rule",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Lahore High Court Building.jpg",
+   "cap": "The Lahore High Court building, one of the courts that applied the Hudood Ordinance",
+   "credit": "MariyamAftab",
+   "license": "CC BY-SA 4.0",
+   "where": "defense"
   }
  ],
  "iblis-angel-or-jinn": [
@@ -1126,6 +1980,13 @@
    "credit": "Wikimedia Commons",
    "license": "CC BY 4.0",
    "where": "defense"
+  },
+  {
+   "file": "Angels watching Iblis not prostrating before Adam.png",
+   "cap": "Two angels see Iblis refuse to bow to Adam, from al-Tusi's Wonders of Creation",
+   "credit": "Ahmad Haravi",
+   "license": "Public domain",
+   "where": "claim"
   }
  ],
  "creation-six-or-eight-days": [
@@ -1146,6 +2007,20 @@
   {
    "file": "Abbasid Koran folio from Egypt.jpg",
    "cap": "A ninth-century Abbasid Qur'an folio from Egypt, from the tradition carrying the creation passages",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
+  },
+  {
+   "file": "Aja'ib al-Makhluqat by Zakariya al-Qazwini.png",
+   "cap": "A page of al-Qazwini's Wonders of Creation, the classic Islamic account of the created order",
+   "credit": "Yale University Library",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Wonders of creation manuscript angel image.png",
+   "cap": "An angel with animals from a Deccan copy of Qazwini's Wonders of Creation, about 1650",
    "credit": "Wikimedia Commons",
    "license": "Public domain",
    "where": "defense"
@@ -1172,6 +2047,20 @@
    "credit": "Wikimedia Commons",
    "license": "Public domain",
    "where": "defense"
+  },
+  {
+   "file": "Idris the prophet.jpg",
+   "cap": "The prophet Idris shown heaven and hell, from an illuminated Stories of the Prophets",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Al-jami al-sahih 14th century Marinid Morocco manuscript.png",
+   "cap": "A fourteenth-century Moroccan manuscript of al-Bukhari's Sahih, source of the decree hadiths",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
   }
  ],
  "triple-talaq-halala": [
@@ -1195,6 +2084,13 @@
    "credit": "Wikimedia Commons",
    "license": "Public domain",
    "where": "defense"
+  },
+  {
+   "file": "Marriage certificate of the last Mughal ruler, Bahadur Shah II (r. 1837-57) to Zinat Mahal Begam, on 18 November 1840.jpg",
+   "cap": "A Mughal kabin-nama of 1840 setting the terms of a marriage, a representative contract",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "claim"
   }
  ],
  "surah-9-missing-basmala": [
@@ -1208,6 +2104,20 @@
   {
    "file": "Binding from the Mamluk Qur'an manuscript (TIEM 508).jpg",
    "cap": "The binding of a Mamluk Qur'an; where one chapter ends and the next begins was recorded by scribes",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
+  },
+  {
+   "file": "Basmala بسم اللہ الرحمٰن الرحیم.jpg",
+   "cap": "The basmala, the heading that opens every surah of the Quran except the ninth",
+   "credit": "Saddam19",
+   "license": "CC BY-SA 4.0",
+   "where": "claim"
+  },
+  {
+   "file": "The ‘Uthman Qur'an - 2 - Kufic.jpg",
+   "cap": "A Kufic leaf of the Samarkand codex traditionally attributed to the caliph Uthman",
    "credit": "Wikimedia Commons",
    "license": "Public domain",
    "where": "defense"
@@ -1227,6 +2137,20 @@
    "credit": "Wikimedia Commons",
    "license": "Public domain",
    "where": "defense"
+  },
+  {
+   "file": "Statue cube du vizir Paser (la Villette, 2023).jpg",
+   "cap": "A block statue of the Egyptian vizier Paser, nineteenth dynasty, the office the Quran assigns Haman",
+   "credit": "Egyptian Museum, Cairo",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Persepolis stairs of the Apadana relief02.JPG",
+   "cap": "Reliefs on the Apadana stairway at Persepolis, capital of the Persian empire of Esther",
+   "credit": "Wikimedia Commons",
+   "license": "CC BY-SA 3.0",
+   "where": "defense"
   }
  ],
  "prophetic-medicine-science-test": [
@@ -1242,6 +2166,20 @@
    "cap": "An Arabian camel; the Ukl and Urayna hadith prescribes camel milk and urine as medicine",
    "credit": "Wikimedia Commons",
    "license": "CC BY 2.0",
+   "where": "defense"
+  },
+  {
+   "file": "Desert camel in Jahra.jpg",
+   "cap": "A dromedary camel in Kuwait, the animal of the camel-milk and urine prescription",
+   "credit": "KuwaitiG",
+   "license": "CC BY-SA 4.0",
+   "where": "claim"
+  },
+  {
+   "file": "Muscular system, Avicenna, Canon of Medicine Wellcome L0013313.jpg",
+   "cap": "The muscular system drawn in a manuscript of Avicenna's Canon of Medicine",
+   "credit": "Wellcome Collection",
+   "license": "CC BY 4.0",
    "where": "defense"
   }
  ],
@@ -1264,6 +2202,20 @@
    "file": "Вид на фракійське поховання с. Орлівка, Одеська область, 2015 рік.jpg",
    "cap": "An excavated ancient burial in Ukraine — skeletons from antiquity fall within ordinary human stature",
    "credit": "Wikimedia Commons",
+   "license": "CC BY-SA 4.0",
+   "where": "defense"
+  },
+  {
+   "file": "Adam and Hawwa being expelled from Paradise.jpg",
+   "cap": "Adam and Hawwa expelled from paradise, from a Persian Qisas al-anbiya manuscript of 1577",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Burial 6 Nyaung'gan.jpg",
+   "cap": "An excavated human burial with a scale, a representative example of the skeletal record of stature",
+   "credit": "Baptiste Pradier",
    "license": "CC BY-SA 4.0",
    "where": "defense"
   }
@@ -1289,6 +2241,20 @@
    "credit": "Wikimedia Commons",
    "license": "CC BY 4.0",
    "where": "defense"
+  },
+  {
+   "file": "Khalili Collection Islamic Art mss 0311 fol 190b-191a.jpg",
+   "cap": "A manuscript section of al-Bukhari's Sahih, the collection carrying the age-nine reports",
+   "credit": "Khalili Collections",
+   "license": "CC BY-SA 3.0 igo",
+   "where": "claim"
+  },
+  {
+   "file": "Molla Gürani 01.jpg",
+   "cap": "An Ottoman miniature of the scholar Molla Gürani, from a biographical dictionary of the ulama",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
   }
  ],
  "avoid-muhammad-never-existed": [
@@ -1304,6 +2270,20 @@
    "cap": "The Dome of the Rock, finished 691, whose inscriptions name Muhammad within sixty years of his death",
    "credit": "Wikimedia Commons",
    "license": "CC BY-SA 4.0",
+   "where": "defense"
+  },
+  {
+   "file": "Jerusalem-2013(2)-Temple Mount-Dome of the Rock (SE exposure).jpg",
+   "cap": "The Dome of the Rock in Jerusalem, completed in 691 and inscribed with Muhammad's name",
+   "credit": "Godot13",
+   "license": "CC BY-SA 4.0",
+   "where": "claim"
+  },
+  {
+   "file": "Jerusalem (El-Kouds). Mosque of Omar (i.e., Dome of the Rock), interior, showing mosaics in drum LOC matpc.06640.jpg",
+   "cap": "The interior mosaics in the drum of the Dome of the Rock, photographed early last century",
+   "credit": "Matson Photograph Collection",
+   "license": "Public domain",
    "where": "defense"
   }
  ],
@@ -1321,6 +2301,20 @@
    "credit": "Wikimedia Commons",
    "license": "Public domain",
    "where": "defense"
+  },
+  {
+   "file": "Mosque of Amr ibn al-As 005.JPG",
+   "cap": "The Mosque of Amr ibn al-As in Cairo, on the site of the earliest Egyptian mosque",
+   "credit": "Wikimedia Commons",
+   "license": "CC BY-SA 3.0",
+   "where": "claim"
+  },
+  {
+   "file": "Kufa Mosque (4).jpg",
+   "cap": "The mosque at Kufa, one of the early foundations tested in qibla-orientation studies",
+   "credit": "David Stanley",
+   "license": "CC BY 2.0",
+   "where": "defense"
   }
  ],
  "avoid-black-stone-worship-slogan": [
@@ -1335,6 +2329,20 @@
    "file": "Mecca prayer, 1889.tif",
    "cap": "Prayer at Mecca photographed in 1889, the rite as performed long before the slogan",
    "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
+  },
+  {
+   "file": "Supplicating Pilgrim at Masjid Al Haram. Mecca, Saudi Arabia.jpg",
+   "cap": "A pilgrim supplicating at the Masjid al-Haram in Mecca",
+   "credit": "Ali Mansuri",
+   "license": "CC BY-SA 2.5",
+   "where": "claim"
+  },
+  {
+   "file": "Kaaba during the Hajj - 1886.jpg",
+   "cap": "The Kaaba during the hajj in 1886, from a contemporary Swiss postcard",
+   "credit": "Post of Switzerland",
    "license": "Public domain",
    "where": "defense"
   }
@@ -1360,6 +2368,20 @@
    "credit": "Wikimedia Commons",
    "license": "CC BY-SA 2.0",
    "where": "defense"
+  },
+  {
+   "file": "The ‘Uthman Qur'an - 3 - Kufic.jpg",
+   "cap": "A Kufic leaf of the Samarkand Uthman codex, carrying part of Surah 5",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Birmingham Quran manuscript.jpg",
+   "cap": "The Birmingham Quran manuscript, a seventh-century parchment of chapters 18 to 20",
+   "credit": "University of Birmingham",
+   "license": "Public domain",
+   "where": "defense"
   }
  ],
  "avoid-taqiyya-overclaim": [
@@ -1383,6 +2405,13 @@
    "credit": "Wikimedia Commons",
    "license": "CC BY 4.0",
    "where": "defense"
+  },
+  {
+   "file": "Qur'anic Manuscript - 6 - Hijazi script.jpg",
+   "cap": "An early Hijazi leaf of Surah Al Imran, the chapter containing the verse cited for taqiyya",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "claim"
   }
  ],
  "avoid-72-virgins-in-quran": [
@@ -1406,6 +2435,13 @@
    "credit": "Wikimedia Commons",
    "license": "Public domain",
    "where": "defense"
+  },
+  {
+   "file": "Prophet Muhammad being shown Paradise. Miraj-nama. 1360-1370, Tabriz (Topkapi, H.2154).jpg",
+   "cap": "Muhammad shown paradise in a Persian Miraj-nama of about 1360, from Tabriz",
+   "credit": "Topkapi Palace Museum",
+   "license": "Public domain",
+   "where": "claim"
   }
  ]
 }

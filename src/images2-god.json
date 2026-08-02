@@ -1,0 +1,335 @@
+{
+ "existence-kalam-contingency": [
+  {
+   "file": "Lemaitre.jpg",
+   "cap": "Georges Lemaître, the Belgian priest and physicist who first proposed an expanding universe with a beginning",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Cosmic Microwave Background (CMB).jpeg",
+   "cap": "The cosmic microwave background, the leftover radiation taken as evidence of a hot, dense early universe",
+   "credit": "Wikimedia Commons",
+   "license": "CC BY 4.0",
+   "where": "defense"
+  }
+ ],
+ "existence-fine-tuning": [
+  {
+   "file": "Pillars of Creation (NIRCam Image).jpg",
+   "cap": "Star-forming pillars in the Eagle Nebula, imaged in infrared by the James Webb Space Telescope",
+   "credit": "NASA/ESA/CSA via Wikimedia Commons",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "The Hubble eXtreme Deep Field.jpg",
+   "cap": "The Hubble eXtreme Deep Field, a decade of exposures on one small patch of sky",
+   "credit": "NASA/ESA via Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
+  }
+ ],
+ "existence-moral-argument": [
+  {
+   "file": "Eleanor Roosevelt and United Nations Universal Declaration of Human Rights in Spanish 09-2456M original.jpg",
+   "cap": "Eleanor Roosevelt holding a Spanish text of the Universal Declaration of Human Rights, 1949",
+   "credit": "FDR Library via Wikimedia Commons",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Allan Ramsay - David Hume, 1711 - 1776. Historian and philosopher - Google Art Project.jpg",
+   "cap": "Allan Ramsay's portrait of David Hume, who argued that no 'ought' follows from an 'is'",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
+  }
+ ],
+ "existence-argument-from-reason": [
+  {
+   "file": "Cajal cortex drawings.png",
+   "cap": "Ramón y Cajal's drawings of the human cortex, the physical machinery in which reasoning happens",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Purkinje cell by Cajal.png",
+   "cap": "Cajal's camera lucida drawing of a single Purkinje neuron from a cat's cerebellar cortex",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
+  }
+ ],
+ "resurrection-minimal-facts": [
+  {
+   "file": "Rolling Stone, Tomb of Kings, Jerusalem LOC 24189799550.jpg",
+   "cap": "A rolling-stone tomb in Jerusalem photographed about 1915; not Jesus's tomb, but the same type",
+   "credit": "Library of Congress via Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
+  }
+ ],
+ "resurrection-early-creed": [
+  {
+   "file": "Temple of Apollo, Corinth, 203011.jpg",
+   "cap": "The temple of Apollo at ancient Corinth, the city to which Paul addressed this letter",
+   "credit": "Wikimedia Commons",
+   "license": "CC BY-SA 4.0",
+   "where": "claim"
+  },
+  {
+   "file": "Probably Valentin de Boulogne - Saint Paul Writing His Epistles - Google Art Project.jpg",
+   "cap": "A seventeenth-century painting of Paul at work on his letters, by Valentin de Boulogne",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
+  }
+ ],
+ "manuscripts-canon-formation": [
+  {
+   "file": "First Council of Nicaea Michael Damaskinos.png",
+   "cap": "A later Greek painting of the First Council of Nicaea, which met to debate Arianism",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
+  }
+ ],
+ "archaeology-quirinius-census": [
+  {
+   "file": "Res Gestae.jpg",
+   "cap": "Part of the Res Gestae of Augustus at Ankara, the emperor's own record of his reign",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Herodium from above.jpg",
+   "cap": "Herodium near Bethlehem, the fortress-palace where Herod the Great was buried after dying in 4 BC",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
+  }
+ ],
+ "prophecy-daniel-dating": [
+  {
+   "file": "Antiochus IV- Pollution of the Temple.jpg",
+   "cap": "A medieval illumination of Antiochus IV defiling the Jerusalem temple, the crisis Daniel 11 describes",
+   "credit": "Morgan Library via Wikimedia Commons",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Stattler, Wojciech Korneli - The Maccabees (1842) (4k).jpg",
+   "cap": "Stattler's 1842 painting of the Maccabean revolt, the setting critics assign to Daniel's final form",
+   "credit": "National Museum Kraków via Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
+  }
+ ],
+ "prophecy-isaiah53-psalm22": [
+  {
+   "file": "Great Isaiah Scroll.jpg",
+   "cap": "The Great Isaiah Scroll unrolled: the whole book, copied at Qumran about 125 BC",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Shrine of the Book, Jerusalem.jpg",
+   "cap": "The Shrine of the Book in Jerusalem, the museum wing built to house the scroll",
+   "credit": "Wikimedia Commons",
+   "license": "CC BY-SA 3.0",
+   "where": "defense"
+  }
+ ],
+ "objection-problem-of-evil": [
+  {
+   "file": "Epicurus bust.jpg",
+   "cap": "A Roman marble bust of Epicurus, whose name is attached to the ancient form of this dilemma",
+   "credit": "British Museum via Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
+  }
+ ],
+ "objection-canaanite-conquest": [
+  {
+   "file": "Jericho BW 1.jpg",
+   "cap": "The excavation mound of Tell es-Sultan at Jericho, dug repeatedly since the nineteenth century",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
+  }
+ ],
+ "objection-who-made-god": [
+  {
+   "file": "Christoph Bernhard Francke - Bildnis des Philosophen Leibniz (ca. 1695).jpg",
+   "cap": "Christoph Bernhard Francke's portrait of Leibniz, who framed contingency as the principle of sufficient reason",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Bertrand Russell photo.jpg",
+   "cap": "Bertrand Russell in 1936; he credited reading Mill with the 'who made God?' objection",
+   "credit": "Bassano via Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
+  }
+ ],
+ "objection-science-genesis": [
+  {
+   "file": "Lemaitre.jpg",
+   "cap": "Georges Lemaître, the Catholic priest whose 1927 paper proposed what became the Big Bang model",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
+  }
+ ],
+ "objection-religion-wars": [
+  {
+   "file": "Cathedral of Christ the Saviour (destruction, 1931).jpg",
+   "cap": "Moscow's Cathedral of Christ the Saviour dynamited in 1931 by the officially atheist Soviet state",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
+  }
+ ],
+ "dontuse-banana-design": [
+  {
+   "file": "Banana Processing.jpg",
+   "cap": "Workers cleaning Cavendish bananas at an Ecuadorian plantation, the cultivated fruit Comfort's argument described",
+   "credit": "Wikimedia Commons",
+   "license": "CC BY-SA 2.0",
+   "where": "defense"
+  }
+ ],
+ "dontuse-darwin-recanted": [
+  {
+   "file": "Charles Darwin's grave at Westminster Abbey.jpg",
+   "cap": "Darwin's grave slab in Westminster Abbey, where he was buried with a state funeral in 1882",
+   "credit": "Wikimedia Commons",
+   "license": "CC BY-SA 3.0",
+   "where": "defense"
+  }
+ ],
+ "dontuse-pascals-wager-opener": [
+  {
+   "file": "Pensées, Pascal, Manuscrit autographe, entre 1656 et 1662, BnF, Manuscrits - Exposition Blaise Pascal à la Bibliothèque nationale de France (6).jpg",
+   "cap": "Pascal's autograph manuscript of the Pensées, the unfinished notes in which the wager appears",
+   "credit": "Bibliothèque nationale de France via Wikimedia Commons",
+   "license": "CC BY-SA 2.0",
+   "where": "claim"
+  },
+  {
+   "file": "Statue de Blaise Pascal par Jules Cavelier, Paris août 2014 001.jpg",
+   "cap": "Cavelier's statue of Pascal beneath the Tour Saint-Jacques, where he tested barometric pressure",
+   "credit": "Wikimedia Commons",
+   "license": "CC BY-SA 2.0",
+   "where": "defense"
+  }
+ ],
+ "resurrection-willing-to-die": [
+  {
+   "file": "Jonestown pavilion.jpg",
+   "cap": "The pavilion at Jonestown, Guyana, photographed after the 1978 deaths of over nine hundred people",
+   "credit": "FBI via Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
+  }
+ ],
+ "dontuse-all-twelve-martyred": [
+  {
+   "file": "Crucifixion of Saint Peter-Caravaggio (c.1600).jpg",
+   "cap": "Caravaggio's Crucifixion of Saint Peter, a scene from later tradition rather than any New Testament text",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Flavius Josephus edition of 1552.jpg",
+   "cap": "A 1552 edition of Josephus, whose Antiquities records the stoning of James, the brother of Jesus",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
+  },
+  {
+   "file": "Legend of Saint Thecla.XVI.jpg",
+   "cap": "A sixteenth-century Czech manuscript of the life and miracles of Saint Thecla, an apocryphal legend",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "verdict"
+  }
+ ],
+ "objection-divine-hiddenness": [
+  {
+   "file": "Young woman praying in church (1854), by Jules Breton.jpg",
+   "cap": "Jules Breton's 1854 painting of a young woman praying alone in a village church",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "list"
+  },
+  {
+   "file": "Pensées, Pascal, Manuscrit autographe, entre 1656 et 1662, BnF, Manuscrits - Exposition Blaise Pascal à la Bibliothèque nationale de France (6).jpg",
+   "cap": "Pascal's autograph Pensées manuscript, where he wrote of enough light and enough obscurity",
+   "credit": "Bibliothèque nationale de France via Wikimedia Commons",
+   "license": "CC BY-SA 2.0",
+   "where": "claim"
+  },
+  {
+   "file": "El Greco 019.jpg",
+   "cap": "El Greco's Agony in the Garden, a painting of the prayer 'let this cup pass'",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
+  }
+ ],
+ "dontuse-atheist-mind-reading": [
+  {
+   "file": "Papyrus 26 - Papyrus Oxyrhynchus 1354 - Bridwell Papyrus 1 - Epistle to the Romans 1,1-16 - recto.jpg",
+   "cap": "Papyrus 26, a third-century fragment of Romans chapter one, the passage this trope proof-texts",
+   "credit": "Bridwell Library via Wikimedia Commons",
+   "license": "Public domain",
+   "where": "list"
+  },
+  {
+   "file": "Cambridge, University Library Ms Add. 7211 - P. Oxy. 1355 (Papyrus 27) recto Romans 8, 12-27.jpg",
+   "cap": "Papyrus 27, a third-century fragment of Romans, among the letter's earliest surviving witnesses",
+   "credit": "Cambridge University Library via Wikimedia Commons",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Young woman praying in church (1854), by Jules Breton.jpg",
+   "cap": "A representative image, not a specific deconvert: Jules Breton's 1854 painting of a woman praying",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
+  }
+ ],
+ "resurrection-hallucination-hypotheses": [
+  {
+   "file": "Caravaggio-The Conversion on the Way to Damascus.jpg",
+   "cap": "Caravaggio's Conversion on the Way to Damascus, the appearance to Paul that skeptics read as vision",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "list"
+  },
+  {
+   "file": "The Incredulity of Saint Thomas by Caravaggio.jpg",
+   "cap": "Caravaggio's Doubting Thomas; the Gospels present the appearances as bodily encounters rather than private visions",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "claim"
+  },
+  {
+   "file": "Children of Fátima portrait (Attributed to Joshua Benoliel) – Ilustração Portuguesa, 1917.jpg",
+   "cap": "The three Fátima children in 1917; skeptics cite shared religious experiences like theirs as parallels",
+   "credit": "Wikimedia Commons",
+   "license": "Public domain",
+   "where": "defense"
+  }
+ ]
+}
