@@ -86,6 +86,15 @@ for (const s of SECTIONS) {
   counts[s.key] = arr.length;
   let html = fs.readFileSync(P(s.shell), 'utf8')
     .replace('/*__DATA__*/', () => dataStr)
+    /* the striking cases get larger type in the claims list */
+    .replace('/*__WOW__*/[]', () => { const wf = P('wow-' + s.key + '.json');
+      if (!fs.existsSync(wf)) return '[]';
+      const w = JSON.parse(fs.readFileSync(wf, 'utf8'));
+      return JSON.stringify(w.tier1 || []); })
+    .replace('/*__RANKED__*/[]', () => { const wf = P('wow-' + s.key + '.json');
+      if (!fs.existsSync(wf)) return '[]';
+      const w = JSON.parse(fs.readFileSync(wf, 'utf8'));
+      return JSON.stringify(w.ranked || []); })
     .replace('/*__VERSEFILE__*/', () => s.verses)
     .replace(/__N__/g, arr.length);
   html = wrap(html, {

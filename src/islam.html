@@ -90,7 +90,7 @@
   .vcol.un .t{color:var(--red)}.vcol.co .t{color:var(--amber)}.vcol.an .t{color:var(--green)}
   .vcol header .d{font-size:.74rem;color:var(--muted);margin-top:4px}
   /* Option B: the four bands run down the page, five cases each */
-  .vwall.vstack{display:block;max-width:1180px}
+  .vwall.vstack{display:block;max-width:none}
   .vwall.vstack .vcol{margin:0 0 16px}
   .vwall.vstack .vcol header{padding:16px 18px 14px}
   .vwall.vstack .vcol header .n{font-size:2.1rem}
@@ -98,6 +98,16 @@
   .vwall.vstack .vcol header .d{font-size:.86rem;margin-top:6px;max-width:70ch;line-height:1.55}
   .vwall.vstack .vt{padding:11px 18px 11px 15px}
   .vwall.vstack .vt h5{font-size:.99rem}
+  /* a picture beside every claim; a letter block where no image exists yet */
+  .vwall.vstack .vt{display:flex;gap:14px;align-items:center;padding:10px 18px 10px 15px}
+  .vth{width:62px;height:46px;flex:0 0 62px;border-radius:7px;object-fit:cover;border:1px solid var(--line2);background:var(--panel)}
+  .vth.ph{display:grid;place-items:center;color:var(--dim);font-family:var(--serif);font-size:1.15rem}
+  .vtx{display:block;min-width:0;flex:1}
+  .vwall.vstack .vt .h5{font-family:var(--serif);font-weight:500;font-size:1.02rem;line-height:1.35;display:block}
+  /* the genuinely striking ones carry more weight on the page */
+  .vwall.vstack .vt.wow .h5{font-size:1.32rem;line-height:1.28}
+  .vwall.vstack .vt.wow .vth{width:78px;height:58px;flex-basis:78px}
+  @media (max-width:620px){.vwall.vstack .vt.wow .h5{font-size:1.12rem}}
   .showall{display:block;width:100%;text-align:left;background:none;border:0;border-top:1px solid var(--line);
     padding:11px 18px;cursor:pointer;color:var(--gold);font-family:inherit;font-size:.83rem;font-weight:600;letter-spacing:.02em}
   .showall:hover{background:color-mix(in srgb,var(--gold) 8%,transparent)}
@@ -747,8 +757,8 @@ const CATS={"torah-preservation":"The preservation trap","jesus-cross":"Jesus & 
 const SECMAP={"torah-preservation":"bible","jesus-cross":"jesus","quran-text":"quran","science-history":"quran","doctrine-of-god":"doctrine","salvation":"doctrine","muhammad-test":"muhammad","practice":"muhammad"};
 const VLABEL={admitted:"Admitted",unrefuted:"Unrefuted",contested:"Contested",answered:"Answered"};
 const TIPS={
-  verdict:{admitted:"The church's own publications — essays, canon, official statements, sponsored histories — concede the facts of this claim. Only the interpretation is defended. You can cite this one entirely from their sources.",unrefuted:"No adequate published answer exists — or the best defenses concede the core point rather than rebut it.",contested:"A serious rebuttal exists. Read both sides; the dispute is genuine.",answered:"The best defense holds up. The criticism is weaker than commonly presented — included so nothing is cherry-picked."},
-  impact:"How serious the claim is, if true: MAJOR strikes at the foundation, MODERATE is significant, MINOR is a detail.",
+  verdict:{admitted:"The church's own publications — essays, canon, official statements, sponsored histories — concede the facts of this claim. Only the interpretation is defended. You can cite this one entirely from their sources.",unrefuted:"No adequate published answer exists — or the best defenses concede the core point rather than rebut it.",contested:"Scholars argue this one both ways, and both sides have a real case. Read both before you use it.",answered:"The best defense holds up. The criticism is weaker than commonly presented — included so nothing is cherry-picked."},
+  impact:"If this claim is right, how much does it matter? MAJOR shakes the foundation of the faith. MODERATE matters but does not. MINOR is a detail worth knowing.",
   strongest:"One of the handful of cases with the most decisive documentary evidence in the entire catalog — if you read only a few, read these."};
 const CATDESC={"torah-preservation":"The cornerstone: the Quran affirms the Bible of Muhammad's day, and the manuscripts prove that Bible is ours — so corruption before Muhammad indicts the Quran and corruption after is impossible.","jesus-cross":"What the Quran says about Jesus and the crucifixion — measured against the historical record and its own concessions.","quran-text":"Where the Quran's material actually came from, and how its own text was compiled, standardized, and varied.","doctrine-of-god":"What Islam teaches about who God is — and whether the Quran ever engages the Christianity it condemns.","science-history":"Claims in the Quran measured against science and documented history.","muhammad-test":"Muhammad measured by the Bible's own tests of a prophet — prediction, signs, and the pattern of his revelations.","salvation":"Scales of deeds versus grace: what each book offers a sinner.","practice":"Islamic law and practice — apostasy, warfare provisions, marriage — documented from sahih sources."};
 function info(t){return t?`<span class="info" tabindex="0">i<span class="tip">${esc(t)}</span></span>`:"";}
@@ -1063,6 +1073,8 @@ function renderPreview(){
 }
 
 /* ---------- overview ---------- */
+const WOW=new Set(/*__WOW__*/[]);
+const RANKED=/*__RANKED__*/[];
 function renderOverview(){
   const items=filtered();
   const anyF=state.verdict||state.severity||state.q||state.section!=="all";
@@ -1076,16 +1088,22 @@ function renderOverview(){
     /* one ordered list per verdict: most serious first, strongest evidence at the top of each */
     /* the five on show are the ones a reader should meet first: flagged evidence
        outranks severity, so a band never opens on its dullest case */
-    const rank=d=>(d.featured?6:isStrong(d)?4:0)+(d.severity==="high"?2:d.severity==="medium"?1:0);
+    /* RANKED is the editorial most-striking-first order; fall back to the flags */
+    const rank=d=>{const i=RANKED.indexOf(d.id); if(i>=0)return 10000-i;
+      return (d.featured?6:isStrong(d)?4:0)+(d.severity==="high"?2:d.severity==="medium"?1:0);};
     const all=src.filter(d=>d.verdict===v).sort((a,b)=>rank(b)-rank(a));
     if(!all.length)return "";
     /* a filter or a search means the reader has already narrowed it — show everything */
     const open=state.open&&state.open[v], narrowed=!!(state.q||state.verdict||state.severity);
     const shown=(open||narrowed)?all:all.slice(0,5);
-    const rows=shown.map(d=>`<button class="vt ${state.sel===d.id?"sel":""}${visible.has(d.id)?"":" dimmed"}" data-id="${d.id}">
-          <h5>${esc(d.title)}</h5>
-          <span class="m">${d.avoid?'<span class="star avd">⚠ do not use</span>':d.featured?'<span class="star">★ strongest evidence</span>':isStrong(d)?'<span class="star s2">☆ strong evidence</span>':""}${read.has(d.id)?'<span class="rd">✓ read</span>':""}</span>
-        </button>`).join("");
+    const rows=shown.map(d=>{
+      const im=IMGMAP[d.id];
+      const thumb=im?`<img class="vth" src="${im.src.replace("width=520","width=160")}" alt="" loading="lazy">`
+        :`<span class="vth ph">${esc((d.title.match(/[A-Za-z]/)||["·"])[0])}</span>`;
+      return `<button class="vt ${state.sel===d.id?"sel":""}${visible.has(d.id)?"":" dimmed"}${WOW.has(d.id)?" wow":""}" data-id="${d.id}">
+          ${thumb}<span class="vtx"><span class="h5">${esc(d.title)}</span>
+          <span class="m">${d.avoid?'<span class="star avd">⚠ do not use</span>':d.featured?'<span class="star">★ strongest evidence</span>':isStrong(d)?'<span class="star s2">☆ strong evidence</span>':""}${read.has(d.id)?'<span class="rd">✓ read</span>':""}</span></span>
+        </button>`;}).join("");
     const more=(!narrowed&&all.length>5)
       ? `<button class="showall" data-v="${v}">${open?"Show fewer &uarr;":"Show all "+all.length+" &rarr;"}</button>` : "";
     return `<div class="vcol ${cls}"><header><span class="n">${all.length}</span><span class="t">${VLABEL[v]}</span><div class="d">${VDESC[v]}</div></header><div class="vgroup">${rows}</div>${more}</div>`;
@@ -1112,7 +1130,7 @@ function renderOverview(){
   }
   $("#main").innerHTML=`
     <h4 class="bt">${state.section==="all"?DATA.length+" claims, sorted by where the argument stands · click any title to open its case":SECTIONS[state.section]+" — by verdict"}${anyF?` · <button id="clearf" style="background:none;border:0;color:var(--gold);cursor:pointer;text-decoration:underline;font-size:.72rem;letter-spacing:0;text-transform:none">${items.length} match filters — clear</button>`:""}</h4>
-    <div class="vwall vstack">${col("admitted")}${col("unrefuted")}${col("contested")}${col("answered")}</div>
+    <div class="vwall vstack">${col("unrefuted")}${col("admitted")}${col("contested")}${col("answered")}</div>
     <p class="methodfoot">Steelman rules: every claim carries the best published Muslim defense; weak criticisms are marked answered; facts conceded in sahih Islamic sources are marked admitted. Compiled July 2026 from published sources — verify citations at the links before quoting. Verdicts are editorial judgments about the public argument.</p>`;
   document.querySelectorAll(".vt").forEach(c=>{
     c.addEventListener("mouseenter",()=>{state.sel=c.dataset.id;renderPreview();});
