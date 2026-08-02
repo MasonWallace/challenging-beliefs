@@ -17,7 +17,7 @@ const CATDESC = {
   "nwt-translation": "Verses the Watchtower's own Bible renders differently from every major translation — and why.",
   "chronology-607": "The date the entire 1914 doctrine rests on, and what the evidence says.",
   "failed-dates": "A century of published end-time predictions and what happened to them.",
-  "prophecy-authority": "How the organization claims — and disclaims — the authority of God's channel.",
+  "prophecy-authority": "The organization says it is God's channel to mankind — and also says it is not inspired and can be wrong. How both are held at once.",
   "doctrine-of-god": "Who Jesus is, what the Spirit is, and what happens at death.",
   "two-class-salvation": "The doctrine that divides believers into a heavenly 144,000 and an earthly great crowd.",
   "blood-doctrine": "The transfusion ban: its 1945 origin, its shifting boundaries, and its cost.",
@@ -60,9 +60,9 @@ const GLOSSARY = [
 const has = new Set(data.map(d => d.id));
 const pick = (...ids) => ids.filter(i => has.has(i));
 const PATHS = [
-  { id: "foundation", name: "The foundation: 1914 and the slave", desc: "Pull the one thread everything else hangs from", time: "≈ 25 min", items: pick("chron-607-vs-587", "dates-1874-1914-retrofit", "auth-fds-2012-governing-body", "auth-prophet-paradox") },
-  { id: "jesus", name: "Who Jesus is", desc: "The archangel question, and what the NWT does to the verses", time: "≈ 20 min", items: pick("jesus-michael-archangel", "nwt-colossians-other-inserted", "nwt-john-1-1-a-god", "bodily-resurrection-denied") },
-  { id: "gospel", name: "The gospel they were never offered", desc: "Two classes, one mediator, and a table almost nobody may touch", time: "≈ 20 min", items: pick("two-class-salvation-system", "memorial-passing-emblems", "mediator-only-144000", "1935-cutoff-abandoned") },
+  { id: "foundation", name: "The foundation: 1914 and 'the faithful slave'", desc: "One date, and the eight men it makes the voice of God — pull this thread and everything else comes with it", time: "≈ 25 min", items: pick("chron-607-vs-587", "dates-1874-1914-retrofit", "auth-fds-2012-governing-body", "auth-prophet-paradox") },
+  { id: "jesus", name: "Who Jesus is", desc: "Is Jesus the archangel Michael? And what the New World Translation — the Watchtower’s own Bible — does to the verses about him", time: "≈ 20 min", items: pick("jesus-michael-archangel", "nwt-colossians-other-inserted", "nwt-john-1-1-a-god", "bodily-resurrection-denied") },
+  { id: "gospel", name: "The gospel they were never offered", desc: "Two ranks of believer, a Jesus who mediates for only one of them, and a communion table 99.9% of Witnesses pass by untouched", time: "≈ 20 min", items: pick("two-class-salvation-system", "memorial-passing-emblems", "mediator-only-144000", "1935-cutoff-abandoned") },
   { id: "cost", name: "What it costs", desc: "Blood, shunning, and the price of asking a question", time: "≈ 20 min", items: pick("blood-ban-1945-innovation", "blood-fractions-incoherence", "shunning-mechanics-family", "faders-pimo-exit-costs") },
   { id: "fair", name: "Where they're right", desc: "Popular criticisms that fail — read these before you talk", time: "≈ 12 min", items: data.filter(d => d.avoid).map(d => d.id).slice(0, 6) }
 ].filter(p => p.items.length);
@@ -85,18 +85,18 @@ const TALK = {
 
 const TIPS = {
   verdict: {
-    admitted: "The Watchtower's own publications — the bound volumes, the Proclaimers history, the Index — concede the facts of this claim. Only the meaning is defended. You can cite this one entirely from their library.",
-    unrefuted: "No adequate published answer exists — or the best defenses concede the core point rather than rebut it.",
-    contested: "A serious rebuttal exists. Read both sides; the dispute is genuine.",
-    answered: "The best defense holds up. The criticism is weaker than commonly presented — included so nothing is cherry-picked."
+    admitted: "The Watchtower's own publications admit the facts here — their reprinted back-issues, their official history (Jehovah's Witnesses — Proclaimers of God's Kingdom), and their own research Index. What is still argued is what those facts mean. So you can make this point using only their books, never yours.",
+    unrefuted: "Nobody has published a good answer to this — or the best answers end up agreeing with the main point instead of arguing against it.",
+    contested: "Scholars argue this one both ways, and both sides have a real case. Read both before you use it.",
+    answered: "Their answer to this one is a good answer. The criticism is weaker than people usually make it sound. It is here anyway, so this site is not only showing you the arguments that suit it."
   },
-  impact: "How serious the claim is, if true: MAJOR strikes at the foundation, MODERATE is significant, MINOR is a detail.",
-  strongest: "One of the handful of cases with the most decisive documentary evidence in the entire catalog — if you read only a few, read these."
+  impact: "If this claim is right, how much does it matter? MAJOR — it shakes the foundation of the faith. MODERATE — it matters a lot, but the foundation holds. MINOR — a detail worth knowing.",
+  strongest: "One of the few cases where the written evidence is strongest. If you only have time for a handful, read these."
 };
 const WHYTAIL = {
   admitted: "The facts here sit in the organization's own publications — the only dispute is what they mean. In conversation, cite them exclusively from Watchtower sources; a Witness can verify every word in their own library.",
-  unrefuted: "No adequate answer to this has been published. A Witness must either live with the tension or produce a response the Governing Body has not yet managed.",
-  contested: "There is a genuine debate here — the honest move is to read both sides and weigh which explanation asks less of the evidence.",
+  unrefuted: "Nobody has published a good answer to this. A Witness is left either living with the problem, or coming up with an answer the Governing Body itself has not managed yet.",
+  contested: "This one is genuinely argued both ways. Read both sides, then ask which explanation has to assume the least to work.",
   answered: "Fairly weighed, the defense wins this one. Christians who keep using it weaken their own credibility on the claims that do stand."
 };
 const TOURSTEPS = [{"icon": "🚪", "title": "What this is", "body": "<b>__N__ documented claims</b> about Jehovah's Witnesses, weighed against the Bible. Almost every fact is cited from the Watchtower's own publications, so a Witness can check it in their own library. Seven cases exist to tell Christians which arguments to drop."}, {"icon": "📖", "title": "Every case opens in plain English", "body": "Short blocks. One idea per sentence. What they teach, what the record shows, their best answer, how strong the case is, and one line to say at the door. The sourced version is underneath on the same page."}, {"icon": "🏷", "title": "Four verdicts, one glance", "body": "Every claim lands in one of four columns:<div class=\"vrow2\"><div><span class=\"badge v-admitted\">Admitted</span><span>their own publications concede it</span></div><div><span class=\"badge v-unrefuted\">Unrefuted</span><span>no good Watchtower answer exists</span></div><div><span class=\"badge v-contested\">Contested</span><span>they have a real answer — say so</span></div><div><span class=\"badge v-answered\">Answered</span><span>their answer wins, and we say so</span></div></div>"}, {"icon": "💔", "title": "Remember what it costs them", "body": "A Witness who agrees with you may lose their mother. Shunning is organised and it includes family. Say that out loud early — that you know what you are asking, and you are not asking them to pay it today. Nothing else you say lands until they believe you understand."}, {"icon": "🚀", "title": "Where to start", "body": "Read <b>The heart of it</b>. One date holds up everything else: 607 leads to 1914, which leads to 1919, which is the only basis for the Governing Body's authority. Pull the first link and the chain is on the floor.", "cta": "Take me to the heart of it"}];

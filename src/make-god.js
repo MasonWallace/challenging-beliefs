@@ -20,15 +20,15 @@ data.forEach(d => { d.section = SECMAP[d.category] || 'objections'; });
 const CATDESC = {
   "existence-arguments": "The four arguments worth actually making — and what the best atheist philosophers say back.",
   "resurrection-case": "What even skeptical scholars grant about Easter, and whether anything but a resurrection accounts for it.",
-  "manuscript-reliability": "How the text got here — with the variant count stated honestly rather than spun.",
-  "archaeology-history": "Where the spade confirms the record, and one place where it genuinely complicates it.",
+  "manuscript-reliability": "How the New Testament reached us — and an honest count of the places where the surviving copies differ, rather than a number chosen to reassure you.",
+  "archaeology-history": "Where digging has backed the Bible up, and the one place where what was dug up genuinely complicates it.",
   "prophecy-evidence": "Fulfilments that are impressive, fulfilments that are overclaimed, and how to tell the difference.",
   "objections-answered": "The skeptic's strongest arguments — evil, hiddenness, the conquest — answered within their real limits.",
   "dont-use-apologetics": "Popular Christian arguments that are false or embarrassing. Using them costs you everything else."
 };
 const WHYMAP = {
   "existence-arguments": "These do not deliver Christianity — they deliver the possibility of it. Their job is to move 'obviously not' to 'that's worth thinking about,' which is the only move most conversations need.",
-  "resurrection-case": "Christianity is the one faith that stakes itself on a public, datable, falsifiable event. Paul says so himself: if it didn't happen, the whole thing is worthless.",
+  "resurrection-case": "Christianity is the one faith that stakes everything on a public event with a date on it — one that could have been shown false at the time. Paul says so himself: if it didn't happen, the whole thing is worthless.",
   "manuscript-reliability": "If the text can't be trusted to be what was written, nothing built on it matters. This is also where honesty pays most — the variant count is not a secret, and pretending otherwise is why people stop listening.",
   "archaeology-history": "The Bible makes checkable claims about real kings, real pools, and real officials. Some check out strikingly. One genuinely doesn't yet, and saying so is what makes the rest credible.",
   "prophecy-evidence": "Prophecy is the argument most often ruined by overclaiming. Handled carefully it is real evidence; handled loosely it converts a skeptic into a skeptic with a good story about you.",
@@ -56,9 +56,9 @@ const GLOSSARY = [
 const has = new Set(data.map(d => d.id));
 const pick = (...ids) => ids.filter(i => has.has(i));
 const PATHS = [
-  { id: "existence", name: "Is there anything there at all?", desc: "The four arguments worth making — and the best replies to each", time: "≈ 25 min", items: pick("existence-kalam-contingency", "existence-fine-tuning", "existence-moral-argument", "existence-argument-from-reason") },
-  { id: "easter", name: "The one falsifiable claim", desc: "What skeptical scholars grant, and whether anything else explains it", time: "≈ 22 min", items: pick("resurrection-minimal-facts", "resurrection-early-creed", "resurrection-hallucination-hypotheses") },
-  { id: "text", name: "Is the book what was written?", desc: "Manuscripts, the honest variant count, the Scrolls, and the canon", time: "≈ 22 min", items: pick("manuscripts-nt-text", "manuscripts-dead-sea-scrolls", "manuscripts-canon-formation") },
+  { id: "existence", name: "Is there a God at all?", desc: "The four arguments worth making — and the best replies to each", time: "≈ 25 min", items: pick("existence-kalam-contingency", "existence-fine-tuning", "existence-moral-argument", "existence-argument-from-reason") },
+  { id: "easter", name: "The one claim that could be proved wrong", desc: "What skeptical scholars grant, and whether anything else explains it", time: "≈ 22 min", items: pick("resurrection-minimal-facts", "resurrection-early-creed", "resurrection-hallucination-hypotheses") },
+  { id: "text", name: "Is the book what was written?", desc: "The oldest surviving copies, an honest count of where they differ, the Dead Sea Scrolls, and how the list of biblical books was settled", time: "≈ 22 min", items: pick("manuscripts-nt-text", "manuscripts-dead-sea-scrolls", "manuscripts-canon-formation") },
   { id: "hard", name: "The hard questions", desc: "Evil, hiddenness, the conquest — the reasons people actually don't believe", time: "≈ 25 min", items: pick("objection-problem-of-evil", "objection-divine-hiddenness", "objection-canaanite-conquest", "objection-who-made-god") },
   { id: "retire", name: "Arguments to retire", desc: "Read this before you say anything — these cost you the conversation", time: "≈ 15 min", items: data.filter(d => d.avoid).map(d => d.id) }
 ].filter(p => p.items.length);
@@ -79,11 +79,11 @@ const TALK = {
 const TIPS = {
   verdict: {
     admitted: "Skeptical scholars themselves grant the core fact here — you can make the argument entirely from sources hostile to your conclusion, which is the only kind that travels.",
-    unrefuted: "No adequate naturalistic answer exists — the published alternatives concede the point or change the subject.",
-    contested: "Genuinely open. Serious philosophers argue this both ways, and saying so is what makes you worth talking to.",
+    unrefuted: "There is no good answer to this that keeps everything inside nature alone — the published alternatives either agree with the point or move on to something else.",
+    contested: "This one is genuinely open — serious philosophers argue it both ways, and saying so is what makes you worth talking to.",
     answered: "A popular Christian argument that does not survive scrutiny. Using it costs you the hearing for everything else."
   },
-  impact: "How much weight the argument carries: MAJOR is load-bearing, MODERATE is corroborating, MINOR is a detail.",
+  impact: "How much weight this argument carries. MAJOR — the case leans on it. MODERATE — it backs the case up but does not carry it. MINOR — a smaller detail worth knowing.",
   strongest: "One of the handful of cases with the most decisive evidence in the entire catalog — if you read only a few, read these."
 };
 const WHYTAIL = {
@@ -92,7 +92,7 @@ const WHYTAIL = {
   contested: "Serious people argue this both ways. Say that out loud before you take a side — a skeptic can tell when a case is being oversold, and that is usually the moment they stop listening.",
   answered: "Do not use this one. It is a popular Christian argument that fails, and it costs you the credibility of every true thing you have said."
 };
-const TOURSTEPS = [{"icon": "🌌", "title": "This section runs in reverse", "body": "Nothing here is argued from the Bible's authority to someone who does not hold it. The case is built from sources that do not want the conclusion — skeptical historians, atheist philosophers, and the manuscript record. <b>__N__ cases</b>."}, {"icon": "🎯", "title": "Who are you talking to?", "body": "There are three different conversations. The <b>philosophical atheist</b> is rare, has real reasons, and enjoys the argument. The <b>apathetic none</b> is most people and is not looking for one. The <b>deconvert</b> has heard your best material already, often from someone they loved. Aiming the wrong one at the wrong person is the usual way this fails."}, {"icon": "🏷", "title": "Four verdicts, one glance", "body": "Every case lands in one of four columns:<div class=\"vrow2\"><div><span class=\"badge v-admitted\">Conceded</span><span>skeptical scholars grant it</span></div><div><span class=\"badge v-unrefuted\">Strong</span><span>no good answer has been published</span></div><div><span class=\"badge v-contested\">Contested</span><span>argued both ways — say so</span></div><div><span class=\"badge v-answered\">Don't use</span><span>a Christian argument that fails</span></div></div><p style='margin:10px 0 0'>A third of this section is marked Contested on purpose.</p>"}, {"icon": "🧨", "title": "Read the retirement list first", "body": "The banana. \"No transitional fossils.\" The second law of thermodynamics. Darwin's deathbed. Pascal's wager as an opener. Every one is still circulating, and every one tells a skeptic you do not check your sources. It is the highest-value page here."}, {"icon": "🚀", "title": "Where to start", "body": "Read <b>The heart of it</b>. Not \"the Bible says\", but what a room full of skeptical historians grants about AD 30 — and what explains it.", "cta": "Take me to the heart of it"}];
+const TOURSTEPS = [{"icon": "🌌", "title": "This section runs in reverse", "body": "Nothing here is argued from the Bible's authority to someone who does not hold it. The case is built from sources that do not want the conclusion — skeptical historians, atheist philosophers, and the manuscript record. <b>__N__ cases</b>."}, {"icon": "🎯", "title": "Who are you talking to?", "body": "There are three different conversations. The <b>philosophical atheist</b> is rare, has real reasons, and enjoys the argument. The <b>“none”</b> — the person who ticks “no religion” on a form — is most people, and is not looking for an argument at all. The <b>deconvert</b> has heard your best material already, often from someone they loved. Aiming the wrong one at the wrong person is the usual way this fails."}, {"icon": "🏷", "title": "Four verdicts, one glance", "body": "Every case lands in one of four columns:<div class=\"vrow2\"><div><span class=\"badge v-admitted\">Conceded</span><span>skeptical scholars grant it</span></div><div><span class=\"badge v-unrefuted\">Strong</span><span>no good answer has been published</span></div><div><span class=\"badge v-contested\">Contested</span><span>argued both ways — say so</span></div><div><span class=\"badge v-answered\">Don't use</span><span>a Christian argument that fails</span></div></div><p style='margin:10px 0 0'>A third of this section is marked Contested on purpose.</p>"}, {"icon": "🧨", "title": "Read the retirement list first", "body": "The banana. \"No transitional fossils.\" The second law of thermodynamics. Darwin's deathbed. Pascal's wager as an opener. Every one is still circulating, and every one tells a skeptic you do not check your sources. It is the highest-value page here."}, {"icon": "🚀", "title": "Where to start", "body": "Read <b>The heart of it</b>. Not \"the Bible says\", but what a room full of skeptical historians grants about AD 30 — and what explains it.", "cta": "Take me to the heart of it"}];
 const CORE = {
   hero: {"src":"https://commons.wikimedia.org/wiki/Special:FilePath/Hubble%20ultra%20deep%20field%20high%20rez%20edit1.jpg?width=900","cap":"The Hubble Ultra Deep Field. Every smudge is a galaxy — and the constants that allow any of it are the fine-tuning argument."},
   navLabel: "The heart of it", navCount: "1", navTip: "The case in one page — argued from sources a skeptic already accepts",
@@ -106,7 +106,7 @@ const CORE = {
 
   <div class="corebox"><h3>1 · Aim lower than proof</h3>
   <p>No argument on this page proves Christianity, and pretending otherwise is why skeptics stop listening. The realistic target is one notch: from <i>“obviously false”</i> to <i>“that's actually worth thinking about.”</i> That move is achievable in a single conversation, and it is the move that matters.</p>
-  <p>The arguments that do it best are cumulative, not knockdown: something rather than nothing (contingency); constants that sit in an absurdly narrow window; moral facts that feel discovered rather than invented; and the oddity of trusting a reasoning faculty built entirely by processes indifferent to truth. Each has a serious reply. Together they shift a prior — which is all evidence ever does.</p>
+  <p>The arguments that do it best are cumulative, not knockdown: something rather than nothing (contingency); constants that sit in an absurdly narrow window; moral facts that feel discovered rather than invented; and the oddity of trusting a reasoning faculty built entirely by processes indifferent to truth. Each has a serious reply. Together they move the odds — which is all any evidence ever does.</p>
   <details class="srcdet"><summary>Open the cases behind this</summary><div class="corelinks" style="margin-top:12px">\${link("existence-kalam-contingency")}\${link("existence-fine-tuning")}\${link("existence-moral-argument")}</div></details></div>
 
   <div class="corebox"><h3>2 · The one falsifiable claim</h3>

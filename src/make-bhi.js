@@ -29,7 +29,7 @@ const CATDESC = {
 };
 const WHYMAP = {
   "identity-claims": "Everything else follows from this. If the identity claim is a reading error rather than a recovered truth, the whole system rests on nothing — and if it is true, the church owes them an apology.",
-  "curses-reading": "This is the emotional engine of the movement: a people who suffered enormously find their suffering named in Scripture. Answer the exegesis without ever belittling the suffering.",
+  "curses-reading": "This is the emotional engine of the movement: a people who suffered enormously find their suffering named in Scripture. Answer how the chapter is being read, without ever making light of the suffering behind the reading.",
   "history-genetics": "Because the claim is historical, it can be checked — and because the history involved is real atrocity, it must be checked carefully and without triumph.",
   "race-doctrine": "A gospel with a racial door on it is a different gospel. Galatians was written against exactly this, in the other direction.",
   "law-and-salvation": "This is the actual dividing line. Half of their critique of the modern church is fair; their remedy is the one Paul spent his life opposing.",
@@ -59,9 +59,9 @@ const GLOSSARY = [
 const has = new Set(data.map(d => d.id));
 const pick = (...ids) => ids.filter(i => has.has(i));
 const PATHS = [
-  { id: "identity", name: "The identity claim", desc: "Deuteronomy 28, the chart, and who the chapter is addressed to", time: "≈ 22 min", items: pick("deut-28-68-ships-to-egypt", "deut-28-curses-already-fulfilled", "twelve-tribes-chart", "exclusive-israel-claim") },
-  { id: "race", name: "Race, text and history", desc: "Esau, Revelation 1, the Khazar theory, and what the genetics actually says", time: "≈ 20 min", items: pick("esau-edom-white-people", "revelation-hair-like-wool", "khazar-impostor-theory", "african-american-genetic-ancestry") },
-  { id: "gospel", name: "Law, bloodline and the gospel", desc: "The real dividing line — and the half of their critique that lands", time: "≈ 18 min", items: pick("law-keeping-salvation", "bloodline-versus-abrahams-offspring-by-faith", "gentile-exclusion-and-race-eschatology") },
+  { id: "identity", name: "The identity claim", desc: "Deuteronomy 28, the 12 Tribes Chart, and who that chapter was actually written to", time: "≈ 22 min", items: pick("deut-28-68-ships-to-egypt", "deut-28-curses-already-fulfilled", "twelve-tribes-chart", "exclusive-israel-claim") },
+  { id: "race", name: "Race, text and history", desc: "Esau, Revelation 1, the claim that today's Jews are converted Khazars, and what DNA actually shows", time: "≈ 20 min", items: pick("esau-edom-white-people", "revelation-hair-like-wool", "khazar-impostor-theory", "african-american-genetic-ancestry") },
+  { id: "gospel", name: "Law, bloodline and the gospel", desc: "The real dividing line — and the half of their case against the church that is fair", time: "≈ 18 min", items: pick("law-keeping-salvation", "bloodline-versus-abrahams-offspring-by-faith", "gentile-exclusion-and-race-eschatology") },
   { id: "movement", name: "Where the movement came from", desc: "1896 to today: founders, splits, a failed date, and the peaceful strand", time: "≈ 18 min", items: pick("movement-origins-1886-1969", "year-2000-failed-prophecy", "ben-ammi-dimona-community", "splc-hate-designation") },
   { id: "fair", name: "Where they're right", desc: "Popular Christian arguments that fail — read these before you talk", time: "≈ 10 min", items: data.filter(d => d.avoid).map(d => d.id) }
 ].filter(p => p.items.length);
@@ -81,12 +81,12 @@ const TALK = {
 };
 const TIPS = {
   verdict: {
-    admitted: "The movement's own teachers and published materials state these facts openly — the dispute is only about what they mean. You can cite this one entirely from their sources.",
-    unrefuted: "No adequate answer exists in camp materials — usually because the specific objection is never engaged at all.",
-    contested: "A serious rebuttal exists. Read both sides; the dispute is genuine, and both sides here hold something true.",
-    answered: "The claim has a decisive answer from the text or the record — but state the concession inside it before you give the answer."
+    admitted: "The movement's own teachers say these things openly — what is argued is only what they mean. So you can make this point using only their own teaching, never yours.",
+    unrefuted: "The camps' own teaching has no good answer to this — usually because it never takes the question up at all.",
+    contested: "Scholars argue this one both ways, and both sides have a real case — on this one, each side is holding on to something true.",
+    answered: "The Bible or the historical record settles this one. But say the true part of their claim out loud first — then give the answer."
   },
-  impact: "How serious the claim is, if true: MAJOR strikes at the foundation, MODERATE is significant, MINOR is a detail.",
+  impact: "If this claim is right, how much does it matter? MAJOR — it shakes the foundation of the faith. MODERATE — it matters a lot, but the foundation holds. MINOR — a detail worth knowing.",
   strongest: "One of the handful of cases with the most decisive evidence in the entire catalog — if you read only a few, read these."
 };
 const WHYTAIL = {

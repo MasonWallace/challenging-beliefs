@@ -19,12 +19,12 @@ const SECMAP = {
 data.forEach(d => { d.section = SECMAP[d.category] || 'objections'; });
 
 const CATDESC = {
-  "suffering-servant": "Isaiah 52:13–53:12 — and the rabbinic literature that read it of the Messiah long before there was any reason to argue about it.",
+  "suffering-servant": "Isaiah 52:13–53:12 — and the rabbis who took it to be about the Messiah, writing long before there was any Christian argument to win.",
   "messianic-prophecy": "The specific texts: Bethlehem, the pierced one, the scepter of Judah, and the expectation that was alive before Jesus was born.",
   "daniel-timeline": "The one prophecy with a clock in it — an anointed one cut off before the Second Temple falls.",
   "temple-atonement": "Leviticus 17:11, the vanished altar, and the forty years of failed signs the Talmud itself records.",
-  "new-covenant": "Jeremiah 31 — the Tanakh's own promise of a new covenant, made to Israel and Judah by name.",
-  "rabbinic-objections": "The counter-missionary case at its strongest, answered without contempt — and the Christian arguments that must be retired.",
+  "new-covenant": "Jeremiah 31 — a promise of a new covenant made to Israel and Judah by name, inside the Tanakh: the Hebrew Bible, which Christians call the Old Testament.",
+  "rabbinic-objections": "The strongest Jewish case against the Christian reading — made by the counter-missionary teachers, whose work is answering Christians — met without contempt. Plus the Christian arguments to stop using.",
   "nt-jewishness": "The New Testament as a first-century Jewish library, and the frame that forbids contempt: Romans 11."
 };
 const WHYMAP = {
@@ -79,12 +79,12 @@ const TALK = {
 };
 const TIPS = {
   verdict: {
-    admitted: "Jewish sources themselves — Targum, Talmud, medieval commentators, or contemporary Jewish scholarship — concede the core fact here. Cite it from their side of the aisle, not yours.",
-    unrefuted: "No adequate counter-missionary answer exists — the strongest published replies concede the point or change the subject.",
-    contested: "Genuinely open. Serious people argue this both ways, and the honest move is to say so.",
+    admitted: "Jewish sources themselves grant the main fact here — the Targum (the old Aramaic translation of the Hebrew Bible), the Talmud, the medieval commentators, or Jewish scholars writing today. Make the point from their books, not yours.",
+    unrefuted: "There is no good answer to this from the counter-missionary teachers — the Jewish speakers and writers whose work is answering Christians. The strongest published replies either agree with the point or move on to something else.",
+    contested: "This one is genuinely open — serious people argue it both ways, and the honest thing is to say so out loud.",
     answered: "A popular Christian argument that does not survive scrutiny. Using it costs you the conversation and the credibility of everything else."
   },
-  impact: "How much weight the argument carries: MAJOR is load-bearing, MODERATE is corroborating, MINOR is a detail.",
+  impact: "How much weight this argument carries. MAJOR — the case leans on it. MODERATE — it backs the case up but does not carry it. MINOR — a smaller detail worth knowing.",
   strongest: "One of the handful of cases with the most decisive evidence in the entire catalog — if you read only a few, read these."
 };
 const WHYTAIL = {
@@ -167,7 +167,7 @@ build({
   methodFoot: "Method: every case carries the strongest published counter-missionary reply; arguments that fail are marked don't use; the strongest cases are the ones made from Jewish sources alone.",
   roleNote: "<b>Role:</b> this is the passage the argument rests on.",
   VLABEL: { admitted: "Conceded", unrefuted: "Strong", contested: "Contested", answered: "Don't use" },
-  VDESC: {"admitted": "Jewish sources grant this themselves. You can make the point from their own books.", "unrefuted": "No good counter-argument has been published by Jewish counter-missionary teachers.", "contested": "Serious people argue this both ways. Say so before your friend does.", "answered": "This Christian argument does not hold up. Drop it."},
+  VDESC: {"admitted": "Jewish sources grant this themselves. You can make the point from their own books.", "unrefuted": "No good counter-argument has been published by the counter-missionary teachers — the Jewish speakers and writers whose work is answering Christians.", "contested": "Serious people argue this both ways. Say so before your friend does.", "answered": "This Christian argument does not hold up. Drop it."},
   oldBrand: 'ISLAM · VS. THE BIBLE', newBrand: "THE MESSIAH CASE · FROM THE TANAKH",
   keyPrefix: 'wbm_',
   textSwaps: [
