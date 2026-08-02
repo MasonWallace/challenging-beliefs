@@ -105,9 +105,9 @@ module.exports = function buildSection(cfg) {
     '  bindOpens();\n}' + s.slice(sEnd);
 
   /* --- overview footnote + citation-role wording --- */
-  s = must(s, 'Steelman rules: every claim carries the best published Muslim defense; weak criticisms are marked answered; facts conceded in sahih Islamic sources are marked admitted.',
+  s = must(s, 'How this page is built: every claim is shown with the strongest published Muslim answer to it first — that is called steelmanning, the opposite of a straw man. Weak criticisms are labelled so. And where a fact is admitted in the hadith collections Muslims themselves rate as sound (sahih), it is marked Admitted.',
     cfg.methodFoot, 'method foot');
-  s = must(s, '"<b>Role:</b> this is the Quran passage the claim examines."', J(cfg.roleNote || '<b>Role:</b> this is the passage the claim rests on.'), 'role note');
+  s = must(s, '"<b>Why this verse is here:</b> it is the Quran passage this claim is about."', J(cfg.roleNote || '<b>Role:</b> this is the passage the claim rests on.'), 'role note');
   if (cfg.defLabel) s = must(s, 'const DEFLABEL="How Muslims answer this — put at its strongest";', 'const DEFLABEL=' + J(cfg.defLabel) + ';', 'defense label');
   s = must(s, '<h2>The record, in four acts</h2>', '<h2>${"The record, in "+["no","one","two","three","four","five","six"][Math.min(6,TLACTS.length)]+" act"+(TLACTS.length===1?"":"s")}</h2>', 'timeline head');
   s = must(s, 'What was claimed on the left; what the manuscripts and canon show on the right.', cfg.timelineIntro || 'What was claimed on the left; what the record shows on the right.', 'timeline intro');

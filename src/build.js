@@ -87,6 +87,17 @@ for (const s of SECTIONS) {
   let html = fs.readFileSync(P(s.shell), 'utf8')
     .replace('/*__DATA__*/', () => dataStr)
     /* the striking cases get larger type in the claims list */
+    .replace('/*__IMGS__*/{}', () => { const f = P('images-' + s.key + '.json');
+      if (!fs.existsSync(f)) return '{}';
+      const raw = JSON.parse(fs.readFileSync(f, 'utf8'));
+      const out = {};
+      for (const [id, arr] of Object.entries(raw)) {
+        const body = arr.filter(x => x.where !== 'list');
+        if (body.length) out[id] = body.map(x => ({
+          src: 'https://commons.wikimedia.org/wiki/Special:FilePath/' + encodeURIComponent(x.file) + '?width=520',
+          cap: x.cap, where: x.where }));
+      }
+      return JSON.stringify(out); })
     .replace('/*__WOW__*/[]', () => { const wf = P('wow-' + s.key + '.json');
       if (!fs.existsSync(wf)) return '[]';
       const w = JSON.parse(fs.readFileSync(wf, 'utf8'));

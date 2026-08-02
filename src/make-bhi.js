@@ -167,7 +167,7 @@ build({
   textSwaps: [
     ['<title>Challenging Beliefs — Islam, Examined Against the Bible</title>', "<title>Challenging Beliefs — Hebrew Israelites, Examined Against the Bible</title>"],
     ["Know your Muslim neighbor", "Know the movement"],
-    ["The da'wah script", "The street teaching"],
+    ["How they'll invite you", "The street teaching"],
     ["Muslim friend", "friend in the camps"]
   ]
 });

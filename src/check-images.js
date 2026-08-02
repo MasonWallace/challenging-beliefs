@@ -24,7 +24,7 @@ for(const slug of process.argv.slice(2)){
       if(w<8||w>22)fails.push(`${id}: caption ${w} words — "${im.cap.slice(0,44)}"`);
       const url='https://commons.wikimedia.org/wiki/Special:FilePath/'+encodeURIComponent(im.file)+'?width=200';
       let code='000';
-      try{code=cp.execSync(`curl -s -L -o /dev/null -w "%{http_code}" --max-time 20 "${url}"`,{encoding:'utf8'}).trim()}catch(e){}
+      try{code=cp.execSync(`curl -s -L -o /dev/null -w "%{http_code}" --max-time 20 -A "ChallengingBeliefs/1.0 (image link check)" "${url}"`,{encoding:'utf8'}).trim()}catch(e){}
       if(code!=='200')fails.push(`${id}: ${im.file} → HTTP ${code}`);
     }
   }
