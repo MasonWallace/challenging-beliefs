@@ -1052,7 +1052,7 @@ function filtered(){
     (state.section==="all"||d.section===state.section)&&
     (!state.verdict||d.verdict===state.verdict)&&
     (!state.severity||d.severity===state.severity)&&
-    (!state.q||(d.title+" "+d.claim+" "+(d.response||"")+" "+(d.rationale||"")+" "+(CATS[d.category]||"")).toLowerCase().includes(state.q))
+    (!state.q||(d.title+" "+(d.titleLong||"")+" "+d.claim+" "+(d.response||"")+" "+(d.rationale||"")+" "+(CATS[d.category]||"")).toLowerCase().includes(state.q))
   );
   if(state.section==="peculiar")return arr.sort((a,b)=>PORDER.indexOf(a.id)-PORDER.indexOf(b.id));
   return arr.sort((a,b)=>(b.featured?1:0)-(a.featured?1:0)||SEVRANK[a.severity]-SEVRANK[b.severity]||VRANK[a.verdict]-VRANK[b.verdict]);
