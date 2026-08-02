@@ -96,9 +96,10 @@
   .vcol.ad .vt:hover{border-left-color:var(--purp)}
   .vcol.un header{border-bottom-color:var(--red)}
   .vcol.co header{border-bottom-color:var(--amber)}
-  .vcol.an header{border-bottom-color:var(--green)}
+  .vcol.an header{border-bottom-color:var(--dim)}
   .vcol header .n{font-family:var(--serif);font-size:1.9rem;line-height:1;font-variant-numeric:tabular-nums}
-  .vcol.un .n{color:var(--red)}.vcol.co .n{color:var(--amber)}.vcol.an .n{color:var(--green)}
+  .vcol.un .n{color:var(--red)}.vcol.co .n{color:var(--amber)}.vcol.an .n{color:var(--muted)}
+  .vcol.an .t{color:var(--muted)}
   .vcol header .t{font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-left:8px}
   .vcol.un .t{color:var(--red)}.vcol.co .t{color:var(--amber)}.vcol.an .t{color:var(--green)}
   .vcol header .d{font-size:.74rem;color:var(--muted);margin-top:4px}
@@ -523,6 +524,7 @@
   .cfig figcaption{font-size:.74rem;color:var(--muted);line-height:1.45;margin-top:6px}
   .cfig .cimg-x{position:absolute;top:7px;right:7px;background:rgba(0,0,0,.55);color:#fff;border:0;border-radius:6px;width:26px;height:26px;cursor:pointer;font-size:.8rem;line-height:1}
   @media (max-width:620px){.cfig,.figrow.multi .cfig{flex:1 1 100%;max-width:none}}
+  .talknote{font-size:.8rem;color:var(--dim);margin:-4px 0 12px;font-style:italic}
   .donechip{display:inline-block;font-size:.6rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--green);border:1px solid color-mix(in srgb,var(--green) 50%,transparent);border-radius:20px;padding:2px 9px;margin:0 0 7px}
   .bubble.done{border-left-color:var(--green)}
   .bubble.done h4{color:color-mix(in srgb,var(--green) 55%,var(--ink))}
@@ -805,7 +807,7 @@ const SEVLABEL={high:"major",medium:"moderate",low:"minor"};
 const PORDER=[];
 const CATS={"identity-claims":"Who is Israel?","curses-reading":"The curses of Deuteronomy 28","history-genetics":"History & genetics","race-doctrine":"The race doctrines","law-and-salvation":"Law & salvation","movement-history":"Where the movement came from","practice":"Inside the camps"};
 const SECMAP={"identity-claims":"claim","curses-reading":"claim","race-doctrine":"race","history-genetics":"race","law-and-salvation":"gospel","movement-history":"movement","practice":"movement"};
-const VLABEL={"admitted":"Admitted","unrefuted":"Unanswered","contested":"Contested","answered":"Answered"};
+const VLABEL={"admitted":"Admitted","unrefuted":"Unanswered","contested":"Contested","answered":"Settled"};
 const TIPS={"verdict":{"admitted":"The movement's own teachers say these things openly — what is argued is only what they mean. So you can make this point using only their own teaching, never yours.","unrefuted":"The camps' own teaching has no good answer to this — usually because it never takes the question up at all.","contested":"Scholars argue this one both ways, and both sides have a real case — on this one, each side is holding on to something true.","answered":"The Bible or the historical record settles this one. But say the true part of their claim out loud first — then give the answer."},"impact":"If this claim is right, how much does it matter? MAJOR — it shakes the foundation of the faith. MODERATE — it matters a lot, but the foundation holds. MINOR — a detail worth knowing.","strongest":"One of the handful of cases with the most decisive evidence in the entire catalog — if you read only a few, read these."};
 const CATDESC={"identity-claims":"The founding claim — that Black, Hispanic and Native Americans are the literal twelve tribes — and the texts it rests on.","curses-reading":"Deuteronomy 28 is the movement's cornerstone. Here is what the chapter actually says, and to whom.","history-genetics":"What the historical and genetic record shows about both African-American ancestry and modern Jewish ancestry, stated honestly.","race-doctrine":"The teachings about Esau, Edom, and who may be saved — the doctrines the movement's own moderates are most uneasy about.","law-and-salvation":"Whether salvation comes by keeping the law and by bloodline, or by faith in the Messiah.","movement-history":"The documented origin of a movement that claims an ancient identity — founders, dates, splits, and one failed prophecy.","practice":"Life inside the street camps: authority, women, polygamy, and the method of reading Scripture."};
 function info(t){return t?`<span class="info" tabindex="0">i<span class="tip">${esc(t)}</span></span>`:"";}
@@ -1184,7 +1186,6 @@ function renderCase(){
       
       <div class="ctop">
         <div class="claimcol">${(d.plain&&d.plain.length)?`${plainHtml(d)}<details class="claimfull"><summary>The claim, stated in full</summary><div class="claim">${paras(d.claim)}</div></details>`:`<div class="dlab red" style="margin-top:0">The claim</div><div class="claim">${paras(d.claim)}</div>`}<div id="versebox"></div>${figs(d,"claim")}</div>
-        ${passages}
       </div>
       ${comp}
       <div class="tabs2">
@@ -1200,9 +1201,10 @@ function renderCase(){
           ${figs(d,"verdict")}<div><div class="dlab">Why this matters</div><div class="why">${paras(WHYMAP[d.category]||"")}<p class="wtail">${esc(WHYTAIL[d.verdict])}</p></div></div>
         </div>
       </div>
-      <div class="tabpane2" id="pane-talk">${TALK[d.category]?`<div class="dlab" style="margin-top:0;color:var(--green)">Bringing it up in conversation</div><div class="talk">${paras(TALK[d.category])}</div>`:""}${DIALOG[d.category]?`<div class="dlab" style="color:var(--green)">How the conversation usually goes</div><div class="dlg">${DIALOG[d.category].map(m=>`<div class="msg ${m.w}"><span class="who">${m.w==="them"?"They may say":"You respond"}</span><p>${rich(m.t)}</p></div>`).join("")}</div>`:""}</div>
+      <div class="tabpane2" id="pane-talk">${TALK[d.category]?`<div class="dlab" style="margin-top:0;color:var(--green)">Talking about this whole topic — ${esc(CATS[d.category]||"")}</div><p class="talknote">These notes cover every case in this topic area, not this one case alone.</p><div class="talk">${paras(TALK[d.category])}</div>`:""}${DIALOG[d.category]?`<div class="dlab" style="color:var(--green)">How the conversation usually goes</div><div class="dlg">${DIALOG[d.category].map(m=>`<div class="msg ${m.w}"><span class="who">${m.w==="them"?"They may say":"You respond"}</span><p>${rich(m.t)}</p></div>`).join("")}</div>`:""}</div>
       <div class="tabpane2" id="pane-src">
-        <div class="dlab" style="margin-top:0">Documented by — ${d.sources.length} source${d.sources.length>1?"s":""}</div>
+        ${passages}
+        <div class="dlab">Documented by — ${d.sources.length} source${d.sources.length>1?"s":""}</div>
         <ul class="srcs">${d.sources.map(s=>`<li><span class="sb sb-${s.type}">${s.type}</span><span>${s.url?`<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)}</a>`:esc(s.name)}</span></li>`).join("")}</ul>
         <div class="dlab">Connected cases</div>
         <div class="relrow">${rel.map(id=>`<button data-open="${id}">${esc(byId[id].title)}</button>`).join("")||"—"}</div>

@@ -165,7 +165,7 @@ build({
   methodFoot: "Steelman rules: every claim carries the best published Watchtower defense; weak criticisms are marked answered; facts conceded in the organization's own publications are marked admitted.",
   roleNote: "<b>Role:</b> this is the Watchtower teaching the claim examines.",
   refRegex: "(?:The Watchtower[,]?\\\\s(?:[A-Z][a-z]+\\\\s\\\\d{1,2},\\\\s)?\\\\d{4}|Awake![,]?\\\\s(?:[A-Z][a-z]+\\\\s\\\\d{1,2},\\\\s)?\\\\d{4}|w\\\\d{2}\\\\s\\\\d{1,2}/\\\\d{1,2}|Insight on the Scriptures|Proclaimers|Kingdom Interlinear|New World Translation|NWT)",
-  VLABEL: { admitted: "Admitted", unrefuted: "Unrefuted", contested: "Contested", answered: "Answered" },
+  VLABEL: { admitted: "Admitted", unrefuted: "Unrefuted", contested: "Contested", answered:"Don't use" },
   VDESC: {"admitted": "The Watchtower's own publications admit these facts. You can make this point from their library alone.", "unrefuted": "No good counter-argument has been published by the Watchtower.", "contested": "Witness defenders have a real answer here. Say so before your friend does.", "answered": "The Witness answer holds up. Do not lead with this one."},
   oldBrand: 'ISLAM · VS. THE BIBLE', newBrand: "JEHOVAH'S WITNESSES · VS. THE BIBLE",
   keyPrefix: 'wbjw_',

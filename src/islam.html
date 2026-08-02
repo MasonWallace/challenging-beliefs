@@ -83,9 +83,10 @@
   .vcol.ad .vt:hover{border-left-color:var(--purp)}
   .vcol.un header{border-bottom-color:var(--red)}
   .vcol.co header{border-bottom-color:var(--amber)}
-  .vcol.an header{border-bottom-color:var(--green)}
+  .vcol.an header{border-bottom-color:var(--dim)}
   .vcol header .n{font-family:var(--serif);font-size:1.9rem;line-height:1;font-variant-numeric:tabular-nums}
-  .vcol.un .n{color:var(--red)}.vcol.co .n{color:var(--amber)}.vcol.an .n{color:var(--green)}
+  .vcol.un .n{color:var(--red)}.vcol.co .n{color:var(--amber)}.vcol.an .n{color:var(--muted)}
+  .vcol.an .t{color:var(--muted)}
   .vcol header .t{font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-left:8px}
   .vcol.un .t{color:var(--red)}.vcol.co .t{color:var(--amber)}.vcol.an .t{color:var(--green)}
   .vcol header .d{font-size:.74rem;color:var(--muted);margin-top:4px}
@@ -510,6 +511,7 @@
   .cfig figcaption{font-size:.74rem;color:var(--muted);line-height:1.45;margin-top:6px}
   .cfig .cimg-x{position:absolute;top:7px;right:7px;background:rgba(0,0,0,.55);color:#fff;border:0;border-radius:6px;width:26px;height:26px;cursor:pointer;font-size:.8rem;line-height:1}
   @media (max-width:620px){.cfig,.figrow.multi .cfig{flex:1 1 100%;max-width:none}}
+  .talknote{font-size:.8rem;color:var(--dim);margin:-4px 0 12px;font-style:italic}
   .donechip{display:inline-block;font-size:.6rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--green);border:1px solid color-mix(in srgb,var(--green) 50%,transparent);border-radius:20px;padding:2px 9px;margin:0 0 7px}
   .bubble.done{border-left-color:var(--green)}
   .bubble.done h4{color:color-mix(in srgb,var(--green) 55%,var(--ink))}
@@ -768,7 +770,7 @@ const SEVLABEL={high:"major",medium:"moderate",low:"minor"};
 const PORDER=[];
 const CATS={"torah-preservation":"The preservation trap","jesus-cross":"Jesus & the crucifixion","quran-text":"The Quran's text & sources","doctrine-of-god":"Who is God","science-history":"Science & history","muhammad-test":"The prophet test","salvation":"Salvation","practice":"Law & practice"};
 const SECMAP={"torah-preservation":"bible","jesus-cross":"jesus","quran-text":"quran","science-history":"quran","doctrine-of-god":"doctrine","salvation":"doctrine","muhammad-test":"muhammad","practice":"muhammad"};
-const VLABEL={admitted:"Admitted",unrefuted:"Unrefuted",contested:"Contested",answered:"Answered"};
+const VLABEL={admitted:"Admitted",unrefuted:"Unrefuted",contested:"Contested",answered:"Don't use"};
 const TIPS={
   verdict:{admitted:"The church's own publications — essays, canon, official statements, sponsored histories — concede the facts of this claim. Only the interpretation is defended. You can cite this one entirely from their sources.",unrefuted:"Nobody has published a good answer to this — or the best answers end up agreeing with the main point instead of arguing against it.",contested:"Scholars argue this one both ways, and both sides have a real case. Read both before you use it.",answered:"Their answer to this one is a good answer. The criticism is weaker than people usually make it sound. It is here anyway, so this site is not only showing you the arguments that suit it."},
   impact:"If this claim is right, how much does it matter? MAJOR — it shakes the foundation of the faith. MODERATE — it matters a lot, but the foundation holds. MINOR — a detail worth knowing.",
@@ -1256,7 +1258,6 @@ function renderCase(){
       
       <div class="ctop">
         <div class="claimcol">${(d.plain&&d.plain.length)?`${plainHtml(d)}<details class="claimfull"><summary>The claim, stated in full</summary><div class="claim">${paras(d.claim)}</div></details>`:`<div class="dlab red" style="margin-top:0">The claim</div><div class="claim">${paras(d.claim)}</div>`}<div id="versebox"></div>${figs(d,"claim")}</div>
-        ${passages}
       </div>
       ${comp}
       <div class="tabs2">
@@ -1272,9 +1273,10 @@ function renderCase(){
           ${figs(d,"verdict")}<div><div class="dlab">Why this matters</div><div class="why">${paras(WHYMAP[d.category]||"")}<p class="wtail">${esc(WHYTAIL[d.verdict])}</p></div></div>
         </div>
       </div>
-      <div class="tabpane2" id="pane-talk">${TALK[d.category]?`<div class="dlab" style="margin-top:0;color:var(--green)">Bringing it up in conversation</div><div class="talk">${paras(TALK[d.category])}</div>`:""}${DIALOG[d.category]?`<div class="dlab" style="color:var(--green)">How the conversation usually goes</div><div class="dlg">${DIALOG[d.category].map(m=>`<div class="msg ${m.w}"><span class="who">${m.w==="them"?"They may say":"You respond"}</span><p>${rich(m.t)}</p></div>`).join("")}</div>`:""}</div>
+      <div class="tabpane2" id="pane-talk">${TALK[d.category]?`<div class="dlab" style="margin-top:0;color:var(--green)">Talking about this whole topic — ${esc(CATS[d.category]||"")}</div><p class="talknote">These notes cover every case in this topic area, not this one case alone.</p><div class="talk">${paras(TALK[d.category])}</div>`:""}${DIALOG[d.category]?`<div class="dlab" style="color:var(--green)">How the conversation usually goes</div><div class="dlg">${DIALOG[d.category].map(m=>`<div class="msg ${m.w}"><span class="who">${m.w==="them"?"They may say":"You respond"}</span><p>${rich(m.t)}</p></div>`).join("")}</div>`:""}</div>
       <div class="tabpane2" id="pane-src">
-        <div class="dlab" style="margin-top:0">Documented by — ${d.sources.length} source${d.sources.length>1?"s":""}</div>
+        ${passages}
+        <div class="dlab">Documented by — ${d.sources.length} source${d.sources.length>1?"s":""}</div>
         <ul class="srcs">${d.sources.map(s=>`<li><span class="sb sb-${s.type}">${s.type}</span><span>${s.url?`<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)}</a>`:esc(s.name)}</span></li>`).join("")}</ul>
         <div class="dlab">Connected cases</div>
         <div class="relrow">${rel.map(id=>`<button data-open="${id}">${esc(byId[id].title)}</button>`).join("")||"—"}</div>

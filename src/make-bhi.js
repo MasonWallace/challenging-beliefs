@@ -160,7 +160,7 @@ build({
   lessonsIntro: "A street teaching follows a practised sequence — draw the crowd, establish the grievance, produce the chart, deliver the curses, then the call to wake up. Here is each stage, the one question to ask right then, and the cases behind it. Knowing the sequence lets you stay warm and unhurried.",
   methodFoot: "Steelman rules: every claim carries the strongest published camp defense; where the camps are right the case says so; popular Christian responses that fail are marked do not use.",
   roleNote: "<b>Role:</b> this is the passage the claim is built on.",
-  VLABEL: { admitted: "Admitted", unrefuted: "Unanswered", contested: "Contested", answered: "Answered" },
+  VLABEL: { admitted: "Admitted", unrefuted: "Unanswered", contested: "Contested", answered:"Settled" },
   VDESC: {"admitted": "The camps state these facts themselves. You can make this point from their own teaching.", "unrefuted": "The camps never answer this objection. Ask it, then wait.", "contested": "Both sides hold something true here. Say so out loud.", "answered": "The text settles it — but concede the grievance first, or nothing will be heard."},
   oldBrand: 'ISLAM · VS. THE BIBLE', newBrand: "HEBREW ISRAELITES · VS. THE BIBLE",
   keyPrefix: 'wbb_',
