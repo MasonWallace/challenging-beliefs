@@ -90,11 +90,17 @@ for (const s of SECTIONS) {
     .replace('/*__IMGS__*/{}', () => { const f = P('images-' + s.key + '.json');
       if (!fs.existsSync(f)) return '{}';
       const raw = JSON.parse(fs.readFileSync(f, 'utf8'));
+      /* the second pass writes additions to images2-<slug>.json */
+      const f2 = P('images2-' + s.key + '.json');
+      if (fs.existsSync(f2)) {
+        const more = JSON.parse(fs.readFileSync(f2, 'utf8'));
+        for (const [id, arr] of Object.entries(more)) raw[id] = (raw[id] || []).concat(arr);
+      }
       const out = {};
       for (const [id, arr] of Object.entries(raw)) {
         const body = arr.filter(x => x.where !== 'list');
         if (body.length) out[id] = body.map(x => ({
-          src: 'https://commons.wikimedia.org/wiki/Special:FilePath/' + encodeURIComponent(x.file) + '?width=520',
+          src: x.url || ('https://commons.wikimedia.org/wiki/Special:FilePath/' + encodeURIComponent(x.file) + '?width=520'),
           cap: x.cap, where: x.where }));
       }
       return JSON.stringify(out); })

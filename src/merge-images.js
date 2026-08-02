@@ -10,6 +10,9 @@ for(const [slug,file,re] of T){
   if(ONLY.length&&!ONLY.includes(slug))continue;
   const f=P('images-'+slug+'.json'); if(!fs.existsSync(f))continue;
   const raw=JSON.parse(fs.readFileSync(f,'utf8'));
+  const f2=P('images2-'+slug+'.json');
+  if(fs.existsSync(f2)){const more=JSON.parse(fs.readFileSync(f2,'utf8'));
+    for(const [id,arr] of Object.entries(more)) raw[id]=(raw[id]||[]).concat(arr);}
   let s=fs.readFileSync(P(file),'utf8');
   const i=s.search(re); if(i<0)throw new Error(slug+': IMGMAP not found');
   const start=s.indexOf('{',i);
@@ -23,7 +26,7 @@ for(const [slug,file,re] of T){
   for(const [id,arr] of Object.entries(raw)){
     const L=arr.find(x=>x.where==='list'); if(!L)continue;
     if(M[id]){kept++;continue}
-    M[id]={src:'https://commons.wikimedia.org/wiki/Special:FilePath/'+encodeURIComponent(L.file)+'?width=520',cap:L.cap};
+    M[id]={src:L.url||('https://commons.wikimedia.org/wiki/Special:FilePath/'+encodeURIComponent(L.file)+'?width=520'),cap:L.cap};
     added++;
   }
   s=s.slice(0,start)+JSON.stringify(M)+s.slice(end);

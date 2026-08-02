@@ -1,7 +1,7 @@
 /* Every file must resolve on Commons and carry a real licence. */
 const fs=require('fs'),cp=require('child_process');
 const F={mormon:null,islam:'islam-data.json',jw:'jw-data.json',bhi:'bhi-data.json',messiah:'messiah-data.json',god:'god-data.json'};
-const OK=/^(public domain|cc[ -]|pd-|gfdl)/i;
+const OK=/^(public domain|cc[ 0-]|pd-|gfdl)/i;
 for(const slug of process.argv.slice(2)){
   const f=__dirname+'/images-'+slug+'.json';
   if(!fs.existsSync(f)){console.log('MISSING images-'+slug+'.json');continue}
