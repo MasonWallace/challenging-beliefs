@@ -1,52 +1,187 @@
 {
- "year-2000-failed-prophecy": [
-  {
-   "file": "Millerite 1843 chart.jpg",
-   "cap": "A Millerite prophetic chart of 1843, the Christian date-setting episode the camps cite in reply",
-   "credit": "Wikimedia Commons",
-   "license": "Public domain",
-   "where": "defense"
-  }
- ],
- "women-in-the-camps": [
-  {
-   "file": "Salomon de Bray - Jael, Deborah and Barak - WGA03141.jpg",
-   "cap": "Salomon de Bray's Jael, Deborah and Barak, 1635; Deborah judged Israel and led it to battle",
-   "credit": "Wikimedia Commons",
-   "license": "Public domain",
-   "where": "list"
-  },
-  {
-   "file": "All Saints, Hove glass 15.jpg",
-   "cap": "A 1903 window at Hove showing Aquila, Priscilla and Apollos, whom Priscilla instructed in Acts 18",
-   "credit": "Antiquary / Wikimedia Commons",
-   "license": "CC BY-SA 4.0",
-   "where": "defense"
-  }
- ],
- "polygamy-in-the-movement": [
-  {
-   "file": "Matthias Stom - Sarah Leading Hagar to Abraham - WGA21803.jpg",
-   "cap": "Matthias Stom's painting of Sarah leading Hagar to Abraham, the first plural household described in Genesis",
-   "credit": "Wikimedia Commons",
-   "license": "Public domain",
-   "where": "list"
-  },
-  {
-   "file": "Giovanni Venanzi di Pesaro König Salomons Götzendienst.jpg",
-   "cap": "Venanzi's painting of Solomon led into idolatry by his wives, the scene behind 1 Kings 11",
-   "credit": "Wikimedia Commons",
-   "license": "Public domain",
-   "where": "defense"
-  }
- ],
- "avoid-viral-media-frames": [
-  {
-   "file": "Lincoln Memorial Steps - 49969130241.jpg",
-   "cap": "The steps of the Lincoln Memorial in Washington, where the disputed 2019 confrontation was filmed",
-   "credit": "Mobilus In Mobili / Wikimedia Commons",
-   "license": "CC BY-SA 2.0",
-   "where": "list"
-  }
- ]
+  "year-2000-failed-prophecy": [
+    {
+      "file": "Millerite 1843 chart.jpg",
+      "cap": "A Millerite prophetic chart of 1843; a representative image of date-setting, not this movement's own material",
+      "credit": "Wikimedia Commons",
+      "license": "Public domain",
+      "where": "list"
+    }
+  ],
+  "splc-hate-designation": [
+    {
+      "file": "Civil Rights Memorial, Montgomery, Alabama LCCN2010630425.tif",
+      "cap": "The Civil Rights Memorial in Montgomery, Alabama, commissioned by the Southern Poverty Law Center",
+      "credit": "Library of Congress",
+      "license": "Public domain",
+      "where": "list"
+    }
+  ],
+  "women-in-the-camps": [
+    {
+      "file": "Duccio di Buoninsegna - Christ and the Samaritan Woman - Google Art Project.jpg",
+      "cap": "Duccio's Christ and the Samaritan Woman, about 1310; a representative image, since photographs here would show real women",
+      "credit": "Museo Thyssen-Bornemisza",
+      "license": "Public domain",
+      "where": "list"
+    }
+  ],
+  "polygamy-in-the-movement": [
+    {
+      "file": "Matthias Stom - Sarah Leading Hagar to Abraham - WGA21803.jpg",
+      "cap": "Stom's Sarah Leading Hagar to Abraham, the Genesis 16 household cited to justify the practice",
+      "credit": "Wikimedia Commons",
+      "license": "Public domain",
+      "where": "list"
+    }
+  ],
+  "avoid-viral-media-frames": [
+    {
+      "file": "Lincoln Memorial - 01.jpg",
+      "cap": "The Lincoln Memorial in Washington; a representative view, not a photograph of the 2019 encounter",
+      "credit": "Wikimedia Commons",
+      "license": "Public domain",
+      "where": "list"
+    }
+  ],
+  "suffering-as-identity-proof": [
+    {
+      "file": "Taylor Prism-1.jpg",
+      "cap": "The Taylor Prism, Sennacherib's own account of his Judah campaign, written in Assyrian royal style",
+      "credit": "British Museum",
+      "license": "Public domain",
+      "where": "defense"
+    }
+  ],
+  "twelve-tribes-chart": [
+    {
+      "file": "1770 Bonne Map of Israel showing the Twelve Tribes - Geographicus - Israel-bonne-1770.jpg",
+      "cap": "Bonne's map of 1770 showing the tribal allotments, an eighteenth-century attempt at the same subject",
+      "credit": "Geographicus / Wikimedia Commons",
+      "license": "Public domain",
+      "where": "claim"
+    },
+    {
+      "file": "Blank map of Twelve Tribes of Israel.png",
+      "cap": "A modern map dividing the land among the twelve tribes of Israel",
+      "credit": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "where": "defense"
+    }
+  ],
+  "exclusive-israel-claim": [
+    {
+      "file": "Fayum mummy portrait (c. 100-120 AD) - British museum, EA29772.jpg",
+      "cap": "A mummy portrait painted in Roman Egypt, showing how people of the eastern Mediterranean looked",
+      "credit": "British Museum",
+      "license": "Public domain",
+      "where": "claim"
+    }
+  ],
+  "revelation-hair-like-wool": [
+    {
+      "file": "Europe a Prophecy copy K plate 01.jpg",
+      "cap": "Blake's frontispiece to Europe a Prophecy, 1794, long known as The Ancient of Days after Daniel 7",
+      "credit": "Fitzwilliam Museum",
+      "license": "Public domain",
+      "where": "claim"
+    },
+    {
+      "file": "Fayum mummy portrait (160-180 AD) - British museum, EA74710.jpg",
+      "cap": "A second-century mummy portrait from Roman Egypt, painted from life in the wider biblical world",
+      "credit": "British Museum",
+      "license": "Public domain",
+      "where": "defense"
+    }
+  ],
+  "khazar-impostor-theory": [
+    {
+      "file": "Khazar coin Spillings Hoard.jpg",
+      "cap": "The Khazar 'Moses coin' from the Spillings hoard, from the khaganate at the centre of the theory",
+      "credit": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "where": "claim"
+    }
+  ],
+  "african-american-genetic-ancestry": [
+    {
+      "file": "Human migrations and mitochondrial haplogroups.PNG",
+      "cap": "A hypothesised map of human migration drawn from mitochondrial DNA, the method these ancestry studies use",
+      "credit": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "where": "claim"
+    }
+  ],
+  "esau-edom-white-people": [
+    {
+      "file": "Palace Tomb, Petra.jpg",
+      "cap": "The Palace Tomb at Petra, in the region the Bible calls Edom; the carving is later Nabataean",
+      "credit": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "where": "claim"
+    }
+  ],
+  "gentile-exclusion-and-race-eschatology": [
+    {
+      "file": "Rembrandt, The Baptism of the Eunuch, 1626, Museum Catharijneconvent, Utrecht.jpg",
+      "cap": "Rembrandt's Baptism of the Eunuch, 1626; Acts 8 records an African official baptised by Philip",
+      "credit": "Museum Catharijneconvent",
+      "license": "Public domain",
+      "where": "defense"
+    }
+  ],
+  "law-keeping-salvation": [
+    {
+      "file": "Tallit Gadol Shawl.jpg",
+      "cap": "A tallit with its knotted tzitzit, the fringes commanded in Numbers 15 and worn in prayer",
+      "credit": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "where": "claim"
+    }
+  ],
+  "ben-ammi-dimona-community": [
+    {
+      "file": "Dimona Aerial View.jpg",
+      "cap": "Dimona in the Negev, the Israeli town where the African Hebrew Israelite community settled from 1969",
+      "credit": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "where": "verdict"
+    }
+  ],
+  "avoid-jesus-skin-color-hill": [
+    {
+      "file": "Comodilla Catacomb Iesus 4th century.JPG",
+      "cap": "A fourth-century bust of Christ in the Catacomb of Commodilla, among the first bearded images",
+      "credit": "Wikimedia Commons",
+      "license": "Public domain",
+      "where": "claim"
+    }
+  ],
+  "avoid-dismissing-the-longing": [
+    {
+      "file": "Great Migration.jpg",
+      "cap": "Chicago housing set aside for Black residents, photographed in 1941 during the Great Migration north",
+      "credit": "Library of Congress / FSA",
+      "license": "Public domain",
+      "where": "claim"
+    }
+  ],
+  "precepts-method-epistemology": [
+    {
+      "file": "The Great Isaiah Scroll MS A (1QIsa) - Google Art Project.jpg",
+      "cap": "The Great Isaiah Scroll unrolled; chapter 28 with its 'precept upon precept' stands within it",
+      "credit": "Israel Museum / Google Art Project",
+      "license": "Public domain",
+      "where": "claim"
+    }
+  ],
+  "avoid-blanket-hate-group-label": [
+    {
+      "file": "Church of God and Saints of Christ 02.jpg",
+      "cap": "The Church of God and Saints of Christ at Hyattsville, Maryland; the body has run since 1896",
+      "credit": "Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "where": "defense"
+    }
+  ]
 }
