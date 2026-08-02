@@ -63,6 +63,23 @@ for(const [out,load] of SETS){
     const LDSRE=new RegExp('\\b((?:'+BOMBOOKS+'|D&C)\\s+\\d+(?::\\d+(?:[\\-\\u2013]\\d+)?)?)','g');
     while((m=LDSRE.exec(txt))) cites.add(m[1].trim());
   });
+  /* PROOFS references live in the shell, not the data — the 'when they quote YOUR
+     Bible' page needs them resolved too, and with enough context to answer */
+  try{
+    const shell=fs.readFileSync(P(out==='verses.json'?'study.html':'islam.html'),'utf8');
+    const pi=shell.search(/const PROOFS\s*=\s*\[/);
+    if(pi>=0){ let k=shell.indexOf('[',pi),dd=0,qq=null;
+      for(;k<shell.length;k++){const c=shell[k];
+        if(qq){if(c==='\\'){k++;continue}if(c===qq)qq=null;continue}
+        if(c==='"'||c==="'"||c==='`'){qq=c;continue}
+        if(c==='[')dd++;else if(c===']'&&--dd===0)break;}
+      const arr=Function('return '+shell.slice(shell.indexOf('[',pi),k+1))();
+      const comb=require('./proofrange.js');
+      arr.forEach(p=>{ if(p.v)cites.add(p.v.trim());
+        const cb=comb(p.v,p.refs); if(cb)cites.add(cb);
+        if(p.refs)String(p.refs).replace(/<[^>]+>/g,' ').split(/[;,]/).forEach(r=>{const t=r.trim();if(/\d/.test(t))cites.add(t)});});
+    }
+  }catch(e){}
   const prev=fs.existsSync(P(out))?JSON.parse(fs.readFileSync(P(out),'utf8')):{};
   /* keep non-Bible entries (Book of Mormon, D&C, Quran) that other extractors produced */
   const res={}; let ok=0,ctx=0;

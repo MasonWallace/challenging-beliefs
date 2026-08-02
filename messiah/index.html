@@ -525,6 +525,9 @@
   .cfig .cimg-x{position:absolute;top:7px;right:7px;background:rgba(0,0,0,.55);color:#fff;border:0;border-radius:6px;width:26px;height:26px;cursor:pointer;font-size:.8rem;line-height:1}
   @media (max-width:620px){.cfig,.figrow.multi .cfig{flex:1 1 100%;max-width:none}}
   .talknote{font-size:.8rem;color:var(--dim);margin:-4px 0 12px;font-style:italic}
+  .proofbox{margin:6px 0 14px;max-height:none}
+  .proofbox .vr{margin-bottom:6px}
+  .ptcard .who{margin-top:10px}
   .donechip{display:inline-block;font-size:.6rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--green);border:1px solid color-mix(in srgb,var(--green) 50%,transparent);border-radius:20px;padding:2px 9px;margin:0 0 7px}
   .bubble.done{border-left-color:var(--green)}
   .bubble.done h4{color:color-mix(in srgb,var(--green) 55%,var(--ink))}
@@ -1462,10 +1465,32 @@ function renderShare(){
 const PROOFS=[{"v":"Numbers 23:19 / Hosea 11:9","they":"'God is not a man, that he should lie' — 'I am God and not a man, the Holy One in your midst.' The incarnation is flatly excluded: whatever God is, he is not a man, and no Jew may believe otherwise.","you":"Both verses are about God's character — he doesn't lie, waver, or rage like men do — not about what God is unable to do. The Tanakh itself shows YHWH appearing as a man: he eats with Abraham at Mamre (Gen 18), wrestles Jacob who says 'I have seen God face to face' (Gen 32), and sends the angel in whom 'my Name is' (Ex 23:21). The claim was never that a man became God — it's that the God of Israel entered his own creation, which Hosea's 'in your midst' sits closer to than you'd expect.","refs":"Genesis 18:1-15 · Genesis 32:24-30 · Exodus 23:20-21 · Zechariah 12:10"},{"v":"Deuteronomy 6:4","they":"'Hear, O Israel: the LORD our God, the LORD is one.' The Shema is Judaism's heartbeat, and the Trinity breaks it. Three persons is three gods with extra steps — Maimonides made absolute, indivisible unity a principle of the faith.","you":"Christians affirm the Shema — Yeshua himself quoted it verbatim as the greatest commandment (Mark 12:29). Echad can name a composite unity ('one flesh,' Gen 2:24; 'one cluster,' Num 13:23), though that alone proves nothing. What the Tanakh does carry are unresolved seams — 'let us make man' (Gen 1:26), 'the Lord GOD has sent me, and his Spirit' (Isa 48:16), 'what is his name, and what is his son's name?' (Prov 30:4). Not proofs — concede that — but cracks in the claim that the text is unitarian by definition. Trinity is a claim about the inner life of the one YHWH, not a roster of gods.","refs":"Genesis 1:26 · Genesis 2:24 · Isaiah 48:16 · Proverbs 30:4"},{"v":"Ezekiel 18:20 / Deuteronomy 24:16","they":"'The soul who sins shall die. The son shall not bear the iniquity of the father.' 'Each shall be put to death for his own sin.' Vicarious atonement — an innocent dying for the guilty — is anti-Torah on its face.","you":"Ezekiel 18 answers a proverb about inherited guilt ('the fathers ate sour grapes...'), and Deut 24:16 governs human courts — neither repeals the sacrificial system, which is voluntary substitution from end to end: hands pressed on the scapegoat's head, 'and the goat shall bear all their iniquities' (Lev 16:22); blood given by God 'to make atonement for your souls' (Lev 17:11). The line the Torah draws is between punishing an unwilling bystander and accepting a willing offering. Isaiah 53:10 puts the servant on the offering side: his soul is made an asham — a guilt offering — and he 'poured out his soul to death' himself.","refs":"Leviticus 16:21-22 · Leviticus 17:11 · Isaiah 53:10-12 · Ezekiel 18:2-4"},{"v":"Isaiah 43:11","they":"'I, I am the LORD, and besides me there is no savior.' Salvation belongs to God alone. Trusting a man named Jesus for salvation is, by this verse, idolatry by definition.","you":"Total agreement: no one but YHWH saves. That is precisely the Christian claim — Yeshua's name means 'YHWH saves,' and the NT applies Isaiah's own exclusive language ('to me every knee shall bow,' Isa 45:23) to him not as a second deity but as YHWH's own arm revealed (Isa 53:1). Either that identification is true, or Christianity is idolatry — this verse doesn't settle the question; it frames it exactly right. The dispute was never whether God alone saves, but whether God did it himself, in person.","refs":"Isaiah 45:21-23 · Isaiah 53:1 · Joel 2:32 · Zechariah 14:9"},{"v":"Deuteronomy 13:1-5","they":"The prophet who works real signs and then says 'let us go after other gods' must be rejected — miracles included. This is the Torah's standing verdict on Jesus: whatever he did, worship of him leads Israel after a god our fathers did not know.","you":"Honor the test — it's the right one. But its hinge is 'gods your fathers have not known,' and that's the entire dispute: Yeshua's first followers were Shema-praying, temple-attending Jews who claimed he was the God of Abraham's own arm, not a new god. Deut 13 rightly condemns every paganized Christ Christendom ever built; what it can't do is adjudicate the identity question by itself. Deut 18:15-19's true-prophet test — the prophet like Moses whom Israel must hear — has to be run alongside it.","refs":"Deuteronomy 18:15-19 · Isaiah 53:1 · Exodus 3:15"},{"v":"Psalm 146:3","they":"'Put not your trust in princes, in a son of man, in whom there is no salvation.' The psalmist could not be clearer: staking your soul on any human being — any son of man — is exactly what our scriptures forbid.","you":"Read the next verse: 'his breath departs, he returns to the earth; on that very day his plans perish.' The warning is against trusting what dies and stays dead — mortal power. The Christian claim is resurrection: a Messiah whose death did not hold him (Ps 16:10, 'you will not abandon my soul to Sheol'). And the Tanakh itself presents one 'like a son of man' coming with the clouds who receives everlasting dominion and the service of all peoples (Dan 7:13-14) — and a king in Psalm 2 whom the nations are told to serve, though the 'kiss the son' reading there is text-critically contested and shouldn't be leaned on alone.","refs":"Psalm 146:4 · Daniel 7:13-14 · Psalm 16:10 · Psalm 2:6-12"}];
 
 /* ---------- their proof-texts ---------- */
+function proofCombine(v,refs){
+  const m=String(v).match(/^(.+?)\s+(\d+):(\d+)(?:\s*[-\u2013]\s*(\d+))?$/); if(!m)return null;
+  const book=m[1].trim(), ch=m[2]; let lo=+m[3], hi=+(m[4]||m[3]), found=false;
+  String(refs||"").replace(/<[^>]+>/g," ").split(/[\u00b7;,]/).forEach(part=>{
+    const r=part.trim().match(/^(.+?)\s+(\d+):(\d+)(?:\s*[-\u2013]\s*(\d+))?$/); if(!r)return;
+    if(r[1].trim().toLowerCase()!==book.toLowerCase()||r[2]!==ch)return;
+    lo=Math.min(lo,+r[3]); hi=Math.max(hi,+(r[4]||r[3])); found=true;});
+  return found?book+" "+ch+":"+lo+"-"+hi:null;
+}
+function proofVerse(ref,refs){
+  const cb=refs?proofCombine(ref,refs):null;
+  const v=(cb&&VERSES[cb])?VERSES[cb]:VERSES[ref]; if(!v||!v.verses)return "";
+  const anyHl=v.verses.some(x=>x.hl), hasCtx=anyHl&&v.verses.some(x=>!x.hl);
+  const body=v.verses.map(x=>{
+    const lit=(x.hl||!anyHl);
+    const txt=(x.hl&&hasCtx)?"<em>"+esc(x.t)+"</em>":esc(x.t);
+    return '<span class="vs'+(lit?" hl":"")+'"><span class="vnum">'+x.v+'</span>'+txt+' </span>';
+  }).join("");
+  const head=hasCtx?esc(v.ref)+", with the verses either side":esc(v.ref);
+  return '<div class="versebox proofbox"><div class="vr"><span>'+head+'</span></div><div class="vtext">'+body+'</div></div>';
+}
 function renderProofs(){
   $("#main").innerHTML=`<div class="viewhead"><h2>When they quote YOUR Bible</h2>
   <p>The verses a Jewish friend will bring to you, and the two-minute responses — context first, then the question that reopens the conversation. Read the passage together whenever you can; the text itself does most of the work.</p></div>`+
   PROOFS.map(p=>`<div class="ptcard"><h3 class="ptv">${p.v}</h3>
+    ${proofVerse(p.v,p.refs)}
     <div class="who them">They may say</div><p class="pt">${p.they}</p>
     <div class="who you">You respond</div><p class="pt">${rich(p.you)}</p>
     <div class="refs">Read together: ${p.refs}</div></div>`).join("");

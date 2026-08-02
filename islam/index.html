@@ -525,6 +525,9 @@
   .cfig .cimg-x{position:absolute;top:7px;right:7px;background:rgba(0,0,0,.55);color:#fff;border:0;border-radius:6px;width:26px;height:26px;cursor:pointer;font-size:.8rem;line-height:1}
   @media (max-width:620px){.cfig,.figrow.multi .cfig{flex:1 1 100%;max-width:none}}
   .talknote{font-size:.8rem;color:var(--dim);margin:-4px 0 12px;font-style:italic}
+  .proofbox{margin:6px 0 14px;max-height:none}
+  .proofbox .vr{margin-bottom:6px}
+  .ptcard .who{margin-top:10px}
   .donechip{display:inline-block;font-size:.6rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--green);border:1px solid color-mix(in srgb,var(--green) 50%,transparent);border-radius:20px;padding:2px 9px;margin:0 0 7px}
   .bubble.done{border-left-color:var(--green)}
   .bubble.done h4{color:color-mix(in srgb,var(--green) 55%,var(--ink))}
@@ -1593,10 +1596,32 @@ function renderShare(){
 const PROOFS=[{"v":"Deuteronomy 18:18","they":"'A Prophet from among their brethren, like unto thee' — the brethren of Israel are the Ishmaelites; the prophet like Moses is Muhammad!","you":"The text answers itself: 'from among their brethren' in Deuteronomy consistently means fellow Israelites (Deut 17:15 uses the same phrase for choosing a king — no one thinks Israel's king was to be an Arab). And the New Testament names the fulfillment: Peter applies it to Jesus (Acts 3:22–26). Moses' unique profile — knew God face to face, signs and wonders (Deut 34:10–12) — fits Jesus, not Muhammad, who per the Quran itself performed no public sign (29:50–51).","refs":"Deuteronomy 17:15 · Acts 3:22-26 · Deuteronomy 34:10-12"},{"v":"John 14:16 (the Paraclete)","they":"The 'Comforter' Jesus promised is Muhammad — 'periklytos' (praised one) = Ahmad!","you":"Read verse 17: the Comforter is 'the SPIRIT of truth; whom the world cannot see… he dwelleth WITH you, and shall be IN you' — sent in Jesus's name (14:26), to the disciples then living. Muhammad was a visible man, born 500+ years later, who never dwelt in the disciples. The 'periklytos' theory requires the Greek text to have been altered — with zero support among the 5,800+ manuscripts, many pre-Islamic. And fulfilled: Acts 2.","refs":"John 14:17,26 · John 16:7 · Acts 2:1-4"},{"v":"Song of Songs 5:16","they":"'He is altogether lovely (machmadim)' — mach-mad — Muhammad is named in the Hebrew Bible!","you":"Machmad is an ordinary Hebrew word ('desirable/lovely') used about 13 times — including of temple treasures plundered (Lamentations 1:10) and things destroyed (Hosea 9:6); if it names Muhammad here, it names him there too. In context, a bride is praising her husband's kisses. A sound-alike isn't a prophecy — by that method, you could find anyone in any book.","refs":"Lamentations 1:10 · Hosea 9:6"},{"v":"John 16:12-13","they":"'I have yet many things to say unto you, but ye cannot bear them now' — Jesus promised more revelation: the Quran.","you":"Finish the sentence: 'when he, the Spirit of truth, is come, he will guide you' — the same Spirit of 14:17, given to THOSE disciples ('you'), fulfilled at Pentecost within weeks. It cannot be a book delivered six centuries later to different people that contradicts what Jesus already said — his death and resurrection (Mark 8:31), which the Quran denies.","refs":"John 16:13 · Acts 2 · Galatians 1:8"},{"v":"The Gospel of Barnabas","they":"The true gospel — it says Jesus wasn't crucified and foretold Muhammad by name!","you":"It's a 14th–16th-century forgery, and most Muslim scholars agree: it cites the papal Jubilee of 1300, medieval wine casks, and quotes Dante; no manuscript or mention exists before the 16th century. It even contradicts the Quran — it denies Jesus is the Messiah, while the Quran calls him al-Masih eleven times. If your case needs this book, your case has a problem.","refs":"Quran 3:45 · Luke 1:1-4"},{"v":"Isaiah 29:12 / 'the unlettered prophet'","they":"'The book is delivered to him that is not learned' — the unlettered Muhammad receiving the Quran in the cave!","you":"Read the whole passage: Isaiah 29 is a woe against Jerusalem ('Ariel,' v.1) whose vision has become like a sealed book — the illiterate man's 'I am not learned' is part of a picture of JUDGMENT on unresponsive Israel, not a prophecy of revelation to anyone. Verse 13 continues into the famous 'their hearts are far from me' that Jesus applies to the Pharisees (Matthew 15:8). Context is everything.","refs":"Isaiah 29:1-13 · Matthew 15:8-9"}];
 
 /* ---------- their proof-texts ---------- */
+function proofCombine(v,refs){
+  const m=String(v).match(/^(.+?)\s+(\d+):(\d+)(?:\s*[-\u2013]\s*(\d+))?$/); if(!m)return null;
+  const book=m[1].trim(), ch=m[2]; let lo=+m[3], hi=+(m[4]||m[3]), found=false;
+  String(refs||"").replace(/<[^>]+>/g," ").split(/[\u00b7;,]/).forEach(part=>{
+    const r=part.trim().match(/^(.+?)\s+(\d+):(\d+)(?:\s*[-\u2013]\s*(\d+))?$/); if(!r)return;
+    if(r[1].trim().toLowerCase()!==book.toLowerCase()||r[2]!==ch)return;
+    lo=Math.min(lo,+r[3]); hi=Math.max(hi,+(r[4]||r[3])); found=true;});
+  return found?book+" "+ch+":"+lo+"-"+hi:null;
+}
+function proofVerse(ref,refs){
+  const cb=refs?proofCombine(ref,refs):null;
+  const v=(cb&&VERSES[cb])?VERSES[cb]:VERSES[ref]; if(!v||!v.verses)return "";
+  const anyHl=v.verses.some(x=>x.hl), hasCtx=anyHl&&v.verses.some(x=>!x.hl);
+  const body=v.verses.map(x=>{
+    const lit=(x.hl||!anyHl);
+    const txt=(x.hl&&hasCtx)?"<em>"+esc(x.t)+"</em>":esc(x.t);
+    return '<span class="vs'+(lit?" hl":"")+'"><span class="vnum">'+x.v+'</span>'+txt+' </span>';
+  }).join("");
+  const head=hasCtx?esc(v.ref)+", with the verses either side":esc(v.ref);
+  return '<div class="versebox proofbox"><div class="vr"><span>'+head+'</span></div><div class="vtext">'+body+'</div></div>';
+}
 function renderProofs(){
   $("#main").innerHTML=`<div class="viewhead"><h2>When they quote YOUR Bible</h2>
   <p>The verses a Muslim friend will bring to you, and the two-minute responses — context first, then the question that reopens the conversation. Read the passage together whenever you can; the text itself does most of the work.</p></div>`+
   PROOFS.map(p=>`<div class="ptcard"><h3 class="ptv">${p.v}</h3>
+    ${proofVerse(p.v,p.refs)}
     <div class="who them">They may say</div><p class="pt">${p.they}</p>
     <div class="who you">You respond</div><p class="pt">${rich(p.you)}</p>
     <div class="refs">Read together: ${p.refs}</div></div>`).join("");
