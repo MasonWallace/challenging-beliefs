@@ -102,6 +102,18 @@
   .vcol header .t{font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-left:8px}
   .vcol.un .t{color:var(--red)}.vcol.co .t{color:var(--amber)}.vcol.an .t{color:var(--green)}
   .vcol header .d{font-size:.74rem;color:var(--muted);margin-top:4px}
+  /* Option B: the four bands run down the page, five cases each */
+  .vwall.vstack{display:block;max-width:900px}
+  .vwall.vstack .vcol{margin:0 0 16px}
+  .vwall.vstack .vcol header{padding:16px 18px 14px}
+  .vwall.vstack .vcol header .n{font-size:2.1rem}
+  .vwall.vstack .vcol header .t{font-size:.8rem;letter-spacing:.12em}
+  .vwall.vstack .vcol header .d{font-size:.86rem;margin-top:6px;max-width:70ch;line-height:1.55}
+  .vwall.vstack .vt{padding:11px 18px 11px 15px}
+  .vwall.vstack .vt h5{font-size:.99rem}
+  .showall{display:block;width:100%;text-align:left;background:none;border:0;border-top:1px solid var(--line);
+    padding:11px 18px;cursor:pointer;color:var(--gold);font-family:inherit;font-size:.83rem;font-weight:600;letter-spacing:.02em}
+  .showall:hover{background:color-mix(in srgb,var(--gold) 8%,transparent)}
   .vgroup h6{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin:0;padding:10px 16px 4px;font-weight:600}
   .vt{display:block;width:100%;text-align:left;background:none;border:0;border-top:1px solid var(--line);padding:9px 16px 9px 13px;cursor:pointer;color:var(--ink);border-left:3px solid transparent}
   .vt:hover,.vt.sel{background:var(--panel)}
@@ -973,17 +985,21 @@ function renderOverview(){
   const col=v=>{
     const cls=v==="admitted"?"ad":v==="unrefuted"?"un":v==="contested"?"co":"an";
     const src=state.section==="all"?DATA:DATA.filter(d=>d.section===state.section);
-    const groups=["high","medium","low"].map(s=>{
-      const g=src.filter(d=>d.verdict===v&&d.severity===s).sort((a,b)=>((b.featured?2:isStrong(b)?1:0)-(a.featured?2:isStrong(a)?1:0)));
-      if(!g.length)return "";
-      return `<div class="vgroup">`+
-        g.map(d=>`<button class="vt ${state.sel===d.id?"sel":""}${visible.has(d.id)?"":" dimmed"}" data-id="${d.id}">
+    /* one ordered list per verdict: most serious first, strongest evidence at the top of each */
+    const all=["high","medium","low"].flatMap(s=>
+      src.filter(d=>d.verdict===v&&d.severity===s)
+         .sort((a,b)=>((b.featured?2:isStrong(b)?1:0)-(a.featured?2:isStrong(a)?1:0))));
+    if(!all.length)return "";
+    /* a filter or a search means the reader has already narrowed it — show everything */
+    const open=state.open&&state.open[v], narrowed=!!(state.q||state.verdict||state.severity);
+    const shown=(open||narrowed)?all:all.slice(0,5);
+    const rows=shown.map(d=>`<button class="vt ${state.sel===d.id?"sel":""}${visible.has(d.id)?"":" dimmed"}" data-id="${d.id}">
           <h5>${esc(d.title)}</h5>
           <span class="m">${d.avoid?'<span class="star avd">⚠ do not use</span>':d.featured?'<span class="star">★ strongest evidence</span>':isStrong(d)?'<span class="star s2">☆ strong evidence</span>':""}${read.has(d.id)?'<span class="rd">✓ read</span>':""}</span>
-        </button>`).join("")+`</div>`;
-    }).join("");
-    const cnt=src.filter(d=>d.verdict===v).length;
-    return `<div class="vcol ${cls}"><header><span class="n">${cnt}</span><span class="t">${VLABEL[v]}</span><div class="d">${VDESC[v]}</div></header>${groups}</div>`;
+        </button>`).join("");
+    const more=(!narrowed&&all.length>5)
+      ? `<button class="showall" data-v="${v}">${open?"Show fewer &uarr;":"Show all "+all.length+" &rarr;"}</button>` : "";
+    return `<div class="vcol ${cls}"><header><span class="n">${all.length}</span><span class="t">${VLABEL[v]}</span><div class="d">${VDESC[v]}</div></header><div class="vgroup">${rows}</div>${more}</div>`;
   };
   if(state.section==="peculiar"){
     const items2=filtered();
@@ -1007,12 +1023,15 @@ function renderOverview(){
   }
   $("#main").innerHTML=`
     <h4 class="bt">${state.section==="all"?DATA.length+" claims, sorted by where the argument stands · click any title to open its case":SECTIONS[state.section]+" — by verdict"}${anyF?` · <button id="clearf" style="background:none;border:0;color:var(--gold);cursor:pointer;text-decoration:underline;font-size:.72rem;letter-spacing:0;text-transform:none">${items.length} match filters — clear</button>`:""}</h4>
-    <div class="vwall">${col("admitted")}${col("unrefuted")}${col("contested")}${col("answered")}</div>
+    <div class="vwall vstack">${col("admitted")}${col("unrefuted")}${col("contested")}${col("answered")}</div>
     <p class="methodfoot">Method: every case carries the strongest published counter-missionary reply; arguments that fail are marked don't use; the strongest cases are the ones made from Jewish sources alone. Compiled July 2026 from published sources — verify citations at the links before quoting. Verdicts are editorial judgments about the public argument.</p>`;
   document.querySelectorAll(".vt").forEach(c=>{
     c.addEventListener("mouseenter",()=>{state.sel=c.dataset.id;renderPreview();});
     c.addEventListener("click",()=>openCase(c.dataset.id));
   });
+  document.querySelectorAll(".showall").forEach(b=>b.addEventListener("click",()=>{
+    state.open=state.open||{}; state.open[b.dataset.v]=!state.open[b.dataset.v]; renderOverview();
+  }));
   const cf=$("#clearf");if(cf)cf.addEventListener("click",()=>{state.verdict=null;state.severity=null;state.q="";state.section="all";render();});
 }
 

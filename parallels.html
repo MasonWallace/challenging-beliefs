@@ -5,11 +5,11 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Challenging Beliefs">
 <meta property="og:title" content="The same pattern, again and again — Challenging Beliefs">
-<meta property="og:description" content="One angel, one man, no witnesses. Six structures four unrelated movements share — and the one test Scripture applies evenly to all of them.">
+<meta property="og:description" content="One angel, one man, no witnesses. Four movements that never met, built on the same six structures — and the one test Scripture applies evenly to all of them.">
 <meta property="og:url" content="https://masonwallace.github.io/challenging-beliefs/parallels.html">
 <meta property="og:image" content="https://commons.wikimedia.org/wiki/Special:FilePath/The%20Great%20Isaiah%20Scroll%20MS%20A%20(1QIsa)%20-%20Google%20Art%20Project.jpg?width=1200">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="description" content="One angel, one man, no witnesses. Six structures four unrelated movements share — and the one test Scripture applies evenly to all of them.">
+<meta name="description" content="One angel, one man, no witnesses. Four movements that never met, built on the same six structures — and the one test Scripture applies evenly to all of them.">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The same pattern, again and again — Challenging Beliefs</title>
 <style>
@@ -46,6 +46,20 @@ td a:hover{border-bottom-color:var(--acc)}
 td.no{color:var(--dim);font-style:italic;opacity:.55}
 tbody tr:hover td{background:rgba(130,177,216,.045)}
 tbody tr:last-child th,tbody tr:last-child td{border-bottom:0}
+/* phones: a table this wide cannot be read sideways — stack it */
+@media (max-width:700px){
+  .scroll{overflow-x:visible;border:0;background:none;border-radius:0}
+  table{min-width:0;width:100%;display:block}
+  thead{display:none}
+  tbody,tbody tr,tbody th,tbody td{display:block;width:auto}
+  tbody tr{border:1px solid var(--line);border-radius:14px;background:var(--panel);margin:0 0 14px;padding:15px 16px}
+  tbody th{position:static;width:auto;min-width:0;background:none;border-right:0;border-bottom:0;padding:0 0 4px;font-size:1.06rem}
+  tbody th small{font-size:.78rem;margin-top:5px}
+  tbody td{padding:12px 0 0;margin-top:11px;border-top:1px solid var(--line);font-size:.9rem}
+  tbody td::before{content:attr(data-m);display:block;font-family:var(--sans);font-size:.66rem;font-weight:700;
+    letter-spacing:.13em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+  tbody td.no::before{color:var(--dim)}
+}
 .k{color:var(--acc);font-weight:600}
 .hint{font-size:.78rem;color:var(--dim);margin:10px 0 0;display:flex;gap:8px;align-items:center}
 @media (max-width:980px){.hint .desk{display:none}}
@@ -73,7 +87,7 @@ tbody tr:last-child th,tbody tr:last-child td{border-bottom:0}
 <body><div class="wrap">
 <a class="back" href="./">← Challenging Beliefs</a>
 <h1>The same pattern, again and again</h1>
-<p class="lede">Four movements, born centuries and continents apart, that have never coordinated with each other — and that keep arriving at the same handful of structures. Read <b>down a column</b> and you see one movement. Read <b>across a row</b> and you see why this page exists.</p>
+<p class="lede">Mormonism, Islam, the Jehovah&rsquo;s Witnesses and the Hebrew Israelites began centuries apart, on different continents. None of them copied the others. Yet all four ended up built on the same six structures. Read <b>down a column</b> to follow one movement. Read <b>across a row</b> to see why this page exists.</p>
 
 <h2>Why this page exists</h2>
 <p>Most people meet these movements one at a time, and each gets argued on its own terms: was Jerusalem destroyed in 607 or 587, does <i>almah</i> mean virgin, who were the Edomites. Those arguments matter, and the rest of this site is full of them.</p>
@@ -86,45 +100,45 @@ tbody tr:last-child th,tbody tr:last-child td{border-bottom:0}
 <tbody>
 <tr>
   <th><span class="n">1</span>One man, one angel<small>A new revelation correcting the Bible arrives privately, with no second witness to the event</small></th>
-  <td><span class="k">Moroni</span> appears to Joseph Smith alone — and the earliest published accounts <a href="mormonism/#case/angel-nephi-moroni-name-change">name the angel Nephi</a>. The First Vision has <a href="mormonism/#case/first-vision-multiple-accounts">four differing firsthand versions</a>.</td>
-  <td><span class="k">Gabriel</span> appears to Muhammad alone at Hira. The <a href="islam/#case/first-revelation-terror">earliest account</a> has him terrified and doubting the source, reassured by his wife and her Christian cousin.</td>
-  <td>No angel — Russell's authority came from chronology. But the organization's own appointment rests on an <a href="jw/#case/auth-fds-2012-governing-body">invisible 1919 inspection</a> that likewise has no witnesses.</td>
-  <td class="no">Not this pattern. The movement rests on a reading of Deuteronomy 28, not on a visitation.</td>
+  <td data-m="Mormonism"><span class="k">Moroni</span> appears to Joseph Smith alone — and the earliest published accounts <a href="mormonism/#case/angel-nephi-moroni-name-change">name the angel Nephi</a>. The First Vision has <a href="mormonism/#case/first-vision-multiple-accounts">four differing firsthand versions</a>.</td>
+  <td data-m="Islam"><span class="k">Gabriel</span> appears to Muhammad alone at Hira. The <a href="islam/#case/first-revelation-terror">earliest account</a> has him terrified and doubting the source, reassured by his wife and her Christian cousin.</td>
+  <td data-m="Jehovah's Witnesses">No angel — Russell's authority came from chronology. But the organization's own appointment rests on an <a href="jw/#case/auth-fds-2012-governing-body">invisible 1919 inspection</a> that likewise has no witnesses.</td>
+  <td class="no" data-m="Hebrew Israelites">Not this pattern. The movement rests on a reading of Deuteronomy 28, not on a visitation.</td>
 </tr>
 <tr>
   <th><span class="n">2</span>The Bible had to break first<small>The old Scriptures must fail before a new authority can stand — and the correction comes from the same source</small></th>
-  <td>"Many plain and precious things" removed — and <a href="mormonism/#case/jst-whole-bible">Joseph's corrected Bible</a>, which his own church never adopted.</td>
-  <td><span class="k">Tahrif</span> — but corruption of the <i>text</i> is a <a href="islam/#case/tahrif-doctrine-late-development">late doctrine</a>; early Islam taught corruption of meaning, and the Quran endorses the Scripture of its own day.</td>
-  <td>An <a href="jw/#case/nwt-committee-anonymity-credentials">anonymous committee</a> produces the organization's own Bible — the only translation used in its meetings and literature.</td>
-  <td>The KJV is kept, but read by a method — <a href="hebrew-israelites/#case/precepts-method-epistemology">"precept upon precept"</a> — that lets any chapter mean what the chain requires.</td>
+  <td data-m="Mormonism">"Many plain and precious things" removed — and <a href="mormonism/#case/jst-whole-bible">Joseph's corrected Bible</a>, which his own church never adopted.</td>
+  <td data-m="Islam"><span class="k">Tahrif</span> — but corruption of the <i>text</i> is a <a href="islam/#case/tahrif-doctrine-late-development">late doctrine</a>; early Islam taught corruption of meaning, and the Quran endorses the Scripture of its own day.</td>
+  <td data-m="Jehovah's Witnesses">An <a href="jw/#case/nwt-committee-anonymity-credentials">anonymous committee</a> produces the organization's own Bible — the only translation used in its meetings and literature.</td>
+  <td data-m="Hebrew Israelites">The KJV is kept, but read by a method — <a href="hebrew-israelites/#case/precepts-method-epistemology">"precept upon precept"</a> — that lets any chapter mean what the chain requires.</td>
 </tr>
 <tr>
   <th><span class="n">3</span>An authority you can't check<small>Placed beyond correction — either by being inspired, or by not being inspired and still being obeyed</small></th>
-  <td>The prophet <a href="mormonism/#case/prophetic-fallibility-unfalsifiable">"will never lead the church astray"</a> — while failed teachings are reclassified as personal opinion.</td>
-  <td>The seal of the prophets, with <a href="islam/#case/abrogation-satanic-verses">abrogation</a> built in: a later revelation cancels an earlier one, and the cancelling verse comes from the same channel.</td>
-  <td>The sharpest version anywhere: the Governing Body says it is <a href="jw/#case/auth-prophet-paradox"><span class="k">neither inspired nor infallible</span></a> — and disagreement still costs you your family.</td>
-  <td>Camp elders and the teaching lineage, with no external check — and the movement has splintered repeatedly over exactly that.</td>
+  <td data-m="Mormonism">The prophet <a href="mormonism/#case/prophetic-fallibility-unfalsifiable">"will never lead the church astray"</a> — while failed teachings are reclassified as personal opinion.</td>
+  <td data-m="Islam">The seal of the prophets, with <a href="islam/#case/abrogation-satanic-verses">abrogation</a> built in: a later revelation cancels an earlier one, and the cancelling verse comes from the same channel.</td>
+  <td data-m="Jehovah's Witnesses">The sharpest version anywhere: the Governing Body says it is <a href="jw/#case/auth-prophet-paradox"><span class="k">neither inspired nor infallible</span></a> — and disagreement still costs you your family.</td>
+  <td data-m="Hebrew Israelites">Camp elders and the teaching lineage, with no external check — and the movement has splintered repeatedly over exactly that.</td>
 </tr>
 <tr>
   <th><span class="n">4</span>Dated predictions that failed<small>The one structure Scripture explicitly tells us to test — Deuteronomy 18:22</small></th>
-  <td>The Independence temple "in this generation," the Kirtland bank, and the rest — measured against <a href="mormonism/#case/joseph-smith-failed-prophecies">Deuteronomy 18</a>.</td>
-  <td class="no">Not this pattern. The relevant question is the opposite one — the <a href="islam/#case/prophet-test-signs">absence</a> of predictive prophecy offered as a sign.</td>
-  <td>The most documented case of all: <a href="jw/#case/failed-date-prophecies"><span class="k">1914, 1925, 1975</span></a>, and a "generation" <a href="jw/#case/dates-generation-1914-redefined">redefined four times</a>.</td>
-  <td>A dated <a href="hebrew-israelites/#case/year-2000-failed-prophecy">year-2000 prediction</a>, its failure, a rebrand and a succession — all in the movement's own record.</td>
+  <td data-m="Mormonism">The Independence temple "in this generation," the Kirtland bank, and the rest — measured against <a href="mormonism/#case/joseph-smith-failed-prophecies">Deuteronomy 18</a>.</td>
+  <td class="no" data-m="Islam">Not this pattern. The relevant question is the opposite one — the <a href="islam/#case/prophet-test-signs">absence</a> of predictive prophecy offered as a sign.</td>
+  <td data-m="Jehovah's Witnesses">The most documented case of all: <a href="jw/#case/failed-date-prophecies"><span class="k">1914, 1925, 1975</span></a>, and a "generation" <a href="jw/#case/dates-generation-1914-redefined">redefined four times</a>.</td>
+  <td data-m="Hebrew Israelites">A dated <a href="hebrew-israelites/#case/year-2000-failed-prophecy">year-2000 prediction</a>, its failure, a rebrand and a succession — all in the movement's own record.</td>
 </tr>
 <tr>
   <th><span class="n">5</span>A price for leaving<small>The load-bearing one. Where the exit is expensive, no other question ever gets examined honestly</small></th>
-  <td>Formally discouraged, <a href="mormonism/#case/social-costs-shunning">practically real</a>: family strain, temple exclusion, and the loss of an entire social world.</td>
-  <td>Classical jurisprudence prescribes <a href="islam/#case/sharia-apostasy-jizya">death for apostasy</a>; in most of the world today the cost is family, honor and community rather than law.</td>
-  <td>The most systematized version in existence: <a href="jw/#case/shunning-mechanics-family"><span class="k">organized shunning including family</span></a>, with resignation treated exactly like expulsion since 1981.</td>
-  <td>Camp expulsion and the loss of a recovered identity — going back to being "asleep," which is designed to be unthinkable.</td>
+  <td data-m="Mormonism">Formally discouraged, <a href="mormonism/#case/social-costs-shunning">practically real</a>: family strain, temple exclusion, and the loss of an entire social world.</td>
+  <td data-m="Islam">Classical jurisprudence prescribes <a href="islam/#case/sharia-apostasy-jizya">death for apostasy</a>; in most of the world today the cost is family, honor and community rather than law.</td>
+  <td data-m="Jehovah's Witnesses">The most systematized version in existence: <a href="jw/#case/shunning-mechanics-family"><span class="k">organized shunning including family</span></a>, with resignation treated exactly like expulsion since 1981.</td>
+  <td data-m="Hebrew Israelites">Camp expulsion and the loss of a recovered identity — going back to being "asleep," which is designed to be unthinkable.</td>
 </tr>
 <tr>
   <th><span class="n">6</span>The two-tier believer<small>Insiders with access the ordinary member never has — and a member whose standing stays provisional</small></th>
-  <td>Temple recommend holders and the endowed, versus members who may not enter the building their tithing paid for.</td>
-  <td class="no">Not structurally — though scholarly gatekeeping over who may interpret functions similarly in practice.</td>
-  <td>The starkest anywhere: <a href="jw/#case/two-class-salvation-system"><span class="k">144,000 anointed</span></a> and a great crowd, where 99.9% of members decline the bread and cup at their one annual observance.</td>
-  <td>The tribes and the heathen — in the strongest camp teaching, salvation is bounded by descent.</td>
+  <td data-m="Mormonism">Temple recommend holders and the endowed, versus members who may not enter the building their tithing paid for.</td>
+  <td class="no" data-m="Islam">Not structurally — though scholarly gatekeeping over who may interpret functions similarly in practice.</td>
+  <td data-m="Jehovah's Witnesses">The starkest anywhere: <a href="jw/#case/two-class-salvation-system"><span class="k">144,000 anointed</span></a> and a great crowd, where 99.9% of members decline the bread and cup at their one annual observance.</td>
+  <td data-m="Hebrew Israelites">The tribes and the heathen — in the strongest camp teaching, salvation is bounded by descent.</td>
 </tr>
 </tbody>
 </table></div>
