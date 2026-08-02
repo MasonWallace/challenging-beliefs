@@ -165,7 +165,7 @@ build({
   timelineIntro: "What was expected on the left; what happened and what was recorded on the right.",
   lessonsIntro: "There is no script to counter here — this is the other direction. These are the stages of a real friendship in which this conversation becomes possible: earning the right to speak, listening first, asking rather than telling, and knowing when to stop. Each stage carries the one thing to do right then, and the cases behind it.",
   methodFoot: "Method: every case carries the strongest published counter-missionary reply; arguments that fail are marked don't use; the strongest cases are the ones made from Jewish sources alone.",
-  roleNote: "<b>Role:</b> this is the passage the argument rests on.",
+  roleNote: "<b>Why this verse is here:</b> it is the passage the argument rests on.",
   VLABEL: { admitted: "Conceded", unrefuted: "Strong", contested: "Contested", answered: "Don't use" },
   VDESC: {"admitted": "Jewish sources grant this themselves. You can make the point from their own books.", "unrefuted": "No good counter-argument has been published by the counter-missionary teachers — the Jewish speakers and writers whose work is answering Christians.", "contested": "Serious people argue this both ways. Say so before your friend does.", "answered": "This Christian argument does not hold up. Drop it."},
   oldBrand: 'ISLAM · VS. THE BIBLE', newBrand: "THE MESSIAH CASE · FROM THE TANAKH",

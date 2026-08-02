@@ -163,7 +163,7 @@ build({
   timelineIntro: "Claims and challenges on the left; what the ground and the manuscripts gave up on the right.",
   lessonsIntro: "There is no opposing script to counter here — the stages below are the shape of a conversation that actually goes somewhere: working out who you're talking to, clearing the bad arguments, conceding what's hard, arguing from their sources, and knowing when to stop and offer a person instead. Each stage carries the one thing to do right then, and the cases behind it.",
   methodFoot: "Method: every case carries the strongest naturalistic reply; a third are marked contested on purpose; popular Christian arguments that fail are marked don't use.",
-  roleNote: "<b>Role:</b> this is the passage the argument refers to.",
+  roleNote: "<b>Why this verse is here:</b> it is the passage the argument refers to.",
   VLABEL: { admitted: "Conceded", unrefuted: "Strong", contested: "Contested", answered: "Don't use" },
   VDESC: {"admitted": "Skeptical scholars grant this themselves. Argue it from their sources, not yours.", "unrefuted": "No good counter-argument has been published by atheist philosophers.", "contested": "Serious philosophers argue this both ways. Say so before your friend does.", "answered": "This Christian argument does not hold up. Drop it."},
   oldBrand: 'ISLAM · VS. THE BIBLE', newBrand: "THE CASE FOR GOD · FOR SKEPTICS",

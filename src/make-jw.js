@@ -60,7 +60,7 @@ const GLOSSARY = [
 const has = new Set(data.map(d => d.id));
 const pick = (...ids) => ids.filter(i => has.has(i));
 const PATHS = [
-  { id: "foundation", name: "The foundation: 1914 and 'the faithful slave'", desc: "One date, and the eight men it makes the voice of God — pull this thread and everything else comes with it", time: "≈ 25 min", items: pick("chron-607-vs-587", "dates-1874-1914-retrofit", "auth-fds-2012-governing-body", "auth-prophet-paradox") },
+  { id: "foundation", name: "Where their authority comes from", desc: "One date, and the eight men it makes the voice of God — pull this thread and everything else comes with it", time: "≈ 25 min", items: pick("chron-607-vs-587", "dates-1874-1914-retrofit", "auth-fds-2012-governing-body", "auth-prophet-paradox") },
   { id: "jesus", name: "Who Jesus is", desc: "Is Jesus the archangel Michael? And what the New World Translation — the Watchtower’s own Bible — does to the verses about him", time: "≈ 20 min", items: pick("jesus-michael-archangel", "nwt-colossians-other-inserted", "nwt-john-1-1-a-god", "bodily-resurrection-denied") },
   { id: "gospel", name: "The gospel they were never offered", desc: "Two ranks of believer, a Jesus who mediates for only one of them, and a communion table 99.9% of Witnesses pass by untouched", time: "≈ 20 min", items: pick("two-class-salvation-system", "memorial-passing-emblems", "mediator-only-144000", "1935-cutoff-abandoned") },
   { id: "cost", name: "What it costs", desc: "Blood, shunning, and the price of asking a question", time: "≈ 20 min", items: pick("blood-ban-1945-innovation", "blood-fractions-incoherence", "shunning-mechanics-family", "faders-pimo-exit-costs") },
@@ -163,7 +163,7 @@ build({
   timelineIntro: "What was published on the left; what actually happened on the right.",
   lessonsIntro: "The doorstep call and the home Bible study follow a trained sequence — build rapport, establish a felt need, introduce the literature, then the study, the meetings, and baptism. Here is each stage, the one question to ask right then, and the cases behind it. Knowing the script lets you stay warm and unhurried.",
   methodFoot: "Steelman rules: every claim carries the best published Watchtower defense; weak criticisms are marked answered; facts conceded in the organization's own publications are marked admitted.",
-  roleNote: "<b>Role:</b> this is the Watchtower teaching the claim examines.",
+  roleNote: "<b>Why this is here:</b> it is the Watchtower teaching the claim is about.",
   refRegex: "(?:The Watchtower[,]?\\\\s(?:[A-Z][a-z]+\\\\s\\\\d{1,2},\\\\s)?\\\\d{4}|Awake![,]?\\\\s(?:[A-Z][a-z]+\\\\s\\\\d{1,2},\\\\s)?\\\\d{4}|w\\\\d{2}\\\\s\\\\d{1,2}/\\\\d{1,2}|Insight on the Scriptures|Proclaimers|Kingdom Interlinear|New World Translation|NWT)",
   VLABEL: { admitted: "Admitted", unrefuted: "Unrefuted", contested: "Contested", answered:"Don't use" },
   VDESC: {"admitted": "The Watchtower's own publications admit these facts. You can make this point from their library alone.", "unrefuted": "No good counter-argument has been published by the Watchtower.", "contested": "Witness defenders have a real answer here. Say so before your friend does.", "answered": "The Witness answer holds up. Do not lead with this one."},
