@@ -4,6 +4,7 @@
 const fs=require('fs'),P=f=>__dirname+'/'+f;
 const BASE=require('./site-url.js');           // one constant; swap when a domain lands
 const OUT=P('prerendered');
+const ANALYTICS=fs.existsSync(P('analytics-snippet.html'))?fs.readFileSync(P('analytics-snippet.html'),'utf8').trim():'';
 
 const SECTIONS=[
  {key:'mormon', dir:'mormonism/',        built:'index.html',          name:'Mormonism'},
@@ -106,7 +107,7 @@ ${img?`<meta property="og:image" content="${esc(img)}">`:''}
 <script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"Article",
  headline:d.title,description:desc,mainEntityOfPage:url,image:img||undefined,
  isPartOf:{"@type":"WebSite",name:"Challenging Beliefs",url:BASE}})}</script>
-<style>${CSS}</style></head><body><div class="wrap">
+<style>${CSS}</style>${ANALYTICS}</head><body><div class="wrap">
 <div class="crumb"><a href="${BASE}">Challenging Beliefs</a> › <a href="${BASE}${S.dir}">${esc(S.name)}</a></div>
 <h1>${esc(d.title)}</h1>
 <span class="badge b-${esc(d.verdict)}">${esc(VLABEL[d.verdict]||d.verdict)}</span>
