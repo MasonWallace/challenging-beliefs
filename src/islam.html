@@ -515,6 +515,10 @@
   .proofbox{margin:6px 0 14px;max-height:none}
   .proofbox .vr{margin-bottom:6px}
   .ptcard .who{margin-top:10px}
+  /* the takeaway line: what a reader keeps if they read nothing else */
+  .dvlead{font-family:var(--serif);font-size:1.1rem;line-height:1.45;color:var(--ink);font-weight:600;
+    margin:0 0 11px;padding-bottom:10px;border-bottom:1px solid var(--line2)}
+  .vbox .dvlead{border-bottom-color:color-mix(in srgb,var(--ink) 22%,transparent)}
   .donechip{display:inline-block;font-size:.6rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--green);border:1px solid color-mix(in srgb,var(--green) 50%,transparent);border-radius:20px;padding:2px 9px;margin:0 0 7px}
   .bubble.done{border-left-color:var(--green)}
   .bubble.done h4{color:color-mix(in srgb,var(--green) 55%,var(--ink))}
@@ -1270,9 +1274,9 @@ function renderCase(){
       </div>
       <div class="tabpane2 on" id="pane-case">
         <div class="dlab blue" style="margin-top:0">${DEFLABEL}</div>
-        <div class="defense">${formatDefense(d.response)}${d.responseSource?`<div class="dsrc">Source: ${d.responseSource.url?`<a href="${esc(d.responseSource.url)}" target="_blank" rel="noopener">${esc(d.responseSource.name)}</a>`:esc(d.responseSource.name)}</div>`:""}</div>
+        <div class="defense">${d.responseLead?`<p class="dvlead">${rich(d.responseLead)}</p>`:""}${formatDefense(d.response)}${d.responseSource?`<div class="dsrc">Source: ${d.responseSource.url?`<a href="${esc(d.responseSource.url)}" target="_blank" rel="noopener">${esc(d.responseSource.name)}</a>`:esc(d.responseSource.name)}</div>`:""}</div>
         <div class="pair2">
-          <div><div class="dlab">The verdict</div><div class="vbox v-${d.verdict}"><div class="verdictline"><b class="vb">${VLABEL[d.verdict]}</b><span class="vmeaning">${esc(VDESC[d.verdict]||"")}</span></div><span>${paras(d.rationale)}</span></div>${figs(d,"verdict")}</div>
+          <div><div class="dlab">The verdict</div><div class="vbox v-${d.verdict}"><div class="verdictline"><b class="vb">${VLABEL[d.verdict]}</b><span class="vmeaning">${esc(VDESC[d.verdict]||"")}</span></div><span>${d.rationaleLead?`<p class="dvlead">${rich(d.rationaleLead)}</p>`:""}${paras(d.rationale)}</span></div>${figs(d,"verdict")}</div>
           <div><div class="dlab">Why this matters</div><div class="why">${paras(WHYMAP[d.category]||"")}<p class="wtail">${esc(WHYTAIL[d.verdict])}</p></div></div>
         </div>
       </div>
