@@ -1,0 +1,52 @@
+const fs=require('fs'),BASE=require('./site-url.js');
+const CSS=`:root{--bg:#0f1116;--panel2:#12151b;--line:#232833;--ink:#e7e9ec;--muted:#98a0ac;--gold:#82b1d8;--serif:'Iowan Old Style',Palatino,Georgia,serif;--sans:ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif}
+@media(prefers-color-scheme:light){:root{--bg:#f3f4f6;--panel2:#f7f8fa;--line:#dfe2e7;--ink:#1b1e23;--muted:#5c6470;--gold:#2f6b9e}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.75}
+.wrap{max-width:720px;margin:0 auto;padding:34px 20px 70px}a{color:var(--gold)}
+h1{font-family:var(--serif);font-size:1.9rem;margin:0 0 6px}
+h2{font-size:1.05rem;margin:28px 0 8px}
+.sub{color:var(--muted);margin:0 0 26px}
+p,li{color:var(--ink)}li{margin:0 0 6px}
+.note{border-left:3px solid var(--gold);background:var(--panel2);padding:12px 16px;border-radius:0 8px 8px 0;color:var(--muted);font-size:.92rem}`;
+const html=`<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Privacy — Challenging Beliefs</title>
+<meta name="description" content="What this site collects, what it does not, and who else your browser talks to when you read a page here.">
+<link rel="canonical" href="${BASE}privacy.html">
+<style>${CSS}</style></head><body><div class="wrap">
+<p><a href="${BASE}">← Challenging Beliefs</a></p>
+<h1>Privacy</h1>
+<p class="sub">Short version: this site has no accounts, no logins, and no advertising cookies. It does not sell anything about you, because it does not collect anything about you.</p>
+
+<div class="note"><b>Before publishing:</b> replace the two placeholders below — the operator name and the contact address — and delete this box.</div>
+
+<h2>Who runs this site</h2>
+<p>Challenging Beliefs is operated by <b>[YOUR NAME]</b>. Questions, corrections and removal requests: <b>[YOUR EMAIL]</b>.</p>
+
+<h2>What is stored on your device</h2>
+<p>The site keeps a small amount of data in your browser's local storage so it can remember which cases you have read, which reading path you are following, and whether you prefer light or dark mode. This never leaves your device, is not an account, and is not shared. Clearing your browser data removes it.</p>
+<p>The site does not set advertising or tracking cookies.</p>
+
+<h2>Analytics</h2>
+<p>If analytics are enabled, they are privacy-first: aggregate page views, referring sites and rough country, with no cookies, no cross-site tracking, and no attempt to identify individual readers. There is no profile of you to look at, and nothing to sell.</p>
+
+<h2>Images and other third parties</h2>
+<p>Pages include images and links to outside sources. When your browser loads an image or you follow a link, that other service can see the ordinary information any web request carries, including your IP address. Those services have their own privacy policies, which this site does not control.</p>
+
+<h2>If advertising is added later</h2>
+<p>Should this site ever carry advertising, this page will be updated first to say which network is used and what it collects, and any consent required in your region will be requested before personalised ads are shown.</p>
+
+<h2>Children</h2>
+<p>This site is written for adults and older teenagers and is not directed at children under 13. No information is knowingly collected from them.</p>
+
+<h2>Your rights</h2>
+<p>Because no personal data is collected or stored on a server, there is normally nothing to access, correct or delete. If you believe otherwise, write to the address above and it will be handled.</p>
+
+<h2>Sources and images</h2>
+<p>Every case cites its sources, and image credits with their licences are listed on the <a href="${BASE}about.html">About</a> page. If you hold rights in material used here and want it removed or credited differently, write to the address above.</p>
+
+<h2>Changes</h2>
+<p>Material changes to this page will be noted here with a date.</p>
+</div></body></html>`;
+fs.writeFileSync(__dirname+'/prerendered/privacy.html',html);
+console.log('privacy.html written ('+(html.length/1024).toFixed(1)+'K)');

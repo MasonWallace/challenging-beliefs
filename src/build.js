@@ -85,6 +85,12 @@ for (const s of SECTIONS) {
   }
   counts[s.key] = arr.length;
   let html = fs.readFileSync(P(s.shell), 'utf8')
+    .replace('</title>', () => { const tf = P('analytics-token.txt');
+      if (!fs.existsSync(tf)) return '</title>';
+      const tok = fs.readFileSync(tf, 'utf8').trim();
+      if (!tok) return '</title>';
+      const beacon = JSON.stringify({ token: tok });
+      return ["</title>", String.fromCharCode(60)+"script defer src=\"https://static.cloudflareinsights.com/beacon.min.js\" data-cf-beacon="+String.fromCharCode(39)+beacon+String.fromCharCode(39)+">"+String.fromCharCode(60)+"/script>"].join(""); })
     .replace('/*__DATA__*/', () => dataStr)
     /* the striking cases get larger type in the claims list */
     .replace('/*__IMGS__*/{}', () => { const f = P('images-' + s.key + '.json');

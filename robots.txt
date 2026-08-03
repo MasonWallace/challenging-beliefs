@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://masonwallace.github.io/challenging-beliefs/sitemap.xml
