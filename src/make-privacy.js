@@ -18,10 +18,9 @@ const html=`<!doctype html><html lang="en"><head><meta charset="utf-8">
 <h1>Privacy</h1>
 <p class="sub">Short version: this site has no accounts, no logins, and no advertising cookies. It does not sell anything about you, because it does not collect anything about you.</p>
 
-<div class="note"><b>Before publishing:</b> replace the two placeholders below — the operator name and the contact address — and delete this box.</div>
-
 <h2>Who runs this site</h2>
-<p>Challenging Beliefs is operated by <b>[YOUR NAME]</b>. Questions, corrections and removal requests: <b>[YOUR EMAIL]</b>.</p>
+<p>Challenging Beliefs is written and run by <b>Mason Wallace</b>, in Pendleton, Indiana, United States.</p>
+<p>For questions, corrections, rights enquiries or removal requests, write to <b>[CONTACT EMAIL]</b>. Corrections are genuinely welcome — see the <a href="${BASE}about.html">About</a> page.</p>
 
 <h2>What is stored on your device</h2>
 <p>The site keeps a small amount of data in your browser's local storage so it can remember which cases you have read, which reading path you are following, and whether you prefer light or dark mode. This never leaves your device, is not an account, and is not shared. Clearing your browser data removes it.</p>
