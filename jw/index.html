@@ -422,6 +422,9 @@
   .ctop{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:24px;align-items:start;margin-bottom:6px}
   @media (max-width:900px){.ctop{grid-template-columns:1fr}}
   .tabs2{display:flex;gap:4px;border-bottom:1px solid var(--line2);margin:22px 0 0;flex-wrap:wrap}
+  .ktab{font-size:.82rem;padding:10px 18px;border:1px solid transparent;border-bottom:0;border-radius:10px 10px 0 0;color:var(--muted);cursor:pointer;background:none;font-family:inherit}
+  .ktab.on{color:var(--ink);border-color:var(--line2);background:var(--panel)}
+  .ktab:hover{color:var(--ink)}
   .tab2{font-size:.82rem;padding:10px 18px;border:1px solid transparent;border-bottom:0;border-radius:10px 10px 0 0;color:var(--muted);cursor:pointer;background:none;font-family:inherit}
   .tab2.on{background:var(--panel);border-color:var(--line2);color:var(--gold);font-weight:700}
   .tab2:hover{color:var(--ink)}
@@ -991,13 +994,9 @@ function renderNav(){
   const groups=[
     ["Start here",[
       ["core","The heart of it","1","The single chain every other doctrine hangs from — read this first"]]],
-    ["More information",[
-      ["theysay","Quick answers",THEYSAY.length,"The lines you'll actually hear from them — each with a two-sentence response"],
-      ["lessons","When they knock",LESSONS.length,"Da'wah — the 6-step invitation Muslims are taught to give — and the question to ask at each step"],
-      ["proofs","Verses they quote",PROOFS.length,"Bible verses they cite at you — with the context that answers them"],
+    ["For conversations",[
       ["share","Sharing Jesus","✝","How to evangelize here: approach, bridges, and cautions"],
-      ["paths","Guided paths",PATHS.length,"Curated reading orders — pick a goal and follow the sequence"],
-      ["know","Know them","4","Their daily life, surprising true facts, and how they're taught to see you"]]],
+      ["know","More information","8","Quick answers, their script, the verses they quote, guided paths, and how they live"]]],
     ["Reference",[
       ["timeline","Timeline",TLACTS.length+" acts","Their claims vs. the documented record, era by era"],
       ["glossary","Word guide",GLOSSARY.length,"Doctrine terms and insider vocabulary, explained"]]]
@@ -1517,14 +1516,27 @@ const KNOW={"didyouknow":[{"t":"The purple triangle","d":"In the Nazi camps Jeho
 function renderKnow(){
   const tabs=[["kt-facts","✨ Did you know?"],["kt-week","🗓 Inside their week"],["kt-you","👀 What they're taught about you"]];
   if(KNOW.doctrine)tabs.push(["kt-doct","📖 Side by side"]);
+  /* four pages that used to sit in the sidebar now live here as tabs */
+  const BORROW={"kt-theysay":renderTheySay,"kt-lessons":renderLessons,"kt-proofs":renderProofs,"kt-paths":renderPaths};
+  const allTabs=tabs.concat([["kt-theysay","💬 Quick answers"],["kt-lessons","🚪 When they knock"],["kt-proofs","📜 Verses they quote"],["kt-paths","🧭 Guided paths"]]);
   const on=state.knowTab||"kt-facts";
+  const ktBar=`<div class="tabs2">${allTabs.map(([k,l])=>`<button class="ktab ${on===k?"on":""}" data-ktab="${k}">${esc(l)}</button>`).join("")}</div>`;
+  const ktBind=()=>document.querySelectorAll("#main .ktab").forEach(t=>
+    t.addEventListener("click",()=>{state.knowTab=t.dataset.ktab;renderKnow();window.scrollTo({top:0});}));
+  if(BORROW[on]){
+    BORROW[on]();
+    const vh=$("#main").querySelector(".viewhead");
+    if(vh)vh.insertAdjacentHTML("afterend",ktBar); else $("#main").insertAdjacentHTML("afterbegin",ktBar);
+    ktBind();
+    return;
+  }
   $("#main").innerHTML=`<div class="viewhead"><h2>Know your Jehovah's Witness neighbor</h2>
   <p>Understanding before argument. Surprising true facts for conversational fluency, the rhythm of their religious life so you can love them practically, and how they've been taught to see you — so nothing they say catches you off guard.</p></div>
-  <div class="tabs2">${tabs.map(([k,l])=>`<button class="tab2 ${on===k?"on":""}" data-pane="${k}">${l}</button>`).join("")}</div>
+  ${ktBar}
   <div class="tabpane2 ${on==="kt-facts"?"on":""}" id="kt-facts"><div class="kgrid">${KNOW.didyouknow.map(x=>`<div class="ptcard">${x.img?`<img class="ktop" src="${x.img.src}" loading="lazy" data-full="${x.img.src.replace("width=520","width=1400")}" data-cap="${esc(x.img.cap)}">`:""}<h3 class="ptv">${esc(x.t)}</h3><p class="pt">${rich(x.d)}</p><div class="refs">${x.src?`<a href="${esc(x.src)}" target="_blank" rel="noopener">Source</a>`:""}${x.id&&byId[x.id]?` · <button class="klink" data-open="${x.id}">Related case: ${esc(byId[x.id].title)}</button>`:""}</div></div>`).join("")}</div></div>
   <div class="tabpane2 ${on==="kt-week"?"on":""}" id="kt-week">${KNOW.week.map(x=>`<div class="ptcard"><h3 class="ptv">${esc(x.t)}</h3><p class="pt">${rich(x.d)}</p>${x.tip?`<div class="who you">For you as their friend</div><p class="pt">${rich(x.tip)}</p>`:""}</div>`).join("")}</div>
   <div class="tabpane2 ${on==="kt-you"?"on":""}" id="kt-you">${KNOW.aboutyou.map(x=>`<div class="ptcard"><h3 class="ptv">${esc(x.t)}</h3><p class="pt">${rich(x.d)}</p>${x.tip?`<div class="who you">How to navigate it</div><p class="pt">${rich(x.tip)}</p>`:""}</div>`).join("")}</div>${KNOW.doctrine?`<div class="tabpane2 ${on==="kt-doct"?"on":""}" id="kt-doct">${KNOW.doctrine.map(x=>`<div class="ptcard"><h3 class="ptv">${esc(x.topic)}</h3><div class="ddgrid"><div><div class="who them">They teach</div><p class="pt">${rich(x.theirs)}</p></div><div><div class="who you">The Bible teaches</div><p class="pt">${rich(x.bible)}</p></div></div>${x.key?`<div class="ddkey">${rich(x.key)}</div>`:""}</div>`).join("")}</div>`:""}`;
-  document.querySelectorAll("#main .tab2").forEach(t=>t.addEventListener("click",()=>{state.knowTab=t.dataset.pane;}));
+  ktBind();
   document.querySelectorAll("#main [data-open]").forEach(b=>b.addEventListener("click",()=>openCase(b.dataset.open)));
 }
 
@@ -1533,6 +1545,9 @@ const PATHIMG={"foundation":"https://commons.wikimedia.org/wiki/Special:FilePath
 document.addEventListener("click",e=>{const im=e.target.closest(".kimg img,.ktop,.corestrip img,.actimg img");if(im)showLightbox(im.dataset.full||im.src,im.dataset.cap||"");});
 /* ---------- router ---------- */
 function render(){
+  /* the four nested pages redirect to their tab, before the nav highlights */
+  const KTAB={paths:"kt-paths",theysay:"kt-theysay",lessons:"kt-lessons",proofs:"kt-proofs"};
+  if(KTAB[state.view]){state.knowTab=KTAB[state.view];state.view="know";}
   if(state.view!=="case"&&location.hash.indexOf("#case/")===0)try{history.replaceState(null,"",location.pathname+location.search)}catch(e){}
   document.querySelector(".app").classList.toggle("reading",state.view!=="overview");
   renderNav();
