@@ -1206,8 +1206,8 @@ function renderCase(){
         <div class="dlab blue" style="margin-top:0">${DEFLABEL}</div>
         <div class="defense">${formatDefense(d.response)}${d.responseSource?`<div class="dsrc">Source: ${d.responseSource.url?`<a href="${esc(d.responseSource.url)}" target="_blank" rel="noopener">${esc(d.responseSource.name)}</a>`:esc(d.responseSource.name)}</div>`:""}</div>
         <div class="pair2">
-          <div><div class="dlab">The verdict</div><div class="vbox v-${d.verdict}"><div class="verdictline"><b class="vb">${VLABEL[d.verdict]}</b><span class="vmeaning">${esc(VDESC[d.verdict]||"")}</span></div><span>${paras(d.rationale)}</span></div></div>
-          ${figs(d,"verdict")}<div><div class="dlab">Why this matters</div><div class="why">${paras(WHYMAP[d.category]||"")}<p class="wtail">${esc(WHYTAIL[d.verdict])}</p></div></div>
+          <div><div class="dlab">The verdict</div><div class="vbox v-${d.verdict}"><div class="verdictline"><b class="vb">${VLABEL[d.verdict]}</b><span class="vmeaning">${esc(VDESC[d.verdict]||"")}</span></div><span>${paras(d.rationale)}</span></div>${figs(d,"verdict")}</div>
+          <div><div class="dlab">Why this matters</div><div class="why">${paras(WHYMAP[d.category]||"")}<p class="wtail">${esc(WHYTAIL[d.verdict])}</p></div></div>
         </div>
       </div>
       <div class="tabpane2" id="pane-talk">${TALK[d.category]?`<div class="dlab" style="margin-top:0;color:var(--green)">Talking about this whole topic — ${esc(CATS[d.category]||"")}</div><p class="talknote">These notes cover every case in this topic area, not this one case alone.</p><div class="talk">${paras(TALK[d.category])}</div>`:""}${DIALOG[d.category]?`<div class="dlab" style="color:var(--green)">How the conversation usually goes</div><div class="dlg">${DIALOG[d.category].map(m=>`<div class="msg ${m.w}"><span class="who">${m.w==="them"?"They may say":"You respond"}</span><p>${rich(m.t)}</p></div>`).join("")}</div>`:""}</div>
