@@ -82,14 +82,16 @@ for(const S of SECTIONS){
     for(let i=1;i<sents.length&&(desc+' '+sents[i]).length<=158;i++)desc+=' '+sents[i];
     if(desc.length<60&&d.rationaleLead)desc=(desc+' '+strip(d.rationaleLead));
     if(desc.length>158)desc=desc.slice(0,155).replace(/\s+\S*$/,'')+'…';
-    const img=IMGMAP[d.id]?IMGMAP[d.id].src:'';
+    const depthFix=u=>String(u||'').replace(/^\.\.\/img\//,'../../img/');
+    const absImg=u=>String(u||'').replace(/^(\.\.\/)+img\//, BASE+'img/');
+    const img=IMGMAP[d.id]?absImg(IMGMAP[d.id].src):'';
     const HUE=['h-amber','h-gold','h-red','h-purp','h-teal','h-teal'];
     const blocks=(d.plain||[]).map((b,i)=>
       `<div class="blk ${b.say?'h-green':HUE[i%HUE.length]}"><h2>${esc(b.t)}</h2>`+
       strip(b.d).split(/(?<=[.!?])\s+/).reduce((a,s,j)=>{const k=Math.floor(j/2);a[k]=(a[k]||'')+' '+s;return a},[])
         .map(p=>`<p>${rich(p.trim())}</p>`).join('')+`</div>`).join('');
     const figs=(IMGS[d.id]||[]).slice(0,3).map(x=>
-      `<figure><img src="${esc(x.src)}" alt="${esc(x.cap)}" loading="lazy"><figcaption>${esc(x.cap)}</figcaption></figure>`).join('');
+      `<figure><img src="${esc(depthFix(x.src))}" alt="${esc(x.cap)}" loading="lazy"><figcaption>${esc(x.cap)}</figcaption></figure>`).join('');
     const rel=(RELATED[d.id]||[]).filter(x=>byId[x]).slice(0,5)
       .map(x=>`<a href="${BASE}${S.dir}${x}/">${esc(byId[x].title)}</a>`).join('');
     const sources=(d.sources||[]).slice(0,12).map(s=>
