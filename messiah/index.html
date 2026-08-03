@@ -964,16 +964,17 @@ function renderNav(){
   const items=[["overview","All claims",DATA.length,"Every documented case — search it, filter it by verdict and seriousness"]];
   const groups=[
     ["Start here",[
-      ["core","The heart of it","1","The case in one page — made from their sources, not ours"],
-      ["paths","Guided paths",PATHS.length,"Curated reading orders — pick a goal and follow the sequence"]]],
-    ["For conversations",[
+      ["core","The heart of it","1","The case in one page — made from their sources, not ours"]]],
+    ["More information",[
       ["theysay","Quick answers",THEYSAY.length,"The lines you'll actually hear from them — each with a two-sentence response"],
       ["lessons","Earning the conversation",LESSONS.length,"Da'wah — the 6-step invitation Muslims are taught to give — and the question to ask at each step"],
       ["proofs","Verses they quote",PROOFS.length,"Bible verses they cite at you — with the context that answers them"],
-      ["share","Sharing Jesus","✝","How to evangelize here: approach, bridges, and cautions"]]],
+      ["share","Sharing Jesus","✝","How to evangelize here: approach, bridges, and cautions"],
+      ["paths","Guided paths",PATHS.length,"Curated reading orders — pick a goal and follow the sequence"],
+      ["know","Know them","4","Their daily life, surprising true facts, and how they're taught to see you"]]],
     ["Reference",[
       ["timeline","Timeline",TLACTS.length+" acts","Their claims vs. the documented record, era by era"],
-      ["glossary","Word guide",GLOSSARY.length,"Doctrine terms and insider vocabulary, explained"],["know","Know them","4","Their daily life, surprising true facts, and how they're taught to see you"]]]
+      ["glossary","Word guide",GLOSSARY.length,"Doctrine terms and insider vocabulary, explained"]]]
   ];
   const cur=state.view==="overview"&&state.section!=="all"?"sec:"+state.section:state.view;
   const lk=([k,l,c,tp])=>`<a class="${cur===k?"on":""}" data-k="${k}"${tp?` data-tip="${esc(tp)}"`:""}>${l} <span class="cnt">${c}</span></a>`;
