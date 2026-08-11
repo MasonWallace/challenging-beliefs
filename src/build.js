@@ -5,7 +5,7 @@ const P = f => __dirname + '/' + f;
 const gate = require('./gate.js');
 /* the per-section make scripts write their own verse files; regenerate with context after them */
 require('child_process').execSync('node ' + __dirname + '/extract-context.js', {stdio:'pipe'});
-const BASE = 'https://masonwallace.github.io/challenging-beliefs/';
+const BASE = 'https://whichgospel.com/';
 
 function ogMeta(m) {
   return '<meta name="viewport" content="width=device-width,initial-scale=1">\n' +
@@ -46,37 +46,37 @@ const SECTIONS = [
     key: 'mormon', shell: 'study.html', out: 'index.html', dir: 'mormonism/', verses: 'verses.json',
     dataFrom: 'inline', glyph: '📖', name: 'Mormonism', group: 'examine',
     blurb: "The Book of Mormon and LDS teaching, weighed — largely from the church's own sources.",
-    og: { title: 'Mormonism vs. the Bible — Challenging Beliefs', img: 'https://masonwallace.github.io/challenging-beliefs/img/book-of-mormon-1830-edition-reprint-190qvyu-m.webp' }
+    og: { title: 'Mormonism vs. the Bible — Challenging Beliefs', img: 'https://whichgospel.com/img/book-of-mormon-1830-edition-reprint-190qvyu-m.webp' }
   },
   {
     key: 'islam', shell: 'islam.html', out: 'islam-built.html', dir: 'islam/', verses: 'verses-islam.json',
     dataFrom: 'islam-data.json', glyph: '☪️', name: 'Islam', group: 'examine',
     blurb: "The Quran's claims about Jesus and the Bible — with scripted conversations for every case.",
-    og: { title: 'Islam vs. the Bible — Challenging Beliefs', img: 'https://masonwallace.github.io/challenging-beliefs/img/samarkand-kufic-quran-1905-2022-07-05-03-1gmci4q-m.webp' }
+    og: { title: 'Islam vs. the Bible — Challenging Beliefs', img: 'https://whichgospel.com/img/samarkand-kufic-quran-1905-2022-07-05-03-1gmci4q-m.webp' }
   },
   {
     key: 'jw', shell: 'jw.html', out: 'jw-built.html', dir: 'jw/', verses: 'verses-jw.json',
     dataFrom: 'jw-data.built.json', glyph: '🚪', name: "Jehovah's Witnesses", group: 'examine',
     blurb: '607, 1914, and the New World Translation — the chain every other doctrine hangs from.',
-    og: { title: "Jehovah's Witnesses vs. the Bible — Challenging Beliefs", img: 'https://masonwallace.github.io/challenging-beliefs/img/the-great-isaiah-scroll-ms-a-1qisa-google-art-project-4sb8mc-m.webp' }
+    og: { title: "Jehovah's Witnesses vs. the Bible — Challenging Beliefs", img: 'https://whichgospel.com/img/the-great-isaiah-scroll-ms-a-1qisa-google-art-project-4sb8mc-m.webp' }
   },
   {
     key: 'bhi', shell: 'bhi.html', out: 'bhi-built.html', dir: 'hebrew-israelites/', verses: 'verses-bhi.json',
     dataFrom: 'bhi-data.built.json', glyph: '🦁', name: 'Hebrew Israelites', group: 'examine',
     blurb: 'Deuteronomy 28, the 12 Tribes Chart, and a grievance that has to be answered before it is corrected.',
-    og: { title: 'Hebrew Israelites vs. the Bible — Challenging Beliefs', img: 'https://masonwallace.github.io/challenging-beliefs/img/the-great-isaiah-scroll-ms-a-1qisa-google-art-project-4sb8mc-m.webp' }
+    og: { title: 'Hebrew Israelites vs. the Bible — Challenging Beliefs', img: 'https://whichgospel.com/img/the-great-isaiah-scroll-ms-a-1qisa-google-art-project-4sb8mc-m.webp' }
   },
   {
     key: 'messiah', shell: 'messiah.html', out: 'messiah-built.html', dir: 'messiah/', verses: 'verses-messiah.json',
     dataFrom: 'messiah-data.built.json', glyph: '🕎', name: 'The Messiah Case', group: 'make',
     blurb: 'For Jewish friends — the case from the Tanakh, the Targum and the Talmud, and the history to name first.',
-    og: { title: 'The Messiah Case — from the Tanakh | Challenging Beliefs', img: 'https://masonwallace.github.io/challenging-beliefs/img/the-great-isaiah-scroll-ms-a-1qisa-google-art-project-4sb8mc-m.webp' }
+    og: { title: 'The Messiah Case — from the Tanakh | Challenging Beliefs', img: 'https://whichgospel.com/img/the-great-isaiah-scroll-ms-a-1qisa-google-art-project-4sb8mc-m.webp' }
   },
   {
     key: 'god', shell: 'god.html', out: 'god-built.html', dir: 'god/', verses: 'verses-god.json',
     dataFrom: 'god-data.built.json', glyph: '🌌', name: 'The Case for God', group: 'make',
     blurb: 'For skeptics — the evidence, argued from sources that do not want the conclusion, and the arguments to retire.',
-    og: { title: 'The Case for God — for skeptics | Challenging Beliefs', img: 'https://masonwallace.github.io/challenging-beliefs/img/hubble-ultra-deep-field-high-rez-edit1-1kz6yxd-m.webp' }
+    og: { title: 'The Case for God — for skeptics | Challenging Beliefs', img: 'https://whichgospel.com/img/hubble-ultra-deep-field-high-rez-edit1-1kz6yxd-m.webp' }
   }
 ];
 

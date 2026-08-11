@@ -4,7 +4,7 @@
 const fs=require('fs'),cp=require('child_process'),P=f=>__dirname+'/'+f;
 const OUT=P('img'); fs.mkdirSync(OUT,{recursive:true});
 const TMP='/tmp/imgsrc'; fs.mkdirSync(TMP,{recursive:true});
-const UA='ChallengingBeliefs/1.0 (https://masonwallace.github.io/challenging-beliefs/; static site image mirror)';
+const UA='ChallengingBeliefs/1.0 (https://whichgospel.com/; static site image mirror)';
 const urls=fs.readFileSync(P('img-urls.txt'),'utf8').split('\n').filter(Boolean);
 
 /* stable, collision-free local name */

@@ -1,1 +1,1 @@
-module.exports='https://masonwallace.github.io/challenging-beliefs/';
+module.exports='https://whichgospel.com/';
