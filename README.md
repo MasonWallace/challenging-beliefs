@@ -1,4 +1,4 @@
-# Challenging Beliefs
+# Which Gospel?
 
 Faith claims examined against the Bible — documented claims with sources, steelmanned defenses, honest verdicts, and guidance for sharing the gospel with gentleness and respect (1 Peter 3:15).
 

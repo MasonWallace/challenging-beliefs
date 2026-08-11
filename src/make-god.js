@@ -169,7 +169,7 @@ build({
   oldBrand: 'ISLAM · VS. THE BIBLE', newBrand: "THE CASE FOR GOD · FOR SKEPTICS",
   keyPrefix: 'wbg_',
   textSwaps: [
-    ['<title>Challenging Beliefs — Islam, Examined Against the Bible</title>', "<title>Challenging Beliefs — The Case for God, for Skeptics</title>"],
+    ['<title>Which Gospel? — Islam, Examined Against the Bible</title>', "<title>Which Gospel? — The Case for God, for Skeptics</title>"],
     ["Know your Muslim neighbor", "Know your skeptical friend"],
     ["How they'll invite you", "The shape of the conversation"],
     ["Muslim friend", "skeptical friend"]

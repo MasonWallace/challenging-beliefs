@@ -1,4 +1,4 @@
-# Rewrite spec — Challenging Beliefs
+# Rewrite spec — Which Gospel?
 
 You are rewriting one section of an evangelism reference site so an average adult, or a
 15-year-old with no background, can actually use it. The site examines the claims of

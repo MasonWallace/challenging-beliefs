@@ -170,7 +170,7 @@ build({
   oldBrand: 'ISLAM · VS. THE BIBLE', newBrand: "JEHOVAH'S WITNESSES · VS. THE BIBLE",
   keyPrefix: 'wbjw_',
   textSwaps: [
-    ['<title>Challenging Beliefs — Islam, Examined Against the Bible</title>', "<title>Challenging Beliefs — Jehovah's Witnesses, Examined Against the Bible</title>"],
+    ['<title>Which Gospel? — Islam, Examined Against the Bible</title>', "<title>Which Gospel? — Jehovah's Witnesses, Examined Against the Bible</title>"],
     ["Know your Muslim neighbor", "Know your Jehovah's Witness neighbor"],
     ["How they'll invite you", "When they knock"],
     ["Muslim friend", "Witness at your door"]

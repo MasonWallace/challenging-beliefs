@@ -10,16 +10,16 @@ p,li{color:var(--ink)}li{margin:0 0 6px}
 .note{border-left:3px solid var(--gold);background:var(--panel2);padding:12px 16px;border-radius:0 8px 8px 0;color:var(--muted);font-size:.92rem}`;
 const html=`<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Privacy — Challenging Beliefs</title>
+<title>Privacy — Which Gospel?</title>
 <meta name="description" content="What this site collects, what it does not, and who else your browser talks to when you read a page here.">
 <link rel="canonical" href="${BASE}privacy.html">
 <style>${CSS}</style></head><body><div class="wrap">
-<p><a href="${BASE}">← Challenging Beliefs</a></p>
+<p><a href="${BASE}">← Which Gospel?</a></p>
 <h1>Privacy</h1>
 <p class="sub">Short version: this site has no accounts, no logins, and no advertising cookies. It does not sell anything about you, because it does not collect anything about you.</p>
 
 <h2>Who runs this site</h2>
-<p>Challenging Beliefs is written and run by <b>Mason Wallace</b>, in Pendleton, Indiana, United States.</p>
+<p>Which Gospel? is written and run by <b>Mason Wallace</b>, in Pendleton, Indiana, United States.</p>
 <p>For questions, corrections, rights enquiries or removal requests, write to <b>nosamwallace@gmail.com</b>. Corrections are genuinely welcome — see the <a href="${BASE}about.html">About</a> page.</p>
 
 <h2>What is stored on your device</h2>

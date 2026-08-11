@@ -165,7 +165,7 @@ build({
   oldBrand: 'ISLAM · VS. THE BIBLE', newBrand: "HEBREW ISRAELITES · VS. THE BIBLE",
   keyPrefix: 'wbb_',
   textSwaps: [
-    ['<title>Challenging Beliefs — Islam, Examined Against the Bible</title>', "<title>Challenging Beliefs — Hebrew Israelites, Examined Against the Bible</title>"],
+    ['<title>Which Gospel? — Islam, Examined Against the Bible</title>', "<title>Which Gospel? — Hebrew Israelites, Examined Against the Bible</title>"],
     ["Know your Muslim neighbor", "Know the movement"],
     ["How they'll invite you", "The street teaching"],
     ["Muslim friend", "friend in the camps"]

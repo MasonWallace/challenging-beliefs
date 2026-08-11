@@ -99,7 +99,7 @@ for(const S of SECTIONS){
 
     const html=`<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>${esc(d.title)} — ${esc(S.name)} | Challenging Beliefs</title>
+<title>${esc(d.title)} — ${esc(S.name)} | Which Gospel?</title>
 <meta name="description" content="${esc(desc)}">
 <link rel="canonical" href="${url}">
 <meta property="og:type" content="article"><meta property="og:title" content="${esc(d.title)}">
@@ -108,9 +108,9 @@ ${img?`<meta property="og:image" content="${esc(img)}">`:''}
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"Article",
  headline:d.title,description:desc,mainEntityOfPage:url,image:img||undefined,
- isPartOf:{"@type":"WebSite",name:"Challenging Beliefs",url:BASE}})}</script>
+ isPartOf:{"@type":"WebSite",name:"Which Gospel?",url:BASE}})}</script>
 <style>${CSS}</style>${ANALYTICS}</head><body><div class="wrap">
-<div class="crumb"><a href="${BASE}">Challenging Beliefs</a> › <a href="${BASE}${S.dir}">${esc(S.name)}</a></div>
+<div class="crumb"><a href="${BASE}">Which Gospel?</a> › <a href="${BASE}${S.dir}">${esc(S.name)}</a></div>
 <h1>${esc(d.title)}</h1>
 <span class="badge b-${esc(d.verdict)}">${esc(VLABEL[d.verdict]||d.verdict)}</span>
 <p class="vmean">${esc(VDESC[d.verdict]||'')}</p>
@@ -120,7 +120,7 @@ ${d.rationale?`<h3>The verdict</h3><div class="blk h-teal">${d.rationaleLead?`<p
 <a class="cta" href="${BASE}${S.dir}#case/${d.id}">Open this case in the full study tool →</a>
 ${sources?`<h3>Sources</h3><ul>${sources}</ul>`:''}
 ${rel?`<h3>Related cases</h3><div class="rel">${rel}</div>`:''}
-<footer>Part of <a href="${BASE}">Challenging Beliefs</a> — ${DATA.length} documented cases on ${esc(S.name)}, examined against the Bible.</footer>
+<footer>Part of <a href="${BASE}">Which Gospel?</a> — ${DATA.length} documented cases on ${esc(S.name)}, examined against the Bible.</footer>
 </div></body></html>`;
 
     const dir=OUT+'/'+S.dir+d.id;

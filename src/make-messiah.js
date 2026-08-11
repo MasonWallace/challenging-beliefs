@@ -171,7 +171,7 @@ build({
   oldBrand: 'ISLAM · VS. THE BIBLE', newBrand: "THE MESSIAH CASE · FROM THE TANAKH",
   keyPrefix: 'wbm_',
   textSwaps: [
-    ['<title>Challenging Beliefs — Islam, Examined Against the Bible</title>', "<title>Challenging Beliefs — The Messiah Case, from the Tanakh</title>"],
+    ['<title>Which Gospel? — Islam, Examined Against the Bible</title>', "<title>Which Gospel? — The Messiah Case, from the Tanakh</title>"],
     ["Know your Muslim neighbor", "Know your Jewish friend"],
     ["How they'll invite you", "Earning the conversation"],
     ["Muslim friend", "Jewish friend"]
