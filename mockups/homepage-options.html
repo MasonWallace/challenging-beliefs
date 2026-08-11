@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Which Gospel? — homepage layout options</title>
+<style>
+/* ============ page chrome (theme-aware) ============ */
+:root{
+  --paper:#eceff3;
+  --card:#ffffff;
+  --line:#d5dce4;
+  --ink:#171b21;
+  --muted:#59616d;
+  --dim:#89919d;
+  --accent:#2f6b9e;
+  --accent-soft:#e2ecf5;
+  --bad:#a8392f;
+  --bad-soft:#f7e6e4;
+  --good:#3a6f50;
+  --good-soft:#e2eee7;
+  --serif:'Iowan Old Style','Palatino Linotype',Palatino,'Book Antiqua',Georgia,serif;
+  --sans:ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#0a0c10;--card:#12151c;--line:#242a35;--ink:#e8eaee;--muted:#98a0ad;
+    --dim:#68707d;--accent:#82b1d8;--accent-soft:#182430;--bad:#e0736a;--bad-soft:#2a1917;
+    --good:#7fb08d;--good-soft:#152219;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0a0c10;--card:#12151c;--line:#242a35;--ink:#e8eaee;--muted:#98a0ad;
+  --dim:#68707d;--accent:#82b1d8;--accent-soft:#182430;--bad:#e0736a;--bad-soft:#2a1917;
+  --good:#7fb08d;--good-soft:#152219;
+}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+.page{max-width:82rem;margin:0 auto;padding:2.5rem 1.5rem 5rem}
+
+.masthead{border-bottom:2px solid var(--line);padding-bottom:1.5rem;margin-bottom:2rem}
+.kicker{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:.5rem}
+h1.pt{font-family:var(--serif);font-weight:500;font-size:clamp(1.9rem,4.5vw,2.9rem);margin:0 0 .5rem;letter-spacing:-.015em;text-wrap:balance}
+.sub{margin:0;color:var(--muted);max-width:52rem;font-size:1.02rem}
+
+h2.pt{font-family:var(--serif);font-weight:500;font-size:1.5rem;margin:2.75rem 0 .75rem;letter-spacing:-.01em}
+p.pt{margin:0 0 1rem;max-width:52rem}
+code{font-family:var(--mono);font-size:.86em;background:var(--accent-soft);padding:.1em .35em;border-radius:2px}
+
+/* problems list */
+.probs{display:grid;gap:.75rem;margin:1rem 0 0;padding:0;list-style:none}
+.prob{display:grid;grid-template-columns:auto 1fr;gap:.9rem;background:var(--card);border:1px solid var(--line);border-left:3px solid var(--bad);border-radius:3px;padding:.85rem 1.05rem}
+.prob .ix{font-family:var(--mono);font-size:.75rem;font-weight:700;color:var(--bad);background:var(--bad-soft);border-radius:2px;padding:.15rem .4rem;height:fit-content}
+.prob b{display:block;font-size:.95rem;margin-bottom:.15rem}
+.prob span{color:var(--muted);font-size:.9rem}
+
+/* option header */
+.opt{margin-top:3.25rem}
+.opthd{display:flex;flex-wrap:wrap;align-items:baseline;gap:.75rem;margin-bottom:.35rem}
+.optname{font-family:var(--serif);font-size:1.45rem;font-weight:500}
+.tag{font-size:.63rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;padding:.2rem .45rem;border-radius:2px;background:var(--accent-soft);color:var(--accent);border:1px solid var(--accent)}
+.tag.rec{background:var(--good-soft);color:var(--good);border-color:var(--good)}
+.optdek{margin:0 0 1rem;color:var(--muted);max-width:52rem;font-size:.96rem}
+
+/* scroll frame holding a fixed-width mockup */
+.scroller{overflow-x:auto;border:1px solid var(--line);border-radius:6px;background:var(--card);padding:1rem}
+.stage{width:1280px;position:relative}
+.stagelabel{font-family:var(--mono);font-size:.68rem;color:var(--dim);margin-bottom:.4rem;display:flex;justify-content:space-between}
+
+/* the fold marker */
+.fold{position:absolute;left:0;right:0;top:800px;border-top:2px dashed var(--bad);z-index:5;pointer-events:none}
+.fold::after{content:"laptop screen ends here — anything below needs scrolling";position:absolute;left:0;top:2px;font-family:var(--mono);font-size:.63rem;color:var(--bad);background:var(--paper);padding:.1rem .35rem;border-radius:0 0 2px 2px;white-space:nowrap}
+
+/* pros / cons */
+.pc{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem}
+@media (max-width:40rem){.pc{grid-template-columns:1fr}}
+.pcbox{border:1px solid var(--line);border-radius:3px;padding:.8rem 1rem;background:var(--card)}
+.pcbox h4{margin:0 0 .4rem;font-size:.68rem;letter-spacing:.09em;text-transform:uppercase}
+.pcbox.up h4{color:var(--good)}
+.pcbox.dn h4{color:var(--bad)}
+.pcbox ul{margin:0;padding-left:1.05rem;color:var(--muted);font-size:.9rem}
+.pcbox li{margin-bottom:.25rem}
+
+footer.pt{margin-top:3.5rem;padding-top:1.25rem;border-top:1px solid var(--line);color:var(--dim);font-size:.82rem}
+
+/* ============================================================
+   MOCKUP INTERNALS — the real site's dark palette, fixed.
+   Prefixed .m- so nothing here collides with page chrome.
+   ============================================================ */
+.stage{
+  --s-bg:#0b0d12;--s-panel:#141821;--s-line:#242a36;--s-ink:#eceef2;
+  --s-muted:#949cab;--s-dim:#5b6472;--s-acc:#82b1d8;--s-acc2:#b394e0;--s-gold:#cf9a45;
+}
+.m-site{background:var(--s-bg);color:var(--s-ink);font-family:var(--sans);border-radius:4px;overflow:hidden;position:relative;padding-bottom:2rem}
+.m-wrap{max-width:940px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
+.m-scale{font-size:2rem;display:block;text-align:center;filter:drop-shadow(0 6px 22px rgba(130,177,216,.35))}
+.m-h1{
+  font-family:var(--serif);font-weight:500;font-size:3.4rem;line-height:1.24;
+  letter-spacing:-.015em;margin:.5rem 0 0;text-align:center;
+  background:linear-gradient(100deg,var(--s-ink) 30%,var(--s-acc) 55%,var(--s-acc2) 75%,var(--s-ink) 95%);
+  background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.m-head{padding:2.6rem 0 0}
+.m-tagline{text-align:center;color:var(--s-muted);font-size:.9rem;margin:.35rem 0 0}
+.m-eyebrow{font-size:.66rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--s-dim);display:block}
+
+/* hero — CTA sits BELOW the copy, clearing the wordmark */
+.m-hero{
+  display:block;border:1px solid var(--s-gold);border-radius:18px;padding:22px 26px;
+  background:linear-gradient(120deg,rgba(207,154,69,.13),rgba(207,154,69,.02) 60%),var(--s-panel);
+  text-decoration:none;color:inherit;
+}
+.m-hero h2{font-family:var(--serif);font-weight:500;font-size:1.45rem;margin:6px 0 6px}
+.m-hero p{margin:0;color:var(--s-muted);font-size:.9rem;max-width:70ch}
+.m-cta{
+  display:inline-block;margin-top:14px;border:1px solid var(--s-gold);color:var(--s-gold);
+  border-radius:999px;padding:9px 18px;font-size:.82rem;font-weight:700;
+}
+
+/* section title rule */
+.m-secttl{display:flex;align-items:center;gap:12px;margin:26px 0 12px}
+.m-secttl b{font-family:var(--serif);font-weight:500;font-size:1.02rem}
+.m-secttl i{flex:1;height:1px;background:var(--s-line);font-style:normal}
+.m-secttl span{font-size:.73rem;color:var(--s-dim)}
+
+/* cards */
+.m-cards{display:grid;gap:13px}
+.m-c3{grid-template-columns:repeat(3,1fr)}
+.m-c2{grid-template-columns:repeat(2,1fr)}
+.m-card{
+  display:flex;flex-direction:column;background:var(--s-panel);border:1px solid var(--s-line);
+  border-radius:14px;padding:18px 16px 15px;text-decoration:none;color:inherit;position:relative;
+}
+.m-card .m-glyph{font-size:1.4rem}
+.m-card h3{font-family:var(--serif);font-weight:500;font-size:1.08rem;margin:9px 0 4px}
+.m-card p{color:var(--s-muted);font-size:.8rem;margin:0 0 11px;flex:1;line-height:1.5}
+.m-card .m-ct{font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--s-dim);font-variant-numeric:tabular-nums}
+/* group pip, so one grid can still show two groups */
+.m-card .m-pip{position:absolute;top:16px;right:16px;font-size:.58rem;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--s-dim);border:1px solid var(--s-line);border-radius:999px;padding:.1rem .4rem}
+.m-card.m-mk{border-color:#3a3350}
+.m-card.m-mk .m-pip{color:var(--s-acc2);border-color:#3a3350}
+
+/* compact card variant */
+.m-card.m-tight{padding:14px 14px 12px;flex-direction:row;align-items:center;gap:12px}
+.m-card.m-tight .m-glyph{font-size:1.5rem}
+.m-card.m-tight .m-body{min-width:0}
+.m-card.m-tight h3{margin:0;font-size:1rem}
+.m-card.m-tight .m-ct{display:block;margin-top:2px}
+
+/* about bar */
+.m-about{
+  display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:18px;background:var(--s-panel);
+  border:1px solid var(--s-line);border-radius:14px;padding:14px 20px;text-decoration:none;color:inherit;
+}
+.m-about .m-at{font-family:var(--serif);font-size:1rem;white-space:nowrap}
+.m-about .m-ad{color:var(--s-muted);font-size:.82rem;flex:1;min-width:200px}
+.m-about .m-go{color:var(--s-acc);font-size:.82rem;font-weight:700;white-space:nowrap}
+
+/* two-column split used in option B */
+.m-split{display:grid;grid-template-columns:340px 1fr;gap:16px;align-items:start}
+.m-split .m-hero{height:100%}
+
+.m-foot{border-top:1px solid var(--s-line);margin-top:22px;padding:16px 0 0;text-align:center;color:var(--s-dim);font-size:.78rem}
+.m-foot i{font-family:var(--serif);color:var(--s-muted)}
+
+/* the "before" frame keeps the broken spacing on purpose */
+.m-broken .m-head{padding:2.6rem 0 0}
+.m-broken .m-h1{line-height:1.08;margin-bottom:0}
+.m-broken .m-hero{margin-top:0}
+.m-broken .m-herorow{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
+.m-broken .m-cta{margin-top:0;white-space:nowrap}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="masthead">
+  <div class="kicker">Homepage redesign &middot; whichgospel.com</div>
+  <h1 class="pt">Which Gospel?</h1>
+  <p class="sub">Three layouts that fix the clipped wordmark, retire the stranded Hebrew Israelites card, and put all six sections plus the pattern piece and the about link on one screen.</p>
+</header>
+
+<h2 class="pt">What's wrong right now</h2>
+<p class="pt">I rendered your live homepage at three window sizes before touching anything. All three problems reproduce at every size.</p>
+
+<ol class="probs">
+  <li class="prob">
+    <span class="ix">1</span>
+    <span><b>The hero card is slicing through your wordmark.</b><span>The <code>g</code> descenders in &ldquo;Challenging&rdquo; and &ldquo;Beliefs&rdquo; get cut off by the gold panel's top edge. It's caused by <code>line-height:1.08</code> on the <code>h1</code> — a serif face with deep descenders needs more room than that, and the header's bottom padding is measured in <code>vh</code>, so it shrinks further on short windows.</span></span>
+  </li>
+  <li class="prob">
+    <span class="ix">2</span>
+    <span><b>Hebrew Israelites is stranded.</b><span>Four cards in a three-column grid leaves the fourth alone on its own row with two empty columns beside it — a wide gap of nothing in the middle of the page.</span></span>
+  </li>
+  <li class="prob">
+    <span class="ix">3</span>
+    <span><b>The six sections are split too far apart.</b><span>&ldquo;Making the case&rdquo; sits far below &ldquo;Examining other faiths,&rdquo; so The Messiah Case and The Case for God are well past the fold. Most visitors never learn they exist.</span></span>
+  </li>
+</ol>
+
+<h2 class="pt">For reference: what it looks like today</h2>
+<p class="pt">The clipping is subtle in a screenshot but obvious once you know to look — watch the bottom of both <b>g</b>'s meet the gold border.</p>
+
+<div class="scroller">
+  <div class="stagelabel"><span>current homepage &middot; rendered at 1280px</span><span>the problem, reproduced</span></div>
+  <div class="stage">
+    <div class="fold"></div>
+    <div class="m-site m-broken">
+      <div class="m-head"><span class="m-scale">&#9878;</span>
+        <div class="m-wrap"><div class="m-h1">Challenging Beliefs</div></div>
+      </div>
+      <div class="m-wrap">
+        <div class="m-hero">
+          <div class="m-herorow">
+            <div>
+              <span class="m-eyebrow">Start here</span>
+              <h2>The same pattern, again and again</h2>
+              <p>One man, one angel, no witnesses. A Bible that had to be broken first. An authority that can't be checked. Six structures four unrelated movements keep arriving at — and the one test Scripture applies evenly to all of them, including to us.</p>
+            </div>
+            <span class="m-cta">Read the patterns &rarr;</span>
+          </div>
+        </div>
+        <div class="m-secttl"><b>Examining other faiths</b><i></i><span>against the Bible as the standard</span></div>
+        <div class="m-cards m-c3">
+          <a class="m-card"><span class="m-glyph">&#128214;</span><h3>Mormonism</h3><p>The Book of Mormon and LDS teaching, weighed — largely from the church's own sources.</p><span class="m-ct">119 claims</span></a>
+          <a class="m-card"><span class="m-glyph">&#9770;</span><h3>Islam</h3><p>The Quran's claims about Jesus and the Bible — with scripted conversations for every case.</p><span class="m-ct">78 claims</span></a>
+          <a class="m-card"><span class="m-glyph">&#128682;</span><h3>Jehovah's Witnesses</h3><p>607, 1914, and the New World Translation — the chain every other doctrine hangs from.</p><span class="m-ct">50 claims</span></a>
+          <a class="m-card"><span class="m-glyph">&#129409;</span><h3>Hebrew Israelites</h3><p>Deuteronomy 28, the 12 Tribes Chart, and a grievance that has to be answered before it is corrected.</p><span class="m-ct">23 claims</span></a>
+        </div>
+        <div class="m-secttl"><b>Making the case</b><i></i><span>for people who don't take the Bible as settled</span></div>
+        <div class="m-cards m-c3">
+          <a class="m-card m-mk"><span class="m-glyph">&#128218;</span><h3>The Messiah Case</h3><p>For Jewish friends — the case from the Tanakh, the Targum and the Talmud, and the history to name first.</p><span class="m-ct">19 cases</span></a>
+          <a class="m-card m-mk"><span class="m-glyph">&#127756;</span><h3>The Case for God</h3><p>For skeptics — the evidence, argued from sources that do not want the conclusion, and the arguments to retire.</p><span class="m-ct">29 cases</span></a>
+        </div>
+        <a class="m-about"><span class="m-at">&#128214; About this site</span><span class="m-ad">How we work, what the four verdict labels on every claim mean, and how to use this site — read this first.</span><span class="m-go">Read &rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ OPTION A ============ -->
+<section class="opt">
+  <div class="opthd">
+    <span class="optname">Option A &mdash; One grid, six equal cards</span>
+    <span class="tag">Closest to today</span>
+  </div>
+  <p class="optdek">The two section headings merge into a single grid of six, three across and two down, so nothing is ever stranded. The old grouping survives as a small pill in each card's corner — <em>examine</em> versus <em>make the case</em> — which keeps the distinction without spending a whole heading and 40 pixels of gap on it. The hero's button moves underneath its paragraph, which both fixes the collision and gives it more presence.</p>
+  <div class="scroller">
+    <div class="stagelabel"><span>Option A &middot; rendered at 1280px</span><span>all six names above the fold; About bar just below</span></div>
+    <div class="stage">
+      <div class="fold"></div>
+      <div class="m-site">
+        <div class="m-head"><span class="m-scale">&#9878;</span>
+          <div class="m-wrap"><div class="m-h1">Which Gospel?</div></div>
+        </div>
+        <div class="m-wrap" style="margin-top:1.5rem">
+          <a class="m-hero">
+            <span class="m-eyebrow">Start here</span>
+            <h2>The same pattern, again and again</h2>
+            <p>One man, one angel, no witnesses. A Bible that had to be broken first. An authority that can't be checked. Six structures four unrelated movements keep arriving at — and the one test Scripture applies evenly to all of them, including to us.</p>
+            <span class="m-cta">Read the patterns &rarr;</span>
+          </a>
+          <div class="m-secttl"><b>Six places to start</b><i></i><span>four faiths examined, two cases made</span></div>
+          <div class="m-cards m-c3">
+            <a class="m-card"><span class="m-pip">Examine</span><span class="m-glyph">&#128214;</span><h3>Mormonism</h3><p>The Book of Mormon and LDS teaching, weighed — largely from the church's own sources.</p><span class="m-ct">119 claims</span></a>
+            <a class="m-card"><span class="m-pip">Examine</span><span class="m-glyph">&#9770;</span><h3>Islam</h3><p>The Quran's claims about Jesus and the Bible — with scripted conversations for every case.</p><span class="m-ct">78 claims</span></a>
+            <a class="m-card"><span class="m-pip">Examine</span><span class="m-glyph">&#128682;</span><h3>Jehovah's Witnesses</h3><p>607, 1914, and the New World Translation — the chain every other doctrine hangs from.</p><span class="m-ct">50 claims</span></a>
+            <a class="m-card"><span class="m-pip">Examine</span><span class="m-glyph">&#129409;</span><h3>Hebrew Israelites</h3><p>Deuteronomy 28, the 12 Tribes Chart, and a grievance that has to be answered first.</p><span class="m-ct">23 claims</span></a>
+            <a class="m-card m-mk"><span class="m-pip">Make the case</span><span class="m-glyph">&#128218;</span><h3>The Messiah Case</h3><p>For Jewish friends — the Tanakh, the Targum and the Talmud, and the history to name first.</p><span class="m-ct">19 cases</span></a>
+            <a class="m-card m-mk"><span class="m-pip">Make the case</span><span class="m-glyph">&#127756;</span><h3>The Case for God</h3><p>For skeptics — evidence argued from sources that do not want the conclusion.</p><span class="m-ct">29 cases</span></a>
+          </div>
+          <a class="m-about"><span class="m-at">&#128214; About this site</span><span class="m-ad">How we work, what the four verdict labels on every claim mean, and how to use this site — read this first.</span><span class="m-go">Read &rarr;</span></a>
+          <div class="m-foot"><i>"Be ready always to give an answer… with meekness and fear." — 1 Peter 3:15</i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pc">
+    <div class="pcbox up"><h4>What it wins</h4><ul>
+      <li>All six section names visible without scrolling</li>
+      <li>No stranded card and no dead gap</li>
+      <li>Keeps every blurb at full length — best for search visitors</li>
+      <li>Smallest change to what you already have</li>
+    </ul></div>
+    <div class="pcbox dn"><h4>What it costs</h4><ul>
+      <li>Doesn't fully meet your ask: the bottom row's blurbs and the About bar sit just under the fold on a 13-inch screen</li>
+      <li>The examine / make-the-case split is quieter than a full heading</li>
+    </ul></div>
+  </div>
+</section>
+
+<!-- ============ OPTION B ============ -->
+<section class="opt">
+  <div class="opthd"><span class="optname">Option B &mdash; Pattern piece alongside the grid</span><span class="tag rec">Recommended &mdash; meets your ask</span></div>
+  <p class="optdek">The pattern piece becomes a tall panel down the left side and the six cards sit in a two-column grid beside it. Nothing competes for vertical space, so this is the shortest page of the three by a wide margin. It also gives the pattern essay equal billing with the sections rather than treating it as a banner people scroll past.</p>
+  <div class="scroller">
+    <div class="stagelabel"><span>Option B &middot; rendered at 1280px</span><span>shortest page of the three</span></div>
+    <div class="stage">
+      <div class="fold"></div>
+      <div class="m-site">
+        <div class="m-head"><span class="m-scale">&#9878;</span>
+          <div class="m-wrap"><div class="m-h1">Which Gospel?</div></div>
+        </div>
+        <div class="m-wrap" style="margin-top:1.5rem">
+          <div class="m-split">
+            <a class="m-hero">
+              <span class="m-eyebrow">Start here</span>
+              <h2>The same pattern, again and again</h2>
+              <p>One man, one angel, no witnesses. A Bible that had to be broken first. An authority that can't be checked. Six structures four unrelated movements keep arriving at — and the one test Scripture applies evenly to all of them, including to us.</p>
+              <span class="m-cta">Read the patterns &rarr;</span>
+            </a>
+            <div class="m-cards m-c2">
+              <a class="m-card"><span class="m-glyph">&#128214;</span><h3>Mormonism</h3><p>Weighed largely from the church's own sources.</p><span class="m-ct">119 claims</span></a>
+              <a class="m-card"><span class="m-glyph">&#9770;</span><h3>Islam</h3><p>The Quran's claims about Jesus and the Bible.</p><span class="m-ct">78 claims</span></a>
+              <a class="m-card"><span class="m-glyph">&#128682;</span><h3>Jehovah's Witnesses</h3><p>607, 1914, and the New World Translation.</p><span class="m-ct">50 claims</span></a>
+              <a class="m-card"><span class="m-glyph">&#129409;</span><h3>Hebrew Israelites</h3><p>Deuteronomy 28 and the 12 Tribes Chart.</p><span class="m-ct">23 claims</span></a>
+              <a class="m-card m-mk"><span class="m-glyph">&#128218;</span><h3>The Messiah Case</h3><p>The Tanakh, the Targum and the Talmud.</p><span class="m-ct">19 cases</span></a>
+              <a class="m-card m-mk"><span class="m-glyph">&#127756;</span><h3>The Case for God</h3><p>Evidence from sources that resist the conclusion.</p><span class="m-ct">29 cases</span></a>
+            </div>
+          </div>
+          <a class="m-about"><span class="m-at">&#128214; About this site</span><span class="m-ad">How we work, what the four verdict labels on every claim mean, and how to use this site — read this first.</span><span class="m-go">Read &rarr;</span></a>
+          <div class="m-foot"><i>"Be ready always to give an answer… with meekness and fear." — 1 Peter 3:15</i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pc">
+    <div class="pcbox up"><h4>What it wins</h4><ul>
+      <li>The only layout that does exactly what you asked — all six sections, the pattern piece and the About bar together in one view, no scrolling</li>
+      <li>The pattern essay reads as a peer, not an ad banner</li>
+      <li>Six cards in two columns are quick to scan</li>
+    </ul></div>
+    <div class="pcbox dn"><h4>What it costs</h4><ul>
+      <li>Card blurbs must be cut to one short line each</li>
+      <li>On phones the left panel stacks on top, so it behaves like Option A anyway</li>
+      <li>Biggest departure from the page you have now</li>
+    </ul></div>
+  </div>
+</section>
+
+<!-- ============ OPTION C ============ -->
+<section class="opt">
+  <div class="opthd"><span class="optname">Option C &mdash; Directory rows</span><span class="tag">Densest</span></div>
+  <p class="optdek">The six sections drop their blurbs and become tight two-column rows — icon, name, count — the way a table of contents works. This treats the homepage as a signpost rather than a sales page, on the reasoning that someone arriving at an apologetics site already knows whether they came for Mormonism or for atheism and just wants the door.</p>
+  <div class="scroller">
+    <div class="stagelabel"><span>Option C &middot; rendered at 1280px</span><span>signpost, not sales page</span></div>
+    <div class="stage">
+      <div class="fold"></div>
+      <div class="m-site">
+        <div class="m-head"><span class="m-scale">&#9878;</span>
+          <div class="m-wrap"><div class="m-h1">Which Gospel?</div>
+            <p class="m-tagline">Faith claims examined against the Bible — with the sources cited and the verdict stated.</p>
+          </div>
+        </div>
+        <div class="m-wrap" style="margin-top:1.5rem">
+          <a class="m-hero">
+            <span class="m-eyebrow">Start here</span>
+            <h2>The same pattern, again and again</h2>
+            <p>One man, one angel, no witnesses. A Bible that had to be broken first. An authority that can't be checked. Six structures four unrelated movements keep arriving at — and the one test Scripture applies evenly to all of them, including to us.</p>
+            <span class="m-cta">Read the patterns &rarr;</span>
+          </a>
+          <div class="m-secttl"><b>Examining other faiths</b><i></i><span>against the Bible as the standard</span></div>
+          <div class="m-cards m-c2">
+            <a class="m-card m-tight"><span class="m-glyph">&#128214;</span><span class="m-body"><h3>Mormonism</h3><span class="m-ct">119 claims</span></span></a>
+            <a class="m-card m-tight"><span class="m-glyph">&#9770;</span><span class="m-body"><h3>Islam</h3><span class="m-ct">78 claims</span></span></a>
+            <a class="m-card m-tight"><span class="m-glyph">&#128682;</span><span class="m-body"><h3>Jehovah's Witnesses</h3><span class="m-ct">50 claims</span></span></a>
+            <a class="m-card m-tight"><span class="m-glyph">&#129409;</span><span class="m-body"><h3>Hebrew Israelites</h3><span class="m-ct">23 claims</span></span></a>
+          </div>
+          <div class="m-secttl"><b>Making the case</b><i></i><span>for people who don't take the Bible as settled</span></div>
+          <div class="m-cards m-c2">
+            <a class="m-card m-tight m-mk"><span class="m-glyph">&#128218;</span><span class="m-body"><h3>The Messiah Case</h3><span class="m-ct">19 cases</span></span></a>
+            <a class="m-card m-tight m-mk"><span class="m-glyph">&#127756;</span><span class="m-body"><h3>The Case for God</h3><span class="m-ct">29 cases</span></span></a>
+          </div>
+          <a class="m-about"><span class="m-at">&#128214; About this site</span><span class="m-ad">How we work, what the four verdict labels on every claim mean, and how to use this site — read this first.</span><span class="m-go">Read &rarr;</span></a>
+          <div class="m-foot"><i>"Be ready always to give an answer… with meekness and fear." — 1 Peter 3:15</i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pc">
+    <div class="pcbox up"><h4>What it wins</h4><ul>
+      <li>Keeps both section headings intact and readable</li>
+      <li>Fastest to scan if you already know where you're going</li>
+      <li>Room for the tagline under the wordmark</li>
+    </ul></div>
+    <div class="pcbox dn"><h4>What it costs</h4><ul>
+      <li>Loses every blurb — a first-time visitor gets no idea what's inside each section</li>
+      <li>Reads more like a menu than a site with 318 researched pages behind it</li>
+    </ul></div>
+  </div>
+</section>
+
+<h2 class="pt">My read</h2>
+<p class="pt"><b>Option B</b>, because it's the only one that actually delivers what you asked for. I built these, measured them, and then had to correct myself: I'd assumed Option A would fit everything on one screen, and it doesn't quite — the bottom row's blurbs and the About bar land just under the fold on a 13-inch laptop. Option B clears it with room to spare.</p>
+<p class="pt">The real trade is blurb length. Option A keeps your full three-line descriptions, which genuinely help someone arriving from a Google search for &ldquo;horses in the Book of Mormon&rdquo; know they're in the right place. Option B cuts each to a single line to buy the space. If those descriptions matter more to you than fitting on one screen, take A instead — it still fixes the clipped wordmark and the stranded card, which were the actual bugs. Option C is the fastest to scan and the least welcoming; it suits a reference tool more than a site meant to persuade.</p>
+<p class="pt">Whichever you pick, the wordmark fix goes in either way: the heading's line height goes from <code>1.08</code> to <code>1.24</code> and the header's bottom padding stops being measured in <code>vh</code>, so the descenders can never be clipped again at any window size.</p>
+
+<footer class="pt">
+  Rendered from your live homepage on 11 August 2026. Every mockup uses the real palette, typefaces, section names, and claim counts from the site — nothing here is placeholder. The dashed line marks 800px, roughly where a 13-inch laptop screen ends.
+</footer>
+
+</div>
+</body>
+</html>
