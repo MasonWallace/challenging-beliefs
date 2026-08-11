@@ -49,6 +49,17 @@
 
   .tagline{color:var(--muted);font-size:.95rem;margin:10px 0 0;max-width:56ch;margin-inline:auto}
 
+  /* why this exists — the human note before the machinery */
+  .why{border:1px solid var(--line);border-left:3px solid var(--green);border-radius:14px;
+    background:var(--panel);padding:18px 22px;margin:0 0 4px}
+  .why .verse{font-family:var(--serif);font-style:italic;color:var(--ink);font-size:1.02rem;
+    line-height:1.6;margin:0 0 10px}
+  .why .verse cite{display:block;font-style:normal;font-size:.74rem;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--green);margin-top:7px}
+  .why p{margin:0 0 9px;color:var(--muted);font-size:.9rem;line-height:1.7}
+  .why p:last-child{margin:0}
+  .why b{color:var(--ink);font-weight:600}
+
   /* the pattern piece — same proportions as the about bar it sits above */
   .patternbar{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin:26px 0 0;
     border:1px solid var(--gold);border-radius:14px;padding:15px 22px;
@@ -129,7 +140,13 @@
 </header>
 
 <main><div class="wrap">
-  <div class="secttl rise d3"><b>Examining other faiths</b><i></i><span>against the Bible as the standard</span></div>
+  <div class="why rise d3">
+    <p class="verse">"Always be prepared to give an answer to everyone who asks you to give the reason for the hope that you have. But do this with gentleness and respect."<cite>1 Peter 3:15</cite></p>
+    <p>I built this because I kept freezing at the door. Someone would ask me something about the Quran, or hand me a Book of Mormon, and I had nothing — not because there was no answer, but because I had never gone and looked. So I went and looked, and wrote down what I found.</p>
+    <p>The second half of that verse matters as much as the first. <b>Nobody has ever been argued into the kingdom by someone who was enjoying the argument.</b> Every page here gives the other side its best case first, in their own words, because the person across from you deserves to be answered honestly rather than beaten.</p>
+  </div>
+
+  <div class="secttl rise d4"><b>Examining other faiths</b><i></i><span>against the Bible as the standard</span></div>
   <div class="cards" id="ex"></div>
 
   <div class="secttl rise d4"><b>Making the case</b><i></i><span>for people who don't take the Bible as settled</span></div>
