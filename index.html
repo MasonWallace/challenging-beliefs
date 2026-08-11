@@ -47,30 +47,30 @@
   main{flex:1;padding:0 0 8vh}
   .eyebrow{font-size:.66rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--dim)}
 
-  .hero{display:block;
-    border:1px solid var(--gold);border-radius:18px;padding:26px 30px;margin:0 0 18px;
-    background:linear-gradient(120deg,rgba(207,154,69,.13),rgba(207,154,69,.02) 60%),var(--panel);
-    transition:transform .25s ease,box-shadow .25s}
-  .hero:hover{transform:translateY(-4px);box-shadow:0 18px 50px rgba(0,0,0,.45)}
-  @media (max-width:700px){.hero{padding:22px}}
-  .hero h2{font-family:var(--serif);font-weight:500;font-size:1.55rem;margin:7px 0 7px}
-  .hero p{margin:0;color:var(--muted);font-size:.93rem;max-width:62ch}
-  .hero .cta{display:inline-block;margin-top:16px;border:1px solid var(--gold);color:var(--gold);border-radius:999px;padding:11px 20px;font-size:.85rem;font-weight:700;white-space:nowrap}
-  .hero:hover .cta{background:rgba(207,154,69,.14)}
+  .tagline{color:var(--muted);font-size:.95rem;margin:10px 0 0;max-width:56ch;margin-inline:auto}
 
-  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-  @media (max-width:860px){.cards{grid-template-columns:1fr 1fr}}
-  @media (max-width:520px){.cards{grid-template-columns:1fr}}
-  a.card{position:relative;display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px 18px 17px;overflow:hidden;transition:transform .22s ease,border-color .22s,box-shadow .22s}
+  /* the pattern piece — same proportions as the about bar it sits above */
+  .patternbar{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin:26px 0 0;
+    border:1px solid var(--gold);border-radius:14px;padding:15px 22px;
+    background:linear-gradient(120deg,rgba(207,154,69,.13),rgba(207,154,69,.02) 60%),var(--panel);
+    transition:box-shadow .25s}
+  .patternbar:hover{box-shadow:0 12px 34px rgba(0,0,0,.4)}
+  .patternbar .pb-t{font-family:var(--serif);font-size:1.02rem;white-space:nowrap}
+  .patternbar .pb-d{color:var(--muted);font-size:.84rem;flex:1;min-width:200px}
+  .patternbar .pb-go{color:var(--gold);font-size:.84rem;font-weight:700;white-space:nowrap}
+
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+  @media (max-width:560px){.cards{grid-template-columns:1fr}}
+  a.card{position:relative;display:flex;flex-direction:row;align-items:center;gap:14px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:15px 18px;overflow:hidden;transition:transform .22s ease,border-color .22s,box-shadow .22s}
   a.card::before{content:"";position:absolute;inset:0;background:radial-gradient(500px 180px at var(--mx,50%) -20%,rgba(130,177,216,.14),transparent 70%);opacity:0;transition:opacity .3s}
-  a.card:hover{transform:translateY(-5px);border-color:var(--acc);box-shadow:0 16px 40px rgba(0,0,0,.4)}
+  a.card:hover{transform:translateY(-3px);border-color:var(--acc);box-shadow:0 16px 40px rgba(0,0,0,.4)}
   a.card:hover::before{opacity:1}
   a.card.mk:hover{border-color:var(--acc2)}
-  .card .glyph{font-size:1.5rem;transition:transform .3s}
+  .card .glyph{font-size:1.5rem;flex:none;transition:transform .3s}
   a.card:hover .glyph{transform:scale(1.15) rotate(-4deg)}
-  .card h3{font-family:var(--serif);font-weight:500;font-size:1.14rem;margin:10px 0 5px}
-  .card p{color:var(--muted);font-size:.83rem;margin:0 0 12px;flex:1}
-  .card .ct{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);font-variant-numeric:tabular-nums}
+  .card .cbody{min-width:0;position:relative}
+  .card h3{font-family:var(--serif);font-weight:500;font-size:1.08rem;margin:0}
+  .card .ct{display:block;margin-top:2px;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);font-variant-numeric:tabular-nums}
   a.card:hover .ct{color:var(--acc)}
   a.card.mk:hover .ct{color:var(--acc2)}
 
@@ -105,23 +105,17 @@
 <header class="wrap">
   <span class="scale rise d1">⚖</span>
   <h1 class="rise d2">Which Gospel?</h1>
+  <p class="tagline rise d2">Faith claims examined against the Bible — with the sources cited and the verdict stated.</p>
 </header>
 
 <main><div class="wrap">
-  <a class="hero rise d3" href="parallels.html">
-    <div>
-      <span class="eyebrow">Start here</span>
-      <h2>The same pattern, again and again</h2>
-      <p>One man, one angel, no witnesses. A Bible that had to be broken first. An authority that can't be checked. Six structures four unrelated movements keep arriving at — and the one test Scripture applies evenly to all of them, including to us.</p>
-    </div>
-    <span class="cta">Read the patterns →</span>
-  </a>
-
-  <div class="secttl rise d4"><b>Examining other faiths</b><i></i><span>against the Bible as the standard</span></div>
+  <div class="secttl rise d3"><b>Examining other faiths</b><i></i><span>against the Bible as the standard</span></div>
   <div class="cards" id="ex"></div>
 
-  <div class="secttl rise d5"><b>Making the case</b><i></i><span>for people who don't take the Bible as settled</span></div>
+  <div class="secttl rise d4"><b>Making the case</b><i></i><span>for people who don't take the Bible as settled</span></div>
   <div class="cards" id="mk"></div>
+
+  <a class="patternbar rise d5" href="parallels.html"><span class="pb-t">🧩 The same pattern, again and again</span><span class="pb-d">One man, one angel, no witnesses. A Bible that had to be broken first. An authority that can't be checked — six structures four unrelated movements keep arriving at.</span><span class="pb-go">Read the patterns →</span></a>
 
   <a class="aboutbar rise d5" href="about.html"><span class="ab-t">📖 About this site</span><span class="ab-d">How we work, what the four verdict labels on every claim mean, and how to use this site — read this first.</span><span class="go">Read →</span></a>
 </div></main>
@@ -132,11 +126,9 @@
 
 <script>
 const CARDS=/*__CARDS__*/[{"dir":"mormonism/","glyph":"📖","name":"Mormonism","blurb":"The Book of Mormon and LDS teaching, weighed — largely from the church's own sources.","group":"examine","count":119,"unit":"claims"},{"dir":"islam/","glyph":"☪️","name":"Islam","blurb":"The Quran's claims about Jesus and the Bible — with scripted conversations for every case.","group":"examine","count":78,"unit":"claims"},{"dir":"jw/","glyph":"🚪","name":"Jehovah's Witnesses","blurb":"607, 1914, and the New World Translation — the chain every other doctrine hangs from.","group":"examine","count":50,"unit":"claims"},{"dir":"hebrew-israelites/","glyph":"🦁","name":"Hebrew Israelites","blurb":"Deuteronomy 28, the 12 Tribes Chart, and a grievance that has to be answered before it is corrected.","group":"examine","count":23,"unit":"claims"},{"dir":"messiah/","glyph":"🕎","name":"The Messiah Case","blurb":"For Jewish friends — the case from the Tanakh, the Targum and the Talmud, and the history to name first.","group":"make","count":19,"unit":"cases"},{"dir":"god/","glyph":"🌌","name":"The Case for God","blurb":"For skeptics — the evidence, argued from sources that do not want the conclusion, and the arguments to retire.","group":"make","count":29,"unit":"cases"}];
-const mk=(s,cls)=>`<a class="card ${cls} rise d5" href="${s.dir}">
+const mk=(s,cls)=>`<a class="card ${cls} rise d5" href="${s.dir}" title="${s.blurb}">
   <span class="glyph">${s.glyph}</span>
-  <h3>${s.name}</h3>
-  <p>${s.blurb}</p>
-  <span class="ct">${s.count} ${s.unit}</span></a>`;
+  <div class="cbody"><h3>${s.name}</h3><span class="ct">${s.count} ${s.unit}</span></div></a>`;
 document.getElementById("ex").innerHTML=CARDS.filter(s=>s.group==="examine").map(s=>mk(s,"")).join("");
 document.getElementById("mk").innerHTML=CARDS.filter(s=>s.group==="make").map(s=>mk(s,"mk")).join("");
 document.querySelectorAll("a.card").forEach(c=>c.addEventListener("mousemove",e=>{
