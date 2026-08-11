@@ -590,6 +590,7 @@
   .setbox{margin-top:16px;display:flex;flex-direction:column;gap:7px;max-width:210px}
   .setrow{display:flex;gap:7px}
   .setrow .setbtn{flex:1}
+  #mobilesettings{display:none}
   .setbtn{background:none;border:1px solid var(--line2);color:var(--muted);border-radius:8px;padding:6px 10px;
     font-size:.72rem;font-family:inherit;cursor:pointer;text-align:center;white-space:nowrap;transition:border-color .15s,color .15s}
   .setbtn:hover{border-color:var(--acc);color:var(--ink)}
@@ -600,7 +601,11 @@
 
   /* --- mobile: settings must stay reachable, and wide blocks must scroll not push --- */
   @media (max-width:720px){
-    .side .sideprog{display:block !important;padding:0 10px 10px}
+    .side .sideprog{display:none !important}
+    #mobilesettings{display:block;border-top:1px solid var(--line);padding:14px 16px 20px;background:var(--side)}
+    #mobilesettings .setbox{margin:0;max-width:none;flex-direction:row;gap:8px}
+    #mobilesettings .setrow{flex:1 1 auto;gap:8px}
+    #mobilesettings .setbtn{font-size:.7rem;padding:5px 9px;color:var(--dim);border-color:var(--line)}
     .setbox{margin-top:8px;max-width:none;flex-direction:row;flex-wrap:wrap;gap:6px}
     .setbox .setbtn.wide{width:auto;flex:1 1 100%}
     .setbox .setrow{flex:1 1 100%}
@@ -772,7 +777,7 @@
 <body>
 <div class="app">
   <aside class="side">
-    <div class="logo">⚖ CHALLENGING <b>·</b> BELIEFS<div style="font-size:.64rem;letter-spacing:.14em;color:var(--muted);margin-top:3px">THE CASE FOR GOD · FOR SKEPTICS</div></div>
+    <div class="logo">⚖ WHICH <b>·</b> GOSPEL?<div style="font-size:.64rem;letter-spacing:.14em;color:var(--muted);margin-top:3px">THE CASE FOR GOD · FOR SKEPTICS</div></div>
     <div class="sidesearch"><input id="q" type="search" placeholder="Search claims…" autocomplete="off" aria-label="Search claims"></div>
     <div class="nav" id="nav"></div>
     <div class="sideprog" id="sideprog"></div>
@@ -1012,6 +1017,12 @@ function renderNav(){
     renderNav();
   });
   const tb=$("#tourbtn");if(tb)tb.addEventListener("click",()=>startTour());
+  if(window.matchMedia("(max-width:720px)").matches){
+    let mf=document.getElementById("mobilesettings");
+    if(!mf){mf=document.createElement("div");mf.id="mobilesettings";document.body.appendChild(mf);}
+    const sb=document.querySelector("#sideprog .setbox");
+    if(sb){mf.innerHTML="";mf.appendChild(sb);}
+  }
 }
 
 /* ---------- preview ---------- */
@@ -1625,7 +1636,7 @@ function startTour(){
   }
   document.body.appendChild(wrap);draw();
 }
-if(!localStorage.getItem(TOURKEY))setTimeout(startTour,500);
+if(!localStorage.getItem(TOURKEY)&&window.innerWidth>720)setTimeout(startTour,500);
 
 document.documentElement.dataset.theme=localStorage.getItem("wb_theme")||"dark";
 $("#q").addEventListener("input",e=>{

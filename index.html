@@ -60,7 +60,7 @@
   .patternbar .pb-go{color:var(--gold);font-size:.84rem;font-weight:700;white-space:nowrap}
 
   .cards{display:grid;grid-template-columns:1fr 1fr;gap:13px}
-  @media (max-width:560px){.cards{grid-template-columns:1fr}}
+  @media (max-width:620px){.cards{grid-template-columns:1fr}}
   a.card{position:relative;display:flex;flex-direction:row;align-items:center;gap:14px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:15px 18px;overflow:hidden;transition:transform .22s ease,border-color .22s,box-shadow .22s}
   a.card::before{content:"";position:absolute;inset:0;background:radial-gradient(500px 180px at var(--mx,50%) -20%,rgba(130,177,216,.14),transparent 70%);opacity:0;transition:opacity .3s}
   a.card:hover{transform:translateY(-3px);border-color:var(--acc);box-shadow:0 16px 40px rgba(0,0,0,.4)}
@@ -76,8 +76,8 @@
 
   .secttl{display:flex;align-items:center;gap:12px;margin:30px 0 12px}
   .secttl b{font-family:var(--serif);font-weight:500;font-size:1.04rem}
-  .secttl i{flex:1;height:1px;background:var(--line);font-style:normal}
-  .secttl span{font-size:.75rem;color:var(--dim)}
+  .secttl i{flex:1;height:1px;background:var(--line);font-style:normal;min-width:20px}
+  .secttl span{font-size:.75rem;color:var(--dim);min-width:0}
 
   .aboutbar{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin:20px 0 0;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:15px 22px;transition:border-color .25s}
   .aboutbar:hover{border-color:var(--acc)}
@@ -92,10 +92,30 @@
   footer{position:relative;z-index:1;border-top:1px solid var(--line);padding:22px 0 30px;text-align:center;color:var(--dim);font-size:.82rem}
   footer .v{font-family:var(--serif);font-style:italic;color:var(--muted)}
 
+  /* --- phones: nothing may force the page wider than the screen --- */
+  @media (max-width:620px){
+    header{padding:5vh 0 28px}
+    .scale{font-size:2.1rem}
+    .tagline{font-size:.86rem;margin-top:8px}
+    .secttl{flex-wrap:wrap;gap:4px 10px;margin:24px 0 10px}
+    .secttl i{display:none}
+    .secttl span{flex:1 1 100%;font-size:.7rem}
+    .cards{gap:10px}
+    a.card{padding:13px 15px;gap:12px}
+    .card h3{font-size:1rem}
+    .card .glyph{font-size:1.35rem}
+    .patternbar,.aboutbar{padding:14px 16px;gap:6px 12px;margin-top:18px}
+    .patternbar .pb-t,.aboutbar .ab-t{white-space:normal;font-size:.97rem;flex:1 1 100%}
+    .patternbar .pb-d,.aboutbar .ab-d{min-width:0;flex:1 1 100%;font-size:.8rem}
+    .patternbar .pb-go,.aboutbar .go{font-size:.8rem}
+    main{padding:0 0 5vh}
+    footer{font-size:.74rem;padding:18px 0 26px;line-height:1.7}
+  }
+
   @media (prefers-reduced-motion:reduce){
     .blob,.scale,h1{animation:none}
     .rise{opacity:1;transform:none;animation:none}
-    a.card:hover,.hero:hover{transform:none}
+    a.card:hover,.patternbar:hover{transform:none}
   }
 </style>
 </head>
