@@ -1800,7 +1800,7 @@ function startTour(){
   }
   document.body.appendChild(wrap);draw();
 }
-if(!localStorage.getItem(TOURKEY)&&window.innerWidth>720)setTimeout(startTour,500);
+/* tour is opt-in only — opened by the ✦ Tour button, never automatically */
 
 document.documentElement.dataset.theme=localStorage.getItem("wb_theme")||"dark";
 $("#q").addEventListener("input",e=>{
