@@ -7,13 +7,9 @@
     .acc{stroke:#cf9a45}
   }
 </style>
-<g fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <circle class="ink" cx="28" cy="27" r="21" stroke-width="3"/>
-  <g class="ink" stroke-width="2.5">
-    <path d="M28 20 C24.5 17.6 19 17 13.6 18.2 L13.6 32 C19 30.8 24.5 31.4 28 33.8"/>
-    <path d="M28 20 C31.5 17.6 37 17 42.4 18.2 L42.4 32 C37 30.8 31.5 31.4 28 33.8"/>
-    <path d="M28 20 L28 33.8"/>
-  </g>
-  <path class="acc" stroke-width="4" d="M43.2 42.2 L57 56"/>
+<g fill="none" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+  <path class="ink" d="M32 18 C25 13.2 15 11.8 5 13.8 L5 43.5 C15 41.5 25 42.9 32 47.7"/>
+  <path class="acc" d="M32 18 C39 13.2 49 11.8 59 13.8 L59 43.5 C49 41.5 39 42.9 32 47.7"/>
+  <path class="ink" d="M32 18 L32 47.7"/>
 </g>
 </svg>
