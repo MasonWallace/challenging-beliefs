@@ -98,6 +98,9 @@ for(const S of SECTIONS){
       `<li>${s.url?`<a href="${esc(s.url)}" rel="nofollow noopener" target="_blank">${esc(s.name)}</a>`:esc(s.name)}</li>`).join('');
 
     const html=`<!doctype html><html lang="en"><head><meta charset="utf-8">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${esc(d.title)} — ${esc(S.name)} | Which Gospel?</title>
 <meta name="description" content="${esc(desc)}">
