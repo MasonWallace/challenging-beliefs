@@ -22,7 +22,8 @@ function wrap(c, m) {
   return '<!doctype html>\n<html lang="en" data-theme="dark">\n<head>\n<meta charset="utf-8">\n' +
     '<link rel="icon" href="/favicon.svg" type="image/svg+xml">\n' +
     '<link rel="alternate icon" href="/favicon.ico" sizes="16x16 32x32 48x48">\n' +
-    '<link rel="apple-touch-icon" href="/apple-touch-icon.png">\n' + (m ? ogMeta(m) : '') +
+    '<link rel="apple-touch-icon" href="/apple-touch-icon.png">\n' +
+    '<script>try{var t=localStorage.getItem("wb_theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script><link rel="stylesheet" href="/theme.css">\n' + (m ? ogMeta(m) : '') +
     c.replace('<div class="app">', '</head>\n<body>\n<div class="app">') + '\n</body>\n</html>\n';
 }
 function syntaxCheck(html, name) {

@@ -101,6 +101,7 @@ for(const S of SECTIONS){
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script>try{var t=localStorage.getItem("wb_theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script><link rel="stylesheet" href="/theme.css">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${esc(d.title)} — ${esc(S.name)} | Which Gospel?</title>
 <meta name="description" content="${esc(desc)}">
