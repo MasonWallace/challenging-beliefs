@@ -19,7 +19,7 @@ const html=`<!doctype html><html lang="en"><head><meta charset="utf-8">
 <p class="sub">Short version: this site has no accounts, no logins, and no advertising cookies. It does not sell anything about you, because it does not collect anything about you.</p>
 
 <h2>Who runs this site</h2>
-<p>Which Gospel? is written and run by <b>Mason Wallace</b>, in Pendleton, Indiana, United States.</p>
+<p>Which Gospel? is written and run independently, based in the United States.</p>
 <p>For questions, corrections, rights enquiries or removal requests, write to <b>nosamwallace@gmail.com</b>. Corrections are genuinely welcome — see the <a href="${BASE}about.html">About</a> page.</p>
 
 <h2>What is stored on your device</h2>
