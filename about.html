@@ -30,11 +30,16 @@ p,li{color:var(--muted);font-size:.95rem}
 b{color:var(--ink)}
 .back{display:inline-block;margin-bottom:26px;font-size:.85rem;text-decoration:none;color:var(--muted)}
 .back:hover{color:var(--ink)}
+.navrow{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px 16px}
+.navrow .back{margin-bottom:0}
 </style>
 <script>try{var t=localStorage.getItem("wb_theme");if(t==="dark")document.documentElement.dataset.theme="dark"}catch(e){}</script><link rel="stylesheet" href="/theme.css">
 </head>
 <body><div class="wrap">
-<a class="back" href="./">← Which Gospel?</a>
+<div class="navrow" style="margin-bottom:26px">
+  <a class="back" href="./">← Which Gospel?</a>
+  <a class="back" href="/search.html">🔍 Search all cases</a>
+</div>
 <h1>About this site</h1>
 <p>Which Gospel? examines the claims of other faiths against the Bible, and makes the case for the Bible itself where the reader does not already accept it. It exists for one reason: not to win arguments, but to help real people meet the real Jesus — and to help Christians do that with both honesty and gentleness (1 Peter 3:15).</p>
 <h2>Why I built this</h2>

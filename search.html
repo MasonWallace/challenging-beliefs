@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, follow">
+<title>Search — Which Gospel?</title>
+<meta name="description" content="Search all 318 documented cases across Mormonism, Islam, Jehovah's Witnesses, Hebrew Israelites, the Messiah case, and the case for God — one search, every claim.">
+<link rel="canonical" href="https://whichgospel.com/search.html">
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "575af10b54ea40fb87ca686ef127649e"}'></script><!-- End Cloudflare Web Analytics -->
+<style>
+:root{--bg:#0b0d12;--panel:#141821;--panel2:#0f1319;--line:#242a36;--line2:#2e3542;--ink:#eceef2;--muted:#949cab;--dim:#5b6472;
+--acc:#82b1d8;--gold:#cf9a45;--green:#7fb08d;--red:#e0736a;--amber:#cf9a45;--purp:#b394e0;
+--serif:'Iowan Old Style','Palatino Linotype',Palatino,'Book Antiqua',Georgia,serif;
+--sans:ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6}
+a{color:var(--acc);text-decoration:none}
+.wrap{max-width:760px;margin:0 auto;padding:44px 24px 90px}
+.back{display:inline-block;margin-bottom:22px;font-size:.85rem;color:var(--muted)}
+.back:hover{color:var(--ink)}
+h1{font-family:var(--serif);font-weight:500;font-size:2rem;margin:0 0 6px}
+.sub{color:var(--muted);font-size:.92rem;margin:0 0 22px}
+
+.searchbox{position:relative;margin-bottom:14px}
+.searchbox input{width:100%;font-family:inherit;font-size:1.05rem;padding:14px 44px 14px 16px;
+  border-radius:12px;border:1px solid var(--line2);background:var(--panel);color:var(--ink)}
+.searchbox input:focus{outline:2px solid var(--acc);outline-offset:1px}
+.searchbox .cnt{position:absolute;right:14px;top:50%;transform:translateY(-50%);
+  font-size:.72rem;color:var(--dim);font-variant-numeric:tabular-nums;pointer-events:none}
+
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 26px}
+.chip{font-size:.76rem;padding:6px 12px;border-radius:20px;border:1px solid var(--line2);
+  background:var(--panel);color:var(--muted);cursor:pointer;user-select:none;transition:border-color .15s,color .15s}
+.chip:hover{color:var(--ink)}
+.chip.on{border-color:var(--acc);color:var(--acc);background:color-mix(in srgb,var(--acc) 12%,var(--panel))}
+
+.results{display:flex;flex-direction:column;gap:9px}
+a.res{display:block;background:var(--panel);border:1px solid var(--line);border-radius:12px;
+  padding:13px 16px;transition:border-color .15s,transform .15s}
+a.res:hover{border-color:var(--acc);transform:translateX(2px)}
+.res-top{display:flex;align-items:baseline;gap:9px;margin-bottom:4px;flex-wrap:wrap}
+.res-cat{font-size:.66rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--dim)}
+.res-badge{font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  border-radius:20px;padding:2px 9px}
+.b-admitted{color:var(--purp);background:color-mix(in srgb,var(--purp) 15%,transparent)}
+.b-unrefuted{color:var(--red);background:color-mix(in srgb,var(--red) 15%,transparent)}
+.b-contested{color:var(--amber);background:color-mix(in srgb,var(--amber) 15%,transparent)}
+.b-answered{color:var(--muted);background:color-mix(in srgb,var(--muted) 14%,transparent)}
+.res h3{font-family:var(--serif);font-weight:500;font-size:1.04rem;margin:0 0 4px;color:var(--ink)}
+.res p{margin:0;font-size:.85rem;color:var(--muted);
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+
+.empty,.hint{color:var(--dim);font-size:.88rem;text-align:center;padding:40px 0}
+.hint b{color:var(--muted)}
+
+@media (max-width:620px){
+  .wrap{padding:30px 18px 70px}
+  h1{font-size:1.7rem}
+  .searchbox input{font-size:1rem;padding:12px 40px 12px 14px}
+}
+</style>
+<script>try{var t=localStorage.getItem("wb_theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script><link rel="stylesheet" href="/theme.css">
+</head>
+<body><div class="wrap">
+<a class="back" href="./">← Which Gospel?</a>
+<h1>Search every case</h1>
+<p class="sub">318 documented cases across Mormonism, Islam, Jehovah's Witnesses, Hebrew Israelites, the Messiah case, and the case for God — searched at once.</p>
+
+<div class="searchbox">
+  <input id="q" type="search" placeholder="Search by topic, name, verse, doctrine…" autocomplete="off" aria-label="Search all cases">
+  <span class="cnt" id="cnt"></span>
+</div>
+<div class="chips" id="chips"></div>
+<div id="results" class="results"></div>
+
+<script>
+const CATS=[
+  {cat:"mormonism",label:"Mormonism",glyph:"📖"},
+  {cat:"islam",label:"Islam",glyph:"☪️"},
+  {cat:"jw",label:"Jehovah's Witnesses",glyph:"🚪"},
+  {cat:"hebrew-israelites",label:"Hebrew Israelites",glyph:"🦁"},
+  {cat:"messiah",label:"Messiah Case",glyph:"🕎"},
+  {cat:"god",label:"Case for God",glyph:"🌌"}
+];
+let DATA=[];
+let activeCat=null;
+
+const qEl=document.getElementById("q");
+const cntEl=document.getElementById("cnt");
+const chipsEl=document.getElementById("chips");
+const resultsEl=document.getElementById("results");
+
+function renderChips(){
+  chipsEl.innerHTML=CATS.map(c=>
+    `<span class="chip${activeCat===c.cat?" on":""}" data-cat="${c.cat}">${c.glyph} ${c.label}</span>`
+  ).join("");
+  chipsEl.querySelectorAll(".chip").forEach(el=>el.addEventListener("click",()=>{
+    activeCat = activeCat===el.dataset.cat ? null : el.dataset.cat;
+    renderChips();
+    runSearch();
+  }));
+}
+
+function score(entry,terms){
+  const t=entry.title.toLowerCase(), d=entry.description.toLowerCase(), c=entry.category.toLowerCase();
+  let s=0;
+  for(const term of terms){
+    if(t.includes(term)) s += t.indexOf(term)===0 ? 100 : 50;
+    else if(c.includes(term)) s += 20;
+    else if(d.includes(term)) s += 10;
+    else return -1;
+  }
+  return s;
+}
+
+function escapeHtml(s){
+  return s.replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
+}
+
+function runSearch(){
+  const raw=qEl.value.trim();
+  let pool = activeCat ? DATA.filter(e=>e.cat===activeCat) : DATA;
+
+  if(!raw){
+    cntEl.textContent = pool.length + (activeCat ? "" : "");
+    if(!activeCat){
+      resultsEl.innerHTML = '<div class="hint">Type to search, or pick a category above to browse. <b>'+DATA.length+' cases</b> total.</div>';
+      return;
+    }
+    renderResults(pool.slice(0,60), pool.length);
+    return;
+  }
+
+  const terms = raw.toLowerCase().split(/\s+/).filter(Boolean);
+  const scored = pool.map(e=>({e,s:score(e,terms)})).filter(x=>x.s>=0);
+  scored.sort((a,b)=>b.s-a.s || a.e.title.length-b.e.title.length);
+  cntEl.textContent = scored.length;
+  renderResults(scored.map(x=>x.e).slice(0,80), scored.length);
+}
+
+function renderResults(list,total){
+  if(!list.length){
+    resultsEl.innerHTML='<div class="empty">No cases match that search. Try a different word — a name, a verse, a doctrine.</div>';
+    return;
+  }
+  resultsEl.innerHTML = list.map(e=>`
+    <a class="res" href="${e.url}">
+      <div class="res-top">
+        <span class="res-cat">${e.glyph} ${escapeHtml(e.category)}</span>
+        <span class="res-badge ${e.badgeClass}">${escapeHtml(e.badge)}</span>
+      </div>
+      <h3>${escapeHtml(e.title)}</h3>
+      <p>${escapeHtml(e.description)}</p>
+    </a>`).join("") + (total>list.length ? `<div class="hint">Showing ${list.length} of ${total} — narrow your search to see more.</div>` : "");
+}
+
+renderChips();
+qEl.addEventListener("input",runSearch);
+
+fetch("/search-index.json").then(r=>r.json()).then(data=>{
+  DATA=data;
+  const params=new URLSearchParams(location.search);
+  const q=params.get("q");
+  const cat=params.get("cat");
+  if(cat && CATS.some(c=>c.cat===cat)){ activeCat=cat; renderChips(); }
+  if(q){ qEl.value=q; }
+  runSearch();
+  qEl.focus();
+}).catch(()=>{
+  resultsEl.innerHTML='<div class="empty">Search index failed to load. Try refreshing the page.</div>';
+});
+</script>
+</div></body>
+</html>
