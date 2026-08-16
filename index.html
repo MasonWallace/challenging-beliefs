@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-page="home">
+<html lang="en" data-page="home" data-theme="light">
 <head>
 <meta charset="utf-8">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -56,6 +56,23 @@
   .eyebrow{font-size:.66rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--dim)}
 
   .tagline{color:var(--muted);font-size:.95rem;margin:10px 0 0;max-width:56ch;margin-inline:auto}
+
+  /* homepage search — live-filters the 318 cases without leaving the page */
+  .hsearch{position:relative;max-width:480px;margin:26px auto 0}
+  .hsearch input{width:100%;font-family:inherit;font-size:.95rem;padding:12px 16px;
+    border-radius:12px;border:1px solid var(--line2);background:var(--panel);color:var(--ink)}
+  .hsearch input:focus{outline:2px solid var(--acc);outline-offset:1px}
+  .hsearch .hs-results{position:absolute;left:0;right:0;top:calc(100% + 8px);z-index:5;
+    background:var(--panel);border:1px solid var(--line2);border-radius:12px;overflow:hidden;
+    box-shadow:0 20px 50px rgba(0,0,0,.5);text-align:left;display:none}
+  .hsearch .hs-results.show{display:block}
+  .hsearch .hs-row{display:flex;align-items:baseline;gap:9px;padding:10px 14px;border-top:1px solid var(--line)}
+  .hsearch .hs-row:first-child{border-top:none}
+  .hsearch .hs-row:hover,.hsearch .hs-row.sel{background:var(--panel2,rgba(255,255,255,.03))}
+  .hsearch .hs-cat{font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);white-space:nowrap}
+  .hsearch .hs-t{font-size:.88rem;color:var(--ink);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .hsearch .hs-more{display:block;padding:9px 14px;font-size:.78rem;color:var(--acc);border-top:1px solid var(--line);text-align:center}
+  .hsearch .hs-empty{padding:12px 14px;font-size:.85rem;color:var(--dim)}
 
   /* why this exists — the human note before the machinery */
   .why{border:1px solid var(--line);border-left:3px solid var(--green);border-radius:14px;
@@ -138,7 +155,7 @@
     a.card:hover,.patternbar:hover{transform:none}
   }
 </style>
-<script>try{var t=localStorage.getItem("wb_theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script><link rel="stylesheet" href="/theme.css">
+<script>try{var t=localStorage.getItem("wb_theme");if(t==="dark")document.documentElement.dataset.theme="dark"}catch(e){}</script><link rel="stylesheet" href="/theme.css">
 </head>
 <body>
 <div class="sky"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
@@ -147,6 +164,10 @@
   <span class="scale rise d1"><svg viewBox="0 0 64 64" fill="none" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Which Gospel?"><path stroke="var(--ink)" d="M32 18 C25 13.2 15 11.8 5 13.8 L5 43.5 C15 41.5 25 42.9 32 47.7"/><path stroke="var(--gold)" d="M32 18 C39 13.2 49 11.8 59 13.8 L59 43.5 C49 41.5 39 42.9 32 47.7"/><path stroke="var(--ink)" d="M32 18 L32 47.7"/></svg></span>
   <h1>Which Gospel?</h1>
   <p class="tagline rise d2">Faith claims examined against the Bible — with the sources cited and the verdict stated.</p>
+  <div class="hsearch rise d2">
+    <input id="hq" type="search" placeholder="Search all 318 cases…" autocomplete="off" aria-label="Search all cases">
+    <div class="hs-results" id="hqResults"></div>
+  </div>
 </header>
 
 <main><div class="wrap">
@@ -182,6 +203,46 @@ document.querySelectorAll("a.card").forEach(c=>c.addEventListener("mousemove",e=
   const r=c.getBoundingClientRect();
   c.style.setProperty("--mx",((e.clientX-r.left)/r.width*100)+"%");
 }));
+
+/* homepage live search over all 318 cases */
+(function(){
+  const hq=document.getElementById("hq"), out=document.getElementById("hqResults");
+  let DATA=null, loading=null;
+  function load(){
+    if(!loading) loading=fetch("/search-index.json").then(r=>r.json()).then(d=>DATA=d);
+    return loading;
+  }
+  function esc(s){return s.replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));}
+  function run(){
+    const raw=hq.value.trim();
+    if(!raw||!DATA){out.classList.remove("show");out.innerHTML="";return;}
+    const terms=raw.toLowerCase().split(/\s+/).filter(Boolean);
+    const scored=DATA.map(e=>{
+      const t=e.title.toLowerCase(),d=e.description.toLowerCase(),c=e.category.toLowerCase();
+      let s=0;
+      for(const term of terms){
+        if(t.includes(term)) s+=t.indexOf(term)===0?100:50;
+        else if(c.includes(term)) s+=20;
+        else if(d.includes(term)) s+=10;
+        else return null;
+      }
+      return {e,s};
+    }).filter(Boolean).sort((a,b)=>b.s-a.s);
+    if(!scored.length){
+      out.innerHTML='<div class="hs-empty">No cases match — try a different word.</div>';
+      out.classList.add("show");
+      return;
+    }
+    const top=scored.slice(0,6).map(x=>x.e);
+    out.innerHTML=top.map(e=>`<a class="hs-row" href="${e.url}"><span class="hs-cat">${e.glyph}</span><span class="hs-t">${esc(e.title)}</span></a>`).join("")
+      +`<a class="hs-more" href="/search.html?q=${encodeURIComponent(raw)}">See all ${scored.length} results →</a>`;
+    out.classList.add("show");
+  }
+  hq.addEventListener("focus",load);
+  hq.addEventListener("input",()=>{ load().then(run); });
+  hq.addEventListener("keydown",e=>{ if(e.key==="Enter"){ location.href="/search.html?q="+encodeURIComponent(hq.value.trim()); } });
+  document.addEventListener("click",e=>{ if(!e.target.closest(".hsearch")) out.classList.remove("show"); });
+})();
 </script>
 </body>
 </html>

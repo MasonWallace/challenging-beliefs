@@ -890,12 +890,12 @@ function renderNav(){
   $("#sideprog").innerHTML=`
     <div class="setbox">
       <div class="setrow">
-        <select id="themesel" class="setbtn" aria-label="Colour theme">${["dark","light","leather","parchment","forest","indigo"].map(t=>`<option value="${t}"${(document.documentElement.dataset.theme||"dark")===t?" selected":""}>◐ ${t[0].toUpperCase()+t.slice(1)}</option>`).join("")}</select>
+        <button id="themebtn" class="setbtn">◐ ${(document.documentElement.dataset.theme||"light")==="dark"?"Light":"Dark"}</button>
         <button id="tourbtn" class="setbtn">✦ Tour</button>
       </div>
     </div>`;
-  $("#themesel").addEventListener("change",(e)=>{
-    const cur=e.target.value;
+  $("#themebtn").addEventListener("click",()=>{
+    const cur=(document.documentElement.dataset.theme||"light")==="dark"?"light":"dark";
     document.documentElement.dataset.theme=cur;
     localStorage.setItem("wb_theme",cur);
     renderNav();

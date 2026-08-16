@@ -1,23 +1,7 @@
 /* Which Gospel? — theme palettes. Generated; edit src/themes.json and rebuild. */
 :root[data-theme="dark"]{--bg:#0f1116;--side:#0b0d11;--panel:#161a21;--panel2:#12151b;--line:#232833;--line2:#2b313d;--ink:#e7e9ec;--muted:#98a0ac;--dim:#565e6b;--gold:#82b1d8;--gold-ink:#0e1116;--red:#e0736a;--red-bg:#38221f;--red-cell:#5e2b27;--red-cell-hi:#8a3a32;--amber:#cf9a45;--amber-bg:#332a18;--amber-cell:#54431f;--amber-cell-hi:#7d6224;--green:#7fb08d;--green-bg:#1d2c26;--green-cell:#27443a;--purp:#b394e0;--purp-bg:#2c2440;--teal:#6cb6ad;--teal-bg:#16302e;}
 :root[data-theme="light"]{--bg:#f3f4f6;--side:#e9ebee;--panel:#ffffff;--panel2:#f7f8fa;--line:#dfe2e7;--line2:#cfd4db;--ink:#1b1e23;--muted:#5c6470;--dim:#6a727d;--gold:#2f6b9e;--gold-ink:#ffffff;--red:#b03a31;--red-bg:#f6e4e2;--red-cell:#e7b6b1;--red-cell-hi:#cc766d;--amber:#8a5f0e;--amber-bg:#f3ecd9;--amber-cell:#e4d1a2;--amber-cell-hi:#c6a75e;--green:#3e7455;--green-bg:#e3ede6;--green-cell:#b7d1bf;--purp:#6b4fa1;--purp-bg:#ece5f6;--teal:#26706a;--teal-bg:#e0eeec;}
-:root[data-theme="leather"]{--bg:#2a211a;--side:#1e1813;--panel:#382d23;--panel2:#31271e;--line:#4d3d2f;--line2:#726456;--ink:#f6eddf;--muted:#cdba9f;--dim:#ad977e;--gold:#7fc7cc;--gold-ink:#2a211a;--red:#f19286;--red-bg:#48231e;--red-cell:#6e473f;--red-cell-hi:#a1655b;--amber:#e8b866;--amber-bg:#463316;--amber-cell:#6b5434;--amber-cell-hi:#9c7c48;--green:#98cba4;--green-bg:#243a2b;--green-cell:#4f5b49;--purp:#c9adec;--purp-bg:#382a4c;--teal:#7fc7cc;--teal-bg:#383c36;}
-:root[data-theme="parchment"]{--bg:#e6d9be;--side:#ddd0b4;--panel:#f6efdd;--panel2:#eee4ce;--line:#d2c1a0;--line2:#ad9e82;--ink:#2b2418;--muted:#564a35;--dim:#6a5c43;--gold:#1a5f68;--gold-ink:#ffffff;--red:#932f22;--red-bg:#eed3ca;--red-cell:#b87b68;--red-cell-hi:#a55444;--amber:#7a5308;--amber-bg:#ecdcae;--amber-cell:#ab8f5a;--amber-cell-hi:#927030;--green:#2f6343;--green-bg:#d6e5cf;--green-cell:#81987a;--purp:#573a8c;--purp-bg:#ded5ee;--teal:#1a5f68;--teal-bg:#3b7376;}
-:root[data-theme="forest"]{--bg:#16231d;--side:#101915;--panel:#203127;--panel2:#1b2a22;--line:#31473a;--line2:#5a6d61;--ink:#eaf2eb;--muted:#abc4b4;--dim:#8da897;--gold:#9fd8e8;--gold-ink:#16231d;--red:#f0918a;--red-bg:#3f2320;--red-cell:#604842;--red-cell-hi:#99655e;--amber:#dcaf62;--amber-bg:#3c3118;--amber-cell:#595334;--amber-cell-hi:#8d7746;--green:#8fd0a6;--green-bg:#20422f;--green-cell:#3f5e4c;--purp:#c4a9ea;--purp-bg:#31294a;--teal:#7fc9c0;--teal-bg:#273e37;}
-:root[data-theme="indigo"]{--bg:#1a1f38;--side:#131628;--panel:#262d4c;--panel2:#202642;--line:#37406a;--line2:#5f6689;--ink:#ebedf9;--muted:#b0b7d8;--dim:#939bc3;--gold:#6fd8d8;--gold-ink:#1a1f38;--red:#f2918a;--red-bg:#432328;--red-cell:#634654;--red-cell-hi:#9c6369;--amber:#dfb268;--amber-bg:#3d331c;--amber-cell:#5d5148;--amber-cell-hi:#907755;--green:#93cba6;--green-bg:#20422f;--green-cell:#43595d;--purp:#c8b0f0;--purp-bg:#332a56;--teal:#6fd8d8;--teal-bg:#283d52;}
 
 /* the homepage names three roles differently */
 :root[data-page="home"][data-theme="dark"]{--acc:#82b1d8;--acc2:#b394e0;--gold:#cf9a45;--green:#7fb08d;}
 :root[data-page="home"][data-theme="light"]{--acc:#2f6b9e;--acc2:#6b4fa1;--gold:#8a5f0e;--green:#3e7455;}
-:root[data-page="home"][data-theme="leather"]{--acc:#7fc7cc;--acc2:#c9adec;--gold:#e8b866;--green:#98cba4;}
-:root[data-page="home"][data-theme="parchment"]{--acc:#1a5f68;--acc2:#573a8c;--gold:#7a5308;--green:#2f6343;}
-:root[data-page="home"][data-theme="forest"]{--acc:#9fd8e8;--acc2:#c4a9ea;--gold:#dcaf62;--green:#8fd0a6;}
-:root[data-page="home"][data-theme="indigo"]{--acc:#6fd8d8;--acc2:#c8b0f0;--gold:#dfb268;--green:#93cba6;}
-
-/* the theme picker reuses .setbtn, which was written for a <button> */
-select.setbtn{appearance:none;-webkit-appearance:none;cursor:pointer;padding-right:24px;
-  background-image:linear-gradient(45deg,transparent 50%,currentColor 50%),
-                   linear-gradient(135deg,currentColor 50%,transparent 50%);
-  background-position:calc(100% - 13px) calc(50% - 1px),calc(100% - 8px) calc(50% - 1px);
-  background-size:5px 5px;background-repeat:no-repeat}
-select.setbtn option{background:var(--panel);color:var(--ink)}

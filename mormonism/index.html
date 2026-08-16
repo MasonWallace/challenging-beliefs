@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="utf-8">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -778,7 +778,7 @@
   details.claimfull .claim p{font-size:.9rem;color:var(--muted);line-height:1.75}
 </style>
 
-<script>try{var t=localStorage.getItem("wb_theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script><link rel="stylesheet" href="/theme.css">
+<script>try{var t=localStorage.getItem("wb_theme");if(t==="dark")document.documentElement.dataset.theme="dark"}catch(e){}</script><link rel="stylesheet" href="/theme.css">
 </head>
 <body>
 <div class="app">
@@ -1167,12 +1167,12 @@ function renderNav(){
   $("#sideprog").innerHTML=`
     <div class="setbox">
       <div class="setrow">
-        <select id="themesel" class="setbtn" aria-label="Colour theme">${["dark","light","leather","parchment","forest","indigo"].map(t=>`<option value="${t}"${(document.documentElement.dataset.theme||"dark")===t?" selected":""}>◐ ${t[0].toUpperCase()+t.slice(1)}</option>`).join("")}</select>
+        <button id="themebtn" class="setbtn">◐ ${(document.documentElement.dataset.theme||"light")==="dark"?"Light":"Dark"}</button>
         <button id="tourbtn" class="setbtn">✦ Tour</button>
       </div>
     </div>`;
-  $("#themesel").addEventListener("change",(e)=>{
-    const cur=e.target.value;
+  $("#themebtn").addEventListener("click",()=>{
+    const cur=(document.documentElement.dataset.theme||"light")==="dark"?"light":"dark";
     document.documentElement.dataset.theme=cur;
     localStorage.setItem("wb_theme",cur);
     renderNav();
