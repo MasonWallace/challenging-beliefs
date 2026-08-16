@@ -4,7 +4,15 @@ Faith claims examined against the Bible — documented claims with sources, stee
 
 **Live site:** https://whichgospel.com/
 
-- `/mormonism/` — 80 documented claims on the Book of Mormon, LDS doctrine, history, and practice
-- `/src/` — build sources (app shell, verse database, extraction script)
+318 documented cases across six sections:
 
-Every claim carries the strongest published defense from the faith's own scholars before any verdict is rendered. Weak criticisms are marked as answered. Verify citations at their sources before quoting.
+- `/mormonism/` — 119 claims on the Book of Mormon, LDS doctrine, history, and practice
+- `/islam/` — 78 claims on the Quran, hadith, and Islamic doctrine
+- `/jw/` — 50 claims on Jehovah's Witness doctrine, history, and the New World Translation
+- `/hebrew-israelites/` — 23 claims responding to Black Hebrew Israelite teaching
+- `/messiah/` — 19 cases making the case for Jesus as Messiah, for Jewish readers
+- `/god/` — 29 cases making the case for God's existence, for skeptics
+
+`/mockups/` and `/src/` (build sources, drafts, working notes) are kept locally but are gitignored and no longer part of the deployed site.
+
+Every claim carries the strongest published defense from the faith's own scholars before any verdict is rendered. Weak criticisms are marked as answered. Verify citations at their sources before quoting. Corrections welcome — open an issue or see the contact on [about.html](https://whichgospel.com/about.html).

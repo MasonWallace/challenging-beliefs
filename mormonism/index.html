@@ -472,7 +472,7 @@
   }
   .arsinput{width:100%;max-width:560px;background:var(--panel);border:1px solid var(--line2);border-radius:10px;padding:12px 16px;color:var(--ink);font-family:inherit;font-size:.9rem;margin:4px 0 10px;display:block}
   .arsinput:focus{outline:none;border-color:var(--gold)}
-  #navtip{position:fixed;display:none;width:240px;background:#1a222e;border:1px solid var(--line2);border-left:3px solid var(--gold);border-radius:10px;padding:10px 14px;font-size:.74rem;line-height:1.55;color:var(--muted);z-index:120;box-shadow:0 10px 34px rgba(0,0,0,.55);pointer-events:none}
+  #navtip{position:fixed;display:none;width:240px;background:var(--panel);border:1px solid var(--line2);border-left:3px solid var(--gold);border-radius:10px;padding:10px 14px;font-size:.74rem;line-height:1.55;color:var(--muted);z-index:120;box-shadow:0 10px 34px rgba(0,0,0,.55);pointer-events:none}
   @media (hover:none),(max-width:720px){#navtip{display:none !important}}
   .klink{background:none;border:none;color:var(--gold);cursor:pointer;font:inherit;font-size:.74rem;text-decoration:underline;padding:0}
 
@@ -776,16 +776,25 @@
   details.claimfull>summary:hover{color:var(--ink)}
   details.claimfull .claim{margin-top:10px}
   details.claimfull .claim p{font-size:.9rem;color:var(--muted);line-height:1.75}
+
+  .masthead{background:var(--panel);border-bottom:1px solid var(--line);padding:9px 18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-size:.82rem;color:var(--muted)}
+  .masthead b{color:var(--ink);font-weight:600}
+  .masthead button{background:none;border:1px solid var(--line2);border-radius:8px;color:var(--acc,var(--gold));font-size:.78rem;padding:4px 10px;cursor:pointer;font-family:inherit;white-space:nowrap}
+  .masthead button:hover{border-color:var(--gold)}
+  @media (max-width:720px){.masthead{font-size:.76rem;padding:8px 14px}}
 </style>
 
 <script>try{var t=localStorage.getItem("wb_theme");if(t==="dark")document.documentElement.dataset.theme="dark"}catch(e){}</script><link rel="stylesheet" href="/theme.css">
 </head>
 <body>
+<noscript><div style="max-width:520px;margin:15vh auto;text-align:center;font-family:sans-serif;padding:0 20px"><p>This study tool needs JavaScript to run.</p><p><a href="/search.html">Browse all cases here</a> instead, or <a href="/">go home</a>.</p></div></noscript>
+<div class="masthead"><b>119 documented claims about Mormonism, weighed against the Bible — argued largely from the church's own sources.</b><button id="mastheadTour" type="button">✦ Take the tour</button></div>
 <div class="app">
   <aside class="side">
-    <div class="logo"><svg class="lmark" width="22" height="16" viewBox="0 9 64 46" fill="none" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="var(--ink)" d="M32 18 C25 13.2 15 11.8 5 13.8 L5 43.5 C15 41.5 25 42.9 32 47.7"/><path stroke="var(--amber)" d="M32 18 C39 13.2 49 11.8 59 13.8 L59 43.5 C49 41.5 39 42.9 32 47.7"/><path stroke="var(--ink)" d="M32 18 L32 47.7"/></svg> WHICH <b>·</b> GOSPEL?<div style="font-size:.64rem;letter-spacing:.14em;color:var(--muted);margin-top:3px">MORMONISM · VS. THE BIBLE</div></div>
+    <div class="logo"><a href="/" style="text-decoration:none;color:inherit;display:block"><svg class="lmark" width="22" height="16" viewBox="0 9 64 46" fill="none" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="var(--ink)" d="M32 18 C25 13.2 15 11.8 5 13.8 L5 43.5 C15 41.5 25 42.9 32 47.7"/><path stroke="var(--amber)" d="M32 18 C39 13.2 49 11.8 59 13.8 L59 43.5 C49 41.5 39 42.9 32 47.7"/><path stroke="var(--ink)" d="M32 18 L32 47.7"/></svg> WHICH <b>·</b> GOSPEL?<div style="font-size:.64rem;letter-spacing:.14em;color:var(--muted);margin-top:3px">MORMONISM · VS. THE BIBLE</div></a></div>
     <div class="sidesearch"><input id="q" type="search" placeholder="Search claims…" autocomplete="off" aria-label="Search claims"></div>
     <div style="padding:0 14px 12px;margin-top:-8px"><a href="/search.html" style="font-size:.7rem;color:var(--muted);text-decoration:none">🔍 Search all 318 cases →</a></div>
+    <div style="padding:0 14px 12px;margin-top:-6px;display:flex;gap:10px;font-size:.7rem"><a href="/" style="color:var(--muted);text-decoration:none">Home</a><a href="/about.html" style="color:var(--muted);text-decoration:none">About</a><a href="/parallels.html" style="color:var(--muted);text-decoration:none">Patterns</a></div>
     <div class="nav" id="nav"></div>
     <div class="sideprog" id="sideprog"></div>
   </aside>
@@ -1179,6 +1188,7 @@ function renderNav(){
     renderNav();
   });
   const tb=$("#tourbtn");if(tb)tb.addEventListener("click",()=>startTour());
+  const mt=$("#mastheadTour");if(mt)mt.addEventListener("click",()=>startTour());
   if(window.matchMedia("(max-width:720px)").matches){
     let mf=document.getElementById("mobilesettings");
     if(!mf){mf=document.createElement("div");mf.id="mobilesettings";document.body.appendChild(mf);}
@@ -1811,7 +1821,7 @@ document.addEventListener("keydown",e=>{
 
 
 const TOURKEY="wb_tour";
-const TOURSTEPS=[{"icon":"🔍","title":"What this is","body":"<b>119 documented claims</b> about the Latter-day Saint church, each weighed against the Bible. Every case gives the strongest LDS answer first, then an honest verdict. Popular Christian arguments that fail are marked <b>do not use</b> — there are nine of them here."},{"icon":"📖","title":"Every case opens in plain English","body":"Short blocks. One idea per sentence. What they teach, what the text says, their best answer, how strong it is, and one line to actually say out loud. The sourced version — scholars named, citations in full — sits underneath on the same page. Nothing is hidden."},{"icon":"🏷","title":"Four verdicts, one glance","body":"Every claim lands in one of four columns:<div class=\"vrow2\"><div><span class=\"badge v-admitted\">Admitted</span><span>the church's own publications concede it</span></div><div><span class=\"badge v-unrefuted\">Unrefuted</span><span>no good LDS answer has been published</span></div><div><span class=\"badge v-contested\">Contested</span><span>they have a real answer — say so</span></div><div><span class=\"badge v-answered\">Answered</span><span>their answer wins, and we say so</span></div></div>"},{"icon":"💬","title":"You are given the words","body":"Each case ends with a line you can say. Each one also has a <b>Conversation</b> tab with a real back-and-forth: they say this, you say that, they push back, you answer. Bible and Book of Mormon references open where you point at them, with the verses either side."},{"icon":"🚀","title":"Where to start","body":"Read <b>The heart of it</b> first. It is one page, and it holds the three differences everything else hangs from. Then <b>Sharing Jesus</b>, which is about the person rather than the argument. Replay this tour any time from the sidebar.","cta":"Take me to the heart of it"}];
+const TOURSTEPS=[{"icon":"🔍","title":"What this is","body":"<b>119 documented claims</b> about the Latter-day Saint church, each weighed against the Bible. Every case gives the strongest LDS answer first, then an honest verdict. Popular Christian arguments that fail are marked <b>do not use</b> — there are nine of them here."},{"icon":"📖","title":"Every case opens in plain English","body":"Short blocks. One idea per sentence. What they teach, what the text says, their best answer, how strong it is, and one line to actually say out loud. The sourced version — scholars named, citations in full — sits underneath on the same page. Nothing is hidden."},{"icon":"🏷","title":"Four verdicts, one glance","body":"Every claim lands in one of four columns:<div class=\"vrow2\"><div><span class=\"badge v-admitted\">Admitted</span><span>the church's own publications concede it</span></div><div><span class=\"badge v-unrefuted\">Unrefuted</span><span>no good LDS answer has been published</span></div><div><span class=\"badge v-contested\">Contested</span><span>they have a real answer — say so</span></div><div><span class=\"badge v-answered\">Don\'t use</span><span>their answer wins, and we say so</span></div></div>"},{"icon":"💬","title":"You are given the words","body":"Each case ends with a line you can say. Each one also has a <b>Conversation</b> tab with a real back-and-forth: they say this, you say that, they push back, you answer. Bible and Book of Mormon references open where you point at them, with the verses either side."},{"icon":"🚀","title":"Where to start","body":"Read <b>The heart of it</b> first. It is one page, and it holds the three differences everything else hangs from. Then <b>Sharing Jesus</b>, which is about the person rather than the argument. Replay this tour any time from the sidebar.","cta":"Take me to the heart of it"}];
 function startTour(){
   const old=document.querySelector(".tourwrap");if(old)old.remove();
   let ti=0;
