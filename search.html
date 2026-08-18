@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="utf-8">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -13,7 +13,7 @@
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "575af10b54ea40fb87ca686ef127649e"}'></script><!-- End Cloudflare Web Analytics -->
 <style>
 :root{--bg:#0b0d12;--panel:#141821;--panel2:#0f1319;--line:#242a36;--line2:#2e3542;--ink:#eceef2;--muted:#949cab;--dim:#5b6472;
---acc:#82b1d8;--gold:#cf9a45;--green:#7fb08d;--red:#e0736a;--amber:#cf9a45;--purp:#b394e0;
+--acc:var(--gold);--gold:#cf9a45;--green:#7fb08d;--red:#e0736a;--amber:#cf9a45;--purp:#b394e0;
 --serif:'Iowan Old Style','Palatino Linotype',Palatino,'Book Antiqua',Georgia,serif;
 --sans:ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
 *{box-sizing:border-box}
@@ -79,13 +79,14 @@ a.res:hover{border-color:var(--acc);transform:translateX(2px)}
 
 <script>
 const CATS=[
-  {cat:"mormonism",label:"Mormonism",glyph:"📖"},
-  {cat:"islam",label:"Islam",glyph:"☪️"},
-  {cat:"jw",label:"Jehovah's Witnesses",glyph:"🚪"},
-  {cat:"hebrew-israelites",label:"Hebrew Israelites",glyph:"🦁"},
-  {cat:"messiah",label:"Messiah Case",glyph:"🕎"},
-  {cat:"god",label:"Case for God",glyph:"🌌"}
+  {cat:"mormonism",label:"Mormonism",glyph:'<svg viewBox="0 0 32 32" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-.15em;flex:none"><path d="M16 9c-3-2.2-7-2.8-11-2v14c4-.8 8-.2 11 2"/><path d="M16 9c3-2.2 7-2.8 11-2v14c-4-.8-8-.2-11 2"/><path d="M16 9v14"/></svg>'},
+  {cat:"islam",label:"Islam",glyph:'<svg viewBox="0 0 32 32" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-.15em;flex:none"><path d="M21 8.4a8 8 0 1 0 0 15.2 9.2 9.2 0 1 1 0-15.2Z"/></svg>'},
+  {cat:"jw",label:"Jehovah's Witnesses",glyph:'<svg viewBox="0 0 32 32" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-.15em;flex:none"><rect x="9" y="5" width="14" height="22" rx="1.4"/><circle cx="19" cy="16" r="1.1"/></svg>'},
+  {cat:"hebrew-israelites",label:"Hebrew Israelites",glyph:'<svg viewBox="0 0 32 32" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-.15em;flex:none"><path d="M6 24V11l10-5 10 5v13"/><path d="M11 24v-7h10v7"/><path d="M4 24h24"/></svg>'},
+  {cat:"messiah",label:"Messiah Case",glyph:'<svg viewBox="0 0 32 32" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-.15em;flex:none"><path d="M16 5v22"/><path d="M8 12h16"/></svg>'},
+  {cat:"god",label:"Case for God",glyph:'<svg viewBox="0 0 32 32" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-.15em;flex:none"><circle cx="16" cy="16" r="9"/><path d="M7 16h18M16 7c3.2 3 3.2 15 0 18M16 7c-3.2 3-3.2 15 0 18"/></svg>'}
 ];
+const GLYPH=Object.fromEntries(CATS.map(c=>[c.cat,c.glyph]));
 let DATA=[];
 let activeCat=null;
 
@@ -150,7 +151,7 @@ function renderResults(list,total){
   resultsEl.innerHTML = list.map(e=>`
     <a class="res" href="${e.url}">
       <div class="res-top">
-        <span class="res-cat">${e.glyph} ${escapeHtml(e.category)}</span>
+        <span class="res-cat">${GLYPH[e.cat]||""} ${escapeHtml(e.category)}</span>
         <span class="res-badge ${e.badgeClass}">${escapeHtml(e.badge)}</span>
       </div>
       <h3>${escapeHtml(e.title)}</h3>
