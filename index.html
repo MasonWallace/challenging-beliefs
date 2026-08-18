@@ -20,7 +20,7 @@
 <style>
   :root{
     --bg:#0b0d12;--panel:#141821;--line:#242a36;--line2:#2e3542;--ink:#eceef2;--muted:#949cab;--dim:#5b6472;
-    --acc:#82b1d8;--acc2:#b394e0;--gold:#cf9a45;--green:#7fb08d;
+    --acc:var(--gold);--acc2:var(--purp);--gold:#cf9a45;--green:#7fb08d;
     --serif:'Iowan Old Style','Palatino Linotype',Palatino,'Book Antiqua',Georgia,serif;
     --sans:ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
   }
@@ -155,6 +155,62 @@
     .rise{opacity:1;transform:none;animation:none}
     a.card:hover,.patternbar:hover{transform:none}
   }
+
+  /* ---------- 2026 homepage: show the work, don't describe it ---------- */
+  .topbar{display:flex;align-items:center;gap:11px;padding:22px 0 0}
+  .topbar .brand{display:flex;align-items:center;gap:10px}
+  .topbar .mk{width:30px;height:30px;flex:none}
+  .topbar .mk path{stroke-dasharray:none;stroke-dashoffset:0;animation:none}
+  .topbar .nm{font-family:var(--serif);font-size:1.2rem;font-weight:600;letter-spacing:-.01em}
+  .topbar nav{margin-left:auto;display:flex;gap:16px;font-size:.85rem;color:var(--muted)}
+  .topbar nav a:hover{color:var(--acc)}
+
+  .hero{display:grid;grid-template-columns:1.12fr .88fr;gap:34px;align-items:start;margin:40px 0 0}
+  .hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(1.9rem,3.5vw,2.5rem);line-height:1.2;
+    letter-spacing:-.015em;margin:0;color:var(--ink);background:none;-webkit-text-fill-color:currentColor}
+  .hero .tagline{margin:13px 0 0;max-width:none;text-align:left;font-size:.95rem}
+  .hero .hsearch{margin:18px 0 0;max-width:none}
+
+  .legend{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+  .legend .lt{font-size:.63rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin:0 0 11px}
+  .legend .lr{display:flex;gap:9px;align-items:baseline;margin:0 0 9px;font-size:.82rem;color:var(--muted);line-height:1.5}
+  .legend .lr:last-child{margin:0}
+  .vchip{flex:none;font-size:.58rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;border-radius:20px;padding:2px 9px;position:relative;top:-1px}
+  .v-unrefuted{color:var(--red,#b03a31);background:color-mix(in srgb,var(--red,#b03a31) 14%,transparent)}
+  .v-admitted{color:var(--purp,#6b4fa1);background:color-mix(in srgb,var(--purp,#6b4fa1) 14%,transparent)}
+  .v-contested{color:var(--gold);background:color-mix(in srgb,var(--gold) 16%,transparent)}
+  .v-answered{color:var(--muted);background:color-mix(in srgb,var(--muted) 14%,transparent)}
+
+  .feat{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
+  a.fcard{display:flex;flex-direction:column;gap:7px;background:var(--panel);border:1px solid var(--line);
+    border-radius:14px;padding:16px 18px;transition:transform .22s ease,border-color .22s,box-shadow .22s}
+  a.fcard:hover{transform:translateY(-3px);border-color:var(--acc);box-shadow:0 16px 40px rgba(20,26,40,.13)}
+  a.fcard .ft{font-family:var(--serif);font-size:1.04rem;font-weight:600;line-height:1.3;margin:0}
+  a.fcard .fd{font-size:.83rem;color:var(--muted);line-height:1.55;margin:0}
+  a.fcard .fs{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-top:auto;padding-top:4px}
+  a.fcard:hover .fs{color:var(--acc)}
+  .vchip.self{align-self:flex-start}
+
+  /* the six sections are a directory now, not the whole page */
+  a.card .ico{flex:none;width:26px;height:26px;transition:transform .3s}
+  a.card:hover .ico{transform:scale(1.1)}
+  a.card .ico path,a.card .ico circle,a.card .ico rect{stroke:var(--acc)}
+  a.card.mk .ico path,a.card.mk .ico circle,a.card.mk .ico rect{stroke:var(--acc2)}
+
+  .signoff{margin:30px 0 0;padding-top:17px;border-top:1px solid var(--line);font-size:.86rem;color:var(--muted)}
+  .signoff a{color:var(--acc);font-weight:600}
+
+  @media (max-width:860px){
+    .hero{grid-template-columns:1fr;gap:22px}
+    .feat{grid-template-columns:1fr}
+  }
+  @media (max-width:620px){
+    .topbar{padding:16px 0 0}
+    .topbar nav{gap:12px;font-size:.78rem}
+    .topbar .nm{font-size:1.05rem}
+    .hero{margin-top:26px}
+    a.fcard{padding:14px 16px}
+  }
 </style>
 <script>try{var t=localStorage.getItem("wb_theme");if(t==="dark")document.documentElement.dataset.theme="dark"}catch(e){}</script><link rel="stylesheet" href="/theme.css">
 </head>
@@ -162,31 +218,66 @@
 <div class="sky"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
 
 <header class="wrap">
-  <span class="scale rise d1"><svg viewBox="0 0 64 64" fill="none" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Which Gospel?"><path stroke="var(--ink)" d="M32 18 C25 13.2 15 11.8 5 13.8 L5 43.5 C15 41.5 25 42.9 32 47.7"/><path stroke="var(--gold)" d="M32 18 C39 13.2 49 11.8 59 13.8 L59 43.5 C49 41.5 39 42.9 32 47.7"/><path stroke="var(--ink)" d="M32 18 L32 47.7"/></svg></span>
-  <h1>Which Gospel?</h1>
-  <p class="tagline rise d2">318 documented cases across Mormonism, Islam, Jehovah's Witnesses, and Hebrew Israelite teaching — built for Christians heading into real conversations, the other side's best case first, then a straight verdict.</p>
-  <div class="hsearch rise d2">
-    <input id="hq" type="search" placeholder="Search all 318 cases…" autocomplete="off" aria-label="Search all cases">
-    <div class="hs-results" id="hqResults"></div>
+  <div class="topbar rise d1">
+    <a class="brand" href="/"><svg class="mk" viewBox="0 0 64 64" fill="none" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Which Gospel?"><path stroke="var(--ink)" d="M32 18 C25 13.2 15 11.8 5 13.8 L5 43.5 C15 41.5 25 42.9 32 47.7"/><path stroke="var(--gold)" d="M32 18 C39 13.2 49 11.8 59 13.8 L59 43.5 C49 41.5 39 42.9 32 47.7"/><path stroke="var(--ink)" d="M32 18 L32 47.7"/></svg><span class="nm">Which Gospel?</span></a>
+    <nav><a href="parallels.html">Patterns</a><a href="about.html">About</a><a href="search.html">Search</a></nav>
   </div>
 </header>
 
 <main><div class="wrap">
-  <div class="secttl rise d3"><b>Examining other faiths</b><i></i><span>against the Bible as the standard</span></div>
-  <div class="cards" id="ex"></div>
 
-  <div class="secttl rise d4"><b>Making the case</b><i></i><span>for people who don't take the Bible as settled</span></div>
-  <div class="cards" id="mk"></div>
+  <section class="hero">
+    <div class="hcopy">
+      <h1 class="rise d2">Someone is about to tell you something about Jesus.</h1>
+      <p class="tagline rise d2">318 documented cases across Mormonism, Islam, the Jehovah's Witnesses and Hebrew Israelite teaching — and the case for the Bible itself where a friend doesn't take it as settled. Every one gives that faith's own strongest published answer before it reaches a verdict.</p>
+      <div class="hsearch rise d3">
+        <input id="hq" type="search" placeholder="Search by topic, name, verse, doctrine…" autocomplete="off" aria-label="Search all cases">
+        <div class="hs-results" id="hqResults"></div>
+      </div>
+    </div>
+    <aside class="legend rise d3">
+      <p class="lt">What the four verdicts mean</p>
+      <p class="lr"><span class="vchip v-unrefuted">Unrefuted</span><span>Nobody has published an answer that holds up.</span></p>
+      <p class="lr"><span class="vchip v-admitted">Admitted</span><span>Their own sources concede the facts.</span></p>
+      <p class="lr"><span class="vchip v-contested">Contested</span><span>They have a real answer. Know it before you go in.</span></p>
+      <p class="lr"><span class="vchip v-answered">Don't use</span><span>Their answer holds. Don't lead with this one.</span></p>
+    </aside>
+  </section>
 
-  <div class="why rise d4">
-    <p class="verse">"Always be prepared to give an answer to everyone who asks you to give the reason for the hope that you have. But do this with gentleness and respect."<cite>1 Peter 3:15</cite></p>
-    <p>In late 2025 I joined a ministry doing outreach to Muslims, and I've been learning how to have those conversations well. Then I found out I'd be moving somewhere with a large Latter-day Saint presence. I didn't want to start learning about it after the missionaries were already at my door. So I went and looked things up ahead of time, and wrote down what I found.</p>
-    <p>The second half of that verse matters as much as the first. <b>Nobody has ever been argued into the kingdom by someone who was enjoying the argument.</b> Every page here gives the other side its best case first, in their own words, because the person across from you deserves to be answered honestly rather than beaten.</p>
+  <div class="secttl rise d4"><b>A few of them</b><i></i><span>the same shape as all 318</span></div>
+  <div class="feat">
+    <a class="fcard rise d4" href="mormonism/book-of-abraham-papyri/">
+      <span class="vchip v-unrefuted self">Unrefuted</span>
+      <h3 class="ft">Abraham's papyrus was a Theban priest's funeral text</h3>
+      <p class="fd">Egyptologists identified the surviving fragments as a Book of Breathings. The church's own Gospel Topics essay concedes they don't match the Book of Abraham.</p>
+      <span class="fs">Mormonism</span>
+    </a>
+    <a class="fcard rise d4" href="jw/dates-generation-1914-redefined/">
+      <span class="vchip v-admitted self">Admitted</span>
+      <h3 class="ft">'This generation' redefined four times as it died</h3>
+      <p class="fd">For sixty years the Watchtower taught that the generation who saw 1914 would live to see Armageddon. It ran on the masthead of every Awake! until 1995.</p>
+      <span class="fs">Jehovah's Witnesses</span>
+    </a>
+    <a class="fcard rise d4" href="messiah/isaiah-7-14-almah/">
+      <span class="vchip v-answered self">Don't use</span>
+      <h3 class="ft">Isaiah 7:14 doesn't say 'virgin' — drop it</h3>
+      <p class="fd">A case against a Christian argument. <i>Almah</i> means young woman, the Jewish objection here is a good one, and there are better verses to spend the conversation on.</p>
+      <span class="fs">The Messiah Case</span>
+    </a>
   </div>
 
-  <a class="patternbar rise d5" href="parallels.html"><span class="pb-t">🧩 The same pattern, again and again</span><span class="pb-d">One man, one angel, no witnesses. A Bible that had to be broken first. An authority that can't be checked — six structures four unrelated movements keep arriving at.</span><span class="pb-go">Read the patterns →</span></a>
+  <div class="secttl rise d5"><b>Examining other faiths</b><i></i><span>against the Bible as the standard</span></div>
+  <div class="cards" id="ex"></div>
 
-  <a class="aboutbar rise d5" href="about.html"><span class="ab-t">📖 About this site</span><span class="ab-d">How we work, what the four verdict labels on every claim mean, and how to use this site — read this first.</span><span class="go">Read →</span></a>
+  <div class="secttl rise d5"><b>Making the case</b><i></i><span>for people who don't take the Bible as settled</span></div>
+  <div class="cards" id="mk"></div>
+
+  <a class="patternbar rise d5" href="parallels.html"><span class="pb-t">The same pattern, again and again</span><span class="pb-d">One man, one angel, no witnesses. A Bible that had to be broken first. An authority that can't be checked — six structures four unrelated movements keep arriving at.</span><span class="pb-go">Read the patterns →</span></a>
+
+  <a class="aboutbar rise d5" href="about.html"><span class="ab-t">About this site</span><span class="ab-d">How it works, how it was checked, and what to do if you find something wrong.</span><span class="go">Read →</span></a>
+
+  <p class="signoff">Built by one Christian who wanted to know what he was talking about before the conversation started. <a href="about.html">Why I built this →</a></p>
+
 </div></main>
 
 <footer><div class="wrap">
@@ -195,8 +286,18 @@
 
 <script>
 const CARDS=/*__CARDS__*/[{"dir":"mormonism/","glyph":"📖","name":"Mormonism","blurb":"The Book of Mormon and LDS teaching, weighed — largely from the church's own sources.","group":"examine","count":119,"unit":"claims"},{"dir":"islam/","glyph":"☪️","name":"Islam","blurb":"The Quran's claims about Jesus and the Bible — with scripted conversations for every case.","group":"examine","count":78,"unit":"claims"},{"dir":"jw/","glyph":"🚪","name":"Jehovah's Witnesses","blurb":"607, 1914, and the New World Translation — the chain every other doctrine hangs from.","group":"examine","count":50,"unit":"claims"},{"dir":"hebrew-israelites/","glyph":"🦁","name":"Hebrew Israelites","blurb":"Deuteronomy 28, the 12 Tribes Chart, and a grievance that has to be answered before it is corrected.","group":"examine","count":23,"unit":"claims"},{"dir":"messiah/","glyph":"🕎","name":"The Messiah Case","blurb":"For Jewish friends — the case from the Tanakh, the Targum and the Talmud, and the history to name first.","group":"make","count":19,"unit":"cases"},{"dir":"god/","glyph":"🌌","name":"The Case for God","blurb":"For skeptics — the evidence, argued from sources that do not want the conclusion, and the arguments to retire.","group":"make","count":29,"unit":"cases"}];
+
+/* one line-drawn set instead of six OS emoji — same weight as the logo, identical on every device */
+const ICON={
+ "mormonism/":'<path d="M16 9c-3-2.2-7-2.8-11-2v14c4-.8 8-.2 11 2"/><path d="M16 9c3-2.2 7-2.8 11-2v14c-4-.8-8-.2-11 2"/><path d="M16 9v14"/>',
+ "islam/":'<path d="M21 8.4a8 8 0 1 0 0 15.2 9.2 9.2 0 1 1 0-15.2Z"/>',
+ "jw/":'<rect x="9" y="5" width="14" height="22" rx="1.4"/><circle cx="19" cy="16" r="1.1"/>',
+ "hebrew-israelites/":'<path d="M6 24V11l10-5 10 5v13"/><path d="M11 24v-7h10v7"/><path d="M4 24h24"/>',
+ "messiah/":'<path d="M16 5v22"/><path d="M8 12h16"/>',
+ "god/":'<circle cx="16" cy="16" r="9"/><path d="M7 16h18M16 7c3.2 3 3.2 15 0 18M16 7c-3.2 3-3.2 15 0 18"/>'};
+const icon=d=>`<svg class="ico" viewBox="0 0 32 32" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICON[d]||""}</svg>`;
 const mk=(s,cls)=>`<a class="card ${cls} rise d5" href="${s.dir}" title="${s.blurb}">
-  <span class="glyph">${s.glyph}</span>
+  ${icon(s.dir)}
   <div class="cbody"><h3>${s.name}</h3><span class="ct">${s.count} ${s.unit}</span></div></a>`;
 document.getElementById("ex").innerHTML=CARDS.filter(s=>s.group==="examine").map(s=>mk(s,"")).join("");
 document.getElementById("mk").innerHTML=CARDS.filter(s=>s.group==="make").map(s=>mk(s,"mk")).join("");
