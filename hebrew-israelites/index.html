@@ -51,7 +51,7 @@
   kbd{font-family:var(--mono);font-size:.72rem;background:var(--panel);border:1px solid var(--line2);border-bottom-width:2px;border-radius:4px;padding:1px 6px;color:var(--muted)}
 
   .app{display:grid;grid-template-columns:216px minmax(0,1fr) 280px;min-height:100vh}
-  @media (max-width:1020px){.app{grid-template-columns:216px minmax(0,1fr)}.preview{display:none}}
+  @media (max-width:1200px){.app{grid-template-columns:216px minmax(0,1fr)}.preview{display:none}}
   @media (max-width:720px){.app{grid-template-columns:1fr}.side{position:sticky;top:0;z-index:40;height:auto;border-right:0;border-bottom:1px solid var(--line)}
     .side .nav{display:flex;flex-wrap:wrap;gap:2px;padding:0 10px 10px}.side .nav h5{display:none}.side .sideprog{display:none}}
 
@@ -293,7 +293,7 @@
   .preview h6{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin:20px 0 6px}
   .preview .rr{font-size:.78rem;color:var(--ink);padding:6px 0;border-top:1px solid var(--line);display:block;background:none;border-left:0;border-right:0;border-bottom:0;text-align:left;width:100%;cursor:pointer}
   .preview .rr:hover{color:var(--gold)}
-  .preview .empty{color:var(--dim);font-size:.8rem;margin-top:30px;text-align:center}
+  .preview .empty{color:var(--dim);font-size:.8rem}.preview .empty .pl{font-size:.62rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--dim);margin:0 0 10px}.preview .empty .lgr{margin:0 0 11px}.preview .empty .lgd{display:block;margin-top:3px;font-size:.75rem;line-height:1.5;color:var(--muted)}.preview .empty .lgk{margin:16px 0 0;padding-top:11px;border-top:1px solid var(--line);font-size:.74rem}
 
   /* views: paths, timeline, glossary, compare */
   .pathcard{background:var(--panel);border:1px solid var(--line2);border-radius:12px;padding:18px 20px;margin-bottom:14px}
@@ -324,8 +324,10 @@
   .cmpcol .unpin{background:none;border:0;color:var(--muted);font-size:.72rem;cursor:pointer;float:right;text-decoration:underline}
   .cmpempty{border:1px dashed var(--line2);border-radius:12px;padding:40px;text-align:center;color:var(--dim);font-size:.85rem}
 
-  .keysbar{position:fixed;bottom:0;left:216px;right:280px;display:flex;gap:16px;justify-content:center;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-top:1px solid var(--line);padding:8px;font-size:.7rem;color:var(--muted);z-index:30;flex-wrap:wrap}
-  @media (max-width:1020px){.keysbar{right:0}}
+  .keysbtn{position:fixed;bottom:12px;right:14px;z-index:31;width:26px;height:26px;border-radius:50%;border:1px solid var(--line2);background:var(--panel);color:var(--muted);font:inherit;font-size:.78rem;line-height:1;cursor:pointer;padding:0;opacity:.6}.keysbtn:hover{opacity:1;border-color:var(--gold);color:var(--gold)}@media (max-width:720px){.keysbtn{display:none}}.keysbar.on{transform:none}
+  @media (prefers-reduced-motion:reduce){.keysbar{transition:none}}
+  .keysbar{transform:translateY(120%);transition:transform .16s ease;position:fixed;bottom:0;left:216px;right:280px;display:flex;gap:16px;justify-content:center;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-top:1px solid var(--line);padding:8px;font-size:.7rem;color:var(--muted);z-index:30;flex-wrap:wrap}
+  @media (max-width:1200px){.keysbar{right:0}}
   @media (max-width:720px){.keysbar{display:none}}
   .toast{position:fixed;bottom:52px;left:50%;transform:translateX(-50%);background:var(--side);border:1px solid var(--gold);color:var(--ink);border-radius:8px;padding:8px 18px;font-size:.8rem;z-index:60;opacity:0;transition:opacity .3s}
   .toast.show{opacity:1}
@@ -792,7 +794,7 @@
   <aside class="side">
     <div class="logo"><a href="/" style="text-decoration:none;color:inherit;display:block"><svg class="lmark" width="22" height="16" viewBox="0 9 64 46" fill="none" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path stroke="var(--ink)" d="M32 18 C25 13.2 15 11.8 5 13.8 L5 43.5 C15 41.5 25 42.9 32 47.7"/><path stroke="var(--amber)" d="M32 18 C39 13.2 49 11.8 59 13.8 L59 43.5 C49 41.5 39 42.9 32 47.7"/><path stroke="var(--ink)" d="M32 18 L32 47.7"/></svg> WHICH <b>·</b> GOSPEL?<div style="font-size:.64rem;letter-spacing:.14em;color:var(--muted);margin-top:3px">HEBREW ISRAELITES · VS. THE BIBLE</div></a></div>
     <div class="sidesearch"><input id="q" type="search" placeholder="Search claims…" autocomplete="off" aria-label="Search claims"></div>
-    <div style="padding:0 14px 12px;margin-top:-8px"><a href="/search.html" style="font-size:.7rem;color:var(--muted);text-decoration:none">🔍 Search all 318 cases →</a></div>
+    <div style="padding:0 14px 12px;margin-top:-8px"><a href="/search.html" style="font-size:.7rem;color:var(--muted);text-decoration:none"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true" style="vertical-align:-.15em"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.4 15.4 21 21"/></svg> Search all 318 cases →</a></div>
     <div style="padding:0 14px 12px;margin-top:-6px;display:flex;gap:10px;font-size:.7rem"><a href="/" style="color:var(--muted);text-decoration:none">Home</a><a href="/about.html" style="color:var(--muted);text-decoration:none">About</a><a href="/parallels.html" style="color:var(--muted);text-decoration:none">Patterns</a></div>
     <div class="nav" id="nav"></div>
     <div class="sideprog" id="sideprog"></div>
@@ -800,7 +802,8 @@
   <main class="main" id="main"></main>
   <aside class="preview" id="preview"></aside>
 </div>
-<div class="keysbar"><span><kbd>←</kbd>/<kbd>→</kbd> prev / next</span><span><kbd>↵</kbd> open</span><span><kbd>Esc</kbd> back</span><span><kbd>O</kbd> overview</span><span><kbd>P</kbd> paths</span><span><kbd>T</kbd> timeline</span><span><kbd>G</kbd> terms</span><span><kbd>S</kbd> gospel</span><span><kbd>H</kbd> heart of it</span></div>
+<button class="keysbtn" id="keysbtn" aria-label="Keyboard shortcuts" title="Keyboard shortcuts (?)">?</button>
+<div class="keysbar" id="keysbar"><span><kbd>←</kbd>/<kbd>→</kbd> prev / next</span><span><kbd>↵</kbd> open</span><span><kbd>Esc</kbd> back</span><span><kbd>O</kbd> overview</span><span><kbd>P</kbd> paths</span><span><kbd>T</kbd> timeline</span><span><kbd>G</kbd> terms</span><span><kbd>S</kbd> gospel</span><span><kbd>H</kbd> heart of it</span></div>
 <div class="toast" id="toast"></div>
 
 <script>
@@ -986,18 +989,18 @@ function filtered(){
 function renderNav(){
   const items=[["overview","All claims",DATA.length,"Every documented case — search it, filter it by verdict and seriousness"]];
   const groups=[
-    ["Start here",[
-      ["core","The heart of it","1","One chapter, read whole — the argument everything else depends on"]]],
-    ["For conversations",[
+    ["",[
+      ["core","Start here","1","One chapter, read whole — the argument everything else depends on"]]],
+    ["",[
       ["share","Sharing Jesus","✝","How to evangelize here: approach, bridges, and cautions"],
-      ["know","More information","8","Quick answers, their script, the verses they quote, guided paths, and how they live"]]],
-    ["Reference",[
+      ["know","Quick answers","8","Quick answers, their script, the verses they quote, guided paths, and how they live"]]],
+    ["",[
       ["timeline","Timeline",TLACTS.length+" acts","Their claims vs. the documented record, era by era"],
       ["glossary","Word guide",GLOSSARY.length,"Doctrine terms and insider vocabulary, explained"]]]
   ];
   const cur=state.view==="overview"&&state.section!=="all"?"sec:"+state.section:state.view;
   const lk=([k,l,c,tp])=>`<a class="${cur===k?"on":""}" data-k="${k}"${tp?` data-tip="${esc(tp)}"`:""}>${l} <span class="cnt">${c}</span></a>`;
-  $("#nav").innerHTML=items.map(lk).join("")+groups.map(([h,vs])=>`<h5>${h}</h5>`+vs.map(lk).join("")).join("");
+  $("#nav").innerHTML=items.map(lk).join("")+groups.map(([h,vs])=>(h?`<h5>${h}</h5>`:"")+vs.map(lk).join("")).join("");
   let tipEl=document.getElementById("navtip");
   if(!tipEl){tipEl=document.createElement("div");tipEl.id="navtip";document.body.appendChild(tipEl);}
   document.querySelectorAll("#nav a[data-tip]").forEach(a=>{
@@ -1016,7 +1019,6 @@ function renderNav(){
     <div class="setbox">
       <div class="setrow">
         <button id="themebtn" class="setbtn">◐ ${(document.documentElement.dataset.theme||"light")==="dark"?"Light":"Dark"}</button>
-        <button id="tourbtn" class="setbtn">✦ Tour</button>
       </div>
     </div>`;
   $("#themebtn").addEventListener("click",()=>{
@@ -1039,7 +1041,7 @@ function renderNav(){
 function renderPreview(){
   const el=$("#preview");
   const d=state.sel?byId[state.sel]:null;
-  if(!d){el.innerHTML=`<div class="empty">Hover or select a case<br>to preview it here.<br><br><kbd>J</kbd>/<kbd>K</kbd> to move · <kbd>↵</kbd> to open</div>`;return;}
+  if(!d){el.innerHTML=`<div class="empty"><h6 class="pl">What the labels mean</h6>${["unrefuted","admitted","contested","answered"].map(v=>`<div class="lgr"><span class="badge v-${v}">${VLABEL[v]}</span><span class="lgd">${esc((VDESC[v]||"").split(/(?<=\.)\s/)[0])}</span></div>`).join("")}<p class="lgk"><kbd>J</kbd>/<kbd>K</kbd> to move · <kbd>↵</kbd> to open</p></div>`;return;}
   const rel=(RELATED[d.id]||[]).filter(id=>byId[id]);
   el.innerHTML=`<span class="badge v-${d.verdict}">${VLABEL[d.verdict]}</span>
     <h5 class="pt">${esc(d.title)}</h5>
@@ -1080,7 +1082,7 @@ function renderOverview(){
         :`<span class="vth ph">${esc((d.title.match(/[A-Za-z]/)||["·"])[0])}</span>`;
       return `<button class="vt ${state.sel===d.id?"sel":""}${visible.has(d.id)?"":" dimmed"}${WOW.has(d.id)?" wow":""}" data-id="${d.id}">
           ${thumb}<span class="vtx"><span class="h5">${esc(d.title)}</span>
-          <span class="m">${d.avoid?'<span class="star avd">⚠ do not use</span>':d.featured?'<span class="star">★ strongest evidence</span>':isStrong(d)?'<span class="star s2">☆ strong evidence</span>':""}${read.has(d.id)?'<span class="rd">✓ read</span>':""}</span></span>
+          <span class="m">${d.avoid?'<span class="star avd">⚠ do not use</span>':d.featured?'<span class="star">★ strongest evidence</span>':""}${read.has(d.id)?'<span class="rd">✓ read</span>':""}</span></span>
         </button>`;}).join("");
     const more=(!narrowed&&all.length>5)
       ? `<button class="showall" data-v="${v}">${open?"Show fewer &uarr;":"Show all "+all.length+" &rarr;"}</button>` : "";
@@ -1647,7 +1649,7 @@ function startTour(){
 }
 /* tour is opt-in only — opened by the ✦ Tour button, never automatically */
 
-document.documentElement.dataset.theme=localStorage.getItem("wb_theme")||"dark";
+/* the <head> bootstrap already applies a stored preference; default stays light */
 $("#q").addEventListener("input",e=>{
   state.q=e.target.value.trim().toLowerCase();
   if(state.view!=="overview"){state.view="overview";state.caseId=null;}
@@ -1660,6 +1662,18 @@ window.addEventListener("hashchange",()=>{
 });
 {const m0=location.hash.match(/^#case\/([A-Za-z0-9-]+)$/);if(m0&&byId[m0[1]]){state.caseId=m0[1];state.sel=m0[1];state.view="case";store.markRead(m0[1]);}}
 render();
+
+/* KEYSTOGGLE — shortcuts are opt-in; the bar used to sit open on every page load */
+(function(){var b=document.getElementById("keysbtn"),k=document.getElementById("keysbar");
+ if(!b||!k)return;
+ function t(){k.classList.toggle("on");b.setAttribute("aria-expanded",k.classList.contains("on"));}
+ b.addEventListener("click",t);
+ document.addEventListener("keydown",function(e){
+  if(e.key!=="?"||e.metaKey||e.ctrlKey||e.altKey)return;
+  var a=document.activeElement;
+  if(a&&(a.tagName==="INPUT"||a.tagName==="TEXTAREA"||a.isContentEditable))return;
+  e.preventDefault();t();});
+})();
 </script>
 
 </body>
