@@ -86,16 +86,6 @@
   .why p:last-child{margin:0}
   .why b{color:var(--ink);font-weight:600}
 
-  /* the pattern piece — same proportions as the about bar it sits above */
-  .patternbar{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin:26px 0 0;
-    border:1px solid var(--gold);border-radius:14px;padding:15px 22px;
-    background:linear-gradient(120deg,rgba(207,154,69,.13),rgba(207,154,69,.02) 60%),var(--panel);
-    transition:box-shadow .25s}
-  .patternbar:hover{box-shadow:0 12px 34px rgba(0,0,0,.4)}
-  .patternbar .pb-t{font-family:var(--serif);font-size:1.02rem;white-space:nowrap}
-  .patternbar .pb-d{color:var(--muted);font-size:.84rem;flex:1;min-width:200px}
-  .patternbar .pb-go{color:var(--gold);font-size:.84rem;font-weight:700;white-space:nowrap}
-
   .cards{display:grid;grid-template-columns:1fr 1fr;gap:13px}
   @media (max-width:620px){.cards{grid-template-columns:1fr}}
   a.card{position:relative;display:flex;flex-direction:row;align-items:center;gap:14px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:15px 18px;overflow:hidden;transition:transform .22s ease,border-color .22s,box-shadow .22s}
@@ -116,12 +106,6 @@
   .secttl i{flex:1;height:1px;background:var(--line);font-style:normal;min-width:20px}
   .secttl span{font-size:.75rem;color:var(--dim);min-width:0}
 
-  .aboutbar{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin:20px 0 0;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:15px 22px;transition:border-color .25s}
-  .aboutbar:hover{border-color:var(--acc)}
-  .aboutbar .ab-t{font-family:var(--serif);font-size:1.02rem;white-space:nowrap}
-  .aboutbar .ab-d{color:var(--muted);font-size:.84rem;flex:1;min-width:200px}
-  .aboutbar .go{color:var(--acc);font-size:.84rem;font-weight:700;white-space:nowrap}
-
   .rise{opacity:0;transform:translateY(24px);animation:rise .9s cubic-bezier(.2,.7,.2,1) forwards}
   .d1{animation-delay:.04s}.d2{animation-delay:.14s}.d3{animation-delay:.26s}.d4{animation-delay:.38s}.d5{animation-delay:.5s}
   @keyframes rise{to{opacity:1;transform:none}}
@@ -141,10 +125,6 @@
     a.card{padding:13px 15px;gap:12px}
     .card h3{font-size:1rem}
     .card .glyph{font-size:1.35rem}
-    .patternbar,.aboutbar{padding:14px 16px;gap:6px 12px;margin-top:18px}
-    .patternbar .pb-t,.aboutbar .ab-t{white-space:normal;font-size:.97rem;flex:1 1 100%}
-    .patternbar .pb-d,.aboutbar .ab-d{min-width:0;flex:1 1 100%;font-size:.8rem}
-    .patternbar .pb-go,.aboutbar .go{font-size:.8rem}
     main{padding:0 0 5vh}
     footer{font-size:.74rem;padding:18px 0 26px;line-height:1.7}
   }
@@ -153,43 +133,23 @@
     .blob,.scale,h1{animation:none}
     .scale svg path{stroke-dashoffset:0;animation:none}
     .rise{opacity:1;transform:none;animation:none}
-    a.card:hover,.patternbar:hover{transform:none}
+    a.card:hover{transform:none}
   }
 
   /* ---------- 2026 homepage: show the work, don't describe it ---------- */
-  .topbar{display:flex;align-items:center;gap:11px;padding:22px 0 0}
-  .topbar .brand{display:flex;align-items:center;gap:10px}
-  .topbar .mk{width:30px;height:30px;flex:none}
+  .topbar{display:flex;align-items:center;gap:14px;padding:22px 0 0}
+  .topbar .brand{display:flex;align-items:center;gap:14px}
+  .topbar .mk{width:52px;height:52px;flex:none}
   .topbar .mk path{stroke-dasharray:none;stroke-dashoffset:0;animation:none}
-  .topbar .nm{font-family:var(--serif);font-size:1.2rem;font-weight:600;letter-spacing:-.01em}
+  .topbar .nm{font-family:var(--serif);font-size:1.9rem;font-weight:600;letter-spacing:-.01em}
   .topbar nav{margin-left:auto;display:flex;gap:16px;font-size:.85rem;color:var(--muted)}
   .topbar nav a:hover{color:var(--acc)}
 
-  .hero{display:grid;grid-template-columns:1.12fr .88fr;gap:34px;align-items:start;margin:40px 0 0}
+  .hero{margin:40px 0 0}
   .hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(1.9rem,3.5vw,2.5rem);line-height:1.2;
     letter-spacing:-.015em;margin:0;color:var(--ink);background:none;-webkit-text-fill-color:currentColor}
-  .hero .tagline{margin:13px 0 0;max-width:none;text-align:left;font-size:.95rem}
-  .hero .hsearch{margin:18px 0 0;max-width:none}
-
-  .legend{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
-  .legend .lt{font-size:.63rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin:0 0 11px}
-  .legend .lr{display:flex;gap:9px;align-items:baseline;margin:0 0 9px;font-size:.82rem;color:var(--muted);line-height:1.5}
-  .legend .lr:last-child{margin:0}
-  .vchip{flex:none;font-size:.58rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;border-radius:20px;padding:2px 9px;position:relative;top:-1px}
-  .v-unrefuted{color:var(--red,#b03a31);background:color-mix(in srgb,var(--red,#b03a31) 14%,transparent)}
-  .v-admitted{color:var(--purp,#6b4fa1);background:color-mix(in srgb,var(--purp,#6b4fa1) 14%,transparent)}
-  .v-contested{color:var(--gold);background:color-mix(in srgb,var(--gold) 16%,transparent)}
-  .v-answered{color:var(--muted);background:color-mix(in srgb,var(--muted) 14%,transparent)}
-
-  .feat{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
-  a.fcard{display:flex;flex-direction:column;gap:7px;background:var(--panel);border:1px solid var(--line);
-    border-radius:14px;padding:16px 18px;transition:transform .22s ease,border-color .22s,box-shadow .22s}
-  a.fcard:hover{transform:translateY(-3px);border-color:var(--acc);box-shadow:0 16px 40px rgba(20,26,40,.13)}
-  a.fcard .ft{font-family:var(--serif);font-size:1.04rem;font-weight:600;line-height:1.3;margin:0}
-  a.fcard .fd{font-size:.83rem;color:var(--muted);line-height:1.55;margin:0}
-  a.fcard .fs{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-top:auto;padding-top:4px}
-  a.fcard:hover .fs{color:var(--acc)}
-  .vchip.self{align-self:flex-start}
+  .hero .tagline{margin:13px 0 0;max-width:64ch;text-align:left;font-size:.95rem}
+  .hero .hsearch{margin:18px 0 0;max-width:480px}
 
   /* the six sections are a directory now, not the whole page */
   a.card .ico{flex:none;width:26px;height:26px;transition:transform .3s}
@@ -200,16 +160,12 @@
   .signoff{margin:30px 0 0;padding-top:17px;border-top:1px solid var(--line);font-size:.86rem;color:var(--muted)}
   .signoff a{color:var(--acc);font-weight:600}
 
-  @media (max-width:860px){
-    .hero{grid-template-columns:1fr;gap:22px}
-    .feat{grid-template-columns:1fr}
-  }
   @media (max-width:620px){
     .topbar{padding:16px 0 0}
     .topbar nav{gap:12px;font-size:.78rem}
-    .topbar .nm{font-size:1.05rem}
+    .topbar .mk{width:40px;height:40px}
+    .topbar .nm{font-size:1.5rem}
     .hero{margin-top:26px}
-    a.fcard{padding:14px 16px}
   }
 </style>
 <script>try{var t=localStorage.getItem("wb_theme");if(t==="dark")document.documentElement.dataset.theme="dark"}catch(e){}</script><link rel="stylesheet" href="/theme.css">
@@ -235,46 +191,13 @@
         <div class="hs-results" id="hqResults"></div>
       </div>
     </div>
-    <aside class="legend rise d3">
-      <p class="lt">What the four verdicts mean</p>
-      <p class="lr"><span class="vchip v-unrefuted">Unrefuted</span><span>Nobody has published an answer that holds up.</span></p>
-      <p class="lr"><span class="vchip v-admitted">Admitted</span><span>Their own sources concede the facts.</span></p>
-      <p class="lr"><span class="vchip v-contested">Contested</span><span>They have a real answer. Know it before you go in.</span></p>
-      <p class="lr"><span class="vchip v-answered">Don't use</span><span>Their answer holds. Don't lead with this one.</span></p>
-    </aside>
   </section>
-
-  <div class="secttl rise d4"><b>A few of them</b><i></i><span>the same shape as all 318</span></div>
-  <div class="feat">
-    <a class="fcard rise d4" href="mormonism/book-of-abraham-papyri/">
-      <span class="vchip v-unrefuted self">Unrefuted</span>
-      <h3 class="ft">Abraham's papyrus was a Theban priest's funeral text</h3>
-      <p class="fd">Egyptologists identified the surviving fragments as a Book of Breathings. The church's own Gospel Topics essay concedes they don't match the Book of Abraham.</p>
-      <span class="fs">Mormonism</span>
-    </a>
-    <a class="fcard rise d4" href="jw/dates-generation-1914-redefined/">
-      <span class="vchip v-admitted self">Admitted</span>
-      <h3 class="ft">'This generation' redefined four times as it died</h3>
-      <p class="fd">For sixty years the Watchtower taught that the generation who saw 1914 would live to see Armageddon. It ran on the masthead of every Awake! until 1995.</p>
-      <span class="fs">Jehovah's Witnesses</span>
-    </a>
-    <a class="fcard rise d4" href="messiah/isaiah-7-14-almah/">
-      <span class="vchip v-answered self">Don't use</span>
-      <h3 class="ft">Isaiah 7:14 doesn't say 'virgin' — drop it</h3>
-      <p class="fd">A case against a Christian argument. <i>Almah</i> means young woman, the Jewish objection here is a good one, and there are better verses to spend the conversation on.</p>
-      <span class="fs">The Messiah Case</span>
-    </a>
-  </div>
 
   <div class="secttl rise d5"><b>Examining other faiths</b><i></i><span>against the Bible as the standard</span></div>
   <div class="cards" id="ex"></div>
 
   <div class="secttl rise d5"><b>Making the case</b><i></i><span>for people who don't take the Bible as settled</span></div>
   <div class="cards" id="mk"></div>
-
-  <a class="patternbar rise d5" href="parallels.html"><span class="pb-t">The same pattern, again and again</span><span class="pb-d">One man, one angel, no witnesses. A Bible that had to be broken first. An authority that can't be checked — six structures four unrelated movements keep arriving at.</span><span class="pb-go">Read the patterns →</span></a>
-
-  <a class="aboutbar rise d5" href="about.html"><span class="ab-t">About this site</span><span class="ab-d">How it works, how it was checked, and what to do if you find something wrong.</span><span class="go">Read →</span></a>
 
   <p class="signoff">Built by one Christian who wanted to know what he was talking about before the conversation started. <a href="about.html">Why I built this →</a></p>
 
